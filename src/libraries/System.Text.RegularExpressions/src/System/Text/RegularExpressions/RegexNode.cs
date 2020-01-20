@@ -1401,7 +1401,9 @@ namespace System.Text.RegularExpressions
                 case Setlazy:
                 case Loop:
                 case Lazyloop:
-                    argSb.Append(", min = " + M + ", max = ");
+                    if (argSb[argSb.Length - 1] != ' ')
+                        argSb.Append(", ");
+                    argSb.Append("min = " + M + ", max = ");
                     if (N == int.MaxValue)
                         argSb.Append("inf");
                     else
