@@ -45,7 +45,7 @@ You can use code blocks like this:
 Were there other options you considered, such as alternative API shapes?
 -->
 
-#### Risks and Alternatives
+#### Risks
 
 <!--
 Please mention any risks that to your knowledge the API proposal might entail, such as breaking changes, performance regressions, etc.
