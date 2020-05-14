@@ -35,6 +35,7 @@ assignees: ''
 #### Other information
 
 <!--
-* Please include any relevant stack traces or error messages.
+* Please include any relevant stack traces or error messages. If possible please include text as text rather than images (so it shows up in searches).
 * If you have an idea where the problem might lie, let us know that here. Please include any pointers to code, relevant changes, or related issues you know of.
+* Do you know of any workarounds?
   -->
