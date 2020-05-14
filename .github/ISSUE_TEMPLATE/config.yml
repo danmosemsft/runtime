@@ -10,7 +10,7 @@ contact_links:
     url:  https://github.com/dotnet/efcore/issues/new/choose
     about: Please open issues with Entity Framework in their repo
   - name: Issue with Roslyn compiler
-    url:  https://github.com/dotnet/efcore/issues/new/choose
+    url:  https://github.com/dotnet/roslyn/issues/new/choose
     about: Please open issues with the Roslyn compiler in their repo
   - name: Issue with Windows Forms
     url:  https://github.com/dotnet/winforms/issues/new/choose
