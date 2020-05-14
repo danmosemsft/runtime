@@ -9,14 +9,14 @@ assignees: ''
 
 <!--This is just a template - feel free to delete any and all of it and replace as appropriate.-->
 
-**Description**
+# Description
 <!--
 * Please share a clear and concise description of the problem.
 * Include minimal steps to reproduce the problem if possible. E.g.: the smallest possible code snippet; or a small repo to clone, with steps to run it.
 * What behavior are you seeing, and what behavior would you expect?
   -->
 
-**Configuration**
+## Configuration
 <!--
 * Which version of .NET is the code running on?
 * What OS and version, and what distro if applicable?
