@@ -10,13 +10,15 @@ assignees: ''
 This is just a template - feel free to delete any and all of it and replace as appropriate.
 
 **Description**
-* Please share a clear and concise description of the problem. Include minimal steps to reproduce the problem if possible. E.g.: the smallest possible code snippet; or a small repo to clone, with steps to run it.
+* Please share a clear and concise description of the problem. 
+* Include minimal steps to reproduce the problem if possible. E.g.: the smallest possible code snippet; or a small repo to clone, with steps to run it.
 * What behavior are you seeing, and what behavior would you expect?
 
-** Configuration **
+**Configuration**
 * Which version of .NET is the code running on?
-* What OS, OS version, and what distro if applicable?
+* What OS and version, and what distro if applicable?
 * What is the architecture (x64, x86, ARM, ARM64)?
+* Do you know whether it is specific to that configuration?
 
 **Regression?**
 * Did this work in a previous build or release of .NET Core, or from .NET Framework? If you can try a previous release or build to find out, that can help us narrow down the problem. If you don't know, that's OK.
