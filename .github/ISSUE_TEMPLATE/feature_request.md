@@ -2,10 +2,11 @@
 name: Performance issue
 about: Report a performance problem or regression
 title: ''
-labels: 'tenet-performance'
+labels: ''
 assignees: ''
 
 ---
+
 ****
 This is a template to help you open create a good issue for a performance problem. Everything under the headings is just a guide: please delete it and replace as appropriate.
 
