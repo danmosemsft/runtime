@@ -37,8 +37,8 @@ namespace System.Runtime.Caching
         protected int _pressureTotal;
 
 #pragma warning disable CA1802 // some builds initialize these to other values in a static cctor
-        private static readonly long s_totalPhysical = 0;
-        private static readonly long s_totalVirtual = 0;
+        private static readonly long s_totalPhysical;
+        private static readonly long s_totalVirtual;
 #pragma warning restore CA1802
 
         internal static long TotalPhysical => s_totalPhysical;
