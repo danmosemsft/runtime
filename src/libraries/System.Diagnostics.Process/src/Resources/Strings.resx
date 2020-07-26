@@ -332,4 +332,7 @@
   <data name="InvalidSysctl" xml:space="preserve">
     <value>sysctl {0} failed with {1} error.</value>
   </data>
+  <data name="FailedToStartFileDirectory" xml:space="preserve">
+    <value>Failed to start '{0}' with working directory '{1}'. {2}</value>
+  </data>
 </root>

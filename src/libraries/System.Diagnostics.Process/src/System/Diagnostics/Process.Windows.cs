@@ -613,7 +613,9 @@ namespace System.Diagnostics
                         {
                             throw new Win32Exception(errorCode, SR.InvalidApplication);
                         }
-                        throw new Win32Exception(errorCode);
+
+                        string msg = SR.Format(SR.FailedToStartFileDirectory, startInfo.FileName, startInfo.WorkingDirectory, new Win32Exception(errorCode).Message);
+                        throw new Win32Exception(errorCode, msg);
                     }
                 }
                 finally
