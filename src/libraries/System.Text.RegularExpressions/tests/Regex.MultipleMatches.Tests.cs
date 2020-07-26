@@ -260,7 +260,7 @@ namespace System.Text.RegularExpressions.Tests
                     new CaptureData("line3\nline4", 24, 11),
                 }
             };
-
+#if NETCOREAPP
             yield return new object[]
             {
                 "^line3$", "line1\nline2\nline3\r\nline4\nline3\nline4\n", RegexOptions.Multiline | RegexOptions.AnyNewLine,
@@ -280,11 +280,9 @@ namespace System.Text.RegularExpressions.Tests
                 }
             };
 
-            if (!PlatformDetection.IsNetFramework)
+            // .NET Framework missing fix in https://github.com/dotnet/runtime/pull/1075
+            yield return new object[]
             {
-                // .NET Framework missing fix in https://github.com/dotnet/runtime/pull/1075
-                yield return new object[]
-                {
                     @"[a -\-\b]", "a #.", RegexOptions.None,
                     new CaptureData[]
                     {
@@ -292,11 +290,11 @@ namespace System.Text.RegularExpressions.Tests
                         new CaptureData(" ", 1, 1),
                         new CaptureData("#", 2, 1),
                     }
-                };
+            };
 
-                // .NET Framework missing fix in https://github.com/dotnet/runtime/pull/993
-                yield return new object[]
-                {
+            // .NET Framework missing fix in https://github.com/dotnet/runtime/pull/993
+            yield return new object[]
+            {
                     "[^]", "every", RegexOptions.ECMAScript,
                     new CaptureData[]
                     {
@@ -306,8 +304,8 @@ namespace System.Text.RegularExpressions.Tests
                         new CaptureData("r", 3, 1),
                         new CaptureData("y", 4, 1),
                     }
-                };
-            }
+            };
+#endif
         }
 
         [Theory]

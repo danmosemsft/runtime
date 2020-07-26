@@ -24,7 +24,9 @@ namespace System.Text.RegularExpressions.Tests
             yield return new object[] { "foo", RegexOptions.Compiled, Regex.InfiniteMatchTimeout };
             yield return new object[] { "foo", RegexOptions.ECMAScript | RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant, Regex.InfiniteMatchTimeout };
             yield return new object[] { "foo", RegexOptions.ECMAScript | RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant | RegexOptions.Compiled, Regex.InfiniteMatchTimeout };
-            yield return new object[] { "foo", RegexOptions.ECMAScript | RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant | RegexOptions.Compiled | Regex.AnyNewLine, Regex.InfiniteMatchTimeout };
+#if NETCOREAPP
+            yield return new object[] { "foo", RegexOptions.ECMAScript | RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant | RegexOptions.Compiled | RegexOptions.AnyNewLine, Regex.InfiniteMatchTimeout };
+#endif
             yield return new object[] { "foo", RegexOptions.None, new TimeSpan(1) };
             yield return new object[] { "foo", RegexOptions.None, TimeSpan.FromMilliseconds(int.MaxValue - 1) };
         }

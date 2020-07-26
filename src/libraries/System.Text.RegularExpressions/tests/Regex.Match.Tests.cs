@@ -370,6 +370,7 @@ namespace System.Text.RegularExpressions.Tests
                 yield return new object[] { "\u05D0(?:\u05D1|\u05D2|\u05D3)", "\u05D0\u05D4", options, 0, 0, false, "" };
             }
 
+#if NETCOREAPP
             // AnyNewLine (with none of the special characters used as line ending)
             yield return new object[] { @"line3\nline4$", "line1\nline2\nline3\nline4", RegexOptions.AnyNewLine, 0, 23, true, "line3\nline4" };
 
@@ -402,6 +403,7 @@ namespace System.Text.RegularExpressions.Tests
 
             // AnyNewLine | Multiline ('.' will match everything except \r and \n)
             yield return new object[] { @".*$", "foo\r\nbar", RegexOptions.AnyNewLine | RegexOptions.Multiline, 0, 8, true, "foo" };
+#endif
         }
 
         [Theory]
@@ -777,6 +779,7 @@ namespace System.Text.RegularExpressions.Tests
                 }
             };
 
+#if NETCOREAPP
             // AnyEndZ (with '\n' used as line ending)
             yield return new object[]
             {
@@ -806,7 +809,7 @@ namespace System.Text.RegularExpressions.Tests
                     new CaptureData("line3\nline4", 12, 11)
                 }
             };
-
+#endif
 
             // Multiline
             yield return new object[]
@@ -841,6 +844,7 @@ namespace System.Text.RegularExpressions.Tests
                 }
             };
 
+#if NETCOREAPP
             // Multiline - as above but with AnyNewLine
             yield return new object[]
             {
@@ -873,7 +877,7 @@ namespace System.Text.RegularExpressions.Tests
                     new CaptureData("line3\r", 12, 6)
                 }
             };
-
+#endif
             // Multiline
             yield return new object[]
             {

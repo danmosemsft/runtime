@@ -133,7 +133,7 @@ namespace System.Text.RegularExpressions
                              RegexOptions.Debug |
 #endif
                              RegexOptions.CultureInvariant |
-                             RegexOptions.AnyNewLine)) != 0)
+                             RegexOptions.AnyNewLine)) != 0))
             {
                 ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument.options);
             }
