@@ -509,6 +509,7 @@ namespace System.Text.RegularExpressions
                 case RegexNode.Nothing:
                 case RegexNode.Bol:
                 case RegexNode.Eol:
+                case RegexNode.AnyEol:
                 case RegexNode.Boundary:
                 case RegexNode.NonBoundary:
                 case RegexNode.ECMABoundary:
@@ -516,6 +517,7 @@ namespace System.Text.RegularExpressions
                 case RegexNode.Beginning:
                 case RegexNode.Start:
                 case RegexNode.EndZ:
+                case RegexNode.AnyEndZ:
                 case RegexNode.End:
                 case RegexNode.UpdateBumpalong:
                     Emit(node.Type);

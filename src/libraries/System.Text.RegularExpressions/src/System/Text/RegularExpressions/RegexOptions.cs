@@ -19,6 +19,7 @@ namespace System.Text.RegularExpressions
 #endif
         ECMAScript              = 0x0100, // "e"
         CultureInvariant        = 0x0200,
+        AnyNewLine              = 0x0400, // "a", Treat "$" as (?=\r\z|\n\z|\r\n\z|\z)
 
         // RegexCompiler internally uses 0x80000000 for its own internal purposes.
         // If such a value ever needs to be added publicly, RegexCompiler will need

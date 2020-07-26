@@ -25,6 +25,9 @@ namespace System.Text.RegularExpressions
         public const int Boundary = 0x0040;
         public const int ECMABoundary = 0x0080;
 
+        public const int AnyEndZ = 0x0100;
+        public const int AnyEol = 0x0200;
+
         private readonly List<RegexFC> _fcStack;
         private ValueListBuilder<int> _intStack;    // must not be readonly
         private bool _skipAllChildren;              // don't process any more children at the current level
@@ -94,11 +97,13 @@ namespace System.Text.RegularExpressions
 
                     case RegexNode.Bol:
                     case RegexNode.Eol:
+                    case RegexNode.AnyEol:
                     case RegexNode.Boundary:
                     case RegexNode.ECMABoundary:
                     case RegexNode.Beginning:
                     case RegexNode.Start:
                     case RegexNode.EndZ:
+                    case RegexNode.AnyEndZ:
                     case RegexNode.End:
                     case RegexNode.Empty:
                     case RegexNode.Require:
@@ -305,6 +310,9 @@ namespace System.Text.RegularExpressions
                     case RegexNode.Eol:
                         return Eol;
 
+                    case RegexNode.AnyEol:
+                        return AnyEol;
+
                     case RegexNode.Boundary:
                         return Boundary;
 
@@ -319,6 +327,9 @@ namespace System.Text.RegularExpressions
 
                     case RegexNode.EndZ:
                         return EndZ;
+
+                    case RegexNode.AnyEndZ:
+                        return AnyEndZ;
 
                     case RegexNode.End:
                         return End;
@@ -367,8 +378,10 @@ namespace System.Text.RegularExpressions
             if ((anchors & Boundary) != 0) sb.Append(", Boundary");
             if ((anchors & ECMABoundary) != 0) sb.Append(", ECMABoundary");
             if ((anchors & Eol) != 0) sb.Append(", Eol");
+            if ((anchors & AnyEol) != 0) sb.Append(", AnyEol");
             if ((anchors & End) != 0) sb.Append(", End");
             if ((anchors & EndZ) != 0) sb.Append(", EndZ");
+            if ((anchors & AnyEndZ) != 0) sb.Append(", AnyEndZ");
 
             return sb.Length >= 2 ?
                 sb.ToString(2, sb.Length - 2) :
@@ -599,6 +612,7 @@ namespace System.Text.RegularExpressions
                 case RegexNode.Nothing:
                 case RegexNode.Bol:
                 case RegexNode.Eol:
+                case RegexNode.AnyEol:
                 case RegexNode.Boundary:
                 case RegexNode.NonBoundary:
                 case RegexNode.ECMABoundary:
@@ -606,6 +620,7 @@ namespace System.Text.RegularExpressions
                 case RegexNode.Beginning:
                 case RegexNode.Start:
                 case RegexNode.EndZ:
+                case RegexNode.AnyEndZ:
                 case RegexNode.End:
                 case RegexNode.UpdateBumpalong:
                     PushFC(new RegexFC(true));

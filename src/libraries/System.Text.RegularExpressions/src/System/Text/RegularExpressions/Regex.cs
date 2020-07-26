@@ -19,7 +19,7 @@ namespace System.Text.RegularExpressions
     /// </summary>
     public partial class Regex : ISerializable
     {
-        internal const int MaxOptionShift = 10;
+        internal const int MaxOptionShift = 11;
 
         protected internal string? pattern;                   // The string pattern provided
         protected internal RegexOptions roptions;             // the top-level options from the options string
@@ -132,7 +132,8 @@ namespace System.Text.RegularExpressions
 #if DEBUG
                              RegexOptions.Debug |
 #endif
-                             RegexOptions.CultureInvariant)) != 0))
+                             RegexOptions.CultureInvariant |
+                             RegexOptions.AnyNewLine)) != 0)
             {
                 ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument.options);
             }

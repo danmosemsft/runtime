@@ -352,6 +352,7 @@ namespace System.Text.RegularExpressions
             // If the pattern is anchored, we can update our position appropriately and return immediately.
             // If there's a Boyer-Moore prefix, we can also validate it.
             if ((_code.LeadingAnchor & (RegexPrefixAnalyzer.Beginning | RegexPrefixAnalyzer.Start | RegexPrefixAnalyzer.EndZ | RegexPrefixAnalyzer.End)) != 0)
+            // anyendz
             {
                 if (!_code.RightToLeft)
                 {
@@ -363,6 +364,7 @@ namespace System.Text.RegularExpressions
                             return false;
 
                         case RegexPrefixAnalyzer.EndZ when runtextpos < runtextend - 1:
+                        // anyendz
                             runtextpos = runtextend - 1;
                             break;
 
@@ -1010,6 +1012,7 @@ namespace System.Text.RegularExpressions
                         continue;
 
                     case RegexCode.EndZ:
+                    // anyendz
                         if (Rightchars() > 1 || Rightchars() == 1 && runtext![runtextpos] != '\n')
                         {
                             break;

@@ -67,6 +67,7 @@ namespace System.Text.RegularExpressions
 
         public const int Bol = RegexCode.Bol;                         //          ^
         public const int Eol = RegexCode.Eol;                         //          $
+        public const int AnyEol = RegexCode.AnyEol;                   //          $
         public const int Boundary = RegexCode.Boundary;               //          \b
         public const int NonBoundary = RegexCode.NonBoundary;         //          \B
         public const int ECMABoundary = RegexCode.ECMABoundary;       // \b
@@ -74,6 +75,7 @@ namespace System.Text.RegularExpressions
         public const int Beginning = RegexCode.Beginning;             //          \A
         public const int Start = RegexCode.Start;                     //          \G
         public const int EndZ = RegexCode.EndZ;                       //          \Z
+        public const int AnyEndZ = RegexCode.AnyEndZ;                 //          \Z
         public const int End = RegexCode.End;                         //          \z
 
         public const int Oneloopatomic = RegexCode.Oneloopatomic;        // c,n      (?> a*)
@@ -216,7 +218,9 @@ namespace System.Text.RegularExpressions
                     case Empty:
                     case End:
                     case EndZ:
+                    case AnyEndZ:
                     case Eol:
+                    case AnyEol:
                     case Multi:
                     case NonBoundary:
                     case NonECMABoundary:
@@ -1552,7 +1556,9 @@ namespace System.Text.RegularExpressions
                         case Setloopatomic when subsequent.M > 0 && !RegexCharClass.CharInClass(node.Ch, subsequent.Str!):
                         case End:
                         case EndZ when node.Ch != '\n':
+                        // AnyEndZ
                         case Eol when node.Ch != '\n':
+                        // AnyEol
                         case Boundary when RegexCharClass.IsWordChar(node.Ch):
                         case NonBoundary when !RegexCharClass.IsWordChar(node.Ch):
                         case ECMABoundary when RegexCharClass.IsECMAWordChar(node.Ch):
@@ -1588,7 +1594,9 @@ namespace System.Text.RegularExpressions
                         case Setloopatomic when subsequent.M > 0 && !RegexCharClass.MayOverlap(node.Str!, subsequent.Str!):
                         case End:
                         case EndZ when !RegexCharClass.CharInClass('\n', node.Str!):
+                        // AnyEndZ
                         case Eol when !RegexCharClass.CharInClass('\n', node.Str!):
+                        // AnyEol
                         case Boundary when node.Str == RegexCharClass.WordClass || node.Str == RegexCharClass.DigitClass: // TODO: Expand these with a more inclusive overlap check that considers categories
                         case NonBoundary when node.Str == RegexCharClass.NotWordClass || node.Str == RegexCharClass.NotDigitClass:
                         case ECMABoundary when node.Str == RegexCharClass.ECMAWordClass || node.Str == RegexCharClass.ECMADigitClass:
@@ -1691,7 +1699,9 @@ namespace System.Text.RegularExpressions
                     case ECMABoundary:
                     case End:
                     case EndZ:
+                    case AnyEndZ:
                     case Eol:
+                    case AnyEol:
                     case NonBoundary:
                     case NonECMABoundary:
                     case Start:
@@ -1829,6 +1839,7 @@ namespace System.Text.RegularExpressions
                 Ref => nameof(Ref),
                 Bol => nameof(Bol),
                 Eol => nameof(Eol),
+                AnyEol => nameof(AnyEol),
                 Boundary => nameof(Boundary),
                 NonBoundary => nameof(NonBoundary),
                 ECMABoundary => nameof(ECMABoundary),
@@ -1836,6 +1847,7 @@ namespace System.Text.RegularExpressions
                 Beginning => nameof(Beginning),
                 Start => nameof(Start),
                 EndZ => nameof(EndZ),
+                AnyEndZ => nameof(AnyEndZ),
                 End => nameof(End),
                 Oneloopatomic => nameof(Oneloopatomic),
                 Notoneloopatomic => nameof(Notoneloopatomic),
@@ -1869,6 +1881,7 @@ namespace System.Text.RegularExpressions
             if ((Options & RegexOptions.Singleline) != 0) sb.Append("-S");
             if ((Options & RegexOptions.IgnorePatternWhitespace) != 0) sb.Append("-X");
             if ((Options & RegexOptions.ECMAScript) != 0) sb.Append("-E");
+            if ((Options & RegexOptions.AnyNewLine) != 0) sb.Append("-A");
 
             switch (Type)
             {
