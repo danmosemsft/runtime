@@ -40,7 +40,7 @@ namespace System.IO.Tests
             DirectoryInfo testDir = Directory.CreateDirectory(GetTestFilePath());
             using (File.Create(Path.Combine(testDir.FullName, GetTestFileName())))
             {
-                Assert.Throws<IOException>(() => Delete(testDir.FullName));
+                AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             }
             Assert.True(testDir.Exists);
         }
@@ -50,7 +50,7 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(GetTestFilePath());
             File.Create(Path.Combine(testDir.FullName, GetTestFileName())).Dispose();
-            Assert.Throws<IOException>(() => Delete(testDir.FullName));
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             Assert.True(testDir.Exists);
         }
 
@@ -59,7 +59,7 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(GetTestFilePath());
             testDir.CreateSubdirectory(GetTestFileName());
-            Assert.Throws<IOException>(() => Delete(testDir.FullName));
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             Assert.True(testDir.Exists);
         }
 
@@ -67,7 +67,8 @@ namespace System.IO.Tests
         [OuterLoop]
         public void DeleteRoot()
         {
-            Assert.Throws<IOException>(() => Delete(Path.GetPathRoot(Directory.GetCurrentDirectory())));
+            string testDir = Path.GetPathRoot(Directory.GetCurrentDirectory());
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir), testDir);
         }
 
         [Fact]
@@ -95,7 +96,8 @@ namespace System.IO.Tests
         [Fact]
         public void ShouldThrowIOExceptionDeletingCurrentDirectory()
         {
-            Assert.Throws<IOException>(() => Delete(Directory.GetCurrentDirectory()));
+            string testDir = Directory.GetCurrentDirectory();
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir), testDir);
         }
 
         [ConditionalFact(nameof(CanCreateSymbolicLinks))]
@@ -124,7 +126,7 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(IOInputs.ExtendedPrefix + GetTestFilePath());
             testDir.CreateSubdirectory(GetTestFileName());
-            Assert.Throws<IOException>(() => Delete(testDir.FullName));
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             Assert.True(testDir.Exists);
         }
 
@@ -146,7 +148,7 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(GetTestFilePath());
             testDir.Attributes = FileAttributes.ReadOnly;
-            Assert.Throws<IOException>(() => Delete(testDir.FullName));
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             Assert.True(testDir.Exists);
             testDir.Attributes = FileAttributes.Normal;
         }
@@ -157,7 +159,7 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(IOInputs.ExtendedPrefix + GetTestFilePath());
             testDir.Attributes = FileAttributes.ReadOnly;
-            Assert.Throws<IOException>(() => Delete(testDir.FullName));
+            AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName), testDir.FullName);
             Assert.True(testDir.Exists);
             testDir.Attributes = FileAttributes.Normal;
         }
@@ -285,8 +287,8 @@ namespace System.IO.Tests
         {
             DirectoryInfo testDir = Directory.CreateDirectory(GetTestFilePath());
             using (File.Create(Path.Combine(testDir.FullName, GetTestFileName())))
-            {
-                Assert.Throws<IOException>(() => Delete(testDir.FullName, true));
+            { Delete(testDir.FullName, true);
+                AssertExtensions.ThrowsContains<IOException>(() => Delete(testDir.FullName, true), testDir.FullName);
             }
             Assert.True(testDir.Exists);
         }

@@ -245,15 +245,15 @@ namespace System.IO
                     if ((findData.dwFileAttributes & Interop.Kernel32.FileAttributes.FILE_ATTRIBUTE_DIRECTORY) == 0)
                     {
                         // File
-                        string fileName = findData.cFileName.GetStringFromFixedBuffer();
-                        if (!Interop.Kernel32.DeleteFile(Path.Combine(fullPath, fileName)) && exception == null)
+                        string fullFilePath = Path.Combine(fullPath, findData.cFileName.GetStringFromFixedBuffer());
+                        if (!Interop.Kernel32.DeleteFile(fullFilePath) && exception == null)
                         {
                             errorCode = Marshal.GetLastWin32Error();
 
                             // We don't care if something else deleted the file first
                             if (errorCode != Interop.Errors.ERROR_FILE_NOT_FOUND)
                             {
-                                exception = Win32Marshal.GetExceptionForWin32Error(errorCode, fileName);
+                                exception = Win32Marshal.GetExceptionForWin32Error(errorCode, fullFilePath);
                             }
                         }
                     }
@@ -296,18 +296,19 @@ namespace System.IO
                                     if (errorCode != Interop.Errors.ERROR_SUCCESS &&
                                         errorCode != Interop.Errors.ERROR_PATH_NOT_FOUND)
                                     {
-                                        exception = Win32Marshal.GetExceptionForWin32Error(errorCode, fileName);
+                                        exception = Win32Marshal.GetExceptionForWin32Error(errorCode, mountPoint);
                                     }
                                 }
                             }
 
                             // Note that RemoveDirectory on a symbolic link will remove the link itself.
-                            if (!Interop.Kernel32.RemoveDirectory(Path.Combine(fullPath, fileName)) && exception == null)
+                            string fullFilePath = Path.Combine(fullPath, fileName);
+                            if (!Interop.Kernel32.RemoveDirectory(fullFilePath) && exception == null)
                             {
                                 errorCode = Marshal.GetLastWin32Error();
                                 if (errorCode != Interop.Errors.ERROR_PATH_NOT_FOUND)
                                 {
-                                    exception = Win32Marshal.GetExceptionForWin32Error(errorCode, fileName);
+                                    exception = Win32Marshal.GetExceptionForWin32Error(errorCode, fullFilePath);
                                 }
                             }
                         }
