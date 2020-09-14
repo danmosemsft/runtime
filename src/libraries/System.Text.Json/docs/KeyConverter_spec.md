@@ -161,7 +161,7 @@ The custom `KeyConverter` that calls Utf8Parser underneath performs slightly fas
   * If the type does not have a `TypeConverter`, it calls `ToString()` on the `TKey` instance.
 
 \* A *primitive type* is a value cataloged as such by Json.Net from [this list](https://github.com/JamesNK/Newtonsoft.Json/blob/a31156e90a14038872f54eb60ff0e9676ca4a0d8/Src/Newtonsoft.Json/Utilities/ConvertUtils.cs#L119-L168).
-  
+
 ### On read:
 
 * If the `TKey` is a concrete type.
