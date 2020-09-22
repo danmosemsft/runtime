@@ -29,7 +29,6 @@ Here are a few of the most salient components of working well together, and the 
 - There are shared resources in dotnet/runtime which we should be conscientious of use:
 - Labels/Milestones – all `area-*` labels are shared, if you are updating/adding keep everyone in dotnet/runtime in mind.  All labels and milestones are shared, be a conscientious citizen when updating/adding.
 - ProjectBoards/ZenHub – some aspects of these project boards are shared across all users.
-- Wikis/GitActions – these resources are global and are disabled
 
 ## Scenarios where area owners will be asked to manage their issues and pull requests:
 
