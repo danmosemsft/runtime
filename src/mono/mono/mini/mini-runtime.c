@@ -76,6 +76,7 @@
 
 #ifdef ENABLE_PERFTRACING
 #include <mono/eventpipe/ep.h>
+#include <mono/eventpipe/ds-server.h>
 #endif
 
 #include "mini.h"
@@ -865,10 +866,9 @@ mono_jit_thread_attach (MonoDomain *domain)
 	attached = mono_tls_get_jit_tls () != NULL;
 
 	if (!attached) {
-		mono_thread_attach (domain);
-
 		// #678164
-		mono_thread_set_state (mono_thread_internal_current (), ThreadState_Background);
+		gboolean background = TRUE;
+		mono_thread_attach_external_native_thread (domain, background);
 
 		/* mono_jit_thread_attach is external-only and not called by
 		 * the runtime on any of our own threads.  So if we get here,
@@ -1459,10 +1459,11 @@ mono_resolve_patch_target (MonoMethod *method, MonoDomain *domain, guint8 *code,
 		if (method && method->dynamic) {
 			jump_table = (void **)mono_code_manager_reserve (mono_dynamic_code_hash_lookup (domain, method)->code_mp, sizeof (gpointer) * patch_info->data.table->table_size);
 		} else {
+			MonoMemoryManager *mem_manager = m_method_get_mem_manager (domain, method);
 			if (mono_aot_only) {
-				jump_table = (void **)mono_domain_alloc (domain, sizeof (gpointer) * patch_info->data.table->table_size);
+				jump_table = (void **)mono_mem_manager_alloc (mem_manager, sizeof (gpointer) * patch_info->data.table->table_size);
 			} else {
-				jump_table = (void **)mono_domain_code_reserve (domain, sizeof (gpointer) * patch_info->data.table->table_size);
+				jump_table = (void **)mono_mem_manager_code_reserve (mem_manager, sizeof (gpointer) * patch_info->data.table->table_size);
 			}
 		}
 
@@ -4577,8 +4578,10 @@ mini_init (const char *filename, const char *runtime_version)
 		domain = mono_init_from_assembly (filename, filename);
 
 #if defined(ENABLE_PERFTRACING) && !defined(DISABLE_EVENTPIPE)
+	if (mono_compile_aot)
+		ds_server_disable ();
+
 	ep_init ();
-	ep_finish_init ();
 #endif
 
 	if (mono_aot_only) {
@@ -4645,10 +4648,14 @@ mini_init (const char *filename, const char *runtime_version)
 	mono_install_runtime_cleanup (runtime_cleanup);
 	mono_runtime_init_checked (domain, (MonoThreadStartCB)mono_thread_start_cb, mono_thread_attach_cb, error);
 	mono_error_assert_ok (error);
-	mono_thread_attach (domain);
+	mono_thread_internal_attach (domain);
 	MONO_PROFILER_RAISE (thread_name, (MONO_NATIVE_THREAD_ID_TO_UINT (mono_native_thread_id_get ()), "Main"));
 #endif
 	mono_threads_set_runtime_startup_finished ();
+
+#if defined(ENABLE_PERFTRACING) && !defined(DISABLE_EVENTPIPE)
+	ep_finish_init ();
+#endif
 
 #ifdef ENABLE_EXPERIMENT_TIERED
 	if (!mono_compile_aot) {
@@ -5034,6 +5041,7 @@ mini_cleanup (MonoDomain *domain)
 	mini_get_interp_callbacks ()->cleanup ();
 #if defined(ENABLE_PERFTRACING) && !defined(DISABLE_EVENTPIPE)
 	ep_shutdown ();
+	ds_server_shutdown ();
 #endif
 }
 #else

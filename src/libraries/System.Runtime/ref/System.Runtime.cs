@@ -1884,6 +1884,7 @@ namespace System
         public static string MachineName { get { throw null; } }
         public static string NewLine { get { throw null; } }
         public static System.OperatingSystem OSVersion { get { throw null; } }
+        public static string? ProcessPath { get { throw null; } }
         public static int ProcessId { get { throw null; } }
         public static int ProcessorCount { get { throw null; } }
         public static string StackTrace { get { throw null; } }
@@ -5786,6 +5787,11 @@ namespace System.Diagnostics
         public string? TargetTypeName { get { throw null; } set { } }
         public string? VisualizerObjectSourceTypeName { get { throw null; } }
         public string VisualizerTypeName { get { throw null; } }
+    }
+    [System.AttributeUsage(AttributeTargets.Class | System.AttributeTargets.Method | System.AttributeTargets.Constructor | System.AttributeTargets.Struct, Inherited = false)]
+    public sealed partial class StackTraceHiddenAttribute : Attribute
+    {
+        public StackTraceHiddenAttribute() { }
     }
     public partial class Stopwatch
     {
@@ -10867,9 +10873,11 @@ namespace System.Threading
         public System.Threading.CancellationTokenRegistration Register(System.Action callback) { throw null; }
         public System.Threading.CancellationTokenRegistration Register(System.Action callback, bool useSynchronizationContext) { throw null; }
         public System.Threading.CancellationTokenRegistration Register(System.Action<object?> callback, object? state) { throw null; }
+        public System.Threading.CancellationTokenRegistration Register(System.Action<object?, System.Threading.CancellationToken> callback, object? state) { throw null; }
         public System.Threading.CancellationTokenRegistration Register(System.Action<object?> callback, object? state, bool useSynchronizationContext) { throw null; }
         public void ThrowIfCancellationRequested() { }
         public System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action<object?> callback, object? state) { throw null; }
+        public System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action<object?, System.Threading.CancellationToken> callback, object? state) { throw null; }
     }
     public readonly partial struct CancellationTokenRegistration : System.IAsyncDisposable, System.IDisposable, System.IEquatable<System.Threading.CancellationTokenRegistration>
     {

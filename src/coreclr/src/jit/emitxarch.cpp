@@ -524,6 +524,7 @@ bool TakesRexWPrefix(instruction ins, emitAttr attr)
             case INS_mulx:
             case INS_pdep:
             case INS_pext:
+            case INS_rorx:
                 return true;
             default:
                 return false;
@@ -758,6 +759,7 @@ unsigned emitter::emitOutputRexOrVexPrefixIfNeeded(instruction ins, BYTE* dst, c
                         {
                             switch (ins)
                             {
+                                case INS_rorx:
                                 case INS_pdep:
                                 case INS_mulx:
                                 {
@@ -1242,6 +1244,7 @@ bool emitter::emitInsCanOnlyWriteSSE2OrAVXReg(instrDesc* id)
         case INS_pextrq:
         case INS_pextrw:
         case INS_pextrw_sse41:
+        case INS_rorx:
         {
             // These SSE instructions write to a general purpose integer register.
             return false;
@@ -3822,7 +3825,7 @@ void emitter::emitIns_R_I(instruction ins, emitAttr attr, regNumber reg, ssize_t
     UNATIVE_OFFSET sz;
     instrDesc*     id;
     insFormat      fmt       = emitInsModeFormat(ins, IF_RRD_CNS);
-    bool           valInByte = ((signed char)val == val) && (ins != INS_mov) && (ins != INS_test);
+    bool           valInByte = ((signed char)val == (target_ssize_t)val) && (ins != INS_mov) && (ins != INS_test);
 
     // BT reg,imm might be useful but it requires special handling of the immediate value
     // (it is always encoded in a byte). Let's not complicate things until this is needed.
@@ -3949,7 +3952,7 @@ void emitter::emitIns_I(instruction ins, emitAttr attr, cnsval_ssize_t val)
 {
     UNATIVE_OFFSET sz;
     instrDesc*     id;
-    bool           valInByte = ((signed char)val == val);
+    bool           valInByte = ((signed char)val == (target_ssize_t)val);
 
 #ifdef TARGET_AMD64
     // mov reg, imm64 is the only opcode which takes a full 8 byte immediate
@@ -10523,7 +10526,7 @@ BYTE* emitter::emitOutputSV(BYTE* dst, instrDesc* id, code_t code, CnsVal* addc)
 
             case IF_SWR: // Stack Write (So we need to update GC live for stack var)
                 // Write stack                    -- GC var may be born
-                emitGCvarLiveUpd(adr, varNum, id->idGCref(), dst);
+                emitGCvarLiveUpd(adr, varNum, id->idGCref(), dst DEBUG_ARG(varNum));
                 break;
 
             case IF_SRD_CNS:
@@ -10547,7 +10550,7 @@ BYTE* emitter::emitOutputSV(BYTE* dst, instrDesc* id, code_t code, CnsVal* addc)
 
             case IF_SWR_RRD: // Stack Write, Register Read (So we need to update GC live for stack var)
                 // Read  register, write stack    -- GC var may be born
-                emitGCvarLiveUpd(adr, varNum, id->idGCref(), dst);
+                emitGCvarLiveUpd(adr, varNum, id->idGCref(), dst DEBUG_ARG(varNum));
                 break;
 
             case IF_RRW_SRD: // Register Read/Write, Stack Read (So we need to update GC live for register)
@@ -11757,7 +11760,7 @@ BYTE* emitter::emitOutputRI(BYTE* dst, instrDesc* id)
     instruction ins       = id->idIns();
     regNumber   reg       = id->idReg1();
     ssize_t     val       = emitGetInsSC(id);
-    bool        valInByte = ((signed char)val == val) && (ins != INS_mov) && (ins != INS_test);
+    bool        valInByte = ((signed char)val == (target_ssize_t)val) && (ins != INS_mov) && (ins != INS_test);
 
     // BT reg,imm might be useful but it requires special handling of the immediate value
     // (it is always encoded in a byte). Let's not complicate things until this is needed.
@@ -12108,7 +12111,7 @@ BYTE* emitter::emitOutputIV(BYTE* dst, instrDesc* id)
     instruction ins       = id->idIns();
     emitAttr    size      = id->idOpSize();
     ssize_t     val       = emitGetInsSC(id);
-    bool        valInByte = ((signed char)val == val);
+    bool        valInByte = ((signed char)val == (target_ssize_t)val);
 
     // We would to update GC info correctly
     assert(!IsSSEInstruction(ins));
@@ -13727,6 +13730,12 @@ size_t emitter::emitOutputInstr(insGroup* ig, instrDesc* id, BYTE** dp)
         regMaskTP regMask = genRegMask(inst3opImulReg(ins));
         assert((regMask & (emitThisGCrefRegs | emitThisByrefRegs)) == 0);
     }
+
+    // Output any delta in GC info.
+    if (EMIT_GC_VERBOSE || emitComp->opts.disasmWithGC)
+    {
+        emitDispGCInfoDelta();
+    }
 #endif
 
     return sz;
@@ -14938,6 +14947,7 @@ emitter::insExecutionCharacteristics emitter::getInsExecutionCharacteristics(ins
         case INS_tzcnt:
         case INS_popcnt:
         case INS_crc32:
+        case INS_rorx:
         case INS_pdep:
         case INS_pext:
         case INS_addsubps:
