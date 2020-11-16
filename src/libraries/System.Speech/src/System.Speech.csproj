@@ -386,38 +386,31 @@
     <EmbeddedResource Include="upstable_jpn.upsmap" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
-<ProjectReference Include="$(LibrariesProjectRoot)Microsoft.Win32.Registry\src\Microsoft.Win32.Registry.csproj" />
-<ProjectReference Include="..\..\System.CodeDom\ref\System.CodeDom.csproj" />
-<ProjectReference Include="..\..\System.Security.Permissions\ref\System.Security.Permissions.csproj" />
-<Reference Include="System.Collections" />
-<Reference Include="System.Collections.NonGeneric" />
-<Reference Include="System.Collections.Specialized" />
-<Reference Include="System.ComponentModel.EventBasedAsync" />
-<Reference Include="System.ComponentModel.Primitives" />
-<Reference Include="System.ComponentModel.TypeConverter" />
-<Reference Include="System.Diagnostics.Debug" />
-<Reference Include="System.Diagnostics.TraceSource" />
-<Reference Include="System.IO.FileSystem" />
-<Reference Include="System.Net.Primitives" />
-<Reference Include="System.Net.Requests" />
-<Reference Include="System.Net.WebClient" />
-<Reference Include="System.ObjectModel" />
-<Reference Include="System.Resources.ResourceManager" />
-<Reference Include="System.Runtime" />
-<Reference Include="System.Runtime.Extensions" />
-<Reference Include="System.Runtime.InteropServices" />
-<Reference Include="System.Runtime.Serialization.Formatters" />
-<Reference Include="System.Threading" />
-<Reference Include="System.Threading.Tasks" />
-<Reference Include="System.Threading.Thread" />
-<Reference Include="System.Threading.ThreadPool" />
-<Reference Include="System.Xml.ReaderWriter" />
+    <ProjectReference Include="$(LibrariesProjectRoot)Microsoft.Win32.Registry\src\Microsoft.Win32.Registry.csproj" />
+    <ProjectReference Include="..\..\System.CodeDom\ref\System.CodeDom.csproj" />
+    <ProjectReference Include="..\..\System.Security.Permissions\ref\System.Security.Permissions.csproj" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Collections.NonGeneric" />
+    <Reference Include="System.Collections.Specialized" />
+    <Reference Include="System.ComponentModel.EventBasedAsync" />
+    <Reference Include="System.ComponentModel.Primitives" />
+    <Reference Include="System.ComponentModel.TypeConverter" />
+    <Reference Include="System.Diagnostics.Debug" />
+    <Reference Include="System.Diagnostics.TraceSource" />
+    <Reference Include="System.IO.FileSystem" />
+    <Reference Include="System.Net.Primitives" />
+    <Reference Include="System.Net.Requests" />
+    <Reference Include="System.Net.WebClient" />
+    <Reference Include="System.ObjectModel" />
+    <Reference Include="System.Resources.ResourceManager" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Extensions" />
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Runtime.Serialization.Formatters" />
+    <Reference Include="System.Threading" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.Threading.ThreadPool" />
+    <Reference Include="System.Xml.ReaderWriter" />
   </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Remove="C:\Users\danmose\.nuget\packages\microsoft.dotnet.codeanalysis\6.0.0-beta.20552.5\build\..\content\PinvokeAnalyzer_Win32Apis.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Remove="C:\Users\danmose\.nuget\packages\microsoft.dotnet.codeanalysis\6.0.0-beta.20552.5\build\..\content\PinvokeAnalyzer_Win32Apis.txt" />
-  </ItemGroup>
-
 </Project>
