@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Probably want this to be netcoreapp3.0 ? -->
     <TargetFrameworks>$(NetCoreAppCurrent)-windows;netstandard2.0</TargetFrameworks>
     <NoWarn>$(NoWarn);CS1584;SA1027;CS0649;CA1823;CA1834;IDE0073;SA1028;CA1507;CA2249;CA1200;SYSLIB0006;CA1810;CA1825;CS0618;SYSLIB0003;IDE0041;CS0219;CS1717;SYSLIB0014;CS1734;CS8032</NoWarn>
   </PropertyGroup>
@@ -397,6 +398,7 @@
 <Reference Include="System.Diagnostics.Debug" />
 <Reference Include="System.Diagnostics.TraceSource" />
 <Reference Include="System.IO.FileSystem" />
+<Reference Include="System.Net.Primitives" />
 <Reference Include="System.Net.Requests" />
 <Reference Include="System.Net.WebClient" />
 <Reference Include="System.ObjectModel" />
@@ -405,6 +407,8 @@
 <Reference Include="System.Runtime.Extensions" />
 <Reference Include="System.Runtime.InteropServices" />
 <Reference Include="System.Runtime.Serialization.Formatters" />
+<Reference Include="System.Threading" />
+<Reference Include="System.Threading.Tasks" />
 <Reference Include="System.Threading.Thread" />
 <Reference Include="System.Threading.ThreadPool" />
 <Reference Include="System.Xml.ReaderWriter" />

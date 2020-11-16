@@ -6122,8 +6122,15 @@
       }
     },
     "System.Speech": {
+      "StableVersions": [
+        "4.5.0"
+      ],
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
+      },
+      "AssemblyVersionInPackageVersion": {
+        "4.0.0.0": "4.5.0"
       }
     },
     "System.Text.Encoding": {
