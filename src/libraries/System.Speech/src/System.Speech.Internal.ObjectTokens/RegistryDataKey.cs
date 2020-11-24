@@ -4,7 +4,6 @@
 using Microsoft.Win32;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Speech.Internal.SapiInterop;
 
@@ -313,10 +312,7 @@ namespace System.Speech.Internal.ObjectTokens
 
 		private static IntPtr HKEYfromRegKey(RegistryKey regKey)
 		{
-			Type typeFromHandle = typeof(RegistryKey);
-			BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.NonPublic;
-			FieldInfo field = typeFromHandle.GetField("hkey", bindingAttr);
-			SafeHandle safeHandle = (SafeHandle)field.GetValue(regKey);
+			SafeHandle safeHandle = (SafeHandle)regKey.Handle;
 			return safeHandle.DangerousGetHandle();
 		}
 
