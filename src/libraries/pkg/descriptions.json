@@ -2079,6 +2079,14 @@
       "System.ServiceProcess.ServiceType"
     ]
   },
+  {
+    "Name": "System.Speech",
+    "Description": "Provides types to perform speech synthesis and speech recognition.",
+    "CommonTypes": [
+      "System.Speech.Synthesis.SpeechSynthesizer",
+      "System.Speech.Recognition.SpeechRecognizer"
+    ]
+  },
  {
     "Name": "System.Text.Encoding",
     "Description": "Provides base abstract encoding classes for converting blocks of characters to and from blocks of bytes.",
