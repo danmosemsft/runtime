@@ -875,7 +875,7 @@ namespace System.Speech.Recognition
 			_eventInterest = 854759695187968uL;
 			_sapiContext.SetInterest(_eventInterest, _eventInterest);
 			_asyncWorker = new AsyncSerializedWorker(DispatchEvents, null);
-			_asyncWorkerUI = new AsyncSerializedWorker(null, AsyncOperationManager.CreateOperation(null));
+			_asyncWorkerUI = new AsyncSerializedWorker(null, SynchronizationContext.Current);
 			_asyncWorkerUI.WorkItemPending += SignalHandlerThread;
 			_eventNotify = _sapiContext.CreateEventNotify(_asyncWorker, _supportsSapi53);
 			_grammars = new List<Grammar>();

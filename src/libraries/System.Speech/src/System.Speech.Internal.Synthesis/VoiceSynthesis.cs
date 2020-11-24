@@ -233,7 +233,7 @@ namespace System.Speech.Internal.Synthesis
 		internal VoiceSynthesis(WeakReference speechSynthesizer)
 		{
 			_asyncWorker = new AsyncSerializedWorker(ProcessPostData, null);
-			_asyncWorkerUI = new AsyncSerializedWorker(null, AsyncOperationManager.CreateOperation(null));
+			_asyncWorkerUI = new AsyncSerializedWorker(null, SynchronizationContext.Current);
 			_eventStateChanged = OnStateChanged;
 			_signalWorkerCallback = SignalWorkerThread;
 			_speechSyntesizer = speechSynthesizer;

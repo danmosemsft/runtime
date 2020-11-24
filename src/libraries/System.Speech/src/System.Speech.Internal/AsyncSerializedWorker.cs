@@ -9,7 +9,7 @@ namespace System.Speech.Internal
 {
 	internal class AsyncSerializedWorker : IAsyncDispatch
 	{
-		private AsyncOperation _asyncOperation;
+		private SynchronizationContext _syncContext;
 
 		private SendOrPostCallback _workerPostCallback;
 
@@ -86,9 +86,9 @@ namespace System.Speech.Internal
 
 		internal event WaitCallback WorkItemPending;
 
-		internal AsyncSerializedWorker(WaitCallback defaultCallback, AsyncOperation asyncOperation)
+		internal AsyncSerializedWorker(WaitCallback defaultCallback, SynchronizationContext syncContext)
 		{
-			_asyncOperation = asyncOperation;
+			_syncContext = syncContext;
 			_workerPostCallback = WorkerProc;
 			Initialize(defaultCallback);
 		}
@@ -101,6 +101,7 @@ namespace System.Speech.Internal
 			_defaultCallback = defaultCallback;
 			_isAsyncMode = true;
 			_isEnabled = true;
+
 		}
 
 		public void Post(object evt)
@@ -211,13 +212,13 @@ namespace System.Speech.Internal
 			}
 			if (AsyncMode)
 			{
-				if (_asyncOperation == null)
+				if (_syncContext == null)
 				{
 					ThreadPool.QueueUserWorkItem(_workerCallback, null);
 				}
 				else
 				{
-					_asyncOperation.Post(_workerPostCallback, null);
+					_syncContext.Post(_workerPostCallback, null);
 				}
 			}
 			else if (this.WorkItemPending != null)
