@@ -8,7 +8,7 @@ namespace System.Speech
 {
 	internal static class SR
 	{
-		private static ResourceManager _resourceManager = new ResourceManager("ExceptionStringTable", typeof(SR).Assembly);
+		private static ResourceManager _resourceManager = new ResourceManager("FxResources.System.Speech.SR", typeof(SR).Assembly);
 
 		internal static string Get(SRID id, params object[] args)
 		{

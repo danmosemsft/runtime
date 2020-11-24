@@ -373,13 +373,27 @@
         <Compile Include="System.Speech.Synthesis.TtsEngine\TtsEventId.cs"/>
     </ItemGroup>
     <ItemGroup>
-        <EmbeddedResource Include="upstable_chs.upsmap"/>
-        <EmbeddedResource Include="upstable_cht.upsmap"/>
-        <EmbeddedResource Include="upstable_deu.upsmap"/>
-        <EmbeddedResource Include="upstable_enu.upsmap"/>
-        <EmbeddedResource Include="upstable_esp.upsmap"/>
-        <EmbeddedResource Include="upstable_fra.upsmap"/>
-        <EmbeddedResource Include="upstable_jpn.upsmap"/>
+        <EmbeddedResource Include="upstable_chs.upsmap">
+            <LogicalName>upstable_chs.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_cht.upsmap">
+            <LogicalName>upstable_cht.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_deu.upsmap">
+            <LogicalName>upstable_deu.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_enu.upsmap">
+            <LogicalName>upstable_enu.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_esp.upsmap">
+            <LogicalName>upstable_esp.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_fra.upsmap">
+            <LogicalName>upstable_fra.upsmap</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="upstable_jpn.upsmap">
+            <LogicalName>upstable_jpn.upsmap</LogicalName>
+        </EmbeddedResource>
     </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <ProjectReference Include="$(LibrariesProjectRoot)Microsoft.Win32.Registry\src\Microsoft.Win32.Registry.csproj"/>
