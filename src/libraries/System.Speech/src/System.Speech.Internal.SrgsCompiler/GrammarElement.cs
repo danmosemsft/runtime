@@ -15,8 +15,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
 		private List<Rule> _undefRules = new List<Rule>();
 
-		private List<Rule> _rules = new List<Rule>();
-
 		private CustomGrammar _cg;
 
 		private string _sRoot;

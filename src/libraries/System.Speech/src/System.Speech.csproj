@@ -1,8 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TargetFrameworks>netcoreapp3.0-windows;netstandard2.1</TargetFrameworks>
-        <NoWarn>$(NoWarn);;SA1027;CS0649;CA1823;CA1834;IDE0073;SA1028;CA1507;CA2249;CA1200;SYSLIB0006;CA1810;CA1825;CS0618;SYSLIB0003;IDE0041;CS0219;CS1717;SYSLIB0014;CS1734;CS8032</NoWarn>
+      <NoWarn>$(NoWarn);SA1027</NoWarn><!-- tabs -->
+      <NoWarn>$(NoWarn);CS0649</NoWarn><!-- uninitialized interop type fields -->
+      <!-- tabs -->
+        <NoWarn>$(NoWarn);;;;;CA1834;IDE0073;SA1028;CA1507;CA2249;CA1200;SYSLIB0006;CA1810;CA1825;CS0618;SYSLIB0003;IDE0041;CS0219;CS1717;SYSLIB0014;CS1734;CS8032</NoWarn>
     </PropertyGroup>
     <PropertyGroup>
         <GeneratePlatformNotSupportedAssemblyMessage Condition="'$(TargetFramework)' == 'netstandard2.1'">SR.PlatformNotSupported_SystemSpeech</GeneratePlatformNotSupportedAssemblyMessage>

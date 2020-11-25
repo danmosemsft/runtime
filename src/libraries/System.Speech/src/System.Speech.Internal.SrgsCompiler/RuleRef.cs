@@ -18,9 +18,6 @@ namespace System.Speech.Internal.SrgsCompiler
 		}
 
 		private SpecialRuleRefType _type;
-
-		private const string szSpecialVoid = "VOID";
-
 		internal static IRuleRef Null => new RuleRef(SpecialRuleRefType.Null, null);
 
 		internal static IRuleRef Void => new RuleRef(SpecialRuleRefType.Void, null);

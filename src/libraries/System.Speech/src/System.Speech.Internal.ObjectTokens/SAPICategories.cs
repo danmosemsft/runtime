@@ -10,8 +10,6 @@ namespace System.Speech.Internal.ObjectTokens
 {
 	internal static class SAPICategories
 	{
-		private const string SpeechRegistryKey = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\";
-
 		internal const string CurrentUserVoices = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\Voices";
 
 		internal const string Recognizers = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Recognizers";
@@ -19,8 +17,6 @@ namespace System.Speech.Internal.ObjectTokens
 		internal const string Voices = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
 
 		internal const string AudioIn = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput";
-
-		private const string _defaultTokenIdValueName = "DefaultTokenId";
 
 		private static readonly string[] asVersionDefault = new string[1]
 		{

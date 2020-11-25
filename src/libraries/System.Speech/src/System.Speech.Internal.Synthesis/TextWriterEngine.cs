@@ -18,9 +18,6 @@ namespace System.Speech.Internal.Synthesis
 		private bool _closeSpeak;
 
 		private string _pexmlPrefix;
-
-		private const string xmlNamespacePrompt = "http://schemas.microsoft.com/Speech/2003/03/PromptEngine";
-
 		public string Ssml => null;
 
 		internal TextWriterEngine(XmlTextWriter writer, CultureInfo culture)

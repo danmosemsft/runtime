@@ -23,10 +23,6 @@ namespace System.Speech.Internal.ObjectTokens
 			int GetObjectToken(IntPtr ppToken);
 		}
 
-		private const string sGenerateFileNameSpecifier = "{0}";
-
-		private const string SPTOKENVALUE_CLSID = "CLSID";
-
 		private ISpObjectToken _sapiObjectToken;
 
 		private bool _disposeSapiObjectToken;

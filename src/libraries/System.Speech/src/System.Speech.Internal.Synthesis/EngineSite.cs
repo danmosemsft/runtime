@@ -27,9 +27,6 @@ namespace System.Speech.Internal.Synthesis
 		private ResourceLoader _resourceLoader;
 
 		private TtsEventMapper _eventMapper;
-
-		private const int WAVE_FORMAT_PCM = 1;
-
 		internal TtsEventMapper EventMapper
 		{
 			get

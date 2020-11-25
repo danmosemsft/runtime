@@ -9,6 +9,7 @@ namespace System.Speech.Internal.Synthesis
 	{
 		internal delegate void WaveOutProc(IntPtr hwo, MM_MSG uMsg, IntPtr dwInstance, IntPtr dwParam1, IntPtr dwParam2);
 
+#pragma warning disable CA1823 // unused private padding fields
 		internal struct WAVEOUTCAPS
 		{
 			private ushort wMid;
@@ -28,6 +29,7 @@ namespace System.Speech.Internal.Synthesis
 
 			private ushort dwSupport;
 		}
+#pragma warning restore CA1823
 
 		internal const uint TIME_MS = 1u;
 

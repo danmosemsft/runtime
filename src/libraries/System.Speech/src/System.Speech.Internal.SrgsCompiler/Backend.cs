@@ -50,8 +50,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
 		private static char[] _achZero = new char[1];
 
-		private const uint SPGF_RESET_DIRTY_FLAG = 2147483648u;
-
 		private int _cImportedRules;
 
 		private Collection<ScriptRef> _scriptRefs = new Collection<ScriptRef>();

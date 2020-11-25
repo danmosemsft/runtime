@@ -260,15 +260,6 @@ namespace System.Speech.Internal.Synthesis
 			"x-loud",
 			"x-soft"
 		};
-
-		private const string xmlNamespace = "http://www.w3.org/XML/1998/namespace";
-
-		private const string xmlNamespaceSsml = "http://www.w3.org/2001/10/synthesis";
-
-		private const string xmlNamespaceXmlns = "http://www.w3.org/2000/xmlns/";
-
-		private const string xmlNamespacePrompt = "http://schemas.microsoft.com/Speech/2003/03/PromptEngine";
-
 		internal static void Parse(string ssml, ISsmlParser engine, object voice)
 		{
 			string text = ssml.Replace('\n', ' ');

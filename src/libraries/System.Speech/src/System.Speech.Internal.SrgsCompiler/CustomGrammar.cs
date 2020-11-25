@@ -44,9 +44,6 @@ namespace System.Speech.Internal.SrgsCompiler
 		internal List<string> _types = new List<string>();
 
 		internal StringBuilder _script = new StringBuilder();
-
-		private const string _preambuleMarker = "<Does Not Exist>";
-
 		internal bool HasScript
 		{
 			get

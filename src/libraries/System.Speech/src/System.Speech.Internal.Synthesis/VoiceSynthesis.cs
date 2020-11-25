@@ -131,15 +131,11 @@ namespace System.Speech.Internal.Synthesis
 
 		private Prompt _currentPrompt;
 
-		private const string defaultVoiceRate = "DefaultTTSRate";
-
 		private AsyncSerializedWorker _asyncWorker;
 
 		private AsyncSerializedWorker _asyncWorkerUI;
 
-		private const bool _pexml = false;
-
-		private int _ttsEvents = 6;
+        private int _ttsEvents = 6;
 
 		private object _thisObjectLock = new object();
 

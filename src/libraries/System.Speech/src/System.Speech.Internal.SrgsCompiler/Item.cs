@@ -12,9 +12,6 @@ namespace System.Speech.Internal.SrgsCompiler
 		private int _minRepeat = -1;
 
 		private int _maxRepeat = -1;
-
-		private const int NotSet = -1;
-
 		internal Item(Backend backend, Rule rule, int minRepeat, int maxRepeat, float repeatProbability, float weigth)
 			: base(backend, rule)
 		{

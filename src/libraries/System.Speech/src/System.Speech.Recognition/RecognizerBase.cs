@@ -125,14 +125,6 @@ namespace System.Speech.Recognition
 
 		private object _grammarDataLock = new object();
 
-		private const uint _nullBookmarkId = 0u;
-
-		private const uint _initialSilenceBookmarkId = 1u;
-
-		private const uint _babbleBookmarkId = 2u;
-
-		private const uint _firstUnusedBookmarkId = 3u;
-
 		private AsyncSerializedWorker _asyncWorker;
 
 		private AsyncSerializedWorker _asyncWorkerUI;

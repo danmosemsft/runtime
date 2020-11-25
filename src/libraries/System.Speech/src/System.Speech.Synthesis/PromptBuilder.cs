@@ -118,8 +118,6 @@ namespace System.Speech.Synthesis
 
 		private static ResourceLoader _resourceLoader = new ResourceLoader();
 
-		private const string _xmlnsDefault = "http://www.w3.org/2001/10/synthesis";
-
 		private static readonly string[] _promptBuilderElementName = new string[11]
 		{
 			"prosody",

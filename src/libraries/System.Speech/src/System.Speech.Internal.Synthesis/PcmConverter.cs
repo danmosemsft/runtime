@@ -38,8 +38,6 @@ namespace System.Speech.Internal.Synthesis
 
 		private float[] _rightMemory;
 
-		private const float _dHalfFilterLen = 0.0005f;
-
 		private static readonly int[] piPrimes = new int[12]
 		{
 			2,

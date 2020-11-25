@@ -73,8 +73,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
 		private SrgsElementList _elements;
 
-		private const int NotSet = -1;
-
 		/// <summary>Gets the collection of objects contained by the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
 		/// <returns>The collection of objects contained by the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</returns>
 		public Collection<SrgsElement> Elements => _elements;

@@ -51,15 +51,6 @@ namespace System.Speech.Internal.Synthesis
 		}
 
 		protected bool _aborted;
-
-		private const uint RIFF_MARKER = 1179011410u;
-
-		private const uint WAVE_MARKER = 1163280727u;
-
-		private const uint FMT_MARKER = 544501094u;
-
-		private const uint DATA_MARKER = 1635017060u;
-
 		internal abstract TimeSpan Duration
 		{
 			get;

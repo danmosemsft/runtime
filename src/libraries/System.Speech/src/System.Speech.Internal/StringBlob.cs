@@ -16,9 +16,6 @@ namespace System.Speech.Internal
 		private int _cWords;
 
 		private int _totalStringSizes = 1;
-
-		private const int _sizeOfChar = 2;
-
 		internal string this[int index]
 		{
 			get

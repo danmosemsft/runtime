@@ -223,8 +223,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
 		internal const int SP_HIGH_CONFIDENCE = 1;
 
-		private const int SP_SPCFGSERIALIZEDHEADER_500 = 100;
-
 		private static uint _lastHandle;
 
 		internal static uint NextHandle => ++_lastHandle;
