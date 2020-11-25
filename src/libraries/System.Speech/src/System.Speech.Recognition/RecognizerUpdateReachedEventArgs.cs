@@ -10,9 +10,9 @@ namespace System.Speech.Recognition
 
 		private TimeSpan _audioPosition;
 
-		/// <summary>Gets the <c>UserToken</c> passed to the system when an application calls <see cref="Overload:System.Speech.Recognition.SpeechRecognitionEngine.RequestRecognizerUpdate" /> or <see cref="Overload:System.Speech.Recognition.SpeechRecognizer.RequestRecognizerUpdate" />.</summary>
-		/// <returns>Returns an object that contains the <c>UserToken</c>.</returns>
-		public object UserToken => _userToken;
+        /// <summary>Gets the <c>UserToken</c> passed to the system when an application calls <see cref="System.Speech.Recognition.SpeechRecognitionEngine.RequestRecognizerUpdate()" /> or <see cref="System.Speech.Recognition.SpeechRecognizer.RequestRecognizerUpdate(object)" />.</summary>
+        /// <returns>Returns an object that contains the <c>UserToken</c>.</returns>
+        public object UserToken => _userToken;
 
 		/// <summary>Gets the audio position associated with the event.</summary>
 		/// <returns>Returns the location within the speech buffer of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> when it pauses and raises a <c>RecognizerUpdateReached</c> event.</returns>
