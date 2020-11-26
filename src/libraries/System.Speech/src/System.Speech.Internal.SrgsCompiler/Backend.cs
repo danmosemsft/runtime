@@ -807,7 +807,6 @@ namespace System.Speech.Internal.SrgsCompiler
             else
             {
                 cfgSerializedHeader.pWeights = 0u;
-                num3 = num3;
             }
             if (_rootRule != null)
             {

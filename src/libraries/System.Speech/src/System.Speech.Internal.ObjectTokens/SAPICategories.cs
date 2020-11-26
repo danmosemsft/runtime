@@ -202,10 +202,6 @@ namespace System.Speech.Internal.ObjectTokens
         private static bool ParseVersion(string s, ushort[] Version)
         {
             bool flag = true;
-            ushort num;
-            Version[2] = (num = (Version[3] = 0));
-            Version[1] = (num = num);
-            Version[0] = num;
             if (string.IsNullOrEmpty(s))
             {
                 flag = false;
@@ -229,7 +225,7 @@ namespace System.Speech.Internal.ObjectTokens
                     Version[i] = result;
                     num2 = num3 + 1;
                 }
-                if (flag && num2 != s.Length)
+                if (num2 != s.Length)
                 {
                     flag = false;
                 }
