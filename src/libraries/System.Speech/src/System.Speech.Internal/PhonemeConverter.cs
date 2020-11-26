@@ -70,6 +70,7 @@ namespace System.Speech.Internal
 
         internal static PhonemeConverter UpsConverter => _upsConverter;
 
+#pragma warning disable CA1810 // expensive to unnecessarily construct
         static PhonemeConverter()
         {
             _phoneMapsCompressed = new PhoneMapCompressed[8]
@@ -4986,6 +4987,7 @@ namespace System.Speech.Internal
         {
             _phoneMap = phoneMap;
         }
+#pragma warning restore
 
         internal static string ConvertPronToId(string pronunciation, int lcid)
         {
