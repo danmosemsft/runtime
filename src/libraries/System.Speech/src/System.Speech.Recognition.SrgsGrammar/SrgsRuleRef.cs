@@ -46,7 +46,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private string _params;
 
-        /// <summary>Gets the URI for the rule that this <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element references.</summary>
+        /// <summary>Gets the URI for the rule that this <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element references.</summary>
         /// <returns>The location of the rule to reference.</returns>
         public Uri Uri => _uri;
 
@@ -54,26 +54,26 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <returns>An alias string for the semantic dictionary.</returns>
         public string SemanticKey => _semanticKey;
 
-        /// <summary>Gets the initialization parameters for a <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element.</summary>
-        /// <returns>The initialization parameters for a <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element.</returns>
+        /// <summary>Gets the initialization parameters for a <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element.</summary>
+        /// <returns>The initialization parameters for a <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> element.</returns>
         public string Params => _params;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class and specifies the location of the external grammar file to reference.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class and specifies the location of the external grammar file to reference.</summary>
         /// <param name="uri">The location of a grammar file outside the containing grammar.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="uri" /> is <see langword="null" />.</exception>
         public SrgsRuleRef(Uri uri)
         {
             UriInit(uri, null, null, null);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file and the identifier of the rule to reference.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file and the identifier of the rule to reference.</summary>
         /// <param name="uri">The location of a grammar file outside the containing grammar.</param>
         /// <param name="rule">The identifier of the rule to reference.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="uri" /> is <see langword="null" />.
         /// <paramref name="rule" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="rule" /> is empty.</exception>
         public SrgsRuleRef(Uri uri, string rule)
         {
@@ -81,14 +81,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             UriInit(uri, rule, null, null);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file, the identifier of the rule, and the string alias of the semantic dictionary.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file, the identifier of the rule, and the string alias of the semantic dictionary.</summary>
         /// <param name="uri">The location of a grammar file outside the containing grammar.</param>
         /// <param name="rule">The identifier of the rule to reference.</param>
         /// <param name="semanticKey">An alias string for the semantic dictionary.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="uri" /> is <see langword="null" />.
         /// <paramref name="semanticKey" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="semanticKey" /> is empty.</exception>
         public SrgsRuleRef(Uri uri, string rule, string semanticKey)
         {
@@ -96,20 +96,20 @@ namespace System.Speech.Recognition.SrgsGrammar
             UriInit(uri, rule, semanticKey, null);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file, the identifier of the rule, the string alias of the semantic dictionary, and initialization parameters.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the location of the external grammar file, the identifier of the rule, the string alias of the semantic dictionary, and initialization parameters.</summary>
         /// <param name="uri">The location of a grammar file outside the containing grammar.</param>
         /// <param name="rule">The identifier of the rule to reference.</param>
         /// <param name="semanticKey">The semantic key.</param>
-        /// <param name="parameters">The initialization parameters for a <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> object.</param>
+        /// <param name="parameters">The initialization parameters for a <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> object.</param>
         public SrgsRuleRef(Uri uri, string rule, string semanticKey, string parameters)
         {
             Helpers.ThrowIfEmptyOrNull(parameters, nameof(parameters));
             UriInit(uri, rule, semanticKey, parameters);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class and specifies the rule to reference.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class and specifies the rule to reference.</summary>
         /// <param name="rule">The object to reference.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="rule" /> is <see langword="null" />.</exception>
         public SrgsRuleRef(SrgsRule rule)
         {
@@ -117,7 +117,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             _uri = new Uri("#" + rule.Id, UriKind.Relative);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the rule to reference and a string that contains a semantic key.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the rule to reference and a string that contains a semantic key.</summary>
         /// <param name="rule">The object to reference.</param>
         /// <param name="semanticKey">The semantic key.</param>
         public SrgsRuleRef(SrgsRule rule, string semanticKey)
@@ -127,10 +127,10 @@ namespace System.Speech.Recognition.SrgsGrammar
             _semanticKey = semanticKey;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the rule to reference, the string alias of the semantic dictionary, and initialization parameters.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> class, specifying the rule to reference, the string alias of the semantic dictionary, and initialization parameters.</summary>
         /// <param name="rule">The object to reference.</param>
         /// <param name="semanticKey">The semantic key.</param>
-        /// <param name="parameters">The initialization parameters for a <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> object.</param>
+        /// <param name="parameters">The initialization parameters for a <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRuleRef" /> object.</param>
         public SrgsRuleRef(SrgsRule rule, string semanticKey, string parameters)
             : this(rule)
         {

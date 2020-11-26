@@ -3,7 +3,7 @@
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Returns data from <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechDetected" /> or <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechDetected" /> events.</summary>
+    /// <summary>Returns data from <see cref="System.Speech.Recognition.SpeechRecognitionEngine.SpeechDetected" /> or <see cref="System.Speech.Recognition.SpeechRecognizer.SpeechDetected" /> events.</summary>
     public class SpeechDetectedEventArgs : EventArgs
     {
         private TimeSpan _audioPosition;

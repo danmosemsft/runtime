@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Provides data for the <see langword="EmulateRecognizeCompleted" /> event of the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> and <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> classes.</summary>
+    /// <summary>Provides data for the <see langword="EmulateRecognizeCompleted" /> event of the <see cref="System.Speech.Recognition.SpeechRecognizer" /> and <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> classes.</summary>
     public class EmulateRecognizeCompletedEventArgs : AsyncCompletedEventArgs
     {
         private RecognitionResult _result;

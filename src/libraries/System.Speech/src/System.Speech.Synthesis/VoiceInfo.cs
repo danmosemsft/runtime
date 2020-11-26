@@ -62,7 +62,7 @@ namespace System.Speech.Synthesis
         public string Name => _name;
 
         /// <summary>Gets the culture of the voice.</summary>
-        /// <returns>Returns a <see cref="T:System.Globalization.CultureInfo" /> object that provides information about a specific culture, such as the names of the culture, the writing system, the calendar used, and how to format dates and sort strings.</returns>
+        /// <returns>Returns a <see cref="System.Globalization.CultureInfo" /> object that provides information about a specific culture, such as the names of the culture, the writing system, the calendar used, and how to format dates and sort strings.</returns>
         public CultureInfo Culture => _culture;
 
         /// <summary>Gets the ID of the voice.</summary>
@@ -192,10 +192,10 @@ namespace System.Speech.Synthesis
             _variant = voiceAlternate + 1;
         }
 
-        /// <summary>Compares the fields of the voice with the specified <see cref="T:System.Speech.Synthesis.VoiceInfo" /> object to determine whether they contain the same values.</summary>
-        /// <param name="obj">The specified <see cref="T:System.Speech.Synthesis.VoiceInfo" /> object.</param>
+        /// <summary>Compares the fields of the voice with the specified <see cref="System.Speech.Synthesis.VoiceInfo" /> object to determine whether they contain the same values.</summary>
+        /// <param name="obj">The specified <see cref="System.Speech.Synthesis.VoiceInfo" /> object.</param>
         /// <returns>
-        ///   <see langword="true" /> if the fields of the two <see cref="T:System.Speech.Synthesis.VoiceInfo" /> objects are equal; otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if the fields of the two <see cref="System.Speech.Synthesis.VoiceInfo" /> objects are equal; otherwise, <see langword="false" />.</returns>
         public override bool Equals(object obj)
         {
             VoiceInfo voiceInfo = obj as VoiceInfo;
@@ -211,7 +211,7 @@ namespace System.Speech.Synthesis
         }
 
         /// <summary>Provides a hash code for a <c>VoiceInfo</c> object.</summary>
-        /// <returns>A hash code for the current <see cref="T:System.Speech.Synthesis.VoiceInfo" /> object.</returns>
+        /// <returns>A hash code for the current <see cref="System.Speech.Synthesis.VoiceInfo" /> object.</returns>
         public override int GetHashCode()
         {
             return _name.GetHashCode();

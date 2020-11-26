@@ -44,9 +44,9 @@ namespace System.Speech.Synthesis
             _enabled = true;
         }
 
-        /// <summary>Determines if a given object is an instance of <see cref="T:System.Speech.Synthesis.InstalledVoice" /> and equal to the current instance of <see cref="T:System.Speech.Synthesis.InstalledVoice" />.</summary>
-        /// <param name="obj">An object that can be cast to an instance of <see cref="T:System.Speech.Synthesis.InstalledVoice" />.</param>
-        /// <returns>Returns <see langword="true" /> if the current instance of <see cref="T:System.Speech.Synthesis.InstalledVoice" /> and that obtained from the <paramref name="obj" /> argument are equal, otherwise returns <see langword="false" />.</returns>
+        /// <summary>Determines if a given object is an instance of <see cref="System.Speech.Synthesis.InstalledVoice" /> and equal to the current instance of <see cref="System.Speech.Synthesis.InstalledVoice" />.</summary>
+        /// <param name="obj">An object that can be cast to an instance of <see cref="System.Speech.Synthesis.InstalledVoice" />.</param>
+        /// <returns>Returns <see langword="true" /> if the current instance of <see cref="System.Speech.Synthesis.InstalledVoice" /> and that obtained from the <paramref name="obj" /> argument are equal, otherwise returns <see langword="false" />.</returns>
         public override bool Equals(object obj)
         {
             InstalledVoice installedVoice = obj as InstalledVoice;
@@ -62,7 +62,7 @@ namespace System.Speech.Synthesis
         }
 
         /// <summary>Provides a hash code for an <c>InstalledVoice</c> object.</summary>
-        /// <returns>A hash code for the current <see cref="T:System.Speech.Synthesis.InstalledVoice" /> object.</returns>
+        /// <returns>A hash code for the current <see cref="System.Speech.Synthesis.InstalledVoice" /> object.</returns>
         public override int GetHashCode()
         {
             return VoiceInfo.Name.GetHashCode();

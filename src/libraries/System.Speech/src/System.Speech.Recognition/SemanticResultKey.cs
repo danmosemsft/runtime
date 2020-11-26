@@ -7,7 +7,7 @@ using System.Speech.Internal.GrammarBuilding;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Associates a key string with <see cref="T:System.Speech.Recognition.SemanticResultValue" /> values to define <see cref="T:System.Speech.Recognition.SemanticValue" /> objects.</summary>
+    /// <summary>Associates a key string with <see cref="System.Speech.Recognition.SemanticResultValue" /> values to define <see cref="System.Speech.Recognition.SemanticValue" /> objects.</summary>
     [DebuggerDisplay("{_semanticKey.DebugSummary}")]
     public class SemanticResultKey
     {
@@ -21,9 +21,9 @@ namespace System.Speech.Recognition
             _semanticKey = new SemanticKeyElement(semanticResultKey);
         }
 
-        /// <summary>Assigns a semantic key to one or more <see cref="T:System.String" /> instances used to create a speech recognition grammar.</summary>
-        /// <param name="semanticResultKey">The tag to be used access the <see cref="T:System.Speech.Recognition.SemanticValue" /> instance associated with the <see cref="T:System.String" /> objects specified by the <paramref name="phrases" /> argument.</param>
-        /// <param name="phrases">One or more <see cref="T:System.String" /> objects, whose concatenated text will be associated with a <see cref="T:System.Speech.Recognition.SemanticValue" /> object accessible with the tag defined in <paramref name="semanticResultKey" />.</param>
+        /// <summary>Assigns a semantic key to one or more <see cref="string" /> instances used to create a speech recognition grammar.</summary>
+        /// <param name="semanticResultKey">The tag to be used access the <see cref="System.Speech.Recognition.SemanticValue" /> instance associated with the <see cref="string" /> objects specified by the <paramref name="phrases" /> argument.</param>
+        /// <param name="phrases">One or more <see cref="string" /> objects, whose concatenated text will be associated with a <see cref="System.Speech.Recognition.SemanticValue" /> object accessible with the tag defined in <paramref name="semanticResultKey" />.</param>
         public SemanticResultKey(string semanticResultKey, params string[] phrases)
             : this(semanticResultKey)
         {
@@ -35,9 +35,9 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Assigns a semantic key to one or more <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects used to create a speech recognition grammar.</summary>
-        /// <param name="semanticResultKey">The tag to be used as a semantic key to access the <see cref="T:System.Speech.Recognition.SemanticValue" /> instance associated with the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects specified by the <paramref name="builders" /> argument.</param>
-        /// <param name="builders">An array of grammar components that will be associated with a <see cref="T:System.Speech.Recognition.SemanticValue" /> object accessible with the tag defined in <paramref name="semanticResultKey" />.</param>
+        /// <summary>Assigns a semantic key to one or more <see cref="System.Speech.Recognition.GrammarBuilder" /> objects used to create a speech recognition grammar.</summary>
+        /// <param name="semanticResultKey">The tag to be used as a semantic key to access the <see cref="System.Speech.Recognition.SemanticValue" /> instance associated with the <see cref="System.Speech.Recognition.GrammarBuilder" /> objects specified by the <paramref name="builders" /> argument.</param>
+        /// <param name="builders">An array of grammar components that will be associated with a <see cref="System.Speech.Recognition.SemanticValue" /> object accessible with the tag defined in <paramref name="semanticResultKey" />.</param>
         public SemanticResultKey(string semanticResultKey, params GrammarBuilder[] builders)
             : this(semanticResultKey)
         {
@@ -49,7 +49,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Returns an instance of <see cref="T:System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="T:System.Speech.Recognition.SemanticResultKey" /> instance.</summary>
+        /// <summary>Returns an instance of <see cref="System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="System.Speech.Recognition.SemanticResultKey" /> instance.</summary>
         public GrammarBuilder ToGrammarBuilder()
         {
             return new GrammarBuilder(this);

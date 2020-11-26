@@ -32,9 +32,9 @@ namespace System.Speech.Recognition
 
         private EventHandler<SpeechHypothesizedEventArgs> _speechHypothesizedDelegate;
 
-        /// <summary>Gets or sets the time interval during which a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> accepts input containing only silence before finalizing recognition.</summary>
+        /// <summary>Gets or sets the time interval during which a <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> accepts input containing only silence before finalizing recognition.</summary>
         /// <returns>The duration of the interval of silence.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">This property is set to less than 0 seconds.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">This property is set to less than 0 seconds.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public TimeSpan InitialSilenceTimeout
         {
@@ -48,9 +48,9 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the time interval during which a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> accepts input containing only background noise, before finalizing recognition.</summary>
+        /// <summary>Gets or sets the time interval during which a <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> accepts input containing only background noise, before finalizing recognition.</summary>
         /// <returns>The duration of the time interval.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">This property is set to less than 0 seconds.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">This property is set to less than 0 seconds.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public TimeSpan BabbleTimeout
         {
@@ -64,9 +64,9 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the interval of silence that the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> will accept at the end of unambiguous input before finalizing a recognition operation.</summary>
+        /// <summary>Gets or sets the interval of silence that the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> will accept at the end of unambiguous input before finalizing a recognition operation.</summary>
         /// <returns>The duration of the interval of silence.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">This property is set to less than 0 seconds or greater than 10 seconds.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">This property is set to less than 0 seconds or greater than 10 seconds.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public TimeSpan EndSilenceTimeout
         {
@@ -84,9 +84,9 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the interval of silence that the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> will accept at the end of ambiguous input before finalizing a recognition operation.</summary>
+        /// <summary>Gets or sets the interval of silence that the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> will accept at the end of ambiguous input before finalizing a recognition operation.</summary>
         /// <returns>The duration of the interval of silence.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">This property is set to less than 0 seconds or greater than 10 seconds.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">This property is set to less than 0 seconds or greater than 10 seconds.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public TimeSpan EndSilenceTimeoutAmbiguous
         {
@@ -104,38 +104,38 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets a collection of the <see cref="T:System.Speech.Recognition.Grammar" /> objects that are loaded in this <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>The collection of <see cref="T:System.Speech.Recognition.Grammar" /> objects.</returns>
+        /// <summary>Gets a collection of the <see cref="System.Speech.Recognition.Grammar" /> objects that are loaded in this <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>The collection of <see cref="System.Speech.Recognition.Grammar" /> objects.</returns>
         public ReadOnlyCollection<Grammar> Grammars => RecoBase.Grammars;
 
-        /// <summary>Gets information about the current instance of <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <summary>Gets information about the current instance of <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
         /// <returns>Information about the current speech recognizer.</returns>
         public RecognizerInfo RecognizerInfo => RecoBase.RecognizerInfo;
 
-        /// <summary>Gets the state of the audio being received by the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <summary>Gets the state of the audio being received by the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
         /// <returns>The state of the audio input to the speech recognizer.</returns>
         public AudioState AudioState => RecoBase.AudioState;
 
-        /// <summary>Gets the level of the audio being received by the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <summary>Gets the level of the audio being received by the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
         /// <returns>The audio level of the input to the speech recognizer, from 0 through 100.</returns>
         public int AudioLevel => RecoBase.AudioLevel;
 
-        /// <summary>Gets the current location of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> in the audio input that it is processing.</summary>
+        /// <summary>Gets the current location of the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> in the audio input that it is processing.</summary>
         /// <returns>The position of the recognizer in the audio input that it is processing.</returns>
         public TimeSpan RecognizerAudioPosition => RecoBase.RecognizerAudioPosition;
 
-        /// <summary>Gets the current location in the audio stream being generated by the device that is providing input to the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <summary>Gets the current location in the audio stream being generated by the device that is providing input to the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
         /// <returns>The current location in the audio stream being generated by the input device.</returns>
         public TimeSpan AudioPosition => RecoBase.AudioPosition;
 
-        /// <summary>Gets the format of the audio being received by the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
-        /// <returns>The format of audio at the input to the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance, or <see langword="null" /> if the input is not configured or set to the null input.</returns>
+        /// <summary>Gets the format of the audio being received by the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <returns>The format of audio at the input to the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance, or <see langword="null" /> if the input is not configured or set to the null input.</returns>
         public SpeechAudioFormatInfo AudioFormat => RecoBase.AudioFormat;
 
-        /// <summary>Gets or sets the maximum number of alternate recognition results that the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> returns for each recognition operation.</summary>
+        /// <summary>Gets or sets the maximum number of alternate recognition results that the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> returns for each recognition operation.</summary>
         /// <returns>The number of alternate results to return.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
-        ///   <see cref="P:System.Speech.Recognition.SpeechRecognitionEngine.MaxAlternates" /> is set to a value less than 0.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        ///   <see cref="System.Speech.Recognition.SpeechRecognitionEngine.MaxAlternates" /> is set to a value less than 0.</exception>
         public int MaxAlternates
         {
             get
@@ -172,28 +172,28 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> finalizes an asynchronous recognition operation.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> finalizes an asynchronous recognition operation.</summary>
         public event EventHandler<RecognizeCompletedEventArgs> RecognizeCompleted;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> finalizes an asynchronous recognition operation of emulated input.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> finalizes an asynchronous recognition operation of emulated input.</summary>
         public event EventHandler<EmulateRecognizeCompletedEventArgs> EmulateRecognizeCompleted;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> finishes the asynchronous loading of a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> finishes the asynchronous loading of a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         public event EventHandler<LoadGrammarCompletedEventArgs> LoadGrammarCompleted;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> detects input that it can identify as speech.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> detects input that it can identify as speech.</summary>
         public event EventHandler<SpeechDetectedEventArgs> SpeechDetected;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> receives input that matches any of its loaded and enabled <see cref="T:System.Speech.Recognition.Grammar" /> objects.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> receives input that matches any of its loaded and enabled <see cref="System.Speech.Recognition.Grammar" /> objects.</summary>
         public event EventHandler<SpeechRecognizedEventArgs> SpeechRecognized;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> receives input that does not match any of its loaded and enabled <see cref="T:System.Speech.Recognition.Grammar" /> objects.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> receives input that does not match any of its loaded and enabled <see cref="System.Speech.Recognition.Grammar" /> objects.</summary>
         public event EventHandler<SpeechRecognitionRejectedEventArgs> SpeechRecognitionRejected;
 
-        /// <summary>Raised when a running <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> pauses to accept modifications.</summary>
+        /// <summary>Raised when a running <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> pauses to accept modifications.</summary>
         public event EventHandler<RecognizerUpdateReachedEventArgs> RecognizerUpdateReached;
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> has recognized a word or words that may be a component of multiple complete phrases in a grammar.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> has recognized a word or words that may be a component of multiple complete phrases in a grammar.</summary>
         public event EventHandler<SpeechHypothesizedEventArgs> SpeechHypothesized
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -218,7 +218,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> detects a problem in the audio signal.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> detects a problem in the audio signal.</summary>
         public event EventHandler<AudioSignalProblemOccurredEventArgs> AudioSignalProblemOccurred
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -243,7 +243,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> reports the level of its audio input.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> reports the level of its audio input.</summary>
         public event EventHandler<AudioLevelUpdatedEventArgs> AudioLevelUpdated
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -268,7 +268,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Raised when the state changes in the audio being received by the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+        /// <summary>Raised when the state changes in the audio being received by the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
         public event EventHandler<AudioStateChangedEventArgs> AudioStateChanged
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -293,16 +293,16 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> class using the default speech recognizer for the system.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> class using the default speech recognizer for the system.</summary>
         public SpeechRecognitionEngine()
         {
             Initialize(null);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> class using the default speech recognizer for a specified locale.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> class using the default speech recognizer for a specified locale.</summary>
         /// <param name="culture">The locale that the speech recognizer must support.</param>
-        /// <exception cref="T:System.ArgumentException">None of the installed speech recognizers support the specified locale, or <paramref name="culture" /> is the invariant culture.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentException">None of the installed speech recognizers support the specified locale, or <paramref name="culture" /> is the invariant culture.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="Culture" /> is <see langword="null" />.</exception>
         public SpeechRecognitionEngine(CultureInfo culture)
         {
@@ -330,10 +330,10 @@ namespace System.Speech.Recognition
             throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), nameof(culture));
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> class with a string parameter that specifies the name of the recognizer to use.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> class with a string parameter that specifies the name of the recognizer to use.</summary>
         /// <param name="recognizerId">The token name of the speech recognizer to use.</param>
-        /// <exception cref="T:System.ArgumentException">No speech recognizer with that token name is installed, or <paramref name="recognizerId" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentException">No speech recognizer with that token name is installed, or <paramref name="recognizerId" /> is the empty string ("").</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="recognizerId" /> is <see langword="null" />.</exception>
         public SpeechRecognitionEngine(string recognizerId)
         {
@@ -349,7 +349,7 @@ namespace System.Speech.Recognition
             throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), nameof(recognizerId));
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> using the information in a <see cref="T:System.Speech.Recognition.RecognizerInfo" /> object to specify the recognizer to use.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> using the information in a <see cref="System.Speech.Recognition.RecognizerInfo" /> object to specify the recognizer to use.</summary>
         /// <param name="recognizerInfo">The information for the specific speech recognizer.</param>
         public SpeechRecognitionEngine(RecognizerInfo recognizerInfo)
         {
@@ -357,14 +357,14 @@ namespace System.Speech.Recognition
             Initialize(recognizerInfo);
         }
 
-        /// <summary>Disposes the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object.</summary>
+        /// <summary>Disposes the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object.</summary>
         public void Dispose()
         {
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>Disposes the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object and releases resources used during the session.</summary>
+        /// <summary>Disposes the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object and releases resources used during the session.</summary>
         /// <param name="disposing">
         ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
@@ -386,7 +386,7 @@ namespace System.Speech.Recognition
         }
 
         /// <summary>Returns information for all of the installed speech recognizers on the current system.</summary>
-        /// <returns>A read-only collection of the <see cref="T:System.Speech.Recognition.RecognizerInfo" /> objects that describe the installed recognizers.</returns>
+        /// <returns>A read-only collection of the <see cref="System.Speech.Recognition.RecognizerInfo" /> objects that describe the installed recognizers.</returns>
         public static ReadOnlyCollection<RecognizerInfo> InstalledRecognizers()
         {
             List<RecognizerInfo> list = new List<RecognizerInfo>();
@@ -407,7 +407,7 @@ namespace System.Speech.Recognition
             return new ReadOnlyCollection<RecognizerInfo>(list);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from a Waveform audio format (.wav) file.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from a Waveform audio format (.wav) file.</summary>
         /// <param name="path">The path of the file to use as input.</param>
         public void SetInputToWaveFile(string path)
         {
@@ -415,14 +415,14 @@ namespace System.Speech.Recognition
             RecoBase.SetInput(path);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from a stream that contains Waveform audio format (.wav) data.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from a stream that contains Waveform audio format (.wav) data.</summary>
         /// <param name="audioSource">The stream containing the audio data.</param>
         public void SetInputToWaveStream(Stream audioSource)
         {
             RecoBase.SetInput(audioSource, null);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from an audio stream.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from an audio stream.</summary>
         /// <param name="audioSource">The audio input stream.</param>
         /// <param name="audioFormat">The format of the audio input.</param>
         public void SetInputToAudioStream(Stream audioSource, SpeechAudioFormatInfo audioFormat)
@@ -438,7 +438,7 @@ namespace System.Speech.Recognition
             RecoBase.SetInput(null, null);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from the default audio device.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object to receive input from the default audio device.</summary>
         public void SetInputToDefaultAudioDevice()
         {
             RecoBase.SetInputToDefaultAudioDevice();
@@ -495,11 +495,11 @@ namespace System.Speech.Recognition
         /// <summary>Returns the values of settings for the recognizer.</summary>
         /// <param name="settingName">The name of the setting to return.</param>
         /// <returns>The value of the setting.</returns>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="settingName" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="settingName" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
         public object QueryRecognizerSetting(string settingName)
         {
             return RecoBase.QueryRecognizerSetting(settingName);
@@ -508,34 +508,34 @@ namespace System.Speech.Recognition
         /// <summary>Updates the specified speech recognition engine setting with the specified string value.</summary>
         /// <param name="settingName">The name of the setting to update.</param>
         /// <param name="updatedValue">The new value for the setting.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="settingName" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="settingName" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
         public void UpdateRecognizerSetting(string settingName, string updatedValue)
         {
             RecoBase.UpdateRecognizerSetting(settingName, updatedValue);
         }
 
-        /// <summary>Updates the specified setting for the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> with the specified integer value.</summary>
+        /// <summary>Updates the specified setting for the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> with the specified integer value.</summary>
         /// <param name="settingName">The name of the setting to update.</param>
         /// <param name="updatedValue">The new value for the setting.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="settingName" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="settingName" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">The recognizer does not have a setting by that name.</exception>
         public void UpdateRecognizerSetting(string settingName, int updatedValue)
         {
             RecoBase.UpdateRecognizerSetting(settingName, updatedValue);
         }
 
-        /// <summary>Synchronously loads a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <summary>Synchronously loads a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         /// <param name="grammar">The grammar object to load.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.InvalidOperationException">
+        /// <exception cref="System.InvalidOperationException">
         ///   <paramref name="Grammar" /> is not in a valid state.</exception>
         public void LoadGrammar(Grammar grammar)
         {
@@ -544,27 +544,27 @@ namespace System.Speech.Recognition
 
         /// <summary>Asynchronously loads a speech recognition grammar.</summary>
         /// <param name="grammar">The speech recognition grammar to load.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.InvalidOperationException">
+        /// <exception cref="System.InvalidOperationException">
         ///   <paramref name="Grammar" /> is not in a valid state.</exception>
-        /// <exception cref="T:System.OperationCanceledException">The asynchronous operation was canceled.</exception>
+        /// <exception cref="System.OperationCanceledException">The asynchronous operation was canceled.</exception>
         public void LoadGrammarAsync(Grammar grammar)
         {
             RecoBase.LoadGrammarAsync(grammar);
         }
 
-        /// <summary>Unloads a specified <see cref="T:System.Speech.Recognition.Grammar" /> object from the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <summary>Unloads a specified <see cref="System.Speech.Recognition.Grammar" /> object from the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
         /// <param name="grammar">The grammar object to unload.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.InvalidOperationException">The grammar is not loaded in this recognizer, or this recognizer is currently loading the grammar asynchronously.</exception>
+        /// <exception cref="System.InvalidOperationException">The grammar is not loaded in this recognizer, or this recognizer is currently loading the grammar asynchronously.</exception>
         public void UnloadGrammar(Grammar grammar)
         {
             RecoBase.UnloadGrammar(grammar);
         }
 
-        /// <summary>Unloads all <see cref="T:System.Speech.Recognition.Grammar" /> objects from the recognizer.</summary>
+        /// <summary>Unloads all <see cref="System.Speech.Recognition.Grammar" /> objects from the recognizer.</summary>
         public void UnloadAllGrammars()
         {
             RecoBase.UnloadAllGrammars();
@@ -573,10 +573,10 @@ namespace System.Speech.Recognition
         /// <summary>Emulates input of a phrase to the speech recognizer, using text in place of audio for synchronous speech recognition.</summary>
         /// <param name="inputText">The input for the recognition operation.</param>
         /// <returns>The result for the recognition operation, or <see langword="null" /> if the operation is not successful or the recognizer is not enabled.</returns>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="inputText" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="inputText" /> is the empty string ("").</exception>
         public RecognitionResult EmulateRecognize(string inputText)
         {
@@ -587,13 +587,13 @@ namespace System.Speech.Recognition
         /// <param name="inputText">The input phrase for the recognition operation.</param>
         /// <param name="compareOptions">A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.</param>
         /// <returns>The result for the recognition operation, or <see langword="null" /> if the operation is not successful or the recognizer is not enabled.</returns>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="inputText" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="inputText" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.NotSupportedException">
-        ///   <paramref name="compareOptions" /> contains the <see cref="F:System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="F:System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="F:System.Globalization.CompareOptions.StringSort" /> flag.</exception>
+        /// <exception cref="System.NotSupportedException">
+        ///   <paramref name="compareOptions" /> contains the <see cref="System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="System.Globalization.CompareOptions.StringSort" /> flag.</exception>
         public RecognitionResult EmulateRecognize(string inputText, CompareOptions compareOptions)
         {
             if (Grammars.Count == 0)
@@ -607,13 +607,13 @@ namespace System.Speech.Recognition
         /// <param name="wordUnits">An array of word units that contains the input for the recognition operation.</param>
         /// <param name="compareOptions">A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.</param>
         /// <returns>The result for the recognition operation, or <see langword="null" /> if the operation is not successful or the recognizer is not enabled.</returns>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="wordUnits" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="wordUnits" /> contains one or more <see langword="null" /> elements.</exception>
-        /// <exception cref="T:System.NotSupportedException">
-        ///   <paramref name="compareOptions" /> contains the <see cref="F:System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="F:System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="F:System.Globalization.CompareOptions.StringSort" /> flag.</exception>
+        /// <exception cref="System.NotSupportedException">
+        ///   <paramref name="compareOptions" /> contains the <see cref="System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="System.Globalization.CompareOptions.StringSort" /> flag.</exception>
         public RecognitionResult EmulateRecognize(RecognizedWordUnit[] wordUnits, CompareOptions compareOptions)
         {
             if (Grammars.Count == 0)
@@ -625,10 +625,10 @@ namespace System.Speech.Recognition
 
         /// <summary>Emulates input of a phrase to the speech recognizer, using text in place of audio for asynchronous speech recognition.</summary>
         /// <param name="inputText">The input for the recognition operation.</param>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="inputText" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="inputText" /> is the empty string ("").</exception>
         public void EmulateRecognizeAsync(string inputText)
         {
@@ -638,13 +638,13 @@ namespace System.Speech.Recognition
         /// <summary>Emulates input of a phrase to the speech recognizer, using text in place of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the phrase and the loaded speech recognition grammars.</summary>
         /// <param name="inputText">The input phrase for the recognition operation.</param>
         /// <param name="compareOptions">A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.</param>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="inputText" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="inputText" /> is the empty string ("").</exception>
-        /// <exception cref="T:System.NotSupportedException">
-        ///   <paramref name="compareOptions" /> contains the <see cref="F:System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="F:System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="F:System.Globalization.CompareOptions.StringSort" /> flag.</exception>
+        /// <exception cref="System.NotSupportedException">
+        ///   <paramref name="compareOptions" /> contains the <see cref="System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="System.Globalization.CompareOptions.StringSort" /> flag.</exception>
         public void EmulateRecognizeAsync(string inputText, CompareOptions compareOptions)
         {
             if (Grammars.Count == 0)
@@ -654,16 +654,16 @@ namespace System.Speech.Recognition
             RecoBase.EmulateRecognizeAsync(inputText, compareOptions);
         }
 
-        /// <summary>Emulates input of specific words to the speech recognizer, using an array of <see cref="T:System.Speech.Recognition.RecognizedWordUnit" /> objects in place of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.</summary>
+        /// <summary>Emulates input of specific words to the speech recognizer, using an array of <see cref="System.Speech.Recognition.RecognizedWordUnit" /> objects in place of audio for asynchronous speech recognition, and specifies how the recognizer handles Unicode comparison between the words and the loaded speech recognition grammars.</summary>
         /// <param name="wordUnits">An array of word units that contains the input for the recognition operation.</param>
         /// <param name="compareOptions">A bitwise combination of the enumeration values that describe the type of comparison to use for the emulated recognition operation.</param>
-        /// <exception cref="T:System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.InvalidOperationException">The recognizer has no speech recognition grammars loaded, or the recognizer has an asynchronous recognition operation that is not yet complete.</exception>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="wordUnits" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="wordUnits" /> contains one or more <see langword="null" /> elements.</exception>
-        /// <exception cref="T:System.NotSupportedException">
-        ///   <paramref name="compareOptions" /> contains the <see cref="F:System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="F:System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="F:System.Globalization.CompareOptions.StringSort" /> flag.</exception>
+        /// <exception cref="System.NotSupportedException">
+        ///   <paramref name="compareOptions" /> contains the <see cref="System.Globalization.CompareOptions.IgnoreNonSpace" />, <see cref="System.Globalization.CompareOptions.IgnoreSymbols" />, or <see cref="System.Globalization.CompareOptions.StringSort" /> flag.</exception>
         public void EmulateRecognizeAsync(RecognizedWordUnit[] wordUnits, CompareOptions compareOptions)
         {
             if (Grammars.Count == 0)
@@ -688,7 +688,7 @@ namespace System.Speech.Recognition
 
         /// <summary>Requests that the recognizer pauses to update its state and provides an offset and a user token for the associated event.</summary>
         /// <param name="userToken">User-defined information that contains information for the operation.</param>
-        /// <param name="audioPositionAheadToRaiseUpdate">The offset from the current <see cref="P:System.Speech.Recognition.SpeechRecognitionEngine.AudioPosition" /> to delay the request.</param>
+        /// <param name="audioPositionAheadToRaiseUpdate">The offset from the current <see cref="System.Speech.Recognition.SpeechRecognitionEngine.AudioPosition" /> to delay the request.</param>
         public void RequestRecognizerUpdate(object userToken, TimeSpan audioPositionAheadToRaiseUpdate)
         {
             RecoBase.RequestRecognizerUpdate(userToken, audioPositionAheadToRaiseUpdate);

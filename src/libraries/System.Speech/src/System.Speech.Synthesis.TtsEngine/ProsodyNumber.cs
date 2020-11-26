@@ -36,7 +36,7 @@ namespace System.Speech.Synthesis.TtsEngine
 
         /// <summary>Gets whether the <c>Number</c> property represents a percent value.</summary>
         /// <returns>
-        ///   <see langword="true" /> if the <see cref="P:System.Speech.Synthesis.TtsEngine.ProsodyNumber.Number" /> represents a percent value, otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if the <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber.Number" /> represents a percent value, otherwise, <see langword="false" />.</returns>
         public bool IsNumberPercent
         {
             get
@@ -98,8 +98,8 @@ namespace System.Speech.Synthesis.TtsEngine
         }
 
         /// <summary>Determines whether two instances of <c>ProsodyNumber</c> are equal.</summary>
-        /// <param name="prosodyNumber1">The <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber2" />.</param>
-        /// <param name="prosodyNumber2">The  <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber1" />.</param>
+        /// <param name="prosodyNumber1">The <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber2" />.</param>
+        /// <param name="prosodyNumber2">The  <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber1" />.</param>
         /// <returns>
         ///   <see langword="true" /> if <paramref name="prosodyNumber1" /> is the same as <paramref name="prosodyNumber2" />;  otherwise, <see langword="false" />.</returns>
         public static bool operator ==(ProsodyNumber prosodyNumber1, ProsodyNumber prosodyNumber2)
@@ -112,8 +112,8 @@ namespace System.Speech.Synthesis.TtsEngine
         }
 
         /// <summary>Determines whether two instances of <c>ProsodyNumber</c> are not equal.</summary>
-        /// <param name="prosodyNumber1">The <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber2" />.</param>
-        /// <param name="prosodyNumber2">The <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber1" />.</param>
+        /// <param name="prosodyNumber1">The <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber2" />.</param>
+        /// <param name="prosodyNumber2">The <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to compare to <paramref name="prosodyNumber1" />.</param>
         /// <returns>
         ///   <see langword="true" /> if <paramref name="prosodyNumber1" /> is different from <paramref name="prosodyNumber2" />; otherwise, <see langword="false" />.</returns>
         public static bool operator !=(ProsodyNumber prosodyNumber1, ProsodyNumber prosodyNumber2)
@@ -122,18 +122,18 @@ namespace System.Speech.Synthesis.TtsEngine
         }
 
         /// <summary>Determines whether a specified <c>ProsodyNumber</c> object is equal to the current instance of <c>ProsodyNumber</c>.</summary>
-        /// <param name="other">The <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to evaluate.</param>
+        /// <param name="other">The <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object to evaluate.</param>
         /// <returns>
-        ///   <see langword="true" /> if <paramref name="other" /> is equal to the current <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object; otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if <paramref name="other" /> is equal to the current <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object; otherwise, <see langword="false" />.</returns>
         public bool Equals(ProsodyNumber other)
         {
             return this == other;
         }
 
         /// <summary>Determines whether a specified object is an instance of <c>ProsodyNumber</c> and equal to the current instance of <c>ProsodyNumber</c>.</summary>
-        /// <param name="obj">The <see cref="T:System.Object" /> to evaluate.</param>
+        /// <param name="obj">The <see cref="object" /> to evaluate.</param>
         /// <returns>
-        ///   <see langword="true" /> if <paramref name="obj" /> is equal to the current <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object; otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if <paramref name="obj" /> is equal to the current <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object; otherwise, <see langword="false" />.</returns>
         public override bool Equals(object obj)
         {
             if (!(obj is ProsodyNumber))
@@ -144,7 +144,7 @@ namespace System.Speech.Synthesis.TtsEngine
         }
 
         /// <summary>Provides a hash code for a <c>ProsodyNumber</c> object.</summary>
-        /// <returns>A hash code for a <see cref="T:System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object.</returns>
+        /// <returns>A hash code for a <see cref="System.Speech.Synthesis.TtsEngine.ProsodyNumber" /> object.</returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();

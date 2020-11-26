@@ -73,13 +73,13 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private SrgsElementList _elements;
 
-        /// <summary>Gets the collection of objects contained by the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
-        /// <returns>The collection of objects contained by the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</returns>
+        /// <summary>Gets the collection of objects contained by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
+        /// <returns>The collection of objects contained by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</returns>
         public Collection<SrgsElement> Elements => _elements;
 
-        /// <summary>Gets or sets the probability that a user will repeat the contents of this <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
+        /// <summary>Gets or sets the probability that a user will repeat the contents of this <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
         /// <returns>The probability, as a floating point value, that the contents of this item will be repeatedly spoken.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsItem.RepeatProbability" /> to a value that is negative or larger than 1.0.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem.RepeatProbability" /> to a value that is negative or larger than 1.0.</exception>
         public float RepeatProbability
         {
             get
@@ -96,7 +96,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets the minimum number of times that a user must speak the contents of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" />.</summary>
+        /// <summary>Gets the minimum number of times that a user must speak the contents of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" />.</summary>
         /// <returns>The minimum number of times that a user can speak the contents of the item.</returns>
         public int MinRepeat
         {
@@ -110,7 +110,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets the maximum number of times that a user can speak the contents of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" />.</summary>
+        /// <summary>Gets the maximum number of times that a user can speak the contents of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" />.</summary>
         /// <returns>The maximum number of times that a user can speak the contents of the item.</returns>
         public int MaxRepeat
         {
@@ -124,9 +124,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets a multiplying factor that adjusts the likelihood that an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> in a <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> object will be spoken.</summary>
+        /// <summary>Gets or sets a multiplying factor that adjusts the likelihood that an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> in a <see cref="System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> object will be spoken.</summary>
         /// <returns>A floating point value that adjusts the likelihood of this item being spoken.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsItem.Weight" /> to a negative value.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem.Weight" /> to a negative value.</exception>
         public float Weight
         {
             get
@@ -157,17 +157,17 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class.</summary>
         public SrgsItem()
         {
             _elements = new SrgsElementList();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies its textual contents.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies its textual contents.</summary>
         /// <param name="text">The text associated with the item.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="text" /> is an empty string.</exception>
         public SrgsItem(string text)
             : this()
@@ -176,11 +176,11 @@ namespace System.Speech.Recognition.SrgsGrammar
             _elements.Add(new SrgsText(text));
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects to add to this instance.</summary>
-        /// <param name="elements">The array of objects to add to the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies an array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects to add to this instance.</summary>
+        /// <param name="elements">The array of objects to add to the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="elements" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">Any member of the <paramref name="elements" /> array is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">Any member of the <paramref name="elements" /> array is <see langword="null" />.</exception>
         public SrgsItem(params SrgsElement[] elements)
             : this()
         {
@@ -203,9 +203,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             throw new ArgumentNullException(nameof(elements), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies the number of times that its contents must be spoken.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies the number of times that its contents must be spoken.</summary>
         /// <param name="repeatCount">The number of times that the item must be spoken.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="repeatCount" /> is negative or is larger than 255.</exception>
         public SrgsItem(int repeatCount)
             : this()
@@ -213,13 +213,13 @@ namespace System.Speech.Recognition.SrgsGrammar
             SetRepeat(repeatCount);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies minimum and maximum repetition counts.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class and specifies minimum and maximum repetition counts.</summary>
         /// <param name="min">The minimum number of times that the text in the item must be repeated.</param>
         /// <param name="max">The maximum number of times that the text in the item can be repeated.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="min" /> is negative or larger than 255.
         /// <paramref name="max" /> is negative or larger than 255.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="min" /> is larger than <paramref name="max" />.</exception>
         public SrgsItem(int min, int max)
             : this()
@@ -227,14 +227,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             SetRepeat(min, max);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class, specifies the text associated with the item, and specifies minimum and maximum repetition counts.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class, specifies the text associated with the item, and specifies minimum and maximum repetition counts.</summary>
         /// <param name="min">The minimum number of times that the item must be repeated.</param>
         /// <param name="max">The maximum number of times that the item can be repeated.</param>
         /// <param name="text">The text associated with the item.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="min" /> is negative or larger than 255.
         /// <paramref name="max" /> is negative or larger than 255.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="min" /> is larger than <paramref name="max" />.</exception>
         public SrgsItem(int min, int max, string text)
             : this(text)
@@ -242,22 +242,22 @@ namespace System.Speech.Recognition.SrgsGrammar
             SetRepeat(min, max);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class, specifies an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects to add to this instance, and sets minimum and maximum repetition counts.</summary>
-        /// <param name="min">The minimum number of times that the contents of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> object must be repeated.</param>
-        /// <param name="max">The maximum number of times that the contents of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> object can be repeated.</param>
-        /// <param name="elements">The array of objects to add to the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> class, specifies an array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects to add to this instance, and sets minimum and maximum repetition counts.</summary>
+        /// <param name="min">The minimum number of times that the contents of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> object must be repeated.</param>
+        /// <param name="max">The maximum number of times that the contents of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> object can be repeated.</param>
+        /// <param name="elements">The array of objects to add to the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="elements" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">Any member of the <paramref name="elements" /> array is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">Any member of the <paramref name="elements" /> array is <see langword="null" />.</exception>
         public SrgsItem(int min, int max, params SrgsElement[] elements)
             : this(elements)
         {
             SetRepeat(min, max);
         }
 
-        /// <summary>Sets the number of times that the contents of an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> must be spoken.</summary>
+        /// <summary>Sets the number of times that the contents of an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> must be spoken.</summary>
         /// <param name="count">The number of times that the item must be spoken.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="count" /> is less than 0 or greater than 255.</exception>
         public void SetRepeat(int count)
         {
@@ -271,10 +271,10 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <summary>Sets the minimum number of times and the maximum number of times that an item can be spoken.</summary>
         /// <param name="minRepeat">The minimum number of times that the item must be spoken.</param>
         /// <param name="maxRepeat">The maximum number of times that the item can be spoken.</param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="minRepeat" /> is less than zero or larger than 255.
         /// <paramref name="maxRepeat" /> is less than zero or larger than 255.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="minRepeat" /> is larger than <paramref name="maxRepeat" />.</exception>
         public void SetRepeat(int minRepeat, int maxRepeat)
         {
@@ -294,9 +294,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             _maxRepeat = maxRepeat;
         }
 
-        /// <summary>Adds an object to the collection of objects contained in this <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
+        /// <summary>Adds an object to the collection of objects contained in this <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> instance.</summary>
         /// <param name="element">The object to add.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="element" /> is <see langword="null" />.</exception>
         public void Add(SrgsElement element)
         {

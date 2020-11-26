@@ -42,7 +42,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private SrgsItemList _items = new SrgsItemList();
 
-        /// <summary>Gets the list of all the alternatives contained in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> element.</summary>
+        /// <summary>Gets the list of all the alternatives contained in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> element.</summary>
         /// <returns>Returns the list of alternatives.</returns>
         public Collection<SrgsItem> Items => _items;
 
@@ -60,14 +60,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class.</summary>
         public SrgsOneOf()
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="T:System.String" /> objects.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="string" /> objects.</summary>
         /// <param name="items">The alternative items to add.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="items" /> is <see langword="null" />.
         /// Any element in the <paramref name="items" /> array is <see langword="null" />.</exception>
         public SrgsOneOf(params string[] items)
@@ -92,9 +92,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             throw new ArgumentNullException(nameof(items), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> objects.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> objects.</summary>
         /// <param name="items">The alternative items to add.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="items" /> is <see langword="null" />.
         /// Any element in the <paramref name="items" /> array is <see langword="null" />.</exception>
         public SrgsOneOf(params SrgsItem[] items)
@@ -120,9 +120,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             throw new ArgumentNullException(nameof(items), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
-        /// <summary>Adds an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> containing a word or a phrase to the list of alternatives.</summary>
+        /// <summary>Adds an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsItem" /> containing a word or a phrase to the list of alternatives.</summary>
         /// <param name="item">The item to add to the list of alternatives.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="item" /> is <see langword="null" />.</exception>
         public void Add(SrgsItem item)
         {

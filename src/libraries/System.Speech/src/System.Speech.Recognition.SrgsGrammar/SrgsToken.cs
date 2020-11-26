@@ -21,10 +21,10 @@ namespace System.Speech.Recognition.SrgsGrammar
         private string _display;
 
         /// <summary>Gets or sets the written form of the word that should be spoken.</summary>
-        /// <returns>The text contained within the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class instance.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" /> to <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" />.</exception>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to assign a string that contains a quotation mark (") to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" />.</exception>
+        /// <returns>The text contained within the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class instance.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" /> to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" />.</exception>
+        /// <exception cref="System.ArgumentException">An attempt is made to assign a string that contains a quotation mark (") to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Text" />.</exception>
         public string Text
         {
             get
@@ -44,9 +44,9 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         /// <summary>Gets or sets the string that defines the pronunciation for the token.</summary>
-        /// <returns>Returns a string containing phones from the phonetic alphabet specified in <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.PhoneticAlphabet" />.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Pronunciation" /> to <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Pronunciation" />.</exception>
+        /// <returns>Returns a string containing phones from the phonetic alphabet specified in <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.PhoneticAlphabet" />.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Pronunciation" /> to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Pronunciation" />.</exception>
         public string Pronunciation
         {
             get
@@ -62,8 +62,8 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         /// <summary>Gets or sets the display form of the text to be spoken.</summary>
         /// <returns>A representation of the token as it should be displayed.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Display" /> to <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsToken.Display" />.</exception>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Display" /> to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">An attempt is made to assign an empty string to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken.Display" />.</exception>
         public string Display
         {
             get
@@ -77,11 +77,11 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class and specifies the text to be recognized.</summary>
-        /// <param name="text">The text of the new <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class and specifies the text to be recognized.</summary>
+        /// <param name="text">The text of the new <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken" /> class instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="text" /> is empty.</exception>
         public SrgsToken(string text)
         {

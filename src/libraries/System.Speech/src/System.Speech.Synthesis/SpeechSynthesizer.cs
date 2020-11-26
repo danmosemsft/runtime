@@ -25,12 +25,12 @@ namespace System.Speech.Synthesis
 
         private bool _closeStreamOnExit;
 
-        /// <summary>Gets the current speaking state of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
-        /// <returns>Returns the current speaking state of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</returns>
+        /// <summary>Gets the current speaking state of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <returns>Returns the current speaking state of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</returns>
         public SynthesizerState State => VoiceSynthesizer.State;
 
-        /// <summary>Gets or sets the speaking rate of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
-        /// <returns>Returns the speaking rate of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object, from -10 through 10.</returns>
+        /// <summary>Gets or sets the speaking rate of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <returns>Returns the speaking rate of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object, from -10 through 10.</returns>
         public int Rate
         {
             get
@@ -47,8 +47,8 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Get or sets the output volume of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
-        /// <returns>Returns the volume of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" />, from 0 through 100.</returns>
+        /// <summary>Get or sets the output volume of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <returns>Returns the volume of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" />, from 0 through 100.</returns>
         public int Volume
         {
             get
@@ -65,8 +65,8 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Gets information about the current voice of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
-        /// <returns>Returns information about the current voice of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</returns>
+        /// <summary>Gets information about the current voice of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <returns>Returns information about the current voice of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</returns>
         public VoiceInfo Voice => VoiceSynthesizer.CurrentVoice(switchContext: true).VoiceInfo;
 
         private VoiceSynthesis VoiceSynthesizer
@@ -86,7 +86,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> begins the speaking of a prompt.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> begins the speaking of a prompt.</summary>
         public event EventHandler<SpeakStartedEventArgs> SpeakStarted
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -105,7 +105,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> completes the speaking of a prompt.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> completes the speaking of a prompt.</summary>
         public event EventHandler<SpeakCompletedEventArgs> SpeakCompleted
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -124,7 +124,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised after the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> speaks each individual word of a prompt.</summary>
+        /// <summary>Raised after the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> speaks each individual word of a prompt.</summary>
         public event EventHandler<SpeakProgressEventArgs> SpeakProgress
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -141,7 +141,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised when the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> encounters a bookmark in a prompt.</summary>
+        /// <summary>Raised when the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> encounters a bookmark in a prompt.</summary>
         public event EventHandler<BookmarkReachedEventArgs> BookmarkReached
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -158,7 +158,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised when the voice of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> changes.</summary>
+        /// <summary>Raised when the voice of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> changes.</summary>
         public event EventHandler<VoiceChangeEventArgs> VoiceChange
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -209,7 +209,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Raised when the state of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> changes.</summary>
+        /// <summary>Raised when the state of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> changes.</summary>
         public event EventHandler<StateChangedEventArgs> StateChanged
         {
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -228,18 +228,18 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> class.</summary>
         public SpeechSynthesizer()
         {
         }
 
-        /// <summary>Acts as a safeguard to clean up resources in the event that the <see cref="M:System.Speech.Synthesis.SpeechSynthesizer.Dispose" /> method is not called.</summary>
+        /// <summary>Acts as a safeguard to clean up resources in the event that the <see cref="System.Speech.Synthesis.SpeechSynthesizer.Dispose()" /> method is not called.</summary>
         ~SpeechSynthesizer()
         {
             Dispose(disposing: false);
         }
 
-        /// <summary>Disposes the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object and releases resources used during the session.</summary>
+        /// <summary>Disposes the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object and releases resources used during the session.</summary>
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -322,7 +322,7 @@ namespace System.Speech.Synthesis
             return prompt;
         }
 
-        /// <summary>Asynchronously speaks the contents of a <see cref="T:System.Speech.Synthesis.Prompt" /> object.</summary>
+        /// <summary>Asynchronously speaks the contents of a <see cref="System.Speech.Synthesis.Prompt" /> object.</summary>
         /// <param name="prompt">The content to speak.</param>
         public void SpeakAsync(Prompt prompt)
         {
@@ -331,7 +331,7 @@ namespace System.Speech.Synthesis
             VoiceSynthesizer.SpeakAsync(prompt);
         }
 
-        /// <summary>Asynchronously speaks a <see cref="T:System.String" /> that contains SSML markup.</summary>
+        /// <summary>Asynchronously speaks a <see cref="string" /> that contains SSML markup.</summary>
         /// <param name="textToSpeak">The SMML markup to speak.</param>
         public Prompt SpeakSsmlAsync(string textToSpeak)
         {
@@ -341,7 +341,7 @@ namespace System.Speech.Synthesis
             return prompt;
         }
 
-        /// <summary>Asynchronously speaks the contents of a <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Asynchronously speaks the contents of a <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="promptBuilder">The content to speak.</param>
         /// <returns>Returns the object that contains the content to speak.</returns>
         public Prompt SpeakAsync(PromptBuilder promptBuilder)
@@ -359,7 +359,7 @@ namespace System.Speech.Synthesis
             Speak(new Prompt(textToSpeak, SynthesisTextFormat.Text));
         }
 
-        /// <summary>Synchronously speaks the contents of a <see cref="T:System.Speech.Synthesis.Prompt" /> object.</summary>
+        /// <summary>Synchronously speaks the contents of a <see cref="System.Speech.Synthesis.Prompt" /> object.</summary>
         /// <param name="prompt">The content to speak.</param>
         public void Speak(Prompt prompt)
         {
@@ -373,21 +373,21 @@ namespace System.Speech.Synthesis
             VoiceSynthesizer.Speak(prompt);
         }
 
-        /// <summary>Synchronously speaks the contents of a <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Synchronously speaks the contents of a <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="promptBuilder">The content to speak.</param>
         public void Speak(PromptBuilder promptBuilder)
         {
             Speak(new Prompt(promptBuilder));
         }
 
-        /// <summary>Synchronously speaks a <see cref="T:System.String" /> that contains SSML markup.</summary>
+        /// <summary>Synchronously speaks a <see cref="string" /> that contains SSML markup.</summary>
         /// <param name="textToSpeak">The SSML string to speak.</param>
         public void SpeakSsml(string textToSpeak)
         {
             Speak(new Prompt(textToSpeak, SynthesisTextFormat.Ssml));
         }
 
-        /// <summary>Pauses the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <summary>Pauses the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
         public void Pause()
         {
             if (!paused)
@@ -397,7 +397,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Resumes the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object after it has been paused.</summary>
+        /// <summary>Resumes the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object after it has been paused.</summary>
         public void Resume()
         {
             if (paused)
@@ -421,7 +421,7 @@ namespace System.Speech.Synthesis
             VoiceSynthesizer.Abort();
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a file that contains Waveform format audio.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a file that contains Waveform format audio.</summary>
         /// <param name="path">The path to the file.</param>
         public void SetOutputToWaveFile(string path)
         {
@@ -430,7 +430,7 @@ namespace System.Speech.Synthesis
             SetOutputStream(new FileStream(path, FileMode.Create, FileAccess.Write), null, headerInfo: true, closeStreamOnExit: true);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a Waveform audio format file in a specified format.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a Waveform audio format file in a specified format.</summary>
         /// <param name="path">The path to the file.</param>
         /// <param name="formatInfo">The audio format information.</param>
         public void SetOutputToWaveFile(string path, SpeechAudioFormatInfo formatInfo)
@@ -441,7 +441,7 @@ namespace System.Speech.Synthesis
             SetOutputStream(new FileStream(path, FileMode.Create, FileAccess.Write), formatInfo, headerInfo: true, closeStreamOnExit: true);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a stream that contains Waveform format audio.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to a stream that contains Waveform format audio.</summary>
         /// <param name="audioDestination">The stream to which to append synthesis output.</param>
         public void SetOutputToWaveStream(Stream audioDestination)
         {
@@ -449,7 +449,7 @@ namespace System.Speech.Synthesis
             SetOutputStream(audioDestination, null, headerInfo: true, closeStreamOnExit: false);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to an audio stream.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to append output to an audio stream.</summary>
         /// <param name="audioDestination">The stream to which to append synthesis output.</param>
         /// <param name="formatInfo">The format to use for the synthesis output.</param>
         public void SetOutputToAudioStream(Stream audioDestination, SpeechAudioFormatInfo formatInfo)
@@ -459,13 +459,13 @@ namespace System.Speech.Synthesis
             SetOutputStream(audioDestination, formatInfo, headerInfo: false, closeStreamOnExit: false);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to send output to the default audio device.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to send output to the default audio device.</summary>
         public void SetOutputToDefaultAudioDevice()
         {
             SetOutputStream(null, null, headerInfo: true, closeStreamOnExit: false);
         }
 
-        /// <summary>Configures the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object to not send output from synthesis operations to a device, file, or stream.</summary>
+        /// <summary>Configures the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object to not send output from synthesis operations to a device, file, or stream.</summary>
         public void SetOutputToNull()
         {
             if (_outputStream != Stream.Null)
@@ -479,7 +479,7 @@ namespace System.Speech.Synthesis
             _outputStream = Stream.Null;
         }
 
-        /// <summary>Gets the prompt that the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> is speaking.</summary>
+        /// <summary>Gets the prompt that the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> is speaking.</summary>
         /// <returns>Returns the prompt object that is currently being spoken.</returns>
         public Prompt GetCurrentlySpokenPrompt()
         {
@@ -506,7 +506,7 @@ namespace System.Speech.Synthesis
             return VoiceSynthesizer.GetInstalledVoices(culture);
         }
 
-        /// <summary>Adds a lexicon to the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <summary>Adds a lexicon to the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
         /// <param name="uri">The location of the lexicon information.</param>
         /// <param name="mediaType">The media type of the lexicon. Media type values are not case sensitive.</param>
         public void AddLexicon(Uri uri, string mediaType)
@@ -515,7 +515,7 @@ namespace System.Speech.Synthesis
             VoiceSynthesizer.AddLexicon(uri, mediaType);
         }
 
-        /// <summary>Removes a lexicon from the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
+        /// <summary>Removes a lexicon from the <see cref="System.Speech.Synthesis.SpeechSynthesizer" /> object.</summary>
         /// <param name="uri">The location of the lexicon document.</param>
         public void RemoveLexicon(Uri uri)
         {

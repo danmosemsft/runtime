@@ -19,7 +19,7 @@ namespace System.Speech.Recognition
         private int _countOfWords;
 
         /// <summary>Gets information about the leading and trailing spaces for the text replaced by the speech normalization procedure.</summary>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.DisplayAttributes" /> object that specifies the use of white space to display text replaced by normalization.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.DisplayAttributes" /> object that specifies the use of white space to display text replaced by normalization.</returns>
         public DisplayAttributes DisplayAttributes => _displayAttributes;
 
         /// <summary>Gets the recognized text replaced by the speech normalization procedure.</summary>

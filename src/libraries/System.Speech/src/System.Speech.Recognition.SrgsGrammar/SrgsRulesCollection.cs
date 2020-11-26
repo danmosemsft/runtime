@@ -6,15 +6,15 @@ using System.Speech.Internal;
 
 namespace System.Speech.Recognition.SrgsGrammar
 {
-    /// <summary>Represents a collection of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> objects.</summary>
+    /// <summary>Represents a collection of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> objects.</summary>
     [Serializable]
     public sealed class SrgsRulesCollection : KeyedCollection<string, SrgsRule>
     {
-        /// <summary>Adds the contents of an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> objects to the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> object.</summary>
-        /// <param name="rules">The array of rule objects to add to the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> object.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Adds the contents of an array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> objects to the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> object.</summary>
+        /// <param name="rules">The array of rule objects to add to the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> object.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="rules" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">Any <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object in the <paramref name="rules" /> array is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">Any <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object in the <paramref name="rules" /> array is <see langword="null" />.</exception>
         public void Add(params SrgsRule[] rules)
         {
             Helpers.ThrowIfNull(rules, nameof(rules));
@@ -45,7 +45,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             return rule.Id;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRulesCollection" /> class.</summary>
         public SrgsRulesCollection()
         {
         }

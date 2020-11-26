@@ -19,10 +19,10 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private object _value;
 
-        /// <summary>Gets or sets the name of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</summary>
-        /// <returns>A string that contains the name of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> to <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> to an empty string.</exception>
+        /// <summary>Gets or sets the name of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</summary>
+        /// <returns>A string that contains the name of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> to an empty string.</exception>
         public string Name
         {
             get
@@ -35,10 +35,10 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the value contained in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</summary>
-        /// <returns>The value contained in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> to <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> to an invalid type.</exception>
+        /// <summary>Gets or sets the value contained in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</summary>
+        /// <returns>The value contained in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> instance.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> to an invalid type.</exception>
         public object Value
         {
             get
@@ -57,14 +57,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class.</summary>
         public SrgsNameValueTag()
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class, specifying a value for the instance.</summary>
-        /// <param name="value">The value used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> property.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class, specifying a value for the instance.</summary>
+        /// <param name="value">The value used to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> property.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="value" /> is <see langword="null" />.</exception>
         public SrgsNameValueTag(object value)
         {
@@ -72,13 +72,13 @@ namespace System.Speech.Recognition.SrgsGrammar
             Value = value;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class, specifying a name and a value for the instance.</summary>
-        /// <param name="name">The string used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> property on the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
-        /// <param name="value">The object used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> property on the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> class, specifying a name and a value for the instance.</summary>
+        /// <param name="name">The string used to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> property on the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
+        /// <param name="value">The object used to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> property on the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="value" /> is <see langword="null" />.
         /// <paramref name="name" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="name" /> is an empty string.</exception>
         public SrgsNameValueTag(string name, object value)
             : this(value)

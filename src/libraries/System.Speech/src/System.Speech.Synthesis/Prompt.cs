@@ -7,7 +7,7 @@ using System.Speech.Internal;
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Represents information about what can be rendered, either text or an audio file, by the <see cref="T:System.Speech.Synthesis.SpeechSynthesizer" />.</summary>
+    /// <summary>Represents information about what can be rendered, either text or an audio file, by the <see cref="System.Speech.Synthesis.SpeechSynthesizer" />.</summary>
     [DebuggerDisplay("{_text}")]
     public class Prompt
     {
@@ -27,7 +27,7 @@ namespace System.Speech.Synthesis
 
         private static ResourceLoader _resourceLoader = new ResourceLoader();
 
-        /// <summary>Gets whether the <see cref="T:System.Speech.Synthesis.Prompt" /> has finished playing.</summary>
+        /// <summary>Gets whether the <see cref="System.Speech.Synthesis.Prompt" /> has finished playing.</summary>
         /// <returns>Returns <see langword="true" /> if the prompt has completed; otherwise <see langword="false" />.</returns>
         public bool IsCompleted
         {
@@ -53,14 +53,14 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Creates a new instance of the <see cref="T:System.Speech.Synthesis.Prompt" /> class and specifies the text to be spoken.</summary>
+        /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.Prompt" /> class and specifies the text to be spoken.</summary>
         /// <param name="textToSpeak">The text to be spoken.</param>
         public Prompt(string textToSpeak)
             : this(textToSpeak, SynthesisTextFormat.Text)
         {
         }
 
-        /// <summary>Creates a new instance of the <see cref="T:System.Speech.Synthesis.Prompt" /> class from a <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.Prompt" /> class from a <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="promptBuilder">The content to be spoken.</param>
         public Prompt(PromptBuilder promptBuilder)
         {
@@ -69,7 +69,7 @@ namespace System.Speech.Synthesis
             _media = SynthesisMediaType.Ssml;
         }
 
-        /// <summary>Creates a new instance of the <see cref="T:System.Speech.Synthesis.Prompt" /> class and specifies the text to be spoken and whether its format is plain text or markup language.</summary>
+        /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.Prompt" /> class and specifies the text to be spoken and whether its format is plain text or markup language.</summary>
         /// <param name="textToSpeak">The text to be spoken.</param>
         /// <param name="media">A value that specifies the format of the text.</param>
         public Prompt(string textToSpeak, SynthesisTextFormat media)

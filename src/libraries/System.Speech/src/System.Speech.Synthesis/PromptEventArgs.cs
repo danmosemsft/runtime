@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Represents the base class for <see langword="EventArgs" /> classes in the <see cref="N:System.Speech.Synthesis" /> namespace.</summary>
+    /// <summary>Represents the base class for <see langword="EventArgs" /> classes in the <see cref="System.Speech.Synthesis" /> namespace.</summary>
     public abstract class PromptEventArgs : AsyncCompletedEventArgs
     {
         private Prompt _prompt;

@@ -10,7 +10,7 @@ namespace System.Speech.Recognition
         private RecognitionResult _result;
 
         /// <summary>Gets the recognition result data associated with the speech recognition event.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.RecognitionEventArgs.Result" /> property returns the <see cref="T:System.Speech.Recognition.RecognitionResult" /> that contains the information about the recognition.</returns>
+        /// <returns>The <see cref="System.Speech.Recognition.RecognitionEventArgs.Result" /> property returns the <see cref="System.Speech.Recognition.RecognitionResult" /> that contains the information about the recognition.</returns>
         public RecognitionResult Result => _result;
 
         internal RecognitionEventArgs(RecognitionResult result)

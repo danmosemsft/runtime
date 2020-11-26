@@ -37,26 +37,26 @@ namespace System.Speech.Recognition
         public string Pronunciation => _pronunciation;
 
         /// <summary>Gets the unnormalized text of a recognized word.</summary>
-        /// <returns>Returns a <see cref="T:System.String" /> containing the text of a recognized word, without any normalization.</returns>
+        /// <returns>Returns a <see cref="string" /> containing the text of a recognized word, without any normalization.</returns>
         public string LexicalForm => _lexicalForm;
 
-        /// <summary>Gets formatting information used to create the text output from the current <see cref="T:System.Speech.Recognition.RecognizedWordUnit" /> instance.</summary>
-        /// <returns>Specifies the use of white space to display of the contents of a <see cref="T:System.Speech.Recognition.RecognizedWordUnit" /> object.</returns>
+        /// <summary>Gets formatting information used to create the text output from the current <see cref="System.Speech.Recognition.RecognizedWordUnit" /> instance.</summary>
+        /// <returns>Specifies the use of white space to display of the contents of a <see cref="System.Speech.Recognition.RecognizedWordUnit" /> object.</returns>
         public DisplayAttributes DisplayAttributes => _displayAttributes;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.RecognizedWordUnit" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.RecognizedWordUnit" /> class.</summary>
         /// <param name="text">The normalized text for a recognized word.
-        ///  This value can be <see langword="null" />, "", or <see cref="F:System.String.Empty" />.</param>
+        ///  This value can be <see langword="null" />, "", or <see cref="string.Empty" />.</param>
         /// <param name="confidence">A <see langword="float" /> value from 0.0 through 1.0 indicating the certainty of word recognition.</param>
         /// <param name="pronunciation">The phonetic spelling of a recognized word.
-        ///  This value can be <see langword="null" />, "", or <see cref="F:System.String.Empty" />.</param>
+        ///  This value can be <see langword="null" />, "", or <see cref="string.Empty" />.</param>
         /// <param name="lexicalForm">The unnormalized text for a recognized word.
-        ///  This argument is required and may not be <see langword="null" />, "", or <see cref="F:System.String.Empty" />.</param>
+        ///  This argument is required and may not be <see langword="null" />, "", or <see cref="string.Empty" />.</param>
         /// <param name="displayAttributes">Defines the use of white space to display recognized words.</param>
         /// <param name="audioPosition">The location of the recognized word in the audio input stream.
-        ///  This value can be <see cref="F:System.TimeSpan.Zero" />.</param>
+        ///  This value can be <see cref="System.TimeSpan.Zero" />.</param>
         /// <param name="audioDuration">The length of the audio input corresponding to the recognized word.
-        ///  This value can be <see cref="F:System.TimeSpan.Zero" />.</param>
+        ///  This value can be <see cref="System.TimeSpan.Zero" />.</param>
         public RecognizedWordUnit(string text, float confidence, string pronunciation, string lexicalForm, DisplayAttributes displayAttributes, TimeSpan audioPosition, TimeSpan audioDuration)
         {
             if (lexicalForm == null)

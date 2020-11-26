@@ -18,8 +18,8 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private Uri _baseUri;
 
-        /// <summary>Gets or sets the base URI of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>The current base URI of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
+        /// <summary>Gets or sets the base URI of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>The current base URI of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
         public Uri XmlBase
         {
             get
@@ -32,10 +32,10 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the culture information for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
-        /// <returns>A <see cref="T:System.Globalization.CultureInfo" /> object that contains the current culture information for <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
-        /// <exception cref="T:System.ArgumentNullException">The value being assigned to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Culture" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">The value being assigned to <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Culture" /> is <see cref="P:System.Globalization.CultureInfo.InvariantCulture" />.</exception>
+        /// <summary>Gets or sets the culture information for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
+        /// <returns>A <see cref="System.Globalization.CultureInfo" /> object that contains the current culture information for <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
+        /// <exception cref="System.ArgumentNullException">The value being assigned to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Culture" /> is <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentException">The value being assigned to <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Culture" /> is <see cref="System.Globalization.CultureInfo.InvariantCulture" />.</exception>
         public CultureInfo Culture
         {
             get
@@ -53,8 +53,8 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the root rule of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>Returns the rule that is designated as the root rule of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
+        /// <summary>Gets or sets the root rule of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>Returns the rule that is designated as the root rule of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
         public SrgsRule Root
         {
             get
@@ -67,8 +67,8 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the mode for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>The recognition mode of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
+        /// <summary>Gets or sets the mode for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>The recognition mode of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
         public SrgsGrammarMode Mode
         {
             get
@@ -85,8 +85,8 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the phonetic alphabet of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>Returns the phonetic alphabet that must be used to specify custom pronunciations in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsToken" /> object.</returns>
+        /// <summary>Gets or sets the phonetic alphabet of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>Returns the phonetic alphabet that must be used to specify custom pronunciations in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsToken" /> object.</returns>
         public SrgsPhoneticAlphabet PhoneticAlphabet
         {
             get
@@ -100,12 +100,12 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets the collection of rules that are currently defined for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>Returns the rules defined for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</returns>
+        /// <summary>Gets the collection of rules that are currently defined for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>Returns the rules defined for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</returns>
         public SrgsRulesCollection Rules => _grammar.Rules;
 
-        /// <summary>Gets or sets the programming language used for inline code in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Language" /> property returns the programming language to which <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> is currently set.</returns>
+        /// <summary>Gets or sets the programming language used for inline code in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Language" /> property returns the programming language to which <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> is currently set.</returns>
         public string Language
         {
             get
@@ -118,8 +118,8 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the namespace of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Namespace" /> property returns the namespace for the current <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
+        /// <summary>Gets or sets the namespace of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Namespace" /> property returns the namespace for the current <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</returns>
         public string Namespace
         {
             get
@@ -132,12 +132,12 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets the code-behind information for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.CodeBehind" /> property returns a string collection that contains a list of the code-behind documents.</returns>
+        /// <summary>Gets the code-behind information for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.CodeBehind" /> property returns a string collection that contains a list of the code-behind documents.</returns>
         public Collection<string> CodeBehind => _grammar.CodeBehind;
 
         /// <summary>Gets or sets whether line numbers should be added to inline scripts.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Debug" /> property returns <see langword="true" /> if line numbers should be added for debugging purposes; otherwise the property returns <see langword="false" />.</returns>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Debug" /> property returns <see langword="true" /> if line numbers should be added for debugging purposes; otherwise the property returns <see langword="false" />.</returns>
         public bool Debug
         {
             get
@@ -150,10 +150,10 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets or sets the .NET scripting language for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
-        /// <returns>The <see langword="Script" /> property returns the current .NET scripting language for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Script" /> property to null.</exception>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.Script" /> property to an empty string.</exception>
+        /// <summary>Gets or sets the .NET scripting language for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <returns>The <see langword="Script" /> property returns the current .NET scripting language for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Script" /> property to null.</exception>
+        /// <exception cref="System.ArgumentException">An attempt is made to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.Script" /> property to an empty string.</exception>
         public string Script
         {
             get
@@ -167,12 +167,12 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Gets the related namespaces for the current <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.ImportNamespaces" /> property returns a string collection that contains a list of the related namespaces in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</returns>
+        /// <summary>Gets the related namespaces for the current <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.ImportNamespaces" /> property returns a string collection that contains a list of the related namespaces in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</returns>
         public Collection<string> ImportNamespaces => _grammar.ImportNamespaces;
 
-        /// <summary>Gets the assembly reference information for the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
-        /// <returns>The <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsDocument.AssemblyReferences" /> property returns a string collection containing a list of the assembly references.</returns>
+        /// <summary>Gets the assembly reference information for the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
+        /// <returns>The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument.AssemblyReferences" /> property returns a string collection containing a list of the assembly references.</returns>
         public Collection<string> AssemblyReferences => _grammar.AssemblyReferences;
 
         internal SrgsTagFormat TagFormat
@@ -187,17 +187,17 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         internal SrgsGrammar Grammar => _grammar;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class.</summary>
         public SrgsDocument()
         {
             _grammar = new SrgsGrammar();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class specifying the location of the XML document that is used to fill in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class specifying the location of the XML document that is used to fill in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</summary>
         /// <param name="path">The location of the SRGS XML file.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="path" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="path" /> is an empty string.</exception>
         public SrgsDocument(string path)
         {
@@ -208,9 +208,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class from an instance of <see cref="T:System.Xml.XmlReader" /> that references an XML-format grammar file.</summary>
-        /// <param name="srgsGrammar">The <see cref="T:System.Xml.XmlReader" /> object that was created with the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> XML instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class from an instance of <see cref="System.Xml.XmlReader" /> that references an XML-format grammar file.</summary>
+        /// <param name="srgsGrammar">The <see cref="System.Xml.XmlReader" /> object that was created with the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> XML instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="srgsGrammar" /> is <see langword="null" />.</exception>
         public SrgsDocument(XmlReader srgsGrammar)
         {
@@ -218,9 +218,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             Load(srgsGrammar);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class from a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
-        /// <param name="builder">The <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object used to create the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class from a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <param name="builder">The <see cref="System.Speech.Recognition.GrammarBuilder" /> object used to create the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="builder" /> is <see langword="null" />.</exception>
         public SrgsDocument(GrammarBuilder builder)
         {
@@ -231,9 +231,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             builder.CreateGrammar(elementFactory);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class and specifies an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object to be the root rule of the grammar.</summary>
-        /// <param name="grammarRootRule">The <see langword="root rule" /> in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> class and specifies an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object to be the root rule of the grammar.</summary>
+        /// <param name="grammarRootRule">The <see langword="root rule" /> in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="grammarRootRule" /> is <see langword="null" />.</exception>
         public SrgsDocument(SrgsRule grammarRootRule)
             : this()
@@ -243,9 +243,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             Rules.Add(grammarRootRule);
         }
 
-        /// <summary>Writes the contents of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object to an XML-format grammar file that conforms to the Speech Recognition Grammar Specification (SRGS) Version 1.0.</summary>
-        /// <param name="srgsGrammar">The <see cref="T:System.Xml.XmlWriter" /> that is used to write the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Writes the contents of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object to an XML-format grammar file that conforms to the Speech Recognition Grammar Specification (SRGS) Version 1.0.</summary>
+        /// <param name="srgsGrammar">The <see cref="System.Xml.XmlWriter" /> that is used to write the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="srgsGrammar" /> is <see langword="null" />.</exception>
         public void WriteSrgs(XmlWriter srgsGrammar)
         {

@@ -3,7 +3,7 @@
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Provides information for the <see cref="E:System.Speech.Recognition.Grammar.SpeechRecognized" />, <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" />, and <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechRecognized" /> events.</summary>
+    /// <summary>Provides information for the <see cref="System.Speech.Recognition.Grammar.SpeechRecognized" />, <see cref="System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" />, and <see cref="System.Speech.Recognition.SpeechRecognizer.SpeechRecognized" /> events.</summary>
     [Serializable]
     public class SpeechRecognizedEventArgs : RecognitionEventArgs
     {

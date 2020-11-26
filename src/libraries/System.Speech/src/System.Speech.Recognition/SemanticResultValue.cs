@@ -15,17 +15,17 @@ namespace System.Speech.Recognition
 
         internal TagElement Tag => _tag;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SemanticResultValue" /> class and specifies a semantic value.</summary>
-        /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SemanticResultValue" /> class and specifies a semantic value.</summary>
+        /// <param name="value">The value managed by <see cref="System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(object value)
         {
             Helpers.ThrowIfNull(value, nameof(value));
             _tag = new TagElement(value);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SemanticResultValue" /> class and associates a semantic value with a <see cref="T:System.String" /> object.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SemanticResultValue" /> class and associates a semantic value with a <see cref="string" /> object.</summary>
         /// <param name="phrase">A phrase to be used in recognition.</param>
-        /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
+        /// <param name="value">The value managed by <see cref="System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(string phrase, object value)
         {
             Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
@@ -33,9 +33,9 @@ namespace System.Speech.Recognition
             _tag = new TagElement(new GrammarBuilderPhrase((string)phrase.Clone()), value);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SemanticResultValue" /> class and associates a semantic value with a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SemanticResultValue" /> class and associates a semantic value with a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="builder">A grammar component to be used in recognition.</param>
-        /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
+        /// <param name="value">The value managed by <see cref="System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(GrammarBuilder builder, object value)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -43,8 +43,8 @@ namespace System.Speech.Recognition
             _tag = new TagElement(builder.Clone(), value);
         }
 
-        /// <summary>Returns an instance of <see cref="T:System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="T:System.Speech.Recognition.SemanticResultValue" /> instance.</summary>
-        /// <returns>Returns an instance of <see cref="T:System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="T:System.Speech.Recognition.SemanticResultValue" /> instance.</returns>
+        /// <summary>Returns an instance of <see cref="System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="System.Speech.Recognition.SemanticResultValue" /> instance.</summary>
+        /// <returns>Returns an instance of <see cref="System.Speech.Recognition.GrammarBuilder" /> constructed from the current <see cref="System.Speech.Recognition.SemanticResultValue" /> instance.</returns>
         public GrammarBuilder ToGrammarBuilder()
         {
             return new GrammarBuilder(this);

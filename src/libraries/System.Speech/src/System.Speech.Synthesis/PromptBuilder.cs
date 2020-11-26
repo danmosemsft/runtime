@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Creates an empty <see cref="T:System.Speech.Synthesis.Prompt" /> object and provides methods for adding content, selecting voices, controlling voice attributes, and controlling the pronunciation of spoken words.</summary>
+    /// <summary>Creates an empty <see cref="System.Speech.Synthesis.Prompt" /> object and provides methods for adding content, selecting voices, controlling voice attributes, and controlling the pronunciation of spoken words.</summary>
     [Serializable]
     public class PromptBuilder
     {
@@ -133,10 +133,10 @@ namespace System.Speech.Synthesis
             "s"
         };
 
-        /// <summary>Gets whether the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> is empty.</summary>
+        /// <summary>Gets whether the <see cref="System.Speech.Synthesis.PromptBuilder" /> is empty.</summary>
         public bool IsEmpty => _elements.Count == 0;
 
-        /// <summary>Gets or sets the culture information for the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Gets or sets the culture information for the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public CultureInfo Culture
         {
             get
@@ -153,13 +153,13 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Creates a new instance of the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> class.</summary>
+        /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.PromptBuilder" /> class.</summary>
         public PromptBuilder()
             : this(CultureInfo.CurrentUICulture)
         {
         }
 
-        /// <summary>Creates a new instance of the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> class and specifies a culture.</summary>
+        /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.PromptBuilder" /> class and specifies a culture.</summary>
         /// <param name="culture">Provides information about a specific culture, such as its language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.</param>
         public PromptBuilder(CultureInfo culture)
         {
@@ -172,14 +172,14 @@ namespace System.Speech.Synthesis
             ClearContent();
         }
 
-        /// <summary>Clears the content from the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Clears the content from the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void ClearContent()
         {
             _elements.Clear();
             _elementStack.Push(new StackElement(SsmlElement.Voice | SsmlElement.Audio | SsmlElement.Lexicon | SsmlElement.Meta | SsmlElement.MetaData | SsmlElement.Sentence | SsmlElement.Paragraph | SsmlElement.SayAs | SsmlElement.Phoneme | SsmlElement.Sub | SsmlElement.Emphasis | SsmlElement.Break | SsmlElement.Prosody | SsmlElement.Mark | SsmlElement.Text | SsmlElement.PromptEngineOutput, SsmlState.Header, _culture));
         }
 
-        /// <summary>Specifies text to append to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies text to append to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         public void AppendText(string textToSpeak)
         {
@@ -188,7 +188,7 @@ namespace System.Speech.Synthesis
             _elements.Add(new Element(ElementType.Text, textToSpeak));
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the speaking rate for the text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the speaking rate for the text.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         /// <param name="rate">The value for the speaking rate to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptRate rate)
@@ -223,7 +223,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the volume to speak the text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the volume to speak the text.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         /// <param name="volume">The value for the speaking volume (loudness) to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptVolume volume)
@@ -258,7 +258,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the degree of emphasis for the text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the degree of emphasis for the text.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         /// <param name="emphasis">The value for the emphasis or stress to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptEmphasis emphasis)
@@ -278,7 +278,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Specifies the start of a style in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the start of a style in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="style">The style to start.</param>
         public void StartStyle(PromptStyle style)
         {
@@ -350,7 +350,7 @@ namespace System.Speech.Synthesis
             _elementStack.Push(new StackElement(possibleChildren, ssmlState, stackElement._culture));
         }
 
-        /// <summary>Specifies the end of a style in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the end of a style in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void EndStyle()
         {
             StackElement stackElement = _elementStack.Pop();
@@ -368,7 +368,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies criteria for the new voice.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies criteria for the new voice.</summary>
         /// <param name="voice">The criteria for the voice to use.</param>
         public void StartVoice(VoiceInfo voice)
         {
@@ -410,7 +410,7 @@ namespace System.Speech.Synthesis
             _elementStack.Push(new StackElement(SsmlElement.Voice | SsmlElement.Audio | SsmlElement.Sentence | SsmlElement.SayAs | SsmlElement.Phoneme | SsmlElement.Sub | SsmlElement.Emphasis | SsmlElement.Break | SsmlElement.Prosody | SsmlElement.Mark | SsmlElement.Text | SsmlElement.PromptEngineOutput, SsmlState.Voice, culture));
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the name of the voice to use.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the name of the voice to use.</summary>
         /// <param name="name">The name of the voice to use.</param>
         public void StartVoice(string name)
         {
@@ -418,14 +418,14 @@ namespace System.Speech.Synthesis
             StartVoice(new VoiceInfo(name));
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the gender of the voice to use.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the gender of the voice to use.</summary>
         /// <param name="gender">The gender of the voice to use.</param>
         public void StartVoice(VoiceGender gender)
         {
             StartVoice(new VoiceInfo(gender));
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the gender and the age of the new voice.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the gender and the age of the new voice.</summary>
         /// <param name="gender">The gender of the new voice to use.</param>
         /// <param name="age">The age of the voice to use.</param>
         public void StartVoice(VoiceGender gender, VoiceAge age)
@@ -433,7 +433,7 @@ namespace System.Speech.Synthesis
             StartVoice(new VoiceInfo(gender, age));
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies its gender, age, and a preferred voice that matches the specified gender and age.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies its gender, age, and a preferred voice that matches the specified gender and age.</summary>
         /// <param name="gender">The gender of the voice to use.</param>
         /// <param name="age">The age of the voice to use.</param>
         /// <param name="voiceAlternate">An integer that specifies a preferred voice when more than one voice matches the <paramref name="gender" /> and <paramref name="age" /> parameters.</param>
@@ -442,14 +442,14 @@ namespace System.Speech.Synthesis
             StartVoice(new VoiceInfo(gender, age, voiceAlternate));
         }
 
-        /// <summary>Instructs the synthesizer to change the voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the culture of the voice to use.</summary>
+        /// <summary>Instructs the synthesizer to change the voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the culture of the voice to use.</summary>
         /// <param name="culture">Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.</param>
         public void StartVoice(CultureInfo culture)
         {
             StartVoice(new VoiceInfo(culture));
         }
 
-        /// <summary>Specifies the end of use of a voice in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the end of use of a voice in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void EndVoice()
         {
             if (_elementStack.Pop()._state != SsmlState.Voice)
@@ -459,13 +459,13 @@ namespace System.Speech.Synthesis
             _elements.Add(new Element(ElementType.EndVoice));
         }
 
-        /// <summary>Specifies the start of a paragraph in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the start of a paragraph in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void StartParagraph()
         {
             StartParagraph(null);
         }
 
-        /// <summary>Specifies the start of a paragraph in the specified culture in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the start of a paragraph in the specified culture in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="culture">Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.</param>
         public void StartParagraph(CultureInfo culture)
         {
@@ -489,7 +489,7 @@ namespace System.Speech.Synthesis
             _elementStack.Push(new StackElement(SsmlElement.Voice | SsmlElement.Audio | SsmlElement.Sentence | SsmlElement.SayAs | SsmlElement.Phoneme | SsmlElement.Sub | SsmlElement.Emphasis | SsmlElement.Break | SsmlElement.Prosody | SsmlElement.Mark | SsmlElement.Text | SsmlElement.PromptEngineOutput, SsmlState.Paragraph, culture));
         }
 
-        /// <summary>Specifies the end of a paragraph in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the end of a paragraph in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void EndParagraph()
         {
             if (_elementStack.Pop()._state != SsmlState.Paragraph)
@@ -499,13 +499,13 @@ namespace System.Speech.Synthesis
             _elements.Add(new Element(ElementType.EndParagraph));
         }
 
-        /// <summary>Specifies the start of a sentence in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the start of a sentence in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void StartSentence()
         {
             StartSentence(null);
         }
 
-        /// <summary>Specifies the start of a sentence in the specified culture in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the start of a sentence in the specified culture in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="culture">Provides information about a specific culture, such as the language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.</param>
         public void StartSentence(CultureInfo culture)
         {
@@ -529,7 +529,7 @@ namespace System.Speech.Synthesis
             _elementStack.Push(new StackElement(SsmlElement.AudioMarkTextWithStyle, SsmlState.Sentence, culture));
         }
 
-        /// <summary>Specifies the end of a sentence in the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Specifies the end of a sentence in the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void EndSentence()
         {
             if (_elementStack.Pop()._state != SsmlState.Sentence)
@@ -539,7 +539,7 @@ namespace System.Speech.Synthesis
             _elements.Add(new Element(ElementType.EndSentence));
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the content type using a member of the <see cref="T:System.Speech.Synthesis.SayAs" /> enumeration.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the content type using a member of the <see cref="System.Speech.Synthesis.SayAs" /> enumeration.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         /// <param name="sayAs">The content type of the text.</param>
         public void AppendTextWithHint(string textToSpeak, SayAs sayAs)
@@ -638,7 +638,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and a <see cref="T:System.String" /> that specifies the content type of the text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and a <see cref="string" /> that specifies the content type of the text.</summary>
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         /// <param name="sayAs">The content type of the text.</param>
         public void AppendTextWithHint(string textToSpeak, string sayAs)
@@ -652,7 +652,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("interpret-as", sayAs));
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the pronunciation for the text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the pronunciation for the text.</summary>
         /// <param name="textToSpeak">A string containing the written form of the word using the conventional alphabet for a language.</param>
         /// <param name="pronunciation">A string containing phones to be spoken from the International Phonetic Alphabet (IPA).</param>
         public void AppendTextWithPronunciation(string textToSpeak, string pronunciation)
@@ -667,7 +667,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("ph", pronunciation));
         }
 
-        /// <summary>Appends text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies the alias text to be spoken in place of the appended text.</summary>
+        /// <summary>Appends text to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies the alias text to be spoken in place of the appended text.</summary>
         /// <param name="textToSpeak">A string containing the text representation.</param>
         /// <param name="substitute">A string containing the text to be spoken.</param>
         public void AppendTextWithAlias(string textToSpeak, string substitute)
@@ -681,14 +681,14 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("alias", substitute));
         }
 
-        /// <summary>Appends a break to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends a break to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         public void AppendBreak()
         {
             ValidateElement(_elementStack.Peek(), SsmlElement.Break);
             _elements.Add(new Element(ElementType.Break));
         }
 
-        /// <summary>Appends a break to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object and specifies its strength (duration).</summary>
+        /// <summary>Appends a break to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object and specifies its strength (duration).</summary>
         /// <param name="strength">Indicates the duration of the break, with the following increasing values:</param>
         public void AppendBreak(PromptBreak strength)
         {
@@ -723,7 +723,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("strength", text));
         }
 
-        /// <summary>Appends a break of the specified duration to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends a break of the specified duration to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="duration">The time in ticks, where one tick equals 100 nanoseconds.</param>
         public void AppendBreak(TimeSpan duration)
         {
@@ -738,7 +738,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("time", duration.TotalMilliseconds + "ms"));
         }
 
-        /// <summary>Appends the specified audio file to the <see cref="T:System.Speech.Synthesis.PromptBuilder" />.</summary>
+        /// <summary>Appends the specified audio file to the <see cref="System.Speech.Synthesis.PromptBuilder" />.</summary>
         /// <param name="path">A fully qualified path to the audio file.</param>
         public void AppendAudio(string path)
         {
@@ -756,7 +756,7 @@ namespace System.Speech.Synthesis
             AppendAudio(audioFile);
         }
 
-        /// <summary>Appends the audio file at the specified URI to the <see cref="T:System.Speech.Synthesis.PromptBuilder" />.</summary>
+        /// <summary>Appends the audio file at the specified URI to the <see cref="System.Speech.Synthesis.PromptBuilder" />.</summary>
         /// <param name="audioFile">URI for the audio file.</param>
         public void AppendAudio(Uri audioFile)
         {
@@ -768,7 +768,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("src", audioFile.ToString()));
         }
 
-        /// <summary>Appends the specified audio file and alternate text to the <see cref="T:System.Speech.Synthesis.PromptBuilder" />.</summary>
+        /// <summary>Appends the specified audio file and alternate text to the <see cref="System.Speech.Synthesis.PromptBuilder" />.</summary>
         /// <param name="audioFile">URI for the audio file.</param>
         /// <param name="alternateText">A string containing alternate text representing the audio.</param>
         public void AppendAudio(Uri audioFile, string alternateText)
@@ -782,7 +782,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("src", audioFile.ToString()));
         }
 
-        /// <summary>Appends a bookmark to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends a bookmark to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="bookmarkName">A string containing the name of the appended bookmark.</param>
         public void AppendBookmark(string bookmarkName)
         {
@@ -794,7 +794,7 @@ namespace System.Speech.Synthesis
             element._attributes.Add(new AttributeItem("name", bookmarkName));
         }
 
-        /// <summary>Appends a <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object to another <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends a <see cref="System.Speech.Synthesis.PromptBuilder" /> object to another <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="promptBuilder">The content to append.</param>
         public void AppendPromptBuilder(PromptBuilder promptBuilder)
         {
@@ -806,7 +806,7 @@ namespace System.Speech.Synthesis
             stringReader.Close();
         }
 
-        /// <summary>Appends the SSML file at the specified path to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends the SSML file at the specified path to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="path">A fully qualified path to the SSML file to append.</param>
         public void AppendSsml(string path)
         {
@@ -814,7 +814,7 @@ namespace System.Speech.Synthesis
             AppendSsml(new Uri(path, UriKind.Relative));
         }
 
-        /// <summary>Appends the SSML file at the specified URI to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends the SSML file at the specified URI to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="ssmlFile">A fully qualified URI to the SSML file to append.</param>
         public void AppendSsml(Uri ssmlFile)
         {
@@ -834,7 +834,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-        /// <summary>Appends an <c>XMLReader</c> object that references an SSML prompt to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends an <c>XMLReader</c> object that references an SSML prompt to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="ssmlFile">A fully qualified name to the XML file to append.</param>
         public void AppendSsml(XmlReader ssmlFile)
         {
@@ -842,7 +842,7 @@ namespace System.Speech.Synthesis
             AppendSsmlInternal(ssmlFile);
         }
 
-        /// <summary>Appends the specified string containing SSML markup to the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <summary>Appends the specified string containing SSML markup to the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
         /// <param name="ssmlMarkup">A string containing SSML markup.</param>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public void AppendSsmlMarkup(string ssmlMarkup)
@@ -851,8 +851,8 @@ namespace System.Speech.Synthesis
             _elements.Add(new Element(ElementType.SsmlMarkup, ssmlMarkup));
         }
 
-        /// <summary>Returns the SSML generated from the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object.</summary>
-        /// <returns>Returns the SSML generated from the <see cref="T:System.Speech.Synthesis.PromptBuilder" /> object as a single line.</returns>
+        /// <summary>Returns the SSML generated from the <see cref="System.Speech.Synthesis.PromptBuilder" /> object.</summary>
+        /// <returns>Returns the SSML generated from the <see cref="System.Speech.Synthesis.PromptBuilder" /> object as a single line.</returns>
         public string ToXml()
         {
             using (StringWriter stringWriter = new StringWriter(CultureInfo.InvariantCulture))

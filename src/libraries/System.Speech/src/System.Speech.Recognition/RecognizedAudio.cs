@@ -7,7 +7,7 @@ using System.Speech.Internal;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Represents audio input that is associated with a <see cref="T:System.Speech.Recognition.RecognitionResult" />.</summary>
+    /// <summary>Represents audio input that is associated with a <see cref="System.Speech.Recognition.RecognitionResult" />.</summary>
     [Serializable]
     public class RecognizedAudio
     {
@@ -72,9 +72,9 @@ namespace System.Speech.Recognition
         /// <param name="audioPosition">The starting point of the audio data to be returned.</param>
         /// <param name="duration">The length of the segment to be returned.</param>
         /// <returns>Returns a subsection of the recognized audio, as defined by <paramref name="audioPosition" /> and <paramref name="duration" />.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="audioPosition" /> and <paramref name="duration" /> define a segment of audio outside the range of the current segment.</exception>
-        /// <exception cref="T:System.InvalidOperationException">The current recognized audio contains no data.</exception>
+        /// <exception cref="System.InvalidOperationException">The current recognized audio contains no data.</exception>
         public RecognizedAudio GetRange(TimeSpan audioPosition, TimeSpan duration)
         {
             if (audioPosition.Ticks < 0)

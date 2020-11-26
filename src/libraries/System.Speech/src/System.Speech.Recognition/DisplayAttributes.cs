@@ -3,7 +3,7 @@
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Lists the options that the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object can use to specify white space for the display of a word or punctuation mark.</summary>
+    /// <summary>Lists the options that the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object can use to specify white space for the display of a word or punctuation mark.</summary>
     [Flags]
     public enum DisplayAttributes
     {

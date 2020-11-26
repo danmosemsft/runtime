@@ -18,7 +18,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         /// <summary>Gets or sets the ECMAScript for the tag.</summary>
         /// <returns>A string that contains the semantic interpretation script for the tag.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set Script to <see langword="null" />.</exception>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set Script to <see langword="null" />.</exception>
         public string Script
         {
             get
@@ -32,14 +32,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Creates an instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsSemanticInterpretationTag" /> class.</summary>
+        /// <summary>Creates an instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSemanticInterpretationTag" /> class.</summary>
         public SrgsSemanticInterpretationTag()
         {
         }
 
-        /// <summary>Creates an instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsSemanticInterpretationTag" /> class, specifying the script contents of the tag.</summary>
+        /// <summary>Creates an instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSemanticInterpretationTag" /> class, specifying the script contents of the tag.</summary>
         /// <param name="script">A string that contains the ECMAScript for the tag.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="script" /> is <see langword="null" />.</exception>
         public SrgsSemanticInterpretationTag(string script)
         {

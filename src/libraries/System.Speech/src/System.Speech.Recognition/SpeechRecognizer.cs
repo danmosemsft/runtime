@@ -28,13 +28,13 @@ namespace System.Speech.Recognition
 
         private EventHandler<SpeechHypothesizedEventArgs> _speechHypothesizedDelegate;
 
-        /// <summary>Gets the state of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> object.</summary>
+        /// <summary>Gets the state of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> object.</summary>
         /// <returns>The state of the <see langword="SpeechRecognizer" /> object.</returns>
         public RecognizerState State => RecoBase.State;
 
-        /// <summary>Gets or sets a value that indicates whether this <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> object is ready to process speech.</summary>
+        /// <summary>Gets or sets a value that indicates whether this <see cref="System.Speech.Recognition.SpeechRecognizer" /> object is ready to process speech.</summary>
         /// <returns>
-        ///   <see langword="true" /> if this <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> object is performing speech recognition; otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if this <see cref="System.Speech.Recognition.SpeechRecognizer" /> object is performing speech recognition; otherwise, <see langword="false" />.</returns>
         public bool Enabled
         {
             get
@@ -47,9 +47,9 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets a value that indicates whether the shared recognizer pauses recognition operations while an application is handling a <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" /> event.</summary>
+        /// <summary>Gets or sets a value that indicates whether the shared recognizer pauses recognition operations while an application is handling a <see cref="System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" /> event.</summary>
         /// <returns>
-        ///   <see langword="true" /> if the shared recognizer waits to process input while any application is handling the <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" /> event; otherwise, <see langword="false" />.</returns>
+        ///   <see langword="true" /> if the shared recognizer waits to process input while any application is handling the <see cref="System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" /> event; otherwise, <see langword="false" />.</returns>
         public bool PauseRecognizerOnRecognition
         {
             get
@@ -62,8 +62,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets a collection of the <see cref="T:System.Speech.Recognition.Grammar" /> objects that are loaded in this <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> instance.</summary>
-        /// <returns>A collection of the <see cref="T:System.Speech.Recognition.Grammar" /> objects that the application loaded into the current instance of the shared recognizer.</returns>
+        /// <summary>Gets a collection of the <see cref="System.Speech.Recognition.Grammar" /> objects that are loaded in this <see cref="System.Speech.Recognition.SpeechRecognizer" /> instance.</summary>
+        /// <returns>A collection of the <see cref="System.Speech.Recognition.Grammar" /> objects that the application loaded into the current instance of the shared recognizer.</returns>
         public ReadOnlyCollection<Grammar> Grammars => RecoBase.Grammars;
 
         /// <summary>Gets information about the shared speech recognizer.</summary>
@@ -262,20 +262,20 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SpeechRecognizer" /> class.</summary>
         public SpeechRecognizer()
         {
             _sapiRecognizer = new SapiRecognizer(SapiRecognizer.RecognizerType.Shared);
         }
 
-        /// <summary>Disposes the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> object.</summary>
+        /// <summary>Disposes the <see cref="System.Speech.Recognition.SpeechRecognizer" /> object.</summary>
         public void Dispose()
         {
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>Disposes the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> object and releases resources used during the session.</summary>
+        /// <summary>Disposes the <see cref="System.Speech.Recognition.SpeechRecognizer" /> object and releases resources used during the session.</summary>
         /// <param name="disposing">
         ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected virtual void Dispose(bool disposing)
@@ -414,7 +414,7 @@ namespace System.Speech.Recognition
 
         /// <summary>Requests that the shared recognizer pause and update its state and provides an offset and a user token for the associated event.</summary>
         /// <param name="userToken">User-defined information that contains information for the operation.</param>
-        /// <param name="audioPositionAheadToRaiseUpdate">The offset from the current <see cref="P:System.Speech.Recognition.SpeechRecognizer.AudioPosition" /> to delay the request.</param>
+        /// <param name="audioPositionAheadToRaiseUpdate">The offset from the current <see cref="System.Speech.Recognition.SpeechRecognizer.AudioPosition" /> to delay the request.</param>
         public void RequestRecognizerUpdate(object userToken, TimeSpan audioPositionAheadToRaiseUpdate)
         {
             RecoBase.RequestRecognizerUpdate(userToken, audioPositionAheadToRaiseUpdate);

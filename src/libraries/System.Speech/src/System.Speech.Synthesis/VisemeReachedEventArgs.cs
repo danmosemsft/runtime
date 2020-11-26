@@ -3,7 +3,7 @@
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Returns data from the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.VisemeReached" /> event.</summary>
+    /// <summary>Returns data from the <see cref="System.Speech.Synthesis.SpeechSynthesizer.VisemeReached" /> event.</summary>
     public class VisemeReachedEventArgs : PromptEventArgs
     {
         private int _currentViseme;
@@ -17,23 +17,23 @@ namespace System.Speech.Synthesis
         private int _nextViseme;
 
         /// <summary>Gets the value of the viseme.</summary>
-        /// <returns>An <see cref="T:System.Int32" /> object that contains the value of the viseme.</returns>
+        /// <returns>An <see cref="int" /> object that contains the value of the viseme.</returns>
         public int Viseme => _currentViseme;
 
         /// <summary>Gets the position of the viseme in the audio stream.</summary>
-        /// <returns>A <see cref="T:System.TimeSpan" /> object that represents the position of the viseme.</returns>
+        /// <returns>A <see cref="System.TimeSpan" /> object that represents the position of the viseme.</returns>
         public TimeSpan AudioPosition => _audioPosition;
 
         /// <summary>Gets the duration of the viseme.</summary>
-        /// <returns>A <see cref="T:System.TimeSpan" /> object that represents the duration of the viseme.</returns>
+        /// <returns>A <see cref="System.TimeSpan" /> object that represents the duration of the viseme.</returns>
         public TimeSpan Duration => _duration;
 
-        /// <summary>Gets a <see cref="T:System.Speech.Synthesis.SynthesizerEmphasis" /> object that describes the emphasis of the viseme.</summary>
-        /// <returns>A <see cref="T:System.Speech.Synthesis.SynthesizerEmphasis" /> object that represents the emphasis of the viseme.</returns>
+        /// <summary>Gets a <see cref="System.Speech.Synthesis.SynthesizerEmphasis" /> object that describes the emphasis of the viseme.</summary>
+        /// <returns>A <see cref="System.Speech.Synthesis.SynthesizerEmphasis" /> object that represents the emphasis of the viseme.</returns>
         public SynthesizerEmphasis Emphasis => _emphasis;
 
         /// <summary>Gets the value of the next viseme.</summary>
-        /// <returns>An <see cref="T:System.Int32" /> object that contains the value of the next viseme.</returns>
+        /// <returns>An <see cref="int" /> object that contains the value of the next viseme.</returns>
         public int NextViseme => _nextViseme;
 
         internal VisemeReachedEventArgs(Prompt speakPrompt, int currentViseme, TimeSpan audioPosition, TimeSpan duration, SynthesizerEmphasis emphasis, int nextViseme)

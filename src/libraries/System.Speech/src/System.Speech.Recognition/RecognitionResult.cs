@@ -16,7 +16,7 @@ using System.Text;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Contains detailed information about input that was recognized by instances of <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> or <see cref="T:System.Speech.Recognition.SpeechRecognizer" />.</summary>
+    /// <summary>Contains detailed information about input that was recognized by instances of <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> or <see cref="System.Speech.Recognition.SpeechRecognizer" />.</summary>
     [Serializable]
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public sealed class RecognitionResult : RecognizedPhrase, ISerializable
@@ -50,7 +50,7 @@ namespace System.Speech.Recognition
         private TimeSpan? _audioDuration;
 
         /// <summary>Gets the audio associated with the recognition result.</summary>
-        /// <returns>The audio associated with the recognition result or <see langword="null" /> if the recognizer generated the result from a call to the <see langword="EmulateRecognize" /> or <see langword="EmulateRecognizeAsync" /> methods of a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> or <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> instance.</returns>
+        /// <returns>The audio associated with the recognition result or <see langword="null" /> if the recognizer generated the result from a call to the <see langword="EmulateRecognize" /> or <see langword="EmulateRecognizeAsync" /> methods of a <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> or <see cref="System.Speech.Recognition.SpeechRecognizer" /> instance.</returns>
         public RecognizedAudio Audio
         {
             get
@@ -154,7 +154,7 @@ namespace System.Speech.Recognition
         /// <param name="firstWord">The first word in the range.</param>
         /// <param name="lastWord">The last word in the range.</param>
         /// <returns>The section of audio associated with the word range.</returns>
-        /// <exception cref="T:System.NullReferenceException">The recognizer generated the result from a call to <see langword="EmulateRecognize" /> or <see langword="EmulateRecognizeAsync" /> methods of the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> objects.</exception>
+        /// <exception cref="System.NullReferenceException">The recognizer generated the result from a call to <see langword="EmulateRecognize" /> or <see langword="EmulateRecognizeAsync" /> methods of the <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> objects.</exception>
         public RecognizedAudio GetAudioForWordRange(RecognizedWordUnit firstWord, RecognizedWordUnit lastWord)
         {
             Helpers.ThrowIfNull(firstWord, nameof(firstWord));
@@ -162,7 +162,7 @@ namespace System.Speech.Recognition
             return Audio.GetRange(firstWord._audioPosition, lastWord._audioPosition + lastWord._audioDuration - firstWord._audioPosition);
         }
 
-        /// <summary>Populates a <see cref="T:System.Runtime.Serialization.SerializationInfo" /> instance with the data needed to serialize the target object.</summary>
+        /// <summary>Populates a <see cref="System.Runtime.Serialization.SerializationInfo" /> instance with the data needed to serialize the target object.</summary>
         /// <param name="info">The object to populate with data.</param>
         /// <param name="context">The destination for the serialization.</param>
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]

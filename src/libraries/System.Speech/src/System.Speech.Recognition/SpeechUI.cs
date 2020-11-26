@@ -13,8 +13,8 @@ namespace System.Speech.Recognition
         }
 
         /// <summary>Sends status and descriptive text to the Speech platform user interface about the status of a recognition operation.</summary>
-        /// <param name="result">A valid <see cref="T:System.Speech.Recognition.RecognitionResult" /> instance.</param>
-        /// <param name="feedback">A <see cref="T:System.String" /> containing a comment about the recognition operation that produced the <see cref="T:System.Speech.Recognition.RecognitionResult" /><paramref name="result" />.</param>
+        /// <param name="result">A valid <see cref="System.Speech.Recognition.RecognitionResult" /> instance.</param>
+        /// <param name="feedback">A <see cref="string" /> containing a comment about the recognition operation that produced the <see cref="System.Speech.Recognition.RecognitionResult" /><paramref name="result" />.</param>
         /// <param name="isSuccessfulAction">A <see langword="bool" /> indicating whether the application deemed the recognition operation a success.</param>
         /// <returns>
         ///   <see langword="true" /> if the information provided to the method (<paramref name="Feedback" />, and <paramref name="isSuccessfulAction" />) was successfully made available to the Speech platform user interface, and <see langword="false" /> if the operation failed.</returns>

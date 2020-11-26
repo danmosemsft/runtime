@@ -3,12 +3,12 @@
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Returns data from the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.VoiceChange" /> event.</summary>
+    /// <summary>Returns data from the <see cref="System.Speech.Synthesis.SpeechSynthesizer.VoiceChange" /> event.</summary>
     public class VoiceChangeEventArgs : PromptEventArgs
     {
         private VoiceInfo _voice;
 
-        /// <summary>Gets the <see cref="T:System.Speech.Synthesis.VoiceInfo" /> object of the new voice.</summary>
+        /// <summary>Gets the <see cref="System.Speech.Synthesis.VoiceInfo" /> object of the new voice.</summary>
         /// <returns>Returns information that describes and identifies the new voice.</returns>
         public VoiceInfo Voice => _voice;
 

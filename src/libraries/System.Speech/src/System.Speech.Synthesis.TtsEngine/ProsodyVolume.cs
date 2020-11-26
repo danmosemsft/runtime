@@ -6,7 +6,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>Enumerates values for the <see langword="Volume" /> property of a <see langword="Prosody" /> object.</summary>
     public enum ProsodyVolume
     {
-        /// <summary>Current default volume value, same as the value returned by the <see cref="P:System.Speech.Synthesis.TtsEngine.ITtsEngineSite.Volume" /> property on the <see cref="T:System.Speech.Synthesis.TtsEngine.ITtsEngineSite" /> site supplied to that engine.</summary>
+        /// <summary>Current default volume value, same as the value returned by the <see cref="System.Speech.Synthesis.TtsEngine.ITtsEngineSite.Volume" /> property on the <see cref="System.Speech.Synthesis.TtsEngine.ITtsEngineSite" /> site supplied to that engine.</summary>
         Default = -1,
         /// <summary>Volume off</summary>
         Silent = -2,

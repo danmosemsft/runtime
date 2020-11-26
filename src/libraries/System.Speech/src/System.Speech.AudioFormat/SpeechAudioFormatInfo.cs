@@ -118,7 +118,7 @@ namespace System.Speech.AudioFormat
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.AudioFormat.SpeechAudioFormatInfo" /> class and specifies the encoding format, samples per second, bits per sample, number of channels, average bytes per second, block alignment value, and an array containing format-specific data.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.AudioFormat.SpeechAudioFormatInfo" /> class and specifies the encoding format, samples per second, bits per sample, number of channels, average bytes per second, block alignment value, and an array containing format-specific data.</summary>
         /// <param name="encodingFormat">The encoding format.</param>
         /// <param name="samplesPerSecond">The value for the samples per second.</param>
         /// <param name="bitsPerSample">The value for the bits per sample.</param>
@@ -142,10 +142,10 @@ namespace System.Speech.AudioFormat
             _blockAlign = (short)blockAlign;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.AudioFormat.SpeechAudioFormatInfo" /> class and specifies the samples per second, bits per sample, and the number of channels.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.AudioFormat.SpeechAudioFormatInfo" /> class and specifies the samples per second, bits per sample, and the number of channels.</summary>
         /// <param name="samplesPerSecond">The value for the samples per second.</param>
         /// <param name="bitsPerSample">The value for the bits per sample.</param>
-        /// <param name="channel">A member of the <see cref="T:System.Speech.AudioFormat.AudioChannel" /> enumeration (indicating <c>Mono</c> or <c>Stereo</c>).</param>
+        /// <param name="channel">A member of the <see cref="System.Speech.AudioFormat.AudioChannel" /> enumeration (indicating <c>Mono</c> or <c>Stereo</c>).</param>
         public SpeechAudioFormatInfo(int samplesPerSecond, AudioBitsPerSample bitsPerSample, AudioChannel channel)
             : this(EncodingFormat.Pcm, samplesPerSecond, (short)bitsPerSample, (short)channel, null)
         {
@@ -160,9 +160,9 @@ namespace System.Speech.AudioFormat
             return (byte[])_formatSpecificData.Clone();
         }
 
-        /// <summary>Returns whether a given object is an instance of <see cref="T:System.Speech.AudioFormat.SpeechAudioFormatInfo" /> and equal to the current instance of <see cref="T:System.Speech.AudioFormat.SpeechAudioFormatInfo" />.</summary>
+        /// <summary>Returns whether a given object is an instance of <see cref="System.Speech.AudioFormat.SpeechAudioFormatInfo" /> and equal to the current instance of <see cref="System.Speech.AudioFormat.SpeechAudioFormatInfo" />.</summary>
         /// <param name="obj">The object to be compared.</param>
-        /// <returns>Returns <see langword="true" /> if the current instance of <see cref="T:System.Speech.AudioFormat.SpeechAudioFormatInfo" /> and that obtained from the <paramref name="obj" /> argument are equal, otherwise returns <see langword="false" />.</returns>
+        /// <returns>Returns <see langword="true" /> if the current instance of <see cref="System.Speech.AudioFormat.SpeechAudioFormatInfo" /> and that obtained from the <paramref name="obj" /> argument are equal, otherwise returns <see langword="false" />.</returns>
         public override bool Equals(object obj)
         {
             SpeechAudioFormatInfo speechAudioFormatInfo = obj as SpeechAudioFormatInfo;

@@ -3,7 +3,7 @@
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Returns data from the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.BookmarkReached" /> event.</summary>
+    /// <summary>Returns data from the <see cref="System.Speech.Synthesis.SpeechSynthesizer.BookmarkReached" /> event.</summary>
     public class BookmarkReachedEventArgs : PromptEventArgs
     {
         private string _bookmark;

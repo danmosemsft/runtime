@@ -10,7 +10,7 @@ using System.Speech.Internal.ObjectTokens;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Represents information about a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+    /// <summary>Represents information about a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
     public class RecognizerInfo : IDisposable
     {
         private ReadOnlyDictionary<string, string> _attributes;
@@ -29,28 +29,28 @@ namespace System.Speech.Recognition
 
         private ObjectToken _objectToken;
 
-        /// <summary>Gets the identifier of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns the identifier for a specific <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
+        /// <summary>Gets the identifier of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns the identifier for a specific <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
         public string Id => _id;
 
-        /// <summary>Gets the friendly name of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns the friendly name for a specific <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
+        /// <summary>Gets the friendly name of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns the friendly name for a specific <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
         public string Name => _name;
 
-        /// <summary>Gets the description of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns a <see langword="string" /> that describes the configuration for a specific <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
+        /// <summary>Gets the description of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns a <see langword="string" /> that describes the configuration for a specific <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
         public string Description => _description;
 
-        /// <summary>Gets the culture supported by a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns information about the culture supported by a given <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
+        /// <summary>Gets the culture supported by a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns information about the culture supported by a given <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
         public CultureInfo Culture => _culture;
 
-        /// <summary>Gets the audio formats supported by a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns a list of audio formats supported by a specific <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
+        /// <summary>Gets the audio formats supported by a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns a list of audio formats supported by a specific <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</returns>
         public ReadOnlyCollection<SpeechAudioFormatInfo> SupportedAudioFormats => _supportedAudioFormats;
 
-        /// <summary>Gets additional information about a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
-        /// <returns>Returns an instance of <see cref="T:System.Collections.Generic.IDictionary`2" /> containing information about the configuration of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> object.</returns>
+        /// <summary>Gets additional information about a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
+        /// <returns>Returns an instance of <see cref="System.Collections.Generic.IDictionary{K,V}" /> containing information about the configuration of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> object.</returns>
         public IDictionary<string, string> AdditionalInfo => _attributes;
 
         private RecognizerInfo(ObjectToken token, CultureInfo culture)

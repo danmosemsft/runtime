@@ -66,8 +66,8 @@ namespace System.Speech.Recognition
 
         private object _value;
 
-        /// <summary>A read-only property that returns the information contained in the current <see cref="T:System.Speech.Recognition.SemanticValue" />.</summary>
-        /// <returns>Returns an <see cref="T:System.Object" /> instance containing the information stored in the current <see cref="T:System.Speech.Recognition.SemanticValue" /> instance.</returns>
+        /// <summary>A read-only property that returns the information contained in the current <see cref="System.Speech.Recognition.SemanticValue" />.</summary>
+        /// <returns>Returns an <see cref="object" /> instance containing the information stored in the current <see cref="System.Speech.Recognition.SemanticValue" /> instance.</returns>
         public object Value
         {
             get
@@ -80,15 +80,15 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Returns a relative measure of the certainty as to the correctness of the semantic parsing that returned the current instance of <see cref="T:System.Speech.Recognition.SemanticValue" />.</summary>
-        /// <returns>Returns a <see langword="float" /> that is a relative measure of the certainty of semantic parsing that returned the current instance of <see cref="T:System.Speech.Recognition.SemanticValue" />.</returns>
+        /// <summary>Returns a relative measure of the certainty as to the correctness of the semantic parsing that returned the current instance of <see cref="System.Speech.Recognition.SemanticValue" />.</summary>
+        /// <returns>Returns a <see langword="float" /> that is a relative measure of the certainty of semantic parsing that returned the current instance of <see cref="System.Speech.Recognition.SemanticValue" />.</returns>
         public float Confidence => _confidence;
 
-        /// <summary>Returns child <see cref="T:System.Speech.Recognition.SemanticValue" /> instances that  belong to the current <see cref="T:System.Speech.Recognition.SemanticValue" />.</summary>
-        /// <param name="key">A key for a <see langword="KeyValuePair&lt;String, SemanticValue&gt;" /> contained in the current instance of <see cref="T:System.Speech.Recognition.SemanticValue" />.</param>
-        /// <returns>Returns a child of the current <see cref="T:System.Speech.Recognition.SemanticValue" /> that can be indexed as part of a key value pair: <c>KeyValuePair&lt;String,</c><c>SemanticValue&gt;</c>.</returns>
-        /// <exception cref="T:System.Collections.Generic.KeyNotFoundException">Thrown if no child member of the current instance of <see cref="T:System.Speech.Recognition.SemanticValue" /> has the key matching the <paramref name="key" /> parameter.</exception>
-        /// <exception cref="T:System.InvalidOperationException">Thrown if code attempts to change the <see cref="T:System.Speech.Recognition.SemanticValue" /> at a given index.</exception>
+        /// <summary>Returns child <see cref="System.Speech.Recognition.SemanticValue" /> instances that  belong to the current <see cref="System.Speech.Recognition.SemanticValue" />.</summary>
+        /// <param name="key">A key for a <see langword="KeyValuePair&lt;String, SemanticValue&gt;" /> contained in the current instance of <see cref="System.Speech.Recognition.SemanticValue" />.</param>
+        /// <returns>Returns a child of the current <see cref="System.Speech.Recognition.SemanticValue" /> that can be indexed as part of a key value pair: <c>KeyValuePair&lt;String,</c><c>SemanticValue&gt;</c>.</returns>
+        /// <exception cref="System.Collections.Generic.KeyNotFoundException">Thrown if no child member of the current instance of <see cref="System.Speech.Recognition.SemanticValue" /> has the key matching the <paramref name="key" /> parameter.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown if code attempts to change the <see cref="System.Speech.Recognition.SemanticValue" /> at a given index.</exception>
         public SemanticValue this[string key]
         {
             get
@@ -101,8 +101,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Returns the number of child <see cref="T:System.Speech.Recognition.SemanticValue" /> objects under the current <see cref="T:System.Speech.Recognition.SemanticValue" /> instance.</summary>
-        /// <returns>The number of child <see cref="T:System.Speech.Recognition.SemanticValue" /> objects under the current <see cref="T:System.Speech.Recognition.SemanticValue" />.</returns>
+        /// <summary>Returns the number of child <see cref="System.Speech.Recognition.SemanticValue" /> objects under the current <see cref="System.Speech.Recognition.SemanticValue" /> instance.</summary>
+        /// <returns>The number of child <see cref="System.Speech.Recognition.SemanticValue" /> objects under the current <see cref="System.Speech.Recognition.SemanticValue" />.</returns>
         public int Count => _dictionary.Count;
 
         bool ICollection<KeyValuePair<string, SemanticValue>>.IsReadOnly => true;
@@ -113,9 +113,9 @@ namespace System.Speech.Recognition
 
         internal string KeyName => _keyName;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SemanticValue" /> class and specifies a semantic value, a key name, and a confidence level.</summary>
-        /// <param name="keyName">A key that can be used to reference this <see cref="T:System.Speech.Recognition.SemanticValue" /> instance.</param>
-        /// <param name="value">An object containing information to be stored in the <see cref="T:System.Speech.Recognition.SemanticValue" /> object.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SemanticValue" /> class and specifies a semantic value, a key name, and a confidence level.</summary>
+        /// <param name="keyName">A key that can be used to reference this <see cref="System.Speech.Recognition.SemanticValue" /> instance.</param>
+        /// <param name="value">An object containing information to be stored in the <see cref="System.Speech.Recognition.SemanticValue" /> object.</param>
         /// <param name="confidence">A <see langword="float" /> containing an estimate of the certainty of semantic analysis.</param>
         public SemanticValue(string keyName, object value, float confidence)
         {
@@ -126,8 +126,8 @@ namespace System.Speech.Recognition
             _value = value;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SemanticValue" /> class and specifies a semantic value.</summary>
-        /// <param name="value">The information to be stored in the <see cref="T:System.Speech.Recognition.SemanticValue" /> object.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SemanticValue" /> class and specifies a semantic value.</summary>
+        /// <param name="value">The information to be stored in the <see cref="System.Speech.Recognition.SemanticValue" /> object.</param>
         public SemanticValue(object value)
             : this(string.Empty, value, -1f)
         {
@@ -155,15 +155,15 @@ namespace System.Speech.Recognition
         }
 
         /// <summary>Provides a hash code for a <c>SemanticValue</c> object.</summary>
-        /// <returns>A hash code for the current <see cref="T:System.Speech.Recognition.SemanticValue" /> object.</returns>
+        /// <returns>A hash code for the current <see cref="System.Speech.Recognition.SemanticValue" /> object.</returns>
         public override int GetHashCode()
         {
             return Count;
         }
 
-        /// <summary>Indicates whether the current <see cref="T:System.Speech.Recognition.SemanticValue" /> instance collection contains a specific key and a specific instance of <see cref="T:System.Speech.Recognition.SemanticValue" /> expressed as a key/value pair.</summary>
-        /// <param name="item">An instance of <see cref="T:System.Collections.Generic.KeyValuePair`2" /> instantiated for a given value of a key string and a <see cref="T:System.Speech.Recognition.SemanticValue" /> instance.</param>
-        /// <returns>Returns a <see langword="bool" /> which is <see langword="true" /> if the current <see cref="T:System.Speech.Recognition.SemanticValue" /> contains an instance of <c>KeyValuePair&lt;String, SemanticValue&gt;</c> for a specified value of the key string and the <see cref="T:System.Speech.Recognition.SemanticValue" />. Otherwise, <see langword="false" /> is returned.</returns>
+        /// <summary>Indicates whether the current <see cref="System.Speech.Recognition.SemanticValue" /> instance collection contains a specific key and a specific instance of <see cref="System.Speech.Recognition.SemanticValue" /> expressed as a key/value pair.</summary>
+        /// <param name="item">An instance of <see cref="System.Collections.Generic.KeyValuePair{K,V}" /> instantiated for a given value of a key string and a <see cref="System.Speech.Recognition.SemanticValue" /> instance.</param>
+        /// <returns>Returns a <see langword="bool" /> which is <see langword="true" /> if the current <see cref="System.Speech.Recognition.SemanticValue" /> contains an instance of <c>KeyValuePair&lt;String, SemanticValue&gt;</c> for a specified value of the key string and the <see cref="System.Speech.Recognition.SemanticValue" />. Otherwise, <see langword="false" /> is returned.</returns>
         public bool Contains(KeyValuePair<string, SemanticValue> item)
         {
             if (_dictionary.ContainsKey(item.Key))
@@ -173,10 +173,10 @@ namespace System.Speech.Recognition
             return false;
         }
 
-        /// <summary>Indicates whether the current <see cref="T:System.Speech.Recognition.SemanticValue" /> instance collection contains a child <see cref="T:System.Speech.Recognition.SemanticValue" /> instance with a given key string.</summary>
+        /// <summary>Indicates whether the current <see cref="System.Speech.Recognition.SemanticValue" /> instance collection contains a child <see cref="System.Speech.Recognition.SemanticValue" /> instance with a given key string.</summary>
         /// <param name="key">
-        ///   <see cref="T:System.String" /> containing the key string used to identify a child instance of <see cref="T:System.Speech.Recognition.SemanticValue" /> under the current <see cref="T:System.Speech.Recognition.SemanticValue" />.</param>
-        /// <returns>Returns a <see langword="bool" />, <see langword="true" /> if a child instance <see cref="T:System.Speech.Recognition.SemanticValue" /> tagged with the string <paramref name="key" /> is found, <see langword="false" /> if not.</returns>
+        ///   <see cref="string" /> containing the key string used to identify a child instance of <see cref="System.Speech.Recognition.SemanticValue" /> under the current <see cref="System.Speech.Recognition.SemanticValue" />.</param>
+        /// <returns>Returns a <see langword="bool" />, <see langword="true" /> if a child instance <see cref="System.Speech.Recognition.SemanticValue" /> tagged with the string <paramref name="key" /> is found, <see langword="false" /> if not.</returns>
         public bool ContainsKey(string key)
         {
             return _dictionary.ContainsKey(key);

@@ -106,13 +106,13 @@ namespace System.Speech.Recognition.SrgsGrammar
             '\n'
         };
 
-        /// <summary>Gets the collection of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> instance.</summary>
+        /// <summary>Gets the collection of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> instance.</summary>
         /// <returns>The collection of elements in the rule.</returns>
         public Collection<SrgsElement> Elements => _elements;
 
         /// <summary>Gets or sets the identifier for the rule.</summary>
         /// <returns>The identifier for the rule.</returns>
-        /// <exception cref="T:System.FormatException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.Id" /> to an invalid value.</exception>
+        /// <exception cref="System.FormatException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.Id" /> to an invalid value.</exception>
         public string Id
         {
             get
@@ -249,13 +249,13 @@ namespace System.Speech.Recognition.SrgsGrammar
             _elements = new SrgsElementList();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> class and specifies the identifier for the rule.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> class and specifies the identifier for the rule.</summary>
         /// <param name="id">The identifier of the rule.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="id" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="id" /> is empty.</exception>
-        /// <exception cref="T:System.FormatException">
+        /// <exception cref="System.FormatException">
         ///   <paramref name="id" /> is not a proper rule identifier.</exception>
         public SrgsRule(string id)
             : this()
@@ -264,15 +264,15 @@ namespace System.Speech.Recognition.SrgsGrammar
             Id = id;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> class from an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> class from an array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> objects.</summary>
         /// <param name="id">The identifier of the rule.</param>
-        /// <param name="elements">An array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> elements.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <param name="elements">An array of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> elements.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="id" /> is <see langword="null" />.
         /// <paramref name="elements" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        /// <exception cref="System.ArgumentOutOfRangeException">
         ///   <paramref name="id" /> is empty.</exception>
-        /// <exception cref="T:System.FormatException">
+        /// <exception cref="System.FormatException">
         ///   <paramref name="id" /> is not a proper rule identifier.</exception>
         public SrgsRule(string id, params SrgsElement[] elements)
             : this()
@@ -298,9 +298,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             throw new ArgumentNullException(nameof(elements), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
-        /// <summary>Adds an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> to an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object.</summary>
-        /// <param name="element">An object that inherits from <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> and specifies what can be recognized.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Adds an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> to an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object.</summary>
+        /// <param name="element">An object that inherits from <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> and specifies what can be recognized.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="element" /> is <see langword="null" />.</exception>
         public void Add(SrgsElement element)
         {

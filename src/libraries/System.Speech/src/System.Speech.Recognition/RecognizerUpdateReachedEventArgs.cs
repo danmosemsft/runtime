@@ -3,7 +3,7 @@
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Returns data from a <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.RecognizerUpdateReached" /> or a <see cref="E:System.Speech.Recognition.SpeechRecognizer.RecognizerUpdateReached" /> event.</summary>
+    /// <summary>Returns data from a <see cref="System.Speech.Recognition.SpeechRecognitionEngine.RecognizerUpdateReached" /> or a <see cref="System.Speech.Recognition.SpeechRecognizer.RecognizerUpdateReached" /> event.</summary>
     public class RecognizerUpdateReachedEventArgs : EventArgs
     {
         private object _userToken;
@@ -15,7 +15,7 @@ namespace System.Speech.Recognition
         public object UserToken => _userToken;
 
         /// <summary>Gets the audio position associated with the event.</summary>
-        /// <returns>Returns the location within the speech buffer of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> when it pauses and raises a <c>RecognizerUpdateReached</c> event.</returns>
+        /// <returns>Returns the location within the speech buffer of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or a <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> when it pauses and raises a <c>RecognizerUpdateReached</c> event.</returns>
         public TimeSpan AudioPosition => _audioPosition;
 
         internal RecognizerUpdateReachedEventArgs(object userToken, TimeSpan audioPosition)

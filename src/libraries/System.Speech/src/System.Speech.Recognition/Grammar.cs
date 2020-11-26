@@ -81,7 +81,7 @@ namespace System.Speech.Recognition
 
         private static ResourceLoader _resourceLoader = new ResourceLoader();
 
-        /// <summary>Gets or sets a value that controls whether a <see cref="T:System.Speech.Recognition.Grammar" /> can be used by a speech recognizer to perform recognition.</summary>
+        /// <summary>Gets or sets a value that controls whether a <see cref="System.Speech.Recognition.Grammar" /> can be used by a speech recognizer to perform recognition.</summary>
         /// <returns>The  <see langword="Enabled" /> property returns <see langword="true" /> if a speech recognizer can perform recognition using the speech recognition grammar; otherwise the property returns <see langword="false" />. The default is <see langword="true" />.</returns>
         public bool Enabled
         {
@@ -99,7 +99,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the weight value of a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <summary>Gets or sets the weight value of a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         /// <returns>The <see langword="Weight" /> property returns a floating point value indicating the relative weight that a recognition engine  instance should assign to the grammar when processing speech input. The range is from 0.0 to 1.0 inclusive. The default is 1.0.</returns>
         public float Weight
         {
@@ -121,8 +121,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the priority value of a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
-        /// <returns>The <see langword="Priority" /> property returns an integer value that represents the relative priority of a specific <see cref="T:System.Speech.Recognition.Grammar" />. The range is from -128 to 127 inclusive. The default is 0.</returns>
+        /// <summary>Gets or sets the priority value of a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <returns>The <see langword="Priority" /> property returns an integer value that represents the relative priority of a specific <see cref="System.Speech.Recognition.Grammar" />. The range is from -128 to 127 inclusive. The default is 0.</returns>
         public int Priority
         {
             get
@@ -143,8 +143,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets the name of a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
-        /// <returns>The <see langword="Name" /> property returns the name of the <see cref="T:System.Speech.Recognition.Grammar" /> object. The default is <see langword="null" />.</returns>
+        /// <summary>Gets or sets the name of a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <returns>The <see langword="Name" /> property returns the name of the <see cref="System.Speech.Recognition.Grammar" /> object. The default is <see langword="null" />.</returns>
         public string Name
         {
             get
@@ -161,11 +161,11 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets the name of the root rule or entry point of a <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <summary>Gets the name of the root rule or entry point of a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         /// <returns>The <see langword="RuleName" /> property returns the identifier for the root rule of the referenced speech recognition grammar. The default is <see langword="null" />.</returns>
         public string RuleName => _ruleName;
 
-        /// <summary>Gets whether a <see cref="T:System.Speech.Recognition.Grammar" /> has been loaded by a speech recognizer.</summary>
+        /// <summary>Gets whether a <see cref="System.Speech.Recognition.Grammar" /> has been loaded by a speech recognizer.</summary>
         /// <returns>The <see langword="Loaded" /> property returns <see langword="true" /> if the referenced speech recognition grammar is currently loaded in a speech recognizer; otherwise the property returns <see langword="false" />. The default is <see langword="false" />.</returns>
         public bool Loaded => _grammarState == GrammarState.Loaded;
 
@@ -260,8 +260,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Gets or sets a value with the name of a binary resource that was used to load the current <see cref="T:System.Speech.Recognition.Grammar" />.</summary>
-        /// <returns>The <see langword="ResourceName" /> property returns the name of the binary resource from which the strongly-typed grammar, used by <see cref="T:System.Speech.Recognition.Grammar" />, was loaded.</returns>
+        /// <summary>Gets or sets a value with the name of a binary resource that was used to load the current <see cref="System.Speech.Recognition.Grammar" />.</summary>
+        /// <returns>The <see langword="ResourceName" /> property returns the name of the binary resource from which the strongly-typed grammar, used by <see cref="System.Speech.Recognition.Grammar" />, was loaded.</returns>
         protected string ResourceName
         {
             get
@@ -275,7 +275,7 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Raised when a speech recognizer performs recognition using the <see cref="T:System.Speech.Recognition.Grammar" /> object.</summary>
+        /// <summary>Raised when a speech recognizer performs recognition using the <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         public event EventHandler<SpeechRecognizedEventArgs> SpeechRecognized;
 
         internal Grammar(Uri uri, string ruleName, object[] parameters)
@@ -285,42 +285,42 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a file.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a file.</summary>
         /// <param name="path">The path of the file that describes a speech recognition grammar in a supported format.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="path" /> contains the empty string (""), or the file describes a grammar that does not contain a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="path" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">The file does not contain a valid description, or describes a grammar that contains a rule reference that cannot be resolved.</exception>
+        /// <exception cref="System.FormatException">The file does not contain a valid description, or describes a grammar that contains a rule reference that cannot be resolved.</exception>
         public Grammar(string path)
             : this(path, (string)null, (object[])null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a file and specifies a root rule.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a file and specifies a root rule.</summary>
         /// <param name="path">The path of the file that describes a speech recognition grammar in a supported format.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="ruleName" /> cannot be resolved or is not public, <paramref name="path" /> is the empty string (""), or <paramref name="ruleName" /> is <see langword="null" /> and the grammar description does not define a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="path" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">The file does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
+        /// <exception cref="System.FormatException">The file does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
         public Grammar(string path, string ruleName)
             : this(path, ruleName, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a file that contains a grammar definition, and specifies the name of a rule to be the entry point to the grammar.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a file that contains a grammar definition, and specifies the name of a rule to be the entry point to the grammar.</summary>
         /// <param name="path">The path to a file, including DLLs, that contains a grammar specification.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
-        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="T:System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
-        /// <exception cref="T:System.ArgumentException">Any of the parameters contain an invalid value.
+        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
+        /// <exception cref="System.ArgumentException">Any of the parameters contain an invalid value.
         ///
         /// The file specified by <paramref name="path" /> does not contain a valid grammar or the rule specified in <paramref name="ruleName" />.
         ///
         /// The contents of the array parameters do not match the arguments of any of the rule's initialization handlers.
         ///
-        /// The grammar has a relative rule reference that cannot be resolved by the default base <see cref="T:System.Uri" /> rule for grammars.</exception>
+        /// The grammar has a relative rule reference that cannot be resolved by the default base <see cref="System.Uri" /> rule for grammars.</exception>
         public Grammar(string path, string ruleName, object[] parameters)
         {
             try
@@ -334,40 +334,40 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
 
-        /// <summary>Initializes a new instance of a <see cref="T:System.Speech.Recognition.Grammar" /> class from an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</summary>
+        /// <summary>Initializes a new instance of a <see cref="System.Speech.Recognition.Grammar" /> class from an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object.</summary>
         /// <param name="srgsDocument">The constraints for the speech recognition grammar.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="srgsDocument" /> does not contain a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="srgsDocument" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">
+        /// <exception cref="System.FormatException">
         ///   <paramref name="srgsDocument" /> contains a rule reference that cannot be resolved.</exception>
         public Grammar(SrgsDocument srgsDocument)
             : this(srgsDocument, null, null, null)
         {
         }
 
-        /// <summary>Initializes a new instance of a <see cref="T:System.Speech.Recognition.Grammar" /> class from an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object and specifies a root rule.</summary>
+        /// <summary>Initializes a new instance of a <see cref="System.Speech.Recognition.Grammar" /> class from an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object and specifies a root rule.</summary>
         /// <param name="srgsDocument">The constraints for the speech recognition grammar.</param>
-        /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</param>
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="ruleName" /> cannot be resolved or is not public, or <paramref name="ruleName" /> is <see langword="null" /> and <paramref name="srgsDocument" /> does not contain a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="srgsDocument" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">
+        /// <exception cref="System.FormatException">
         ///   <paramref name="srgsDocument" /> contains a rule reference that cannot be resolved.</exception>
         public Grammar(SrgsDocument srgsDocument, string ruleName)
             : this(srgsDocument, ruleName, null, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from an instance of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, and specifies the name of a rule to be the entry point to the grammar.</summary>
-        /// <param name="srgsDocument">An instance of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the constraints for the speech recognition grammar.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from an instance of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, and specifies the name of a rule to be the entry point to the grammar.</summary>
+        /// <param name="srgsDocument">An instance of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the constraints for the speech recognition grammar.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
-        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="T:System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
-        /// <exception cref="T:System.ArgumentException">Any of the parameters contain an invalid value.
+        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
+        /// <exception cref="System.ArgumentException">Any of the parameters contain an invalid value.
         ///
-        /// The <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> specified by <paramref name="srgsDocument" /> does not contain the rule specified by <paramref name="ruleName" />.
+        /// The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> specified by <paramref name="srgsDocument" /> does not contain the rule specified by <paramref name="ruleName" />.
         ///
         /// The contents of the array parameters do not match the arguments of any of the rule's initialization handlers.</exception>
         public Grammar(SrgsDocument srgsDocument, string ruleName, object[] parameters)
@@ -375,15 +375,15 @@ namespace System.Speech.Recognition
         {
         }
 
-        /// <summary>Initializes a new instance of a <see cref="T:System.Speech.Recognition.Grammar" /> class from an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object, specifies a root rule, and defines a base Uniform Resource Identifier (URI) to resolve relative rule references.</summary>
+        /// <summary>Initializes a new instance of a <see cref="System.Speech.Recognition.Grammar" /> class from an <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> object, specifies a root rule, and defines a base Uniform Resource Identifier (URI) to resolve relative rule references.</summary>
         /// <param name="srgsDocument">The constraints for the speech recognition grammar.</param>
-        /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</param>
-        /// <param name="baseUri">The base URI to use to resolve any relative rule reference in the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, or <see langword="null" />.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />.</param>
+        /// <param name="baseUri">The base URI to use to resolve any relative rule reference in the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, or <see langword="null" />.</param>
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="ruleName" /> cannot be resolved or is not public, or <paramref name="ruleName" /> is <see langword="null" /> and <paramref name="srgsDocument" /> does not contain a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="srgsDocument" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">
+        /// <exception cref="System.FormatException">
         ///   <paramref name="srgsDocument" /> contains a rule reference that cannot be resolved.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(SrgsDocument srgsDocument, string ruleName, Uri baseUri)
@@ -391,18 +391,18 @@ namespace System.Speech.Recognition
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from an instance of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, and specifies the name of a rule to be the entry point to the grammar and a base URI to resolve relative references.</summary>
-        /// <param name="srgsDocument">An instance of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the constraints for the speech recognition grammar.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from an instance of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" />, and specifies the name of a rule to be the entry point to the grammar and a base URI to resolve relative references.</summary>
+        /// <param name="srgsDocument">An instance of <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the constraints for the speech recognition grammar.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
         /// <param name="baseUri">The base URI to use to resolve any relative rule reference in the grammar description, or <see langword="null" />.</param>
-        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="T:System.Speech.Recognition.Grammar" /> to be created.This parameter may be null.</param>
-        /// <exception cref="T:System.ArgumentException">Any of the parameters contain an invalid value.
+        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="System.Speech.Recognition.Grammar" /> to be created.This parameter may be null.</param>
+        /// <exception cref="System.ArgumentException">Any of the parameters contain an invalid value.
         ///
-        /// The <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> specified by <paramref name="srgsDocument" /> does not contain the rule specified in <paramref name="ruleName" />.
+        /// The <see cref="System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> specified by <paramref name="srgsDocument" /> does not contain the rule specified in <paramref name="ruleName" />.
         ///
         /// The contents of the array parameters do not match the arguments of any of the rule's initialization handlers.
         ///
-        /// The grammar has a relative rule reference that cannot be resolved by the default base <see cref="T:System.Uri" /> rule for grammars or the URI supplied by <paramref name="baseUri" />.</exception>
+        /// The grammar has a relative rule reference that cannot be resolved by the default base <see cref="System.Uri" /> rule for grammars or the URI supplied by <paramref name="baseUri" />.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(SrgsDocument srgsDocument, string ruleName, Uri baseUri, object[] parameters)
         {
@@ -413,75 +413,75 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a <see cref="T:System.IO.Stream" />.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a <see cref="System.IO.Stream" />.</summary>
         /// <param name="stream">A stream that describes a speech recognition grammar in a supported format.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="stream" /> describes a grammar that does not contain a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="stream" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">The stream does not contain a valid description of a grammar, or describes a grammar that contains a rule reference that cannot be resolved.</exception>
+        /// <exception cref="System.FormatException">The stream does not contain a valid description of a grammar, or describes a grammar that contains a rule reference that cannot be resolved.</exception>
         public Grammar(Stream stream)
             : this(stream, null, null, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a <see cref="T:System.IO.Stream" /> and specifies a root rule.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a <see cref="System.IO.Stream" /> and specifies a root rule.</summary>
         /// <param name="stream">A stream that describes a speech recognition grammar in a supported format.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="ruleName" /> cannot be resolved or is not public, or <paramref name="ruleName" /> is <see langword="null" /> and the grammar description does not define a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="stream" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">The stream does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
+        /// <exception cref="System.FormatException">The stream does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
         public Grammar(Stream stream, string ruleName)
             : this(stream, ruleName, null, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a <see cref="T:System.IO.Stream" /> and specifies a root rule.</summary>
-        /// <param name="stream">A <see cref="T:System.IO.Stream" /> connected to an input/output object (including files, VisualStudio Resources, and DLLs) that contains a grammar specification.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a <see cref="System.IO.Stream" /> and specifies a root rule.</summary>
+        /// <param name="stream">A <see cref="System.IO.Stream" /> connected to an input/output object (including files, VisualStudio Resources, and DLLs) that contains a grammar specification.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
-        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="T:System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="stream" /> is connected to a grammar that:
         ///
         /// Does not contain the rule specified in <paramref name="ruleName" />
         ///
         /// Requires initialization parameters different from those specified in <paramref name="parameters" />
         ///
-        /// Contains a relative rule reference that cannot be resolved by the default base <see cref="T:System.Uri" /> rule for grammars</exception>
+        /// Contains a relative rule reference that cannot be resolved by the default base <see cref="System.Uri" /> rule for grammars</exception>
         public Grammar(Stream stream, string ruleName, object[] parameters)
             : this(stream, ruleName, null, parameters)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a stream, specifies a root rule, and defines a base Uniform Resource Identifier (URI) to resolve relative rule references.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a stream, specifies a root rule, and defines a base Uniform Resource Identifier (URI) to resolve relative rule references.</summary>
         /// <param name="stream">A stream that describes a speech recognition grammar in a supported format.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
         /// <param name="baseUri">The base URI to use to resolve any relative rule reference in the grammar description, or <see langword="null" />.</param>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="ruleName" /> cannot be resolved or is not public, or <paramref name="ruleName" /> is <see langword="null" /> and the grammar description does not define a root rule.</exception>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="stream" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.FormatException">The stream does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
+        /// <exception cref="System.FormatException">The stream does not contain a valid description or describes a grammar that contains a rule reference that cannot be resolved.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(Stream stream, string ruleName, Uri baseUri)
             : this(stream, ruleName, baseUri, null)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class a <see cref="T:System.IO.Stream" /> and specifies a root rule and a base URI to resolve relative references.</summary>
-        /// <param name="stream">A <see cref="T:System.IO.Stream" /> connected to an input/output object (including files, VisualStudio Resources, and DLLs) that contains a grammar specification.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class a <see cref="System.IO.Stream" /> and specifies a root rule and a base URI to resolve relative references.</summary>
+        /// <param name="stream">A <see cref="System.IO.Stream" /> connected to an input/output object (including files, VisualStudio Resources, and DLLs) that contains a grammar specification.</param>
         /// <param name="ruleName">The identifier of the rule to use as the entry point of the speech recognition grammar, or <see langword="null" /> to use the default root rule of the grammar description.</param>
         /// <param name="baseUri">The base URI to use to resolve any relative rule reference in the grammar description, or <see langword="null" />.</param>
-        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="T:System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
-        /// <exception cref="T:System.ArgumentException">Any of the parameters contain an invalid value.
+        /// <param name="parameters">Parameters to be passed to the initialization handler specified by the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsRule.OnInit" /> property for the entry point or the root rule of the <see cref="System.Speech.Recognition.Grammar" /> to be created. This parameter may be null.</param>
+        /// <exception cref="System.ArgumentException">Any of the parameters contain an invalid value.
         ///
         /// The <paramref name="stream" /> is connected to a grammar that does not contain the rule specified by <paramref name="ruleName" />.
         ///
         /// The contents of the array parameters do not match the arguments of any of the rule's initialization handlers.
         ///
-        /// The grammar contains a relative rule reference that cannot be resolved by the default base <see cref="T:System.Uri" /> rule for grammars or the URI supplied by <paramref name="baseUri" />.</exception>
+        /// The grammar contains a relative rule reference that cannot be resolved by the default base <see cref="System.Uri" /> rule for grammars or the URI supplied by <paramref name="baseUri" />.</exception>
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(Stream stream, string ruleName, Uri baseUri, object[] parameters)
         {
@@ -495,8 +495,8 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class from a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
-        /// <param name="builder">An instance of <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains the constraints for the speech recognition grammar.</param>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class from a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <param name="builder">An instance of <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains the constraints for the speech recognition grammar.</param>
         public Grammar(GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -511,7 +511,7 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, null, isImportedGrammar: true);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Grammar" /> class</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Grammar" /> class</summary>
         protected Grammar()
         {
         }
@@ -524,10 +524,10 @@ namespace System.Speech.Recognition
             LoadAndCompileCfgData(isImportedGrammar: false, stgInit: true);
         }
 
-        /// <summary>The <see langword="LoadLocalizedGrammarFromType" /> method returns a localized instance of a <see cref="T:System.Speech.Recognition.Grammar" /> object derived from <see cref="T:System.Type" />.</summary>
-        /// <param name="type">In an assembly, the <see cref="T:System.Type" /> of an object based on <see cref="T:System.Speech.Recognition.Grammar" />.</param>
-        /// <param name="onInitParameters">Parameters to be passed to an initialization method of the localizedobject based on <see cref="T:System.Speech.Recognition.Grammar" />. This parameter may be null.</param>
-        /// <returns>The <see langword="LoadLocalizedGrammarFromType" /> method returns a valid object based on <see cref="T:System.Speech.Recognition.Grammar" />, or <see langword="null" /> if there has been an error.</returns>
+        /// <summary>The <see langword="LoadLocalizedGrammarFromType" /> method returns a localized instance of a <see cref="System.Speech.Recognition.Grammar" /> object derived from <see cref="System.Type" />.</summary>
+        /// <param name="type">In an assembly, the <see cref="System.Type" /> of an object based on <see cref="System.Speech.Recognition.Grammar" />.</param>
+        /// <param name="onInitParameters">Parameters to be passed to an initialization method of the localizedobject based on <see cref="System.Speech.Recognition.Grammar" />. This parameter may be null.</param>
+        /// <returns>The <see langword="LoadLocalizedGrammarFromType" /> method returns a valid object based on <see cref="System.Speech.Recognition.Grammar" />, or <see langword="null" /> if there has been an error.</returns>
         public static Grammar LoadLocalizedGrammarFromType(Type type, params object[] onInitParameters)
         {
             Helpers.ThrowIfNull(type, nameof(type));

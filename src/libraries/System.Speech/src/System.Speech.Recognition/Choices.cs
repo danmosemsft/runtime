@@ -15,12 +15,12 @@ namespace System.Speech.Recognition
 
         internal OneOfElement OneOf => _oneOf;
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Choices" /> class that contains an empty set of alternatives.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Choices" /> class that contains an empty set of alternatives.</summary>
         public Choices()
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Choices" /> class from an array containing one or more <see cref="T:System.String" /> objects.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Choices" /> class from an array containing one or more <see cref="string" /> objects.</summary>
         /// <param name="phrases">An array containing the set of alternatives.</param>
         public Choices(params string[] phrases)
         {
@@ -28,7 +28,7 @@ namespace System.Speech.Recognition
             Add(phrases);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.Choices" /> class from an array containing one or more <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.Choices" /> class from an array containing one or more <see cref="System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
         /// <param name="alternateChoices">An array containing the set of alternatives.</param>
         public Choices(params GrammarBuilder[] alternateChoices)
         {
@@ -36,8 +36,8 @@ namespace System.Speech.Recognition
             Add(alternateChoices);
         }
 
-        /// <summary>Adds an array containing one or more <see cref="T:System.String" /> objects to the set of alternatives.</summary>
-        /// <param name="phrases">The strings to add to this <see cref="T:System.Speech.Recognition.Choices" /> object.</param>
+        /// <summary>Adds an array containing one or more <see cref="string" /> objects to the set of alternatives.</summary>
+        /// <param name="phrases">The strings to add to this <see cref="System.Speech.Recognition.Choices" /> object.</param>
         public void Add(params string[] phrases)
         {
             Helpers.ThrowIfNull(phrases, nameof(phrases));
@@ -48,8 +48,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Adds an array containing one or more <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects to the set of alternatives.</summary>
-        /// <param name="alternateChoices">The <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects to add to this <see cref="T:System.Speech.Recognition.Choices" /> object.</param>
+        /// <summary>Adds an array containing one or more <see cref="System.Speech.Recognition.GrammarBuilder" /> objects to the set of alternatives.</summary>
+        /// <param name="alternateChoices">The <see cref="System.Speech.Recognition.GrammarBuilder" /> objects to add to this <see cref="System.Speech.Recognition.Choices" /> object.</param>
         public void Add(params GrammarBuilder[] alternateChoices)
         {
             Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
@@ -60,8 +60,8 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object from this <see cref="T:System.Speech.Recognition.Choices" /> object.</summary>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that matches this <see cref="T:System.Speech.Recognition.Choices" /> object.</returns>
+        /// <summary>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> object from this <see cref="System.Speech.Recognition.Choices" /> object.</summary>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> that matches this <see cref="System.Speech.Recognition.Choices" /> object.</returns>
         public GrammarBuilder ToGrammarBuilder()
         {
             return new GrammarBuilder(this);

@@ -15,9 +15,9 @@ namespace System.Speech.Recognition.SrgsGrammar
     {
         private string _text = string.Empty;
 
-        /// <summary>Gets or sets the text contained within the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsText" /> class instance.</summary>
-        /// <returns>The text contained within the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsText" /> instance.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsText.Text" /> to <see langword="null" />.</exception>
+        /// <summary>Gets or sets the text contained within the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText" /> class instance.</summary>
+        /// <returns>The text contained within the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText" /> instance.</returns>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText.Text" /> to <see langword="null" />.</exception>
         public string Text
         {
             get
@@ -32,14 +32,14 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsText" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText" /> class.</summary>
         public SrgsText()
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsText" /> class, specifying the text of the instance.</summary>
-        /// <param name="text">The value used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsText.Text" /> property on the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsText" /> instance.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText" /> class, specifying the text of the instance.</summary>
+        /// <param name="text">The value used to set the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText.Text" /> property on the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsText" /> instance.</param>
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
         public SrgsText(string text)
         {

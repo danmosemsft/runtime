@@ -20,7 +20,7 @@ namespace System.Speech.Synthesis.TtsEngine
         private int _textLength;
 
         /// <summary>Gets or sets speech attribute information for a <see langword="TextFragment" />.</summary>
-        /// <returns>A <see cref="T:System.Speech.Synthesis.TtsEngine.FragmentState" /> instance is returned, or used to set speech attribute information for a <see cref="T:System.Speech.Synthesis.TtsEngine.TextFragment" />.</returns>
+        /// <returns>A <see cref="System.Speech.Synthesis.TtsEngine.FragmentState" /> instance is returned, or used to set speech attribute information for a <see cref="System.Speech.Synthesis.TtsEngine.TextFragment" />.</returns>
         public FragmentState State
         {
             get

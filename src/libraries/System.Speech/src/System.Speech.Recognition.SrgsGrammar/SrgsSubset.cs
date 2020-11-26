@@ -18,8 +18,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         private string _text;
 
         /// <summary>Gets or sets the matching mode for the subset.</summary>
-        /// <returns>A member of the <see cref="T:System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</returns>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsSubset.MatchingMode" /> to a value that is not a member of the <see cref="T:System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
+        /// <returns>A member of the <see cref="System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</returns>
+        /// <exception cref="System.ArgumentException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSubset.MatchingMode" /> to a value that is not a member of the <see cref="System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
         public SubsetMatchingMode MatchingMode
         {
             get
@@ -38,8 +38,8 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         /// <summary>Gets or sets as string that contains the portion of a spoken phrase to be matched.</summary>
         /// <returns>A string that contains the portion of a spoken phrase to be matched.</returns>
-        /// <exception cref="T:System.ArgumentNullException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsSubset.Text" /> to <see langword="null" /> or to an empty string.</exception>
-        /// <exception cref="T:System.ArgumentException">An attempt is made to set <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsSubset.Text" /> using a string that contains only white space characters (' ', '\t', '\n', '\r').</exception>
+        /// <exception cref="System.ArgumentNullException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSubset.Text" /> to <see langword="null" /> or to an empty string.</exception>
+        /// <exception cref="System.ArgumentException">An attempt is made to set <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSubset.Text" /> using a string that contains only white space characters (' ', '\t', '\n', '\r').</exception>
         public string Text
         {
             get
@@ -55,24 +55,24 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsSubset" /> class, specifying the portion of the phrase to be matched.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSubset" /> class, specifying the portion of the phrase to be matched.</summary>
         /// <param name="text">The portion of the phrase to be matched.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
         public SrgsSubset(string text)
             : this(text, SubsetMatchingMode.Subsequence)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsSubset" /> class, specifying the portion to be matched and the mode in which the text should be matched.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsSubset" /> class, specifying the portion to be matched and the mode in which the text should be matched.</summary>
         /// <param name="text">The portion of the phrase to be matched.</param>
         /// <param name="matchingMode">The mode in which <paramref name="text" /> should be matched with the spoken phrase.</param>
-        /// <exception cref="T:System.ArgumentNullException">
+        /// <exception cref="System.ArgumentNullException">
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.ArgumentException">
+        /// <exception cref="System.ArgumentException">
         ///   <paramref name="text" /> is empty.
         /// <paramref name="text" /> contains only white space characters (that is, ' ', '\t', '\n', '\r').
-        /// <paramref name="matchingMode" /> is set to a value in the <see cref="T:System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
+        /// <paramref name="matchingMode" /> is set to a value in the <see cref="System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
         public SrgsSubset(string text, SubsetMatchingMode matchingMode)
         {
             Helpers.ThrowIfEmptyOrNull(text, nameof(text));

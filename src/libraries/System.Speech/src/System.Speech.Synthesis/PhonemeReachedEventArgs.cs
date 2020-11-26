@@ -3,7 +3,7 @@
 
 namespace System.Speech.Synthesis
 {
-    /// <summary>Returns data from the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
+    /// <summary>Returns data from the <see cref="System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
     public class PhonemeReachedEventArgs : PromptEventArgs
     {
         private string _currentPhoneme;
@@ -16,7 +16,7 @@ namespace System.Speech.Synthesis
 
         private string _nextPhoneme;
 
-        /// <summary>The phoneme associated with the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
+        /// <summary>The phoneme associated with the <see cref="System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
         /// <returns>A string containing the phoneme.</returns>
         public string Phoneme => _currentPhoneme;
 
@@ -32,7 +32,7 @@ namespace System.Speech.Synthesis
         /// <returns>A <see langword="SynthesizerEmphasis" /> member indicating the level of emphasis.</returns>
         public SynthesizerEmphasis Emphasis => _emphasis;
 
-        /// <summary>Gets the phoneme following the phoneme associated with the <see cref="E:System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
+        /// <summary>Gets the phoneme following the phoneme associated with the <see cref="System.Speech.Synthesis.SpeechSynthesizer.PhonemeReached" /> event.</summary>
         /// <returns>A string containing the next phoneme.</returns>
         public string NextPhoneme => _nextPhoneme;
 

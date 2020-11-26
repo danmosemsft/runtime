@@ -3,7 +3,7 @@
 
 namespace System.Speech.Recognition
 {
-    /// <summary>Provides data for the <c>AudioSignalProblemOccurred</c> event of a <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or a <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
+    /// <summary>Provides data for the <c>AudioSignalProblemOccurred</c> event of a <see cref="System.Speech.Recognition.SpeechRecognizer" /> or a <see cref="System.Speech.Recognition.SpeechRecognitionEngine" />.</summary>
     public class AudioSignalProblemOccurredEventArgs : EventArgs
     {
         private AudioSignalProblem _audioSignalProblem;

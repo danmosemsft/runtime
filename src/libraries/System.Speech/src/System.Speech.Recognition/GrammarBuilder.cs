@@ -73,12 +73,12 @@ namespace System.Speech.Recognition
 
         private CultureInfo _culture = CultureInfo.CurrentUICulture;
 
-        /// <summary>Gets a string that shows the contents and structure of the grammar contained by the <see cref="T:System.Speech.Recognition.GrammarBuilder" />.</summary>
-        /// <returns>The current content and structure of the <see cref="T:System.Speech.Recognition.GrammarBuilder" />.</returns>
+        /// <summary>Gets a string that shows the contents and structure of the grammar contained by the <see cref="System.Speech.Recognition.GrammarBuilder" />.</summary>
+        /// <returns>The current content and structure of the <see cref="System.Speech.Recognition.GrammarBuilder" />.</returns>
         public string DebugShowPhrases => DebugSummary;
 
         /// <summary>Gets or sets the culture of the speech recognition grammar.</summary>
-        /// <returns>The culture of the <see cref="T:System.Speech.Recognition.GrammarBuilder" />. The default is the executing thread's <see cref="P:System.Threading.Thread.CurrentUICulture" /> property.</returns>
+        /// <returns>The culture of the <see cref="System.Speech.Recognition.GrammarBuilder" />. The default is the executing thread's <see cref="System.Threading.Thread.CurrentUICulture" /> property.</returns>
         public CultureInfo Culture
         {
             get
@@ -114,13 +114,13 @@ namespace System.Speech.Recognition
 
         internal BuilderElements InternalBuilder => _grammarBuilder;
 
-        /// <summary>Initializes a new, empty instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class.</summary>
+        /// <summary>Initializes a new, empty instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class.</summary>
         public GrammarBuilder()
         {
             _grammarBuilder = new InternalGrammarBuilder();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from a sequence of words.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from a sequence of words.</summary>
         /// <param name="phrase">The sequence of words.</param>
         public GrammarBuilder(string phrase)
             : this()
@@ -128,7 +128,7 @@ namespace System.Speech.Recognition
             Append(phrase);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class for a subset of a sequence of words.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class for a subset of a sequence of words.</summary>
         /// <param name="phrase">The sequence of words.</param>
         /// <param name="subsetMatchingCriteria">The matching mode the speech recognition grammar uses to recognize the phrase.</param>
         public GrammarBuilder(string phrase, SubsetMatchingMode subsetMatchingCriteria)
@@ -137,7 +137,7 @@ namespace System.Speech.Recognition
             Append(phrase, subsetMatchingCriteria);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from the sequence of words in a <see cref="T:System.String" /> and specifies how many times the <see cref="T:System.String" /> can be repeated.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from the sequence of words in a <see cref="string" /> and specifies how many times the <see cref="string" /> can be repeated.</summary>
         /// <param name="phrase">The repeated sequence of words.</param>
         /// <param name="minRepeat">The minimum number of times that input matching the phrase must occur to constitute a match.</param>
         /// <param name="maxRepeat">The maximum number of times that input matching the phrase can occur to constitute a match.</param>
@@ -147,7 +147,7 @@ namespace System.Speech.Recognition
             Append(phrase, minRepeat, maxRepeat);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from a repeated element.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from a repeated element.</summary>
         /// <param name="builder">The repeated element.</param>
         /// <param name="minRepeat">The minimum number of times that input matching the element defined by <paramref name="builder" /> must occur to constitute a match.</param>
         /// <param name="maxRepeat">The maximum number of times that input matching the element defined by <paramref name="builder" /> can occur to constitute a match.</param>
@@ -157,7 +157,7 @@ namespace System.Speech.Recognition
             Append(builder, minRepeat, maxRepeat);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from a set of alternatives.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from a set of alternatives.</summary>
         /// <param name="alternateChoices">The set of alternatives.</param>
         public GrammarBuilder(Choices alternateChoices)
             : this()
@@ -165,7 +165,7 @@ namespace System.Speech.Recognition
             Append(alternateChoices);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from a semantic key.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from a semantic key.</summary>
         /// <param name="key">The semantic key.</param>
         public GrammarBuilder(SemanticResultKey key)
             : this()
@@ -173,7 +173,7 @@ namespace System.Speech.Recognition
             Append(key);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.GrammarBuilder" /> class from a semantic value.</summary>
+        /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.GrammarBuilder" /> class from a semantic value.</summary>
         /// <param name="value">The semantic value or name/value pair.</param>
         public GrammarBuilder(SemanticResultValue value)
             : this()
@@ -338,19 +338,19 @@ namespace System.Speech.Recognition
             AddItem(new GrammarBuilderRuleRef(uri, rule));
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a phrase followed by a <see cref="T:System.Speech.Recognition.GrammarBuilder" />.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a phrase followed by a <see cref="System.Speech.Recognition.GrammarBuilder" />.</summary>
         /// <param name="phrase">The first grammar element, which represents a sequence of words.</param>
         /// <param name="builder">The second grammar element.</param>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="phrase" /> parameter followed by the <paramref name="builder" /> parameter.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="phrase" /> parameter followed by the <paramref name="builder" /> parameter.</returns>
         public static GrammarBuilder operator +(string phrase, GrammarBuilder builder)
         {
             return Add(phrase, builder);
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a phrase followed by a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a phrase followed by a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="phrase">The first grammar element, which represents a sequence of words.</param>
         /// <param name="builder">The second grammar element.</param>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="phrase" /> element followed by the <paramref name="builder" /> element.</returns>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="phrase" /> element followed by the <paramref name="builder" /> element.</returns>
         public static GrammarBuilder Add(string phrase, GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -359,19 +359,19 @@ namespace System.Speech.Recognition
             return grammarBuilder;
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> followed by a phrase.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.GrammarBuilder" /> followed by a phrase.</summary>
         /// <param name="builder">The first grammar element.</param>
         /// <param name="phrase">The second grammar element, which represents a sequence of words.</param>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> parameter followed by the <paramref name="phrase" /> parameter.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> parameter followed by the <paramref name="phrase" /> parameter.</returns>
         public static GrammarBuilder operator +(GrammarBuilder builder, string phrase)
         {
             return Add(builder, phrase);
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object followed by a phrase.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.GrammarBuilder" /> object followed by a phrase.</summary>
         /// <param name="builder">The first grammar element.</param>
         /// <param name="phrase">The second grammar element, which represents a sequence of words.</param>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="phrase" /> element.</returns>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="phrase" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder, string phrase)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -380,19 +380,19 @@ namespace System.Speech.Recognition
             return grammarBuilder;
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.Choices" /> object followed by a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.Choices" /> object followed by a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="choices">The first grammar element, which represents a set of alternatives.</param>
         /// <param name="builder">The second grammar element.</param>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="choices" /> parameter followed by the <paramref name="builder" /> parameter.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="choices" /> parameter followed by the <paramref name="builder" /> parameter.</returns>
         public static GrammarBuilder operator +(Choices choices, GrammarBuilder builder)
         {
             return Add(choices, builder);
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.Choices" /> object followed by a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.Choices" /> object followed by a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="choices">The first grammar element, which represents a set of alternatives.</param>
         /// <param name="builder">The second grammar element.</param>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="choices" /> element followed by the <paramref name="builder" /> element.</returns>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="choices" /> element followed by the <paramref name="builder" /> element.</returns>
         public static GrammarBuilder Add(Choices choices, GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(choices, nameof(choices));
@@ -402,19 +402,19 @@ namespace System.Speech.Recognition
             return grammarBuilder;
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> followed by a <see cref="T:System.Speech.Recognition.Choices" />.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.GrammarBuilder" /> followed by a <see cref="System.Speech.Recognition.Choices" />.</summary>
         /// <param name="builder">The first grammar element.</param>
         /// <param name="choices">The second grammar element, which represents a set of alternative elements.</param>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> parameter followed by the <paramref name="choices" /> parameter.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> parameter followed by the <paramref name="choices" /> parameter.</returns>
         public static GrammarBuilder operator +(GrammarBuilder builder, Choices choices)
         {
             return Add(builder, choices);
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object followed by a <see cref="T:System.Speech.Recognition.Choices" /> object.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a <see cref="System.Speech.Recognition.GrammarBuilder" /> object followed by a <see cref="System.Speech.Recognition.Choices" /> object.</summary>
         /// <param name="builder">The first grammar element.</param>
         /// <param name="choices">The second grammar element, which represents a set of alternatives.</param>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="choices" /> element.</returns>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="choices" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder, Choices choices)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -424,19 +424,19 @@ namespace System.Speech.Recognition
             return grammarBuilder;
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a sequence of two <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a sequence of two <see cref="System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
         /// <param name="builder1">The first grammar element.</param>
         /// <param name="builder2">The second grammar element.</param>
-        /// <returns>Returns a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder1" /> parameter followed by the <paramref name="builder2" /> parameter.</returns>
+        /// <returns>Returns a <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder1" /> parameter followed by the <paramref name="builder2" /> parameter.</returns>
         public static GrammarBuilder operator +(GrammarBuilder builder1, GrammarBuilder builder2)
         {
             return Add(builder1, builder2);
         }
 
-        /// <summary>Creates a new <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains a sequence of two <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
+        /// <summary>Creates a new <see cref="System.Speech.Recognition.GrammarBuilder" /> that contains a sequence of two <see cref="System.Speech.Recognition.GrammarBuilder" /> objects.</summary>
         /// <param name="builder1">The first grammar element.</param>
         /// <param name="builder2">The second grammar element.</param>
-        /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder1" /> element followed by the <paramref name="builder2" /> element.</returns>
+        /// <returns>A <see cref="System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder1" /> element followed by the <paramref name="builder2" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder1, GrammarBuilder builder2)
         {
             Helpers.ThrowIfNull(builder1, nameof(builder1));
@@ -446,7 +446,7 @@ namespace System.Speech.Recognition
             return grammarBuilder;
         }
 
-        /// <summary>Converts a string to a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Converts a string to a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="phrase">The string to convert.</param>
         /// <returns>The converted string.</returns>
         public static implicit operator GrammarBuilder(string phrase)
@@ -454,25 +454,25 @@ namespace System.Speech.Recognition
             return new GrammarBuilder(phrase);
         }
 
-        /// <summary>Converts a <see cref="T:System.Speech.Recognition.Choices" /> object to a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Converts a <see cref="System.Speech.Recognition.Choices" /> object to a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="choices">The set of alternatives to convert.</param>
-        /// <returns>The converted <see cref="T:System.Speech.Recognition.Choices" /> object.</returns>
+        /// <returns>The converted <see cref="System.Speech.Recognition.Choices" /> object.</returns>
         public static implicit operator GrammarBuilder(Choices choices)
         {
             return new GrammarBuilder(choices);
         }
 
-        /// <summary>Converts a <see cref="T:System.Speech.Recognition.SemanticResultKey" /> object to a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <summary>Converts a <see cref="System.Speech.Recognition.SemanticResultKey" /> object to a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
         /// <param name="semanticKey">The semantic key to convert.</param>
-        /// <returns>The converted <see cref="T:System.Speech.Recognition.SemanticResultKey" /> object.</returns>
+        /// <returns>The converted <see cref="System.Speech.Recognition.SemanticResultKey" /> object.</returns>
         public static implicit operator GrammarBuilder(SemanticResultKey semanticKey)
         {
             return new GrammarBuilder(semanticKey);
         }
 
-        /// <summary>Converts a <see cref="T:System.Speech.Recognition.SemanticResultValue" /> object to a <see cref="T:System.Speech.Recognition.GrammarBuilder" /> object.</summary>
-        /// <param name="semanticValue">The <see cref="T:System.Speech.Recognition.SemanticResultValue" /> object to convert.</param>
-        /// <returns>The converted <see cref="T:System.Speech.Recognition.SemanticResultValue" /> object.</returns>
+        /// <summary>Converts a <see cref="System.Speech.Recognition.SemanticResultValue" /> object to a <see cref="System.Speech.Recognition.GrammarBuilder" /> object.</summary>
+        /// <param name="semanticValue">The <see cref="System.Speech.Recognition.SemanticResultValue" /> object to convert.</param>
+        /// <returns>The converted <see cref="System.Speech.Recognition.SemanticResultValue" /> object.</returns>
         public static implicit operator GrammarBuilder(SemanticResultValue semanticValue)
         {
             return new GrammarBuilder(semanticValue);
