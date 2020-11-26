@@ -1,0 +1,33 @@
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System.Runtime.InteropServices;
+
+namespace System.Speech.Internal.SapiInterop
+{
+	[ComImport]
+	[Guid("88A3342A-0BED-4834-922B-88D43173162F")]
+	[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+	internal interface ISpPhraseBuilder : ISpPhrase
+	{
+		new void GetPhrase(out IntPtr ppCoMemPhrase);
+
+		new void GetSerializedPhrase(out IntPtr ppCoMemPhrase);
+
+		new void GetText(uint ulStart, uint ulCount, [MarshalAs(UnmanagedType.Bool)] bool fUseTextReplacements, [MarshalAs(UnmanagedType.LPWStr)] out string ppszCoMemText, out byte pbDisplayAttributes);
+
+		new void Discard(uint dwValueTypes);
+
+		void InitFromPhrase(SPPHRASE pPhrase);
+
+		void Slot6();
+
+		void Slot7();
+
+		void Slot8();
+
+		void Slot9();
+
+		void Slot10();
+	}
+}
