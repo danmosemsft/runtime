@@ -4,7 +4,7 @@
         <TargetFrameworks>netcoreapp3.0-windows;netstandard2.1</TargetFrameworks>
       <NoWarn>$(NoWarn);CS0649</NoWarn><!-- uninitialized interop type fields -->
       <!-- tabs -->
-        <NoWarn>$(NoWarn);;;;;;;;;;;SYSLIB0006;;;CS0618;SYSLIB0003;IDE0041;;;SYSLIB0014;;CS8032</NoWarn>
+        <NoWarn>$(NoWarn);;;;;;;;;;;SYSLIB0006;;;CS0618;SYSLIB0003;IDE0041;;;SYSLIB0014;;</NoWarn>
     </PropertyGroup>
     <PropertyGroup>
         <GeneratePlatformNotSupportedAssemblyMessage Condition="'$(TargetFramework)' == 'netstandard2.1'">SR.PlatformNotSupported_SystemSpeech</GeneratePlatformNotSupportedAssemblyMessage>
