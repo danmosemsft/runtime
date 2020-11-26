@@ -2,11 +2,20 @@
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TargetFrameworks>netcoreapp3.0-windows;netstandard2.1</TargetFrameworks>
-        <NoWarn>$(NoWarn);CS0649</NoWarn><!-- uninitialized interop type fields -->
-    </PropertyGroup>
-    <PropertyGroup>
+        <!-- uninitialized interop type fields -->
+        <NoWarn>$(NoWarn);CS0649</NoWarn>
         <GeneratePlatformNotSupportedAssemblyMessage Condition="'$(TargetFramework)' == 'netstandard2.1'">SR.PlatformNotSupported_SystemSpeech</GeneratePlatformNotSupportedAssemblyMessage>
     </PropertyGroup>
+    <!-- System.Speech has its own SR scheme in which resource ID's are mapped to SAPI error codes. So we disable our default SR.cs generation and include resources explicitly -->
+    <PropertyGroup>
+        <OmitResources Condition="'$(TargetFramework)' != 'netstandard2.1'">true</OmitResources>
+    </PropertyGroup>
+    <ItemGroup>
+        <EmbeddedResource Condition="'$(TargetFramework)' != 'netstandard2.1'" Include="Resources\Strings.resx">
+            <Visible>true</Visible>
+            <ManifestResourceName>ExceptionStringTable</ManifestResourceName>
+        </EmbeddedResource>
+    </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <Compile Include="System.IO\FileHelper.cs"/>
         <Compile Include="System.Speech\SR.cs"/>
