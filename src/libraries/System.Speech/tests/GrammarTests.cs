@@ -14,7 +14,7 @@ namespace SampleSynthesisTests
     public class GrammarTests : FileCleanupTestBase
     {
         [Fact]
-        public void WriteGrammarToXml()
+        public void WriteStronglyTypedGrammarToXml()
         {
             SrgsDocument srgsDoc = CreateSrgsDocument();
 
@@ -28,7 +28,7 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
-        public void CompileGrammarToCfg()
+        public void CompileStronglyTypedGrammarToCfg()
         {
             SrgsDocument srgsDoc = CreateSrgsDocument();
 
@@ -39,7 +39,7 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
-        public void CompileGrammarToDll()
+        public void CompileStronglyTypedGrammarToDll()
         {
             SrgsDocument srgsDoc = CreateSrgsDocument();
 
@@ -50,7 +50,7 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
-        public void ParseGrammar()
+        public void ParseGrammarXml()
         {
             string xml = @"<grammar version=""1.0"" xml:lang=""en-US"" root=""playCommands"" xmlns=""http://www.w3.org/2001/06/grammar"">
                              <rule id=""playCommands"">
@@ -80,6 +80,28 @@ namespace SampleSynthesisTests
             grammar.Name = "test";
 
         }
+
+        [Fact]
+        public void GrammarBuilder()
+        {
+            Choices colorChoice = new Choices(new string[] {"red", "green", "blue"});
+            GrammarBuilder colorElement = new GrammarBuilder(colorChoice);
+
+            GrammarBuilder makePhrase = new GrammarBuilder("Make background");
+            makePhrase.Append(colorElement);
+            GrammarBuilder setPhrase = new GrammarBuilder("Set background to");
+            setPhrase.Append(colorElement);
+
+            Choices bothChoices = new Choices(new GrammarBuilder[] {makePhrase, setPhrase});
+            Grammar grammar = new Grammar((GrammarBuilder)bothChoices);
+            grammar.Name = "backgroundColor";
+
+            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            {
+                rec.LoadGrammar(grammar);
+            }
+        }
+
         private SrgsDocument CreateSrgsDocument()
         {
             SrgsDocument srgsDoc = new SrgsDocument();
