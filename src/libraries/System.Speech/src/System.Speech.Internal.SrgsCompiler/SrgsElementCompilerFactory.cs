@@ -182,7 +182,7 @@ namespace System.Speech.Internal.SrgsCompiler
                 string text2 = (display == null) ? text : EscapeToken(display);
                 if (pronunciation != null)
                 {
-                    OneOf oneOf = (pronunciation.IndexOf(';') >= 0) ? new OneOf(parent._rule, _backend) : null;
+                    OneOf oneOf = (pronunciation.Contains(';')) ? new OneOf(parent._rule, _backend) : null;
                     int num = 0;
                     int num2 = 0;
                     while (num < pronunciation.Length)
@@ -243,7 +243,7 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private static string EscapeToken(string sToken)
         {
-            if (sToken.IndexOf("\\/", StringComparison.Ordinal) == -1)
+            if (!sToken.Contains("\\/"))
             {
                 return sToken;
             }

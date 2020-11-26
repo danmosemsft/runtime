@@ -608,7 +608,7 @@ namespace System.Speech.Internal.SrgsCompiler
         internal static string NormalizeTokenWhiteSpace(string sToken)
         {
             sToken = sToken.Trim(Helpers._achTrimChars);
-            if (sToken.IndexOf("  ", StringComparison.Ordinal) == -1)
+            if (!sToken.Contains("  "))
             {
                 return sToken;
             }

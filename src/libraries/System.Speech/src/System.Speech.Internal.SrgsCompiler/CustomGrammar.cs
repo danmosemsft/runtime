@@ -454,7 +454,7 @@ namespace System.Speech.Internal.SrgsCompiler
                 {
                     stringBuilder.Append('\n');
                 }
-                if (error.FileName.IndexOf("<Does Not Exist>", StringComparison.Ordinal) == -1)
+                if (!error.FileName.Contains("<Does Not Exist>"))
                 {
                     stringBuilder.Append(error.FileName);
                     stringBuilder.Append('(');
