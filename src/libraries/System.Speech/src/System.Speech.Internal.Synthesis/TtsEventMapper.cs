@@ -3,34 +3,34 @@
 
 namespace System.Speech.Internal.Synthesis
 {
-	internal abstract class TtsEventMapper : ITtsEventSink
-	{
-		private ITtsEventSink _sink;
+    internal abstract class TtsEventMapper : ITtsEventSink
+    {
+        private ITtsEventSink _sink;
 
-		internal TtsEventMapper(ITtsEventSink sink)
-		{
-			_sink = sink;
-		}
+        internal TtsEventMapper(ITtsEventSink sink)
+        {
+            _sink = sink;
+        }
 
-		protected virtual void SendToOutput(TTSEvent evt)
-		{
-			if (_sink != null)
-			{
-				_sink.AddEvent(evt);
-			}
-		}
+        protected virtual void SendToOutput(TTSEvent evt)
+        {
+            if (_sink != null)
+            {
+                _sink.AddEvent(evt);
+            }
+        }
 
-		public virtual void AddEvent(TTSEvent evt)
-		{
-			SendToOutput(evt);
-		}
+        public virtual void AddEvent(TTSEvent evt)
+        {
+            SendToOutput(evt);
+        }
 
-		public virtual void FlushEvent()
-		{
-			if (_sink != null)
-			{
-				_sink.FlushEvent();
-			}
-		}
-	}
+        public virtual void FlushEvent()
+        {
+            if (_sink != null)
+            {
+                _sink.FlushEvent();
+            }
+        }
+    }
 }

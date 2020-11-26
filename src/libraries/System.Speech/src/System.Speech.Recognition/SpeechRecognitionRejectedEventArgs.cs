@@ -3,13 +3,13 @@
 
 namespace System.Speech.Recognition
 {
-	/// <summary>Provides information for the <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechRecognitionRejected" /> and <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognitionRejected" /> events.</summary>
-	[Serializable]
-	public class SpeechRecognitionRejectedEventArgs : RecognitionEventArgs
-	{
-		internal SpeechRecognitionRejectedEventArgs(RecognitionResult result)
-			: base(result)
-		{
-		}
-	}
+    /// <summary>Provides information for the <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechRecognitionRejected" /> and <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognitionRejected" /> events.</summary>
+    [Serializable]
+    public class SpeechRecognitionRejectedEventArgs : RecognitionEventArgs
+    {
+        internal SpeechRecognitionRejectedEventArgs(RecognitionResult result)
+            : base(result)
+        {
+        }
+    }
 }

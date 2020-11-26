@@ -3,10 +3,10 @@
 
 namespace System.Speech.Internal.SrgsParser
 {
-	internal enum RulePublic
-	{
-		True,
-		False,
-		NotSet
-	}
+    internal enum RulePublic
+    {
+        True,
+        False,
+        NotSet
+    }
 }

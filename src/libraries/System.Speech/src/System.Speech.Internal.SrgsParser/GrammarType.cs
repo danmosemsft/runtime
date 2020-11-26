@@ -3,9 +3,9 @@
 
 namespace System.Speech.Internal.SrgsParser
 {
-	internal enum GrammarType
-	{
-		VoiceGrammar,
-		DtmfGrammar
-	}
+    internal enum GrammarType
+    {
+        VoiceGrammar,
+        DtmfGrammar
+    }
 }

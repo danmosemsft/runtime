@@ -3,10 +3,10 @@
 
 namespace System.Speech.Internal.Synthesis
 {
-	internal interface ITtsEventSink
-	{
-		void AddEvent(TTSEvent evt);
+    internal interface ITtsEventSink
+    {
+        void AddEvent(TTSEvent evt);
 
-		void FlushEvent();
-	}
+        void FlushEvent();
+    }
 }

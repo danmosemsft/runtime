@@ -3,18 +3,18 @@
 
 namespace System.Speech.Recognition
 {
-	/// <summary>Returns data from <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechDetected" /> or <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechDetected" /> events.</summary>
-	public class SpeechDetectedEventArgs : EventArgs
-	{
-		private TimeSpan _audioPosition;
+    /// <summary>Returns data from <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechDetected" /> or <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechDetected" /> events.</summary>
+    public class SpeechDetectedEventArgs : EventArgs
+    {
+        private TimeSpan _audioPosition;
 
-		/// <summary>Gets the position in the audio stream where speech was detected.</summary>
-		/// <returns>Returns the location of a detected phrase within a recognition engine's speech buffer.</returns>
-		public TimeSpan AudioPosition => _audioPosition;
+        /// <summary>Gets the position in the audio stream where speech was detected.</summary>
+        /// <returns>Returns the location of a detected phrase within a recognition engine's speech buffer.</returns>
+        public TimeSpan AudioPosition => _audioPosition;
 
-		internal SpeechDetectedEventArgs(TimeSpan audioPosition)
-		{
-			_audioPosition = audioPosition;
-		}
-	}
+        internal SpeechDetectedEventArgs(TimeSpan audioPosition)
+        {
+            _audioPosition = audioPosition;
+        }
+    }
 }

@@ -3,20 +3,20 @@
 
 namespace System.Speech.Internal.SapiInterop
 {
-	internal struct SPAUDIOSTATUS
-	{
-		internal int cbFreeBuffSpace;
+    internal struct SPAUDIOSTATUS
+    {
+        internal int cbFreeBuffSpace;
 
-		internal uint cbNonBlockingIO;
+        internal uint cbNonBlockingIO;
 
-		internal SPAUDIOSTATE State;
+        internal SPAUDIOSTATE State;
 
-		internal ulong CurSeekPos;
+        internal ulong CurSeekPos;
 
-		internal ulong CurDevicePos;
+        internal ulong CurDevicePos;
 
-		internal uint dwAudioLevel;
+        internal uint dwAudioLevel;
 
-		internal uint dwReserved2;
-	}
+        internal uint dwReserved2;
+    }
 }

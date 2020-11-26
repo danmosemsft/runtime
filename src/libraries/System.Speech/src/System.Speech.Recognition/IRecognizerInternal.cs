@@ -3,16 +3,16 @@
 
 namespace System.Speech.Recognition
 {
-	internal interface IRecognizerInternal
-	{
-		void SetGrammarState(Grammar grammar, bool enabled);
+    internal interface IRecognizerInternal
+    {
+        void SetGrammarState(Grammar grammar, bool enabled);
 
-		void SetGrammarWeight(Grammar grammar, float weight);
+        void SetGrammarWeight(Grammar grammar, float weight);
 
-		void SetGrammarPriority(Grammar grammar, int priority);
+        void SetGrammarPriority(Grammar grammar, int priority);
 
-		Grammar GetGrammarFromId(ulong id);
+        Grammar GetGrammarFromId(ulong id);
 
-		void SetDictationContext(Grammar grammar, string precedingText, string subsequentText);
-	}
+        void SetDictationContext(Grammar grammar, string precedingText, string subsequentText);
+    }
 }

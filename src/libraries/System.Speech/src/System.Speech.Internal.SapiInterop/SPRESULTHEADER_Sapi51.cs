@@ -5,46 +5,46 @@ using System.Runtime.InteropServices;
 
 namespace System.Speech.Internal.SapiInterop
 {
-	[Serializable]
-	[StructLayout(LayoutKind.Sequential)]
-	internal class SPRESULTHEADER_Sapi51
-	{
-		internal uint ulSerializedSize;
+    [Serializable]
+    [StructLayout(LayoutKind.Sequential)]
+    internal class SPRESULTHEADER_Sapi51
+    {
+        internal uint ulSerializedSize;
 
-		internal uint cbHeaderSize;
+        internal uint cbHeaderSize;
 
-		internal Guid clsidEngine;
+        internal Guid clsidEngine;
 
-		internal Guid clsidAlternates;
+        internal Guid clsidAlternates;
 
-		internal uint ulStreamNum;
+        internal uint ulStreamNum;
 
-		internal ulong ullStreamPosStart;
+        internal ulong ullStreamPosStart;
 
-		internal ulong ullStreamPosEnd;
+        internal ulong ullStreamPosEnd;
 
-		internal uint ulPhraseDataSize;
+        internal uint ulPhraseDataSize;
 
-		internal uint ulPhraseOffset;
+        internal uint ulPhraseOffset;
 
-		internal uint ulPhraseAltDataSize;
+        internal uint ulPhraseAltDataSize;
 
-		internal uint ulPhraseAltOffset;
+        internal uint ulPhraseAltOffset;
 
-		internal uint ulNumPhraseAlts;
+        internal uint ulNumPhraseAlts;
 
-		internal uint ulRetainedDataSize;
+        internal uint ulRetainedDataSize;
 
-		internal uint ulRetainedOffset;
+        internal uint ulRetainedOffset;
 
-		internal uint ulDriverDataSize;
+        internal uint ulDriverDataSize;
 
-		internal uint ulDriverDataOffset;
+        internal uint ulDriverDataOffset;
 
-		internal float fTimePerByte;
+        internal float fTimePerByte;
 
-		internal float fInputScaleFactor;
+        internal float fInputScaleFactor;
 
-		internal SPRECORESULTTIMES times;
-	}
+        internal SPRECORESULTTIMES times;
+    }
 }

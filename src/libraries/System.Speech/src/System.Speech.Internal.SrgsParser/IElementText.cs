@@ -3,7 +3,7 @@
 
 namespace System.Speech.Internal.SrgsParser
 {
-	internal interface IElementText : IElement
-	{
-	}
+    internal interface IElementText : IElement
+    {
+    }
 }

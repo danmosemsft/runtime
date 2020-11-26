@@ -3,21 +3,21 @@
 
 namespace System.Speech.Internal.SrgsParser
 {
-	internal interface IToken : IElement
-	{
-		string Text
-		{
-			set;
-		}
+    internal interface IToken : IElement
+    {
+        string Text
+        {
+            set;
+        }
 
-		string Display
-		{
-			set;
-		}
+        string Display
+        {
+            set;
+        }
 
-		string Pronunciation
-		{
-			set;
-		}
-	}
+        string Pronunciation
+        {
+            set;
+        }
+    }
 }

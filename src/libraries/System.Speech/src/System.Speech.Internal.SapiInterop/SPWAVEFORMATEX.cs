@@ -5,25 +5,25 @@ using System.Runtime.InteropServices;
 
 namespace System.Speech.Internal.SapiInterop
 {
-	[StructLayout(LayoutKind.Sequential)]
-	internal class SPWAVEFORMATEX
-	{
-		public uint cbUsed;
+    [StructLayout(LayoutKind.Sequential)]
+    internal class SPWAVEFORMATEX
+    {
+        public uint cbUsed;
 
-		public Guid Guid;
+        public Guid Guid;
 
-		public ushort wFormatTag;
+        public ushort wFormatTag;
 
-		public ushort nChannels;
+        public ushort nChannels;
 
-		public uint nSamplesPerSec;
+        public uint nSamplesPerSec;
 
-		public uint nAvgBytesPerSec;
+        public uint nAvgBytesPerSec;
 
-		public ushort nBlockAlign;
+        public ushort nBlockAlign;
 
-		public ushort wBitsPerSample;
+        public ushort wBitsPerSample;
 
-		public ushort cbSize;
-	}
+        public ushort cbSize;
+    }
 }

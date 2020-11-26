@@ -5,23 +5,23 @@ using System.Runtime.InteropServices;
 
 namespace System.Speech.Internal.SapiInterop
 {
-	internal struct SPRECOGNIZERSTATUS
-	{
-		internal SPAUDIOSTATUS AudioStatus;
+    internal struct SPRECOGNIZERSTATUS
+    {
+        internal SPAUDIOSTATUS AudioStatus;
 
-		internal ulong ullRecognitionStreamPos;
+        internal ulong ullRecognitionStreamPos;
 
-		internal uint ulStreamNumber;
+        internal uint ulStreamNumber;
 
-		internal uint ulNumActive;
+        internal uint ulNumActive;
 
-		internal Guid clsidEngine;
+        internal Guid clsidEngine;
 
-		internal uint cLangIDs;
+        internal uint cLangIDs;
 
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
-		internal short[] aLangID;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+        internal short[] aLangID;
 
-		internal ulong ullRecognitionStreamTime;
-	}
+        internal ulong ullRecognitionStreamTime;
+    }
 }

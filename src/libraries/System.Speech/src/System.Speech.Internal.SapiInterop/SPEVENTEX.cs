@@ -3,20 +3,20 @@
 
 namespace System.Speech.Internal.SapiInterop
 {
-	internal struct SPEVENTEX
-	{
-		public SPEVENTENUM eEventId;
+    internal struct SPEVENTEX
+    {
+        public SPEVENTENUM eEventId;
 
-		public SPEVENTLPARAMTYPE elParamType;
+        public SPEVENTLPARAMTYPE elParamType;
 
-		public uint ulStreamNum;
+        public uint ulStreamNum;
 
-		public ulong ullAudioStreamOffset;
+        public ulong ullAudioStreamOffset;
 
-		public IntPtr wParam;
+        public IntPtr wParam;
 
-		public IntPtr lParam;
+        public IntPtr lParam;
 
-		public ulong ullAudioTimeOffset;
-	}
+        public ulong ullAudioTimeOffset;
+    }
 }

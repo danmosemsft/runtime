@@ -3,13 +3,13 @@
 
 namespace System.Speech.Recognition
 {
-	/// <summary>Provides information for the <see cref="E:System.Speech.Recognition.Grammar.SpeechRecognized" />, <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" />, and <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechRecognized" /> events.</summary>
-	[Serializable]
-	public class SpeechRecognizedEventArgs : RecognitionEventArgs
-	{
-		internal SpeechRecognizedEventArgs(RecognitionResult result)
-			: base(result)
-		{
-		}
-	}
+    /// <summary>Provides information for the <see cref="E:System.Speech.Recognition.Grammar.SpeechRecognized" />, <see cref="E:System.Speech.Recognition.SpeechRecognitionEngine.SpeechRecognized" />, and <see cref="E:System.Speech.Recognition.SpeechRecognizer.SpeechRecognized" /> events.</summary>
+    [Serializable]
+    public class SpeechRecognizedEventArgs : RecognitionEventArgs
+    {
+        internal SpeechRecognizedEventArgs(RecognitionResult result)
+            : base(result)
+        {
+        }
+    }
 }
