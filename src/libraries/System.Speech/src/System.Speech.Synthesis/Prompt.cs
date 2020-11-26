@@ -47,7 +47,7 @@ namespace System.Speech.Synthesis
             {
                 if (value != null && (_synthesizer != null || _completed))
                 {
-                    throw new ArgumentException(SR.Get(SRID.SynthesizerPromptInUse), "value");
+                    throw new ArgumentException(SR.Get(SRID.SynthesizerPromptInUse), nameof(value));
                 }
                 _synthesizer = value;
             }
@@ -64,7 +64,7 @@ namespace System.Speech.Synthesis
         /// <param name="promptBuilder">The content to be spoken.</param>
         public Prompt(PromptBuilder promptBuilder)
         {
-            Helpers.ThrowIfNull(promptBuilder, "promptBuilder");
+            Helpers.ThrowIfNull(promptBuilder, nameof(promptBuilder));
             _text = promptBuilder.ToXml();
             _media = SynthesisMediaType.Ssml;
         }
@@ -74,18 +74,18 @@ namespace System.Speech.Synthesis
         /// <param name="media">A value that specifies the format of the text.</param>
         public Prompt(string textToSpeak, SynthesisTextFormat media)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if ((uint)(_media = (SynthesisMediaType)media) <= 1u)
             {
                 _text = textToSpeak;
                 return;
             }
-            throw new ArgumentException(SR.Get(SRID.SynthesizerUnknownMediaType), "media");
+            throw new ArgumentException(SR.Get(SRID.SynthesizerUnknownMediaType), nameof(media));
         }
 
         internal Prompt(Uri promptFile, SynthesisMediaType media)
         {
-            Helpers.ThrowIfNull(promptFile, "promptFile");
+            Helpers.ThrowIfNull(promptFile, nameof(promptFile));
             switch (_media = media)
             {
                 case SynthesisMediaType.Text:
@@ -115,7 +115,7 @@ namespace System.Speech.Synthesis
                     _audio = promptFile;
                     break;
                 default:
-                    throw new ArgumentException(SR.Get(SRID.SynthesizerUnknownMediaType), "media");
+                    throw new ArgumentException(SR.Get(SRID.SynthesizerUnknownMediaType), nameof(media));
             }
         }
     }

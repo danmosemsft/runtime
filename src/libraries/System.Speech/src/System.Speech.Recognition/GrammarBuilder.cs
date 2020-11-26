@@ -89,7 +89,7 @@ namespace System.Speech.Recognition
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
                 _culture = value;
             }
@@ -185,7 +185,7 @@ namespace System.Speech.Recognition
         /// <param name="phrase">The sequence of words to append.</param>
         public void Append(string phrase)
         {
-            Helpers.ThrowIfEmptyOrNull(phrase, "phrase");
+            Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
             AddItem(new GrammarBuilderPhrase(phrase));
         }
 
@@ -194,8 +194,8 @@ namespace System.Speech.Recognition
         /// <param name="subsetMatchingCriteria">The matching mode the grammar uses to recognize the phrase.</param>
         public void Append(string phrase, SubsetMatchingMode subsetMatchingCriteria)
         {
-            Helpers.ThrowIfEmptyOrNull(phrase, "phrase");
-            ValidateSubsetMatchingCriteriaArgument(subsetMatchingCriteria, "subsetMatchingCriteria");
+            Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
+            ValidateSubsetMatchingCriteriaArgument(subsetMatchingCriteria, nameof(subsetMatchingCriteria));
             AddItem(new GrammarBuilderPhrase(phrase, subsetMatchingCriteria));
         }
 
@@ -205,7 +205,7 @@ namespace System.Speech.Recognition
         /// <param name="maxRepeat">The maximum number of times that input matching <paramref name="phrase" /> can occur to constitute a match.</param>
         public void Append(string phrase, int minRepeat, int maxRepeat)
         {
-            Helpers.ThrowIfEmptyOrNull(phrase, "phrase");
+            Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
             ValidateRepeatArguments(minRepeat, maxRepeat, "minRepeat", "maxRepeat");
             GrammarBuilderPhrase grammarBuilderPhrase = new GrammarBuilderPhrase(phrase);
             if (minRepeat != 1 || maxRepeat != 1)
@@ -222,14 +222,14 @@ namespace System.Speech.Recognition
         /// <param name="builder">The grammar element to append.</param>
         public void Append(GrammarBuilder builder)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             Helpers.ThrowIfNull(builder.InternalBuilder, "builder.InternalBuilder");
             Helpers.ThrowIfNull(builder.InternalBuilder.Items, "builder.InternalBuilder.Items");
             foreach (GrammarBuilderBase item in builder.InternalBuilder.Items)
             {
                 if (item == null)
                 {
-                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), "builder");
+                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), nameof(builder));
                 }
             }
             List<GrammarBuilderBase> list = (builder == this) ? builder.Clone().InternalBuilder.Items : builder.InternalBuilder.Items;
@@ -243,7 +243,7 @@ namespace System.Speech.Recognition
         /// <param name="alternateChoices">The set of alternatives to append.</param>
         public void Append(Choices alternateChoices)
         {
-            Helpers.ThrowIfNull(alternateChoices, "alternateChoices");
+            Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
             AddItem(alternateChoices.OneOf);
         }
 
@@ -269,7 +269,7 @@ namespace System.Speech.Recognition
         /// <param name="maxRepeat">The maximum number of times that input matching the element defined by <paramref name="builder" /> can occur to constitute a match.</param>
         public void Append(GrammarBuilder builder, int minRepeat, int maxRepeat)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             ValidateRepeatArguments(minRepeat, maxRepeat, "minRepeat", "maxRepeat");
             Helpers.ThrowIfNull(builder.InternalBuilder, "builder.InternalBuilder");
             if (minRepeat != 1 || maxRepeat != 1)
@@ -292,7 +292,7 @@ namespace System.Speech.Recognition
         /// <param name="category">The category of the dictation grammar to append.</param>
         public void AppendDictation(string category)
         {
-            Helpers.ThrowIfEmptyOrNull(category, "category");
+            Helpers.ThrowIfEmptyOrNull(category, nameof(category));
             AddItem(new GrammarBuilderDictation(category));
         }
 
@@ -306,7 +306,7 @@ namespace System.Speech.Recognition
         /// <param name="path">The path or Universal Resource Identifier (URI) of the file that describes a speech recognition grammar in a supported format.</param>
         public void AppendRuleReference(string path)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
             Uri uri;
             try
             {
@@ -324,8 +324,8 @@ namespace System.Speech.Recognition
         /// <param name="rule">The identifier of the rule to append, or <see langword="null" /> to append the default root rule of the grammar file.</param>
         public void AppendRuleReference(string path, string rule)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
-            Helpers.ThrowIfEmptyOrNull(rule, "rule");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
+            Helpers.ThrowIfEmptyOrNull(rule, nameof(rule));
             Uri uri;
             try
             {
@@ -353,7 +353,7 @@ namespace System.Speech.Recognition
         /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="phrase" /> element followed by the <paramref name="builder" /> element.</returns>
         public static GrammarBuilder Add(string phrase, GrammarBuilder builder)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             GrammarBuilder grammarBuilder = new GrammarBuilder(phrase);
             grammarBuilder.Append(builder);
             return grammarBuilder;
@@ -374,7 +374,7 @@ namespace System.Speech.Recognition
         /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="phrase" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder, string phrase)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             GrammarBuilder grammarBuilder = builder.Clone();
             grammarBuilder.Append(phrase);
             return grammarBuilder;
@@ -395,8 +395,8 @@ namespace System.Speech.Recognition
         /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="choices" /> element followed by the <paramref name="builder" /> element.</returns>
         public static GrammarBuilder Add(Choices choices, GrammarBuilder builder)
         {
-            Helpers.ThrowIfNull(choices, "choices");
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(choices, nameof(choices));
+            Helpers.ThrowIfNull(builder, nameof(builder));
             GrammarBuilder grammarBuilder = new GrammarBuilder(choices);
             grammarBuilder.Append(builder);
             return grammarBuilder;
@@ -417,8 +417,8 @@ namespace System.Speech.Recognition
         /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder" /> element followed by the <paramref name="choices" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder, Choices choices)
         {
-            Helpers.ThrowIfNull(builder, "builder");
-            Helpers.ThrowIfNull(choices, "choices");
+            Helpers.ThrowIfNull(builder, nameof(builder));
+            Helpers.ThrowIfNull(choices, nameof(choices));
             GrammarBuilder grammarBuilder = builder.Clone();
             grammarBuilder.Append(choices);
             return grammarBuilder;
@@ -439,8 +439,8 @@ namespace System.Speech.Recognition
         /// <returns>A <see cref="T:System.Speech.Recognition.GrammarBuilder" /> for the sequence of the <paramref name="builder1" /> element followed by the <paramref name="builder2" /> element.</returns>
         public static GrammarBuilder Add(GrammarBuilder builder1, GrammarBuilder builder2)
         {
-            Helpers.ThrowIfNull(builder1, "builder1");
-            Helpers.ThrowIfNull(builder2, "builder2");
+            Helpers.ThrowIfNull(builder1, nameof(builder1));
+            Helpers.ThrowIfNull(builder2, nameof(builder2));
             GrammarBuilder grammarBuilder = builder1.Clone();
             grammarBuilder.Append(builder2);
             return grammarBuilder;

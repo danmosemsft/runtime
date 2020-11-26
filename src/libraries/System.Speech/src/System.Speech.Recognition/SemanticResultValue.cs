@@ -19,7 +19,7 @@ namespace System.Speech.Recognition
         /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(object value)
         {
-            Helpers.ThrowIfNull(value, "value");
+            Helpers.ThrowIfNull(value, nameof(value));
             _tag = new TagElement(value);
         }
 
@@ -28,8 +28,8 @@ namespace System.Speech.Recognition
         /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(string phrase, object value)
         {
-            Helpers.ThrowIfEmptyOrNull(phrase, "phrase");
-            Helpers.ThrowIfNull(value, "value");
+            Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
+            Helpers.ThrowIfNull(value, nameof(value));
             _tag = new TagElement(new GrammarBuilderPhrase((string)phrase.Clone()), value);
         }
 
@@ -38,8 +38,8 @@ namespace System.Speech.Recognition
         /// <param name="value">The value managed by <see cref="T:System.Speech.Recognition.SemanticResultValue" />. Must be of type <see langword="bool" />, <see langword="int" />, <see langword="float" />, or <see langword="string" />.</param>
         public SemanticResultValue(GrammarBuilder builder, object value)
         {
-            Helpers.ThrowIfNull(builder, "builder");
-            Helpers.ThrowIfNull(value, "value");
+            Helpers.ThrowIfNull(builder, nameof(builder));
+            Helpers.ThrowIfNull(value, nameof(value));
             _tag = new TagElement(builder.Clone(), value);
         }
 

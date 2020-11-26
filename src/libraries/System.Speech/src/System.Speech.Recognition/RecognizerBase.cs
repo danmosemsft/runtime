@@ -180,7 +180,7 @@ namespace System.Speech.Recognition
             {
                 if (value < TimeSpan.Zero)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.NegativeTimesNotSupported));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.NegativeTimesNotSupported));
                 }
                 lock (SapiRecognizer)
                 {
@@ -206,7 +206,7 @@ namespace System.Speech.Recognition
             {
                 if (value < TimeSpan.Zero)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.NegativeTimesNotSupported));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.NegativeTimesNotSupported));
                 }
                 lock (SapiRecognizer)
                 {
@@ -409,7 +409,7 @@ namespace System.Speech.Recognition
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.MaxAlternatesInvalid));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.MaxAlternatesInvalid));
                 }
                 if (value != _maxAlternates)
                 {
@@ -732,19 +732,19 @@ namespace System.Speech.Recognition
 
         internal RecognitionResult EmulateRecognize(string inputText)
         {
-            Helpers.ThrowIfEmptyOrNull(inputText, "inputText");
+            Helpers.ThrowIfEmptyOrNull(inputText, nameof(inputText));
             return InternalEmulateRecognize(inputText, SpeechEmulationCompareFlags.SECFDefault, useReco2: false, null);
         }
 
         internal void EmulateRecognizeAsync(string inputText)
         {
-            Helpers.ThrowIfEmptyOrNull(inputText, "inputText");
+            Helpers.ThrowIfEmptyOrNull(inputText, nameof(inputText));
             InternalEmulateRecognizeAsync(inputText, SpeechEmulationCompareFlags.SECFDefault, useReco2: false, null);
         }
 
         internal RecognitionResult EmulateRecognize(string inputText, CompareOptions compareOptions)
         {
-            Helpers.ThrowIfEmptyOrNull(inputText, "inputText");
+            Helpers.ThrowIfEmptyOrNull(inputText, nameof(inputText));
             bool flag = compareOptions == CompareOptions.IgnoreCase || compareOptions == CompareOptions.OrdinalIgnoreCase;
             if (!_supportsSapi53 && !flag)
             {
@@ -755,7 +755,7 @@ namespace System.Speech.Recognition
 
         internal void EmulateRecognizeAsync(string inputText, CompareOptions compareOptions)
         {
-            Helpers.ThrowIfEmptyOrNull(inputText, "inputText");
+            Helpers.ThrowIfEmptyOrNull(inputText, nameof(inputText));
             bool flag = compareOptions == CompareOptions.IgnoreCase || compareOptions == CompareOptions.OrdinalIgnoreCase;
             if (!_supportsSapi53 && !flag)
             {
@@ -770,12 +770,12 @@ namespace System.Speech.Recognition
             {
                 throw new NotSupportedException(SR.Get(SRID.NotSupportedWithThisVersionOfSAPI));
             }
-            Helpers.ThrowIfNull(wordUnits, "wordUnits");
+            Helpers.ThrowIfNull(wordUnits, nameof(wordUnits));
             foreach (RecognizedWordUnit recognizedWordUnit in wordUnits)
             {
                 if (recognizedWordUnit == null)
                 {
-                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), "wordUnits");
+                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), nameof(wordUnits));
                 }
             }
             return InternalEmulateRecognize(null, ConvertCompareOptions(compareOptions), useReco2: true, wordUnits);
@@ -787,12 +787,12 @@ namespace System.Speech.Recognition
             {
                 throw new NotSupportedException(SR.Get(SRID.NotSupportedWithThisVersionOfSAPI));
             }
-            Helpers.ThrowIfNull(wordUnits, "wordUnits");
+            Helpers.ThrowIfNull(wordUnits, nameof(wordUnits));
             foreach (RecognizedWordUnit recognizedWordUnit in wordUnits)
             {
                 if (recognizedWordUnit == null)
                 {
-                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), "wordUnits");
+                    throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), nameof(wordUnits));
                 }
             }
             InternalEmulateRecognizeAsync(null, ConvertCompareOptions(compareOptions), useReco2: true, wordUnits);
@@ -1097,13 +1097,13 @@ namespace System.Speech.Recognition
 
         internal int QueryRecognizerSettingAsInt(string settingName)
         {
-            Helpers.ThrowIfEmptyOrNull(settingName, "settingName");
+            Helpers.ThrowIfEmptyOrNull(settingName, nameof(settingName));
             return SapiRecognizer.GetPropertyNum(settingName);
         }
 
         internal object QueryRecognizerSetting(string settingName)
         {
-            Helpers.ThrowIfEmptyOrNull(settingName, "settingName");
+            Helpers.ThrowIfEmptyOrNull(settingName, nameof(settingName));
             try
             {
                 return SapiRecognizer.GetPropertyNum(settingName);
@@ -1120,13 +1120,13 @@ namespace System.Speech.Recognition
 
         internal void UpdateRecognizerSetting(string settingName, string updatedValue)
         {
-            Helpers.ThrowIfEmptyOrNull(settingName, "settingName");
+            Helpers.ThrowIfEmptyOrNull(settingName, nameof(settingName));
             SapiRecognizer.SetPropertyString(settingName, updatedValue);
         }
 
         internal void UpdateRecognizerSetting(string settingName, int updatedValue)
         {
-            Helpers.ThrowIfEmptyOrNull(settingName, "settingName");
+            Helpers.ThrowIfEmptyOrNull(settingName, nameof(settingName));
             SapiRecognizer.SetPropertyNum(settingName, updatedValue);
         }
 
@@ -1485,7 +1485,7 @@ namespace System.Speech.Recognition
 
         private void ValidateGrammar(Grammar grammar, params GrammarState[] validStates)
         {
-            Helpers.ThrowIfNull(grammar, "grammar");
+            Helpers.ThrowIfNull(grammar, nameof(grammar));
             foreach (GrammarState grammarState in validStates)
             {
                 if (grammar.State == grammarState)
@@ -1604,13 +1604,13 @@ namespace System.Speech.Recognition
                     {
                         throw new FormatException(SR.Get(SRID.RecognizerNoRootRuleToActivate));
                     }
-                    throw new ArgumentException(SR.Get(SRID.RecognizerRuleNotFoundStream, ruleName), "ruleName");
+                    throw new ArgumentException(SR.Get(SRID.RecognizerRuleNotFoundStream, ruleName), nameof(ruleName));
                 }
                 if (string.IsNullOrEmpty(ruleName))
                 {
                     throw new FormatException(SR.Get(SRID.RecognizerNoRootRuleToActivate1, uri));
                 }
-                throw new ArgumentException(SR.Get(SRID.RecognizerRuleNotFound, ruleName, uri), "ruleName");
+                throw new ArgumentException(SR.Get(SRID.RecognizerRuleNotFound, ruleName, uri), nameof(ruleName));
             }
             if (sAPIErrorCodes != SAPIErrorCodes.SPERR_AUDIO_NOT_FOUND && sAPIErrorCodes < SAPIErrorCodes.S_OK)
             {

@@ -73,7 +73,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         public SrgsOneOf(params string[] items)
             : this()
         {
-            Helpers.ThrowIfNull(items, "items");
+            Helpers.ThrowIfNull(items, nameof(items));
             int num = 0;
             while (true)
             {
@@ -89,7 +89,7 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
                 return;
             }
-            throw new ArgumentNullException("items", SR.Get(SRID.ParamsEntryNullIllegal));
+            throw new ArgumentNullException(nameof(items), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
         /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> objects.</summary>
@@ -100,7 +100,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         public SrgsOneOf(params SrgsItem[] items)
             : this()
         {
-            Helpers.ThrowIfNull(items, "items");
+            Helpers.ThrowIfNull(items, nameof(items));
             int num = 0;
             while (true)
             {
@@ -117,7 +117,7 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
                 return;
             }
-            throw new ArgumentNullException("items", SR.Get(SRID.ParamsEntryNullIllegal));
+            throw new ArgumentNullException(nameof(items), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
         /// <summary>Adds an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> containing a word or a phrase to the list of alternatives.</summary>
@@ -126,7 +126,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="item" /> is <see langword="null" />.</exception>
         public void Add(SrgsItem item)
         {
-            Helpers.ThrowIfNull(item, "item");
+            Helpers.ThrowIfNull(item, nameof(item));
             Items.Add(item);
         }
 

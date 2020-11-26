@@ -68,7 +68,7 @@ namespace System.Speech.Internal
                     }
                     if (value < 0)
                     {
-                        throw new ArgumentOutOfRangeException("value", SR.Get(SRID.MustBeGreaterThanZero));
+                        throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.MustBeGreaterThanZero));
                     }
                     if (!_cacheDataForSeeking)
                     {
@@ -156,7 +156,7 @@ namespace System.Speech.Internal
                         num = Length + offset;
                         break;
                     default:
-                        throw new ArgumentException(SR.Get(SRID.EnumInvalid, "SeekOrigin"), "origin");
+                        throw new ArgumentException(SR.Get(SRID.EnumInvalid, "SeekOrigin"), nameof(origin));
                 }
                 Position = num;
                 return num;

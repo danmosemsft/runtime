@@ -147,7 +147,7 @@ namespace System.Speech.Synthesis
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
                 _culture = value;
             }
@@ -163,10 +163,10 @@ namespace System.Speech.Synthesis
         /// <param name="culture">Provides information about a specific culture, such as its language, the name of the culture, the writing system, the calendar used, and how to format dates and sort strings.</param>
         public PromptBuilder(CultureInfo culture)
         {
-            Helpers.ThrowIfNull(culture, "culture");
+            Helpers.ThrowIfNull(culture, nameof(culture));
             if (culture.Equals(CultureInfo.InvariantCulture))
             {
-                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "culture");
+                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(culture));
             }
             _culture = culture;
             ClearContent();
@@ -183,7 +183,7 @@ namespace System.Speech.Synthesis
         /// <param name="textToSpeak">A string containing the text to be spoken.</param>
         public void AppendText(string textToSpeak)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             _elements.Add(new Element(ElementType.Text, textToSpeak));
         }
@@ -193,10 +193,10 @@ namespace System.Speech.Synthesis
         /// <param name="rate">The value for the speaking rate to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptRate rate)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if (rate < PromptRate.NotSet || rate > PromptRate.ExtraSlow)
             {
-                throw new ArgumentOutOfRangeException("rate");
+                throw new ArgumentOutOfRangeException(nameof(rate));
             }
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             Element element = new Element(ElementType.Prosody, textToSpeak);
@@ -228,10 +228,10 @@ namespace System.Speech.Synthesis
         /// <param name="volume">The value for the speaking volume (loudness) to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptVolume volume)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if (volume < PromptVolume.NotSet || volume > PromptVolume.Default)
             {
-                throw new ArgumentOutOfRangeException("volume");
+                throw new ArgumentOutOfRangeException(nameof(volume));
             }
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             Element element = new Element(ElementType.Prosody, textToSpeak);
@@ -263,10 +263,10 @@ namespace System.Speech.Synthesis
         /// <param name="emphasis">The value for the emphasis or stress to apply to the text.</param>
         public void AppendText(string textToSpeak, PromptEmphasis emphasis)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if (emphasis < PromptEmphasis.NotSet || emphasis > PromptEmphasis.Reduced)
             {
-                throw new ArgumentOutOfRangeException("emphasis");
+                throw new ArgumentOutOfRangeException(nameof(emphasis));
             }
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             Element element = new Element(ElementType.Emphasis, textToSpeak);
@@ -282,7 +282,7 @@ namespace System.Speech.Synthesis
         /// <param name="style">The style to start.</param>
         public void StartStyle(PromptStyle style)
         {
-            Helpers.ThrowIfNull(style, "style");
+            Helpers.ThrowIfNull(style, nameof(style));
             StackElement stackElement = _elementStack.Peek();
             ValidateElement(stackElement, SsmlElement.Prosody);
             SsmlState ssmlState = (SsmlState)0;
@@ -372,14 +372,14 @@ namespace System.Speech.Synthesis
         /// <param name="voice">The criteria for the voice to use.</param>
         public void StartVoice(VoiceInfo voice)
         {
-            Helpers.ThrowIfNull(voice, "voice");
+            Helpers.ThrowIfNull(voice, nameof(voice));
             if (!VoiceInfo.ValidateGender(voice.Gender))
             {
-                throw new ArgumentException(SR.Get(SRID.EnumInvalid, "VoiceGender"), "voice");
+                throw new ArgumentException(SR.Get(SRID.EnumInvalid, "VoiceGender"), nameof(voice));
             }
             if (!VoiceInfo.ValidateAge(voice.Age))
             {
-                throw new ArgumentException(SR.Get(SRID.EnumInvalid, "VoiceAge"), "voice");
+                throw new ArgumentException(SR.Get(SRID.EnumInvalid, "VoiceAge"), nameof(voice));
             }
             StackElement stackElement = _elementStack.Peek();
             ValidateElement(stackElement, SsmlElement.Voice);
@@ -414,7 +414,7 @@ namespace System.Speech.Synthesis
         /// <param name="name">The name of the voice to use.</param>
         public void StartVoice(string name)
         {
-            Helpers.ThrowIfEmptyOrNull(name, "name");
+            Helpers.ThrowIfEmptyOrNull(name, nameof(name));
             StartVoice(new VoiceInfo(name));
         }
 
@@ -477,7 +477,7 @@ namespace System.Speech.Synthesis
             {
                 if (culture.Equals(CultureInfo.InvariantCulture))
                 {
-                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "culture");
+                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(culture));
                 }
                 element._attributes = new Collection<AttributeItem>();
                 element._attributes.Add(new AttributeItem("xml", "lang", culture.Name));
@@ -517,7 +517,7 @@ namespace System.Speech.Synthesis
             {
                 if (culture.Equals(CultureInfo.InvariantCulture))
                 {
-                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "culture");
+                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(culture));
                 }
                 element._attributes = new Collection<AttributeItem>();
                 element._attributes.Add(new AttributeItem("xml", "lang", culture.Name));
@@ -544,10 +544,10 @@ namespace System.Speech.Synthesis
         /// <param name="sayAs">The content type of the text.</param>
         public void AppendTextWithHint(string textToSpeak, SayAs sayAs)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if (sayAs < SayAs.SpellOut || sayAs > SayAs.Text)
             {
-                throw new ArgumentOutOfRangeException("sayAs");
+                throw new ArgumentOutOfRangeException(nameof(sayAs));
             }
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             if (sayAs != SayAs.Text)
@@ -643,8 +643,8 @@ namespace System.Speech.Synthesis
         /// <param name="sayAs">The content type of the text.</param>
         public void AppendTextWithHint(string textToSpeak, string sayAs)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
-            Helpers.ThrowIfEmptyOrNull(sayAs, "sayAs");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
+            Helpers.ThrowIfEmptyOrNull(sayAs, nameof(sayAs));
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             Element element = new Element(ElementType.SayAs, textToSpeak);
             _elements.Add(element);
@@ -657,8 +657,8 @@ namespace System.Speech.Synthesis
         /// <param name="pronunciation">A string containing phones to be spoken from the International Phonetic Alphabet (IPA).</param>
         public void AppendTextWithPronunciation(string textToSpeak, string pronunciation)
         {
-            Helpers.ThrowIfEmptyOrNull(textToSpeak, "textToSpeak");
-            Helpers.ThrowIfEmptyOrNull(pronunciation, "pronunciation");
+            Helpers.ThrowIfEmptyOrNull(textToSpeak, nameof(textToSpeak));
+            Helpers.ThrowIfEmptyOrNull(pronunciation, nameof(pronunciation));
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             PhonemeConverter.ValidateUpsIds(pronunciation);
             Element element = new Element(ElementType.Phoneme, textToSpeak);
@@ -672,8 +672,8 @@ namespace System.Speech.Synthesis
         /// <param name="substitute">A string containing the text to be spoken.</param>
         public void AppendTextWithAlias(string textToSpeak, string substitute)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
-            Helpers.ThrowIfNull(substitute, "substitute");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
+            Helpers.ThrowIfNull(substitute, nameof(substitute));
             ValidateElement(_elementStack.Peek(), SsmlElement.Text);
             Element element = new Element(ElementType.Sub, textToSpeak);
             _elements.Add(element);
@@ -717,7 +717,7 @@ namespace System.Speech.Synthesis
                     text = "x-strong";
                     break;
                 default:
-                    throw new ArgumentNullException("strength");
+                    throw new ArgumentNullException(nameof(strength));
             }
             element._attributes = new Collection<AttributeItem>();
             element._attributes.Add(new AttributeItem("strength", text));
@@ -730,7 +730,7 @@ namespace System.Speech.Synthesis
             ValidateElement(_elementStack.Peek(), SsmlElement.Break);
             if (duration.Ticks < 0)
             {
-                throw new ArgumentOutOfRangeException("duration");
+                throw new ArgumentOutOfRangeException(nameof(duration));
             }
             Element element = new Element(ElementType.Break);
             _elements.Add(element);
@@ -742,7 +742,7 @@ namespace System.Speech.Synthesis
         /// <param name="path">A fully qualified path to the audio file.</param>
         public void AppendAudio(string path)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
             Uri audioFile;
             try
             {
@@ -760,7 +760,7 @@ namespace System.Speech.Synthesis
         /// <param name="audioFile">URI for the audio file.</param>
         public void AppendAudio(Uri audioFile)
         {
-            Helpers.ThrowIfNull(audioFile, "audioFile");
+            Helpers.ThrowIfNull(audioFile, nameof(audioFile));
             ValidateElement(_elementStack.Peek(), SsmlElement.Audio);
             Element element = new Element(ElementType.Audio);
             _elements.Add(element);
@@ -773,8 +773,8 @@ namespace System.Speech.Synthesis
         /// <param name="alternateText">A string containing alternate text representing the audio.</param>
         public void AppendAudio(Uri audioFile, string alternateText)
         {
-            Helpers.ThrowIfNull(audioFile, "audioFile");
-            Helpers.ThrowIfNull(alternateText, "alternateText");
+            Helpers.ThrowIfNull(audioFile, nameof(audioFile));
+            Helpers.ThrowIfNull(alternateText, nameof(alternateText));
             ValidateElement(_elementStack.Peek(), SsmlElement.Audio);
             Element element = new Element(ElementType.Audio, alternateText);
             _elements.Add(element);
@@ -786,7 +786,7 @@ namespace System.Speech.Synthesis
         /// <param name="bookmarkName">A string containing the name of the appended bookmark.</param>
         public void AppendBookmark(string bookmarkName)
         {
-            Helpers.ThrowIfEmptyOrNull(bookmarkName, "bookmarkName");
+            Helpers.ThrowIfEmptyOrNull(bookmarkName, nameof(bookmarkName));
             ValidateElement(_elementStack.Peek(), SsmlElement.Mark);
             Element element = new Element(ElementType.Bookmark);
             _elements.Add(element);
@@ -798,7 +798,7 @@ namespace System.Speech.Synthesis
         /// <param name="promptBuilder">The content to append.</param>
         public void AppendPromptBuilder(PromptBuilder promptBuilder)
         {
-            Helpers.ThrowIfNull(promptBuilder, "promptBuilder");
+            Helpers.ThrowIfNull(promptBuilder, nameof(promptBuilder));
             StringReader stringReader = new StringReader(promptBuilder.ToXml());
             XmlTextReader xmlTextReader = new XmlTextReader(stringReader);
             AppendSsml(xmlTextReader);
@@ -810,7 +810,7 @@ namespace System.Speech.Synthesis
         /// <param name="path">A fully qualified path to the SSML file to append.</param>
         public void AppendSsml(string path)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
             AppendSsml(new Uri(path, UriKind.Relative));
         }
 
@@ -818,7 +818,7 @@ namespace System.Speech.Synthesis
         /// <param name="ssmlFile">A fully qualified URI to the SSML file to append.</param>
         public void AppendSsml(Uri ssmlFile)
         {
-            Helpers.ThrowIfNull(ssmlFile, "ssmlFile");
+            Helpers.ThrowIfNull(ssmlFile, nameof(ssmlFile));
             string localPath;
             Uri redirectedUri;
             using (Stream input = _resourceLoader.LoadFile(ssmlFile, out localPath, out redirectedUri))
@@ -838,7 +838,7 @@ namespace System.Speech.Synthesis
         /// <param name="ssmlFile">A fully qualified name to the XML file to append.</param>
         public void AppendSsml(XmlReader ssmlFile)
         {
-            Helpers.ThrowIfNull(ssmlFile, "ssmlFile");
+            Helpers.ThrowIfNull(ssmlFile, nameof(ssmlFile));
             AppendSsmlInternal(ssmlFile);
         }
 
@@ -847,7 +847,7 @@ namespace System.Speech.Synthesis
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public void AppendSsmlMarkup(string ssmlMarkup)
         {
-            Helpers.ThrowIfEmptyOrNull(ssmlMarkup, "ssmlMarkup");
+            Helpers.ThrowIfEmptyOrNull(ssmlMarkup, nameof(ssmlMarkup));
             _elements.Add(new Element(ElementType.SsmlMarkup, ssmlMarkup));
         }
 

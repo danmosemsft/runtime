@@ -446,7 +446,7 @@ namespace System.Speech.Internal.Synthesis
         {
             lock (_thisObjectLock)
             {
-                Helpers.ThrowIfNull(eventHandler, "eventHandler");
+                Helpers.ThrowIfNull(eventHandler, nameof(eventHandler));
                 bool flag = internalEventHandler == null;
                 internalEventHandler = (EventHandler<T>)Delegate.Combine(internalEventHandler, eventHandler);
                 if (flag)
@@ -461,7 +461,7 @@ namespace System.Speech.Internal.Synthesis
         {
             lock (_thisObjectLock)
             {
-                Helpers.ThrowIfNull(eventHandler, "eventHandler");
+                Helpers.ThrowIfNull(eventHandler, nameof(eventHandler));
                 internalEventHandler = (EventHandler<T>)Delegate.Remove(internalEventHandler, eventHandler);
                 if (internalEventHandler == null)
                 {
@@ -1453,7 +1453,7 @@ namespace System.Speech.Internal.Synthesis
 
         private void Speak(string textToSpeak, Prompt prompt, bool fIsXml)
         {
-            Helpers.ThrowIfNull(textToSpeak, "textToSpeak");
+            Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
             if (_isDisposed)
             {
                 throw new ObjectDisposedException("VoiceSynthesis");

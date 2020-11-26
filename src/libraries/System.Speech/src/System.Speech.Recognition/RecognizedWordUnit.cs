@@ -61,7 +61,7 @@ namespace System.Speech.Recognition
         {
             if (lexicalForm == null)
             {
-                throw new ArgumentNullException("lexicalForm");
+                throw new ArgumentNullException(nameof(lexicalForm));
             }
             if (confidence < 0f || confidence > 1f)
             {

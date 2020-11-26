@@ -113,16 +113,16 @@ namespace System.Speech.Synthesis
 
         internal VoiceInfo(string name)
         {
-            Helpers.ThrowIfEmptyOrNull(name, "name");
+            Helpers.ThrowIfEmptyOrNull(name, nameof(name));
             _name = name;
         }
 
         internal VoiceInfo(CultureInfo culture)
         {
-            Helpers.ThrowIfNull(culture, "culture");
+            Helpers.ThrowIfNull(culture, nameof(culture));
             if (culture.Equals(CultureInfo.InvariantCulture))
             {
-                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "culture");
+                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(culture));
             }
             _culture = culture;
         }
@@ -185,7 +185,7 @@ namespace System.Speech.Synthesis
         {
             if (voiceAlternate < 0)
             {
-                throw new ArgumentOutOfRangeException("voiceAlternate", SR.Get(SRID.PromptBuilderInvalidVariant));
+                throw new ArgumentOutOfRangeException(nameof(voiceAlternate), SR.Get(SRID.PromptBuilderInvalidVariant));
             }
             _gender = gender;
             _age = age;

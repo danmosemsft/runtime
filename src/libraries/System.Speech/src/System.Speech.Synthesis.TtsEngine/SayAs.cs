@@ -28,7 +28,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _interpretAs = value;
             }
         }
@@ -42,7 +42,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _format = value;
             }
         }
@@ -56,7 +56,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _detail = value;
             }
         }

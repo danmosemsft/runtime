@@ -47,13 +47,13 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (value is string || value is bool || value is int || value is double)
                 {
                     _value = value;
                     return;
                 }
-                throw new ArgumentException(SR.Get(SRID.InvalidValueType), "value");
+                throw new ArgumentException(SR.Get(SRID.InvalidValueType), nameof(value));
             }
         }
 
@@ -68,7 +68,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="value" /> is <see langword="null" />.</exception>
         public SrgsNameValueTag(object value)
         {
-            Helpers.ThrowIfNull(value, "value");
+            Helpers.ThrowIfNull(value, nameof(value));
             Value = value;
         }
 

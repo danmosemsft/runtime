@@ -26,7 +26,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 XmlParser.ParseText(null, value, null, null, -1f, null);
                 _text = value;
             }
@@ -43,7 +43,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="text" /> is <see langword="null" />.</exception>
         public SrgsText(string text)
         {
-            Helpers.ThrowIfNull(text, "text");
+            Helpers.ThrowIfNull(text, nameof(text));
             Text = text;
         }
 

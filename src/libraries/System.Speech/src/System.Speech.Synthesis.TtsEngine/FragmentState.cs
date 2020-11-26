@@ -90,7 +90,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             internal set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _sayAs = value;
             }
         }
@@ -105,7 +105,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             internal set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _prosody = value;
             }
         }
@@ -119,7 +119,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
             internal set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _phoneme = value;
             }
         }

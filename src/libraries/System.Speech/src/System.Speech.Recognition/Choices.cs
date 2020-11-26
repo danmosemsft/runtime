@@ -24,7 +24,7 @@ namespace System.Speech.Recognition
         /// <param name="phrases">An array containing the set of alternatives.</param>
         public Choices(params string[] phrases)
         {
-            Helpers.ThrowIfNull(phrases, "phrases");
+            Helpers.ThrowIfNull(phrases, nameof(phrases));
             Add(phrases);
         }
 
@@ -32,7 +32,7 @@ namespace System.Speech.Recognition
         /// <param name="alternateChoices">An array containing the set of alternatives.</param>
         public Choices(params GrammarBuilder[] alternateChoices)
         {
-            Helpers.ThrowIfNull(alternateChoices, "alternateChoices");
+            Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
             Add(alternateChoices);
         }
 
@@ -40,7 +40,7 @@ namespace System.Speech.Recognition
         /// <param name="phrases">The strings to add to this <see cref="T:System.Speech.Recognition.Choices" /> object.</param>
         public void Add(params string[] phrases)
         {
-            Helpers.ThrowIfNull(phrases, "phrases");
+            Helpers.ThrowIfNull(phrases, nameof(phrases));
             foreach (string text in phrases)
             {
                 Helpers.ThrowIfEmptyOrNull(text, "phrase");
@@ -52,7 +52,7 @@ namespace System.Speech.Recognition
         /// <param name="alternateChoices">The <see cref="T:System.Speech.Recognition.GrammarBuilder" /> objects to add to this <see cref="T:System.Speech.Recognition.Choices" /> object.</param>
         public void Add(params GrammarBuilder[] alternateChoices)
         {
-            Helpers.ThrowIfNull(alternateChoices, "alternateChoices");
+            Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
             foreach (GrammarBuilder grammarBuilder in alternateChoices)
             {
                 Helpers.ThrowIfNull(grammarBuilder, "alternateChoice");

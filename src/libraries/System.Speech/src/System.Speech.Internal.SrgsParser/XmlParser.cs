@@ -1527,7 +1527,7 @@ namespace System.Speech.Internal.SrgsParser
 
         internal static void ValidateRuleId(string id)
         {
-            Helpers.ThrowIfEmptyOrNull(id, "id");
+            Helpers.ThrowIfEmptyOrNull(id, nameof(id));
             if (XmlReader.IsName(id))
             {
                 switch (id)

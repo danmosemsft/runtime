@@ -21,8 +21,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="inputPath" /> is an empty string.</exception>
         public static void Compile(string inputPath, Stream outputStream)
         {
-            Helpers.ThrowIfEmptyOrNull(inputPath, "inputPath");
-            Helpers.ThrowIfNull(outputStream, "outputStream");
+            Helpers.ThrowIfEmptyOrNull(inputPath, nameof(inputPath));
+            Helpers.ThrowIfNull(outputStream, nameof(outputStream));
             using (XmlTextReader xmlTextReader = new XmlTextReader(new Uri(inputPath, UriKind.RelativeOrAbsolute).ToString()))
             {
                 SrgsCompiler.CompileStream(new XmlReader[1]
@@ -40,8 +40,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <paramref name="outputStream" /> is <see langword="null" />.</exception>
         public static void Compile(SrgsDocument srgsGrammar, Stream outputStream)
         {
-            Helpers.ThrowIfNull(srgsGrammar, "srgsGrammar");
-            Helpers.ThrowIfNull(outputStream, "outputStream");
+            Helpers.ThrowIfNull(srgsGrammar, nameof(srgsGrammar));
+            Helpers.ThrowIfNull(outputStream, nameof(outputStream));
             SrgsCompiler.CompileStream(srgsGrammar, null, outputStream, fOutputCfg: true, null, null);
         }
 
@@ -53,8 +53,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <paramref name="outputStream" /> is <see langword="null" />.</exception>
         public static void Compile(XmlReader reader, Stream outputStream)
         {
-            Helpers.ThrowIfNull(reader, "reader");
-            Helpers.ThrowIfNull(outputStream, "outputStream");
+            Helpers.ThrowIfNull(reader, nameof(reader));
+            Helpers.ThrowIfNull(outputStream, nameof(outputStream));
             SrgsCompiler.CompileStream(new XmlReader[1]
             {
                 reader
@@ -74,8 +74,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// Any element of the <paramref name="inputPaths" /> array is <see langword="null" />.</exception>
         public static void CompileClassLibrary(string[] inputPaths, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(inputPaths, "inputPaths");
-            Helpers.ThrowIfEmptyOrNull(outputPath, "outputPath");
+            Helpers.ThrowIfNull(inputPaths, nameof(inputPaths));
+            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
             XmlTextReader[] array = new XmlTextReader[inputPaths.Length];
             try
             {
@@ -83,7 +83,7 @@ namespace System.Speech.Recognition.SrgsGrammar
                 {
                     if (inputPaths[i] == null)
                     {
-                        throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), "inputPaths");
+                        throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), nameof(inputPaths));
                     }
                     array[i] = new XmlTextReader(new Uri(inputPaths[i], UriKind.RelativeOrAbsolute).ToString());
                 }
@@ -110,8 +110,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="outputPath" /> is an empty string.</exception>
         public static void CompileClassLibrary(SrgsDocument srgsGrammar, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(srgsGrammar, "srgsGrammar");
-            Helpers.ThrowIfEmptyOrNull(outputPath, "outputPath");
+            Helpers.ThrowIfNull(srgsGrammar, nameof(srgsGrammar));
+            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
             SrgsCompiler.CompileStream(srgsGrammar, outputPath, null, fOutputCfg: false, referencedAssemblies, keyFile);
         }
 
@@ -127,8 +127,8 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="outputPath" /> is an empty string.</exception>
         public static void CompileClassLibrary(XmlReader reader, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(reader, "reader");
-            Helpers.ThrowIfEmptyOrNull(outputPath, "outputPath");
+            Helpers.ThrowIfNull(reader, nameof(reader));
+            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
             SrgsCompiler.CompileStream(new XmlReader[1]
             {
                 reader

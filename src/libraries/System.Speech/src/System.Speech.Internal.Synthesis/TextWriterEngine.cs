@@ -30,7 +30,7 @@ namespace System.Speech.Internal.Synthesis
         {
             if (!string.IsNullOrEmpty(baseUri))
             {
-                throw new ArgumentException(SR.Get(SRID.InvalidSpeakAttribute, "baseUri", "speak"), "baseUri");
+                throw new ArgumentException(SR.Get(SRID.InvalidSpeakAttribute, "baseUri", "speak"), nameof(baseUri));
             }
             if ((culture != null && !culture.Equals(_culture)) || !string.IsNullOrEmpty(_pexmlPrefix) || extraNamespace.Count > 0)
             {

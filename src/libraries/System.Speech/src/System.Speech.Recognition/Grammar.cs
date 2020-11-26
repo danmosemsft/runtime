@@ -111,7 +111,7 @@ namespace System.Speech.Recognition
             {
                 if ((double)value < 0.0 || (double)value > 1.0)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.GrammarInvalidWeight));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.GrammarInvalidWeight));
                 }
                 if (_grammarState != 0 && !_weight.Equals(value))
                 {
@@ -133,7 +133,7 @@ namespace System.Speech.Recognition
             {
                 if (value < -128 || value > 127)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.GrammarInvalidPriority));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.GrammarInvalidPriority));
                 }
                 if (_grammarState != 0 && _priority != value)
                 {
@@ -270,7 +270,7 @@ namespace System.Speech.Recognition
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _resources = value;
             }
         }
@@ -280,7 +280,7 @@ namespace System.Speech.Recognition
 
         internal Grammar(Uri uri, string ruleName, object[] parameters)
         {
-            Helpers.ThrowIfNull(uri, "uri");
+            Helpers.ThrowIfNull(uri, nameof(uri));
             _uri = uri;
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
@@ -329,7 +329,7 @@ namespace System.Speech.Recognition
             }
             catch (UriFormatException innerException)
             {
-                throw new ArgumentException(SR.Get(SRID.RecognizerGrammarNotFound), "path", innerException);
+                throw new ArgumentException(SR.Get(SRID.RecognizerGrammarNotFound), nameof(path), innerException);
             }
             InitialGrammarLoad(ruleName, parameters, isImportedGrammar: false);
         }
@@ -406,7 +406,7 @@ namespace System.Speech.Recognition
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(SrgsDocument srgsDocument, string ruleName, Uri baseUri, object[] parameters)
         {
-            Helpers.ThrowIfNull(srgsDocument, "srgsDocument");
+            Helpers.ThrowIfNull(srgsDocument, nameof(srgsDocument));
             _srgsDocument = srgsDocument;
             _isSrgsDocument = (srgsDocument != null);
             _baseUri = baseUri;
@@ -485,10 +485,10 @@ namespace System.Speech.Recognition
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         public Grammar(Stream stream, string ruleName, Uri baseUri, object[] parameters)
         {
-            Helpers.ThrowIfNull(stream, "stream");
+            Helpers.ThrowIfNull(stream, nameof(stream));
             if (!stream.CanRead)
             {
-                throw new ArgumentException(SR.Get(SRID.StreamMustBeReadable), "stream");
+                throw new ArgumentException(SR.Get(SRID.StreamMustBeReadable), nameof(stream));
             }
             _appStream = stream;
             _baseUri = baseUri;
@@ -499,7 +499,7 @@ namespace System.Speech.Recognition
         /// <param name="builder">An instance of <see cref="T:System.Speech.Recognition.GrammarBuilder" /> that contains the constraints for the speech recognition grammar.</param>
         public Grammar(GrammarBuilder builder)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             _grammarBuilder = builder;
             InitialGrammarLoad(null, null, isImportedGrammar: false);
         }
@@ -530,10 +530,10 @@ namespace System.Speech.Recognition
         /// <returns>The <see langword="LoadLocalizedGrammarFromType" /> method returns a valid object based on <see cref="T:System.Speech.Recognition.Grammar" />, or <see langword="null" /> if there has been an error.</returns>
         public static Grammar LoadLocalizedGrammarFromType(Type type, params object[] onInitParameters)
         {
-            Helpers.ThrowIfNull(type, "type");
+            Helpers.ThrowIfNull(type, nameof(type));
             if (type == typeof(Grammar) || !type.IsSubclassOf(typeof(Grammar)))
             {
-                throw new ArgumentException(SR.Get(SRID.StrongTypedGrammarNotAGrammar), "type");
+                throw new ArgumentException(SR.Get(SRID.StrongTypedGrammarNotAGrammar), nameof(type));
             }
             Assembly assembly = Assembly.GetAssembly(type);
             Type[] types = assembly.GetTypes();
@@ -635,7 +635,7 @@ namespace System.Speech.Recognition
             bool flag = IsDictationGrammar(uri);
             if (!flag && this is DictationGrammar)
             {
-                throw new ArgumentException(SR.Get(SRID.DictationInvalidTopic), "uri");
+                throw new ArgumentException(SR.Get(SRID.DictationInvalidTopic), nameof(uri));
             }
             return flag;
         }

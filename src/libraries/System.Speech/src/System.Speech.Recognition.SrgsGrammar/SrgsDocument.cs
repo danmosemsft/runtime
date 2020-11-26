@@ -44,10 +44,10 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (value.Equals(CultureInfo.InvariantCulture))
                 {
-                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "value");
+                    throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(value));
                 }
                 _grammar.Culture = value;
             }
@@ -162,7 +162,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _grammar.Script = value;
             }
         }
@@ -201,7 +201,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="path" /> is an empty string.</exception>
         public SrgsDocument(string path)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
             using (XmlTextReader srgsGrammar = new XmlTextReader(path))
             {
                 Load(srgsGrammar);
@@ -214,7 +214,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="srgsGrammar" /> is <see langword="null" />.</exception>
         public SrgsDocument(XmlReader srgsGrammar)
         {
-            Helpers.ThrowIfNull(srgsGrammar, "srgsGrammar");
+            Helpers.ThrowIfNull(srgsGrammar, nameof(srgsGrammar));
             Load(srgsGrammar);
         }
 
@@ -224,7 +224,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="builder" /> is <see langword="null" />.</exception>
         public SrgsDocument(GrammarBuilder builder)
         {
-            Helpers.ThrowIfNull(builder, "builder");
+            Helpers.ThrowIfNull(builder, nameof(builder));
             _grammar = new SrgsGrammar();
             _grammar.Culture = builder.Culture;
             IElementFactory elementFactory = new SrgsElementFactory(_grammar);
@@ -238,7 +238,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         public SrgsDocument(SrgsRule grammarRootRule)
             : this()
         {
-            Helpers.ThrowIfNull(grammarRootRule, "grammarRootRule");
+            Helpers.ThrowIfNull(grammarRootRule, nameof(grammarRootRule));
             Root = grammarRootRule;
             Rules.Add(grammarRootRule);
         }
@@ -249,7 +249,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="srgsGrammar" /> is <see langword="null" />.</exception>
         public void WriteSrgs(XmlWriter srgsGrammar)
         {
-            Helpers.ThrowIfNull(srgsGrammar, "srgsGrammar");
+            Helpers.ThrowIfNull(srgsGrammar, nameof(srgsGrammar));
             _grammar.Validate();
             _grammar.WriteSrgs(srgsGrammar);
         }

@@ -33,11 +33,11 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 string text = value.Trim(Helpers._achTrimChars);
                 if (string.IsNullOrEmpty(text) || text.IndexOf('"') >= 0)
                 {
-                    throw new ArgumentException(SR.Get(SRID.InvalidTokenString), "value");
+                    throw new ArgumentException(SR.Get(SRID.InvalidTokenString), nameof(value));
                 }
                 _text = text;
             }
@@ -55,7 +55,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _pronunciation = value;
             }
         }
@@ -72,7 +72,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _display = value;
             }
         }
@@ -85,7 +85,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="text" /> is empty.</exception>
         public SrgsToken(string text)
         {
-            Helpers.ThrowIfEmptyOrNull(text, "text");
+            Helpers.ThrowIfEmptyOrNull(text, nameof(text));
             Text = text;
         }
 

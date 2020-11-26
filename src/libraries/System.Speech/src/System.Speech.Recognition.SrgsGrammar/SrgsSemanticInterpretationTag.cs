@@ -27,7 +27,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _script = value;
             }
         }
@@ -43,7 +43,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="script" /> is <see langword="null" />.</exception>
         public SrgsSemanticInterpretationTag(string script)
         {
-            Helpers.ThrowIfNull(script, "script");
+            Helpers.ThrowIfNull(script, nameof(script));
             _script = script;
         }
 

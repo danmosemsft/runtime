@@ -293,7 +293,7 @@ namespace System.Speech.Internal.SrgsCompiler
             SPCFGRULEATTRIBUTES sPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES.SPRAF_TopLevel | SPCFGRULEATTRIBUTES.SPRAF_Active | SPCFGRULEATTRIBUTES.SPRAF_Export | SPCFGRULEATTRIBUTES.SPRAF_Import | SPCFGRULEATTRIBUTES.SPRAF_Interpreter | SPCFGRULEATTRIBUTES.SPRAF_Dynamic | SPCFGRULEATTRIBUTES.SPRAF_Root;
             if (attributes != 0 && ((attributes & ~sPCFGRULEATTRIBUTES) != 0 || ((attributes & SPCFGRULEATTRIBUTES.SPRAF_Import) != 0 && (attributes & SPCFGRULEATTRIBUTES.SPRAF_Export) != 0)))
             {
-                throw new ArgumentException(SR.Get(SRID.InvalidFlagsSet), "attributes");
+                throw new ArgumentException(SR.Get(SRID.InvalidFlagsSet), nameof(attributes));
             }
             if ((attributes & SPCFGRULEATTRIBUTES.SPRAF_Import) != 0 && ((attributes & SPCFGRULEATTRIBUTES.SPRAF_TopLevel) != 0 || (attributes & SPCFGRULEATTRIBUTES.SPRAF_Active) != 0 || (attributes & SPCFGRULEATTRIBUTES.SPRAF_Root) != 0))
             {

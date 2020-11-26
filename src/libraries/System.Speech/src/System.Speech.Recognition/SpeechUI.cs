@@ -20,8 +20,8 @@ namespace System.Speech.Recognition
         ///   <see langword="true" /> if the information provided to the method (<paramref name="Feedback" />, and <paramref name="isSuccessfulAction" />) was successfully made available to the Speech platform user interface, and <see langword="false" /> if the operation failed.</returns>
         public static bool SendTextFeedback(RecognitionResult result, string feedback, bool isSuccessfulAction)
         {
-            Helpers.ThrowIfNull(result, "result");
-            Helpers.ThrowIfEmptyOrNull(feedback, "feedback");
+            Helpers.ThrowIfNull(result, nameof(result));
+            Helpers.ThrowIfEmptyOrNull(feedback, nameof(feedback));
             return result.SetTextFeedback(feedback, isSuccessfulAction);
         }
     }

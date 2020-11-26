@@ -98,7 +98,7 @@ namespace System.Speech.Synthesis.TtsEngine
         /// <param name="points">A byte array of <see langword="ContourPoint" /> objects.</param>
         public void SetContourPoints(ContourPoint[] points)
         {
-            Helpers.ThrowIfNull(points, "points");
+            Helpers.ThrowIfNull(points, nameof(points));
             _contourPoints = (ContourPoint[])points.Clone();
         }
 

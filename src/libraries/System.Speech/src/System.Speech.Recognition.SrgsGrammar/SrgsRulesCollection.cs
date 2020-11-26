@@ -17,7 +17,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <exception cref="T:System.ArgumentException">Any <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object in the <paramref name="rules" /> array is <see langword="null" />.</exception>
         public void Add(params SrgsRule[] rules)
         {
-            Helpers.ThrowIfNull(rules, "rules");
+            Helpers.ThrowIfNull(rules, nameof(rules));
             int num = 0;
             while (true)
             {
@@ -33,14 +33,14 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
                 return;
             }
-            throw new ArgumentNullException("rules", SR.Get(SRID.ParamsEntryNullIllegal));
+            throw new ArgumentNullException(nameof(rules), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
         protected override string GetKeyForItem(SrgsRule rule)
         {
             if (rule == null)
             {
-                throw new ArgumentNullException("rule");
+                throw new ArgumentNullException(nameof(rule));
             }
             return rule.Id;
         }

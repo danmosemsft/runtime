@@ -30,7 +30,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             {
                 if (value != SubsetMatchingMode.OrderedSubset && value != 0 && value != SubsetMatchingMode.OrderedSubsetContentRequired && value != SubsetMatchingMode.SubsequenceContentRequired)
                 {
-                    throw new ArgumentException(SR.Get(SRID.InvalidSubsetAttribute), "value");
+                    throw new ArgumentException(SR.Get(SRID.InvalidSubsetAttribute), nameof(value));
                 }
                 _matchMode = value;
             }
@@ -48,9 +48,9 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 value = value.Trim(Helpers._achTrimChars);
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _text = value;
             }
         }
@@ -75,14 +75,14 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <paramref name="matchingMode" /> is set to a value in the <see cref="T:System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
         public SrgsSubset(string text, SubsetMatchingMode matchingMode)
         {
-            Helpers.ThrowIfEmptyOrNull(text, "text");
+            Helpers.ThrowIfEmptyOrNull(text, nameof(text));
             if (matchingMode != SubsetMatchingMode.OrderedSubset && matchingMode != 0 && matchingMode != SubsetMatchingMode.OrderedSubsetContentRequired && matchingMode != SubsetMatchingMode.SubsequenceContentRequired)
             {
-                throw new ArgumentException(SR.Get(SRID.InvalidSubsetAttribute), "matchingMode");
+                throw new ArgumentException(SR.Get(SRID.InvalidSubsetAttribute), nameof(matchingMode));
             }
             _matchMode = matchingMode;
             _text = text.Trim(Helpers._achTrimChars);
-            Helpers.ThrowIfEmptyOrNull(_text, "text");
+            Helpers.ThrowIfEmptyOrNull(_text, nameof(text));
         }
 
         internal override void WriteSrgs(XmlWriter writer)

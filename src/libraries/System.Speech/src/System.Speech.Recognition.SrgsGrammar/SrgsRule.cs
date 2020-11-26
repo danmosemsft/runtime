@@ -165,7 +165,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
             set
             {
-                Helpers.ThrowIfEmptyOrNull(value, "value");
+                Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 _script = value;
             }
         }
@@ -277,7 +277,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         public SrgsRule(string id, params SrgsElement[] elements)
             : this()
         {
-            Helpers.ThrowIfNull(elements, "elements");
+            Helpers.ThrowIfNull(elements, nameof(elements));
             XmlParser.ValidateRuleId(id);
             Id = id;
             int num = 0;
@@ -295,7 +295,7 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
                 return;
             }
-            throw new ArgumentNullException("elements", SR.Get(SRID.ParamsEntryNullIllegal));
+            throw new ArgumentNullException(nameof(elements), SR.Get(SRID.ParamsEntryNullIllegal));
         }
 
         /// <summary>Adds an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> to an <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsRule" /> object.</summary>
@@ -304,7 +304,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="element" /> is <see langword="null" />.</exception>
         public void Add(SrgsElement element)
         {
-            Helpers.ThrowIfNull(element, "element");
+            Helpers.ThrowIfNull(element, nameof(element));
             Elements.Add(element);
         }
 

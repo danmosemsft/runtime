@@ -258,7 +258,7 @@ namespace System.Speech.Internal.ObjectTokens
 
         internal RegistryDataKey OpenKey(string keyName)
         {
-            Helpers.ThrowIfEmptyOrNull(keyName, "keyName");
+            Helpers.ThrowIfEmptyOrNull(keyName, nameof(keyName));
             if (_sapiRegKey.OpenKey(keyName, out ISpDataKey ppSubKey) != 0)
             {
                 return null;
@@ -268,7 +268,7 @@ namespace System.Speech.Internal.ObjectTokens
 
         internal RegistryDataKey CreateKey(string keyName)
         {
-            Helpers.ThrowIfEmptyOrNull(keyName, "keyName");
+            Helpers.ThrowIfEmptyOrNull(keyName, nameof(keyName));
             if (_sapiRegKey.CreateKey(keyName, out ISpDataKey ppSubKey) != 0)
             {
                 return null;

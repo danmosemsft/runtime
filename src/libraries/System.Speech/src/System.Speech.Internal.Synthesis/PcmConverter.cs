@@ -225,11 +225,11 @@ namespace System.Speech.Internal.Synthesis
         {
             if (inHz <= 0)
             {
-                throw new ArgumentOutOfRangeException("inHz");
+                throw new ArgumentOutOfRangeException(nameof(inHz));
             }
             if (outHz <= 0)
             {
-                throw new ArgumentOutOfRangeException("outHz");
+                throw new ArgumentOutOfRangeException(nameof(outHz));
             }
             FindResampleFactors(inHz, outHz);
             int num = (_iUpFactor > _iDownFactor) ? _iUpFactor : _iDownFactor;

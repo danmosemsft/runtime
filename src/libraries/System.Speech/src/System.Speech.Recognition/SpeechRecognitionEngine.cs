@@ -78,7 +78,7 @@ namespace System.Speech.Recognition
             {
                 if (value.TotalMilliseconds < 0.0 || value.TotalMilliseconds > 10000.0)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.EndSilenceOutOfRange));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.EndSilenceOutOfRange));
                 }
                 RecoBase.UpdateRecognizerSetting("ResponseSpeed", (int)value.TotalMilliseconds);
             }
@@ -98,7 +98,7 @@ namespace System.Speech.Recognition
             {
                 if (value.TotalMilliseconds < 0.0 || value.TotalMilliseconds > 10000.0)
                 {
-                    throw new ArgumentOutOfRangeException("value", SR.Get(SRID.EndSilenceOutOfRange));
+                    throw new ArgumentOutOfRangeException(nameof(value), SR.Get(SRID.EndSilenceOutOfRange));
                 }
                 RecoBase.UpdateRecognizerSetting("ComplexResponseSpeed", (int)value.TotalMilliseconds);
             }
@@ -199,7 +199,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             add
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (_speechHypothesizedDelegate == null)
                 {
                     RecoBase.SpeechHypothesized += SpeechHypothesizedProxy;
@@ -209,7 +209,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _speechHypothesizedDelegate = (EventHandler<SpeechHypothesizedEventArgs>)Delegate.Remove(_speechHypothesizedDelegate, value);
                 if (_speechHypothesizedDelegate == null)
                 {
@@ -224,7 +224,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             add
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (_audioSignalProblemOccurredDelegate == null)
                 {
                     RecoBase.AudioSignalProblemOccurred += AudioSignalProblemOccurredProxy;
@@ -234,7 +234,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _audioSignalProblemOccurredDelegate = (EventHandler<AudioSignalProblemOccurredEventArgs>)Delegate.Remove(_audioSignalProblemOccurredDelegate, value);
                 if (_audioSignalProblemOccurredDelegate == null)
                 {
@@ -249,7 +249,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             add
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (_audioLevelUpdatedDelegate == null)
                 {
                     RecoBase.AudioLevelUpdated += AudioLevelUpdatedProxy;
@@ -259,7 +259,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _audioLevelUpdatedDelegate = (EventHandler<AudioLevelUpdatedEventArgs>)Delegate.Remove(_audioLevelUpdatedDelegate, value);
                 if (_audioLevelUpdatedDelegate == null)
                 {
@@ -274,7 +274,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             add
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 if (_audioStateChangedDelegate == null)
                 {
                     RecoBase.AudioStateChanged += AudioStateChangedProxy;
@@ -284,7 +284,7 @@ namespace System.Speech.Recognition
             [MethodImpl(MethodImplOptions.Synchronized)]
             remove
             {
-                Helpers.ThrowIfNull(value, "value");
+                Helpers.ThrowIfNull(value, nameof(value));
                 _audioStateChangedDelegate = (EventHandler<AudioStateChangedEventArgs>)Delegate.Remove(_audioStateChangedDelegate, value);
                 if (_audioStateChangedDelegate == null)
                 {
@@ -306,10 +306,10 @@ namespace System.Speech.Recognition
         ///   <paramref name="Culture" /> is <see langword="null" />.</exception>
         public SpeechRecognitionEngine(CultureInfo culture)
         {
-            Helpers.ThrowIfNull(culture, "culture");
+            Helpers.ThrowIfNull(culture, nameof(culture));
             if (culture.Equals(CultureInfo.InvariantCulture))
             {
-                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), "culture");
+                throw new ArgumentException(SR.Get(SRID.InvariantCultureInfo), nameof(culture));
             }
             foreach (RecognizerInfo item in InstalledRecognizers())
             {
@@ -327,7 +327,7 @@ namespace System.Speech.Recognition
                     return;
                 }
             }
-            throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), "culture");
+            throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), nameof(culture));
         }
 
         /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> class with a string parameter that specifies the name of the recognizer to use.</summary>
@@ -337,7 +337,7 @@ namespace System.Speech.Recognition
         ///   <paramref name="recognizerId" /> is <see langword="null" />.</exception>
         public SpeechRecognitionEngine(string recognizerId)
         {
-            Helpers.ThrowIfEmptyOrNull(recognizerId, "recognizerId");
+            Helpers.ThrowIfEmptyOrNull(recognizerId, nameof(recognizerId));
             foreach (RecognizerInfo item in InstalledRecognizers())
             {
                 if (recognizerId.Equals(item.Id, StringComparison.OrdinalIgnoreCase))
@@ -346,14 +346,14 @@ namespace System.Speech.Recognition
                     return;
                 }
             }
-            throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), "recognizerId");
+            throw new ArgumentException(SR.Get(SRID.RecognizerNotFound), nameof(recognizerId));
         }
 
         /// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> using the information in a <see cref="T:System.Speech.Recognition.RecognizerInfo" /> object to specify the recognizer to use.</summary>
         /// <param name="recognizerInfo">The information for the specific speech recognizer.</param>
         public SpeechRecognitionEngine(RecognizerInfo recognizerInfo)
         {
-            Helpers.ThrowIfNull(recognizerInfo, "recognizerInfo");
+            Helpers.ThrowIfNull(recognizerInfo, nameof(recognizerInfo));
             Initialize(recognizerInfo);
         }
 
@@ -411,7 +411,7 @@ namespace System.Speech.Recognition
         /// <param name="path">The path of the file to use as input.</param>
         public void SetInputToWaveFile(string path)
         {
-            Helpers.ThrowIfEmptyOrNull(path, "path");
+            Helpers.ThrowIfEmptyOrNull(path, nameof(path));
             RecoBase.SetInput(path);
         }
 
@@ -427,8 +427,8 @@ namespace System.Speech.Recognition
         /// <param name="audioFormat">The format of the audio input.</param>
         public void SetInputToAudioStream(Stream audioSource, SpeechAudioFormatInfo audioFormat)
         {
-            Helpers.ThrowIfNull(audioSource, "audioSource");
-            Helpers.ThrowIfNull(audioFormat, "audioFormat");
+            Helpers.ThrowIfNull(audioSource, nameof(audioSource));
+            Helpers.ThrowIfNull(audioFormat, nameof(audioFormat));
             RecoBase.SetInput(audioSource, audioFormat);
         }
 
@@ -709,7 +709,7 @@ namespace System.Speech.Recognition
                 ObjectToken objectToken = recognizerInfo.GetObjectToken();
                 if (objectToken == null)
                 {
-                    throw new ArgumentException(SR.Get(SRID.NullParamIllegal), "recognizerInfo");
+                    throw new ArgumentException(SR.Get(SRID.NullParamIllegal), nameof(recognizerInfo));
                 }
                 try
                 {

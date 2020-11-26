@@ -25,7 +25,7 @@ namespace System.Speech.Internal.ObjectTokens
 
         internal static ObjectToken DefaultToken(string category)
         {
-            Helpers.ThrowIfEmptyOrNull(category, "category");
+            Helpers.ThrowIfEmptyOrNull(category, nameof(category));
             ObjectToken objectToken = null;
             objectToken = DefaultToken("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\" + category, "DefaultTokenId");
             if (objectToken == null)

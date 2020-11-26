@@ -157,8 +157,8 @@ namespace System.Speech.Recognition
         /// <exception cref="T:System.NullReferenceException">The recognizer generated the result from a call to <see langword="EmulateRecognize" /> or <see langword="EmulateRecognizeAsync" /> methods of the <see cref="T:System.Speech.Recognition.SpeechRecognizer" /> or <see cref="T:System.Speech.Recognition.SpeechRecognitionEngine" /> objects.</exception>
         public RecognizedAudio GetAudioForWordRange(RecognizedWordUnit firstWord, RecognizedWordUnit lastWord)
         {
-            Helpers.ThrowIfNull(firstWord, "firstWord");
-            Helpers.ThrowIfNull(lastWord, "lastWord");
+            Helpers.ThrowIfNull(firstWord, nameof(firstWord));
+            Helpers.ThrowIfNull(lastWord, nameof(lastWord));
             return Audio.GetRange(firstWord._audioPosition, lastWord._audioPosition + lastWord._audioDuration - firstWord._audioPosition);
         }
 
@@ -168,7 +168,7 @@ namespace System.Speech.Recognition
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            Helpers.ThrowIfNull(info, "info");
+            Helpers.ThrowIfNull(info, nameof(info));
             bool flag = context.State == StreamingContextStates.CrossAppDomain;
             if (!flag)
             {
