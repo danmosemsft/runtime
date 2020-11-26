@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using Microsoft.Win32;
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -57,10 +58,11 @@ namespace System.Speech.Internal.ObjectTokens
             }
         }
 
-        protected RegistryDataKey(string fullPath, IntPtr regHandle)
+        protected RegistryDataKey(string fullPath, SafeRegistryHandle regHandle)
         {
             ISpRegDataKey spRegDataKey = (ISpRegDataKey)new SpDataKey();
             SAPIErrorCodes sAPIErrorCodes = (SAPIErrorCodes)spRegDataKey.SetKey(regHandle, fReadOnly: false);
+            regHandle?.Close();
             if (sAPIErrorCodes != 0 && sAPIErrorCodes != SAPIErrorCodes.SPERR_ALREADY_INITIALIZED)
             {
                 throw new InvalidOperationException();
@@ -71,7 +73,7 @@ namespace System.Speech.Internal.ObjectTokens
         }
 
         protected RegistryDataKey(string fullPath, RegistryKey managedRegKey)
-            : this(fullPath, HKEYfromRegKey(managedRegKey))
+            : this(fullPath, managedRegKey.Handle)
         {
         }
 
@@ -102,12 +104,12 @@ namespace System.Speech.Internal.ObjectTokens
             }
             registryPath = registryPath.Trim('\\');
             string firstKeyAndParseRemainder = GetFirstKeyAndParseRemainder(ref registryPath);
-            IntPtr intPtr = RootHKEYFromRegPath(firstKeyAndParseRemainder);
-            if (IntPtr.Zero == intPtr)
+            SafeRegistryHandle handle = RootHKEYFromRegPath(firstKeyAndParseRemainder);
+            if (handle == null || handle.IsInvalid)
             {
                 return null;
             }
-            RegistryDataKey registryDataKey = new RegistryDataKey(firstKeyAndParseRemainder, intPtr);
+            RegistryDataKey registryDataKey = new RegistryDataKey(firstKeyAndParseRemainder, handle);
             if (string.IsNullOrEmpty(registryPath))
             {
                 return registryDataKey;
@@ -310,20 +312,14 @@ namespace System.Speech.Internal.ObjectTokens
             }
         }
 
-        private static IntPtr HKEYfromRegKey(RegistryKey regKey)
-        {
-            SafeHandle safeHandle = (SafeHandle)regKey.Handle;
-            return safeHandle.DangerousGetHandle();
-        }
-
-        private static IntPtr RootHKEYFromRegPath(string rootPath)
+        private static SafeRegistryHandle RootHKEYFromRegPath(string rootPath)
         {
             RegistryKey registryKey = RegKeyFromRootPath(rootPath);
             if (registryKey == null)
             {
-                return IntPtr.Zero;
+                return null;
             }
-            return HKEYfromRegKey(registryKey);
+            return registryKey.Handle;
         }
 
         private static string GetFirstKeyAndParseRemainder(ref string registryPath)
