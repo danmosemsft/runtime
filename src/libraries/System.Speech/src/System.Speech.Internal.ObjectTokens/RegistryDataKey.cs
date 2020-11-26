@@ -46,7 +46,7 @@ namespace System.Speech.Internal.ObjectTokens
 
         internal bool _disposeSapiKey;
 
-        internal string Id => (string)_sKeyId.Clone();
+        internal string Id => _sKeyId;
 
         internal string Name
         {

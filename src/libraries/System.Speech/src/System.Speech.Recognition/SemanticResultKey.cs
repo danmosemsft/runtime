@@ -31,7 +31,7 @@ namespace System.Speech.Recognition
             Helpers.ThrowIfNull(phrases, nameof(phrases));
             foreach (string text in phrases)
             {
-                _semanticKey.Add((string)text.Clone());
+                _semanticKey.Add(text);
             }
         }
 
@@ -45,7 +45,7 @@ namespace System.Speech.Recognition
             Helpers.ThrowIfNull(builders, "phrases");
             foreach (GrammarBuilder grammarBuilder in builders)
             {
-                _semanticKey.Add(grammarBuilder.Clone());
+                _semanticKey.Add(grammarBuilder);
             }
         }
 
