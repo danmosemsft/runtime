@@ -2,7 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System.Security;
-using System.Security.Permissions;
 
 namespace System.IO
 {
@@ -13,29 +12,15 @@ namespace System.IO
         {
             int num = 5;
             filePath = null;
-            bool flag = SecurityManager.CurrentThreadRequiresSecurityContextCapture();
             string text = Path.GetTempPath();
             if (!string.IsNullOrEmpty(subFolder))
             {
                 string text2 = Path.Combine(text, subFolder);
                 if (!Directory.Exists(text2))
                 {
-                    if (!flag)
-                    {
-                        Directory.CreateDirectory(text2);
-                    }
-                    else
-                    {
-                        new FileIOPermission(FileIOPermissionAccess.Read | FileIOPermissionAccess.Write, text).Assert();
-                        Directory.CreateDirectory(text2);
-                        CodeAccessPermission.RevertAssert();
-                    }
+                    Directory.CreateDirectory(text2);
                 }
                 text = text2;
-            }
-            if (flag)
-            {
-                new FileIOPermission(FileIOPermissionAccess.Read | FileIOPermissionAccess.Write, text).Assert();
             }
             FileStream fileStream = null;
             while (fileStream == null)
@@ -63,10 +48,6 @@ namespace System.IO
         {
             if (!string.IsNullOrEmpty(filePath))
             {
-                if (SecurityManager.CurrentThreadRequiresSecurityContextCapture())
-                {
-                    new FileIOPermission(FileIOPermissionAccess.Write, filePath).Assert();
-                }
                 try
                 {
                     File.Delete(filePath);

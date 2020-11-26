@@ -741,7 +741,7 @@ namespace System.Speech.Internal.Synthesis
                                                 FragmentState fragState = default(FragmentState);
                                                 fragState.Action = TtsEngineAction.Speak;
                                                 fragState.Prosody = new Prosody();
-                                                TextFragment textFragment = new TextFragment(fragState, string.Copy(parametersSpeak2._textToSpeak));
+                                                TextFragment textFragment = new TextFragment(fragState, parametersSpeak2._textToSpeak);
                                                 speakInfo.AddText(ttsVoice, textFragment);
                                             }
                                             else

@@ -8,7 +8,6 @@ using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 using System.Speech.AudioFormat;
 using System.Speech.Internal;
 using System.Speech.Internal.SapiInterop;
@@ -165,7 +164,6 @@ namespace System.Speech.Recognition
         /// <summary>Populates a <see cref="System.Runtime.Serialization.SerializationInfo" /> instance with the data needed to serialize the target object.</summary>
         /// <param name="info">The object to populate with data.</param>
         /// <param name="context">The destination for the serialization.</param>
-        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
             Helpers.ThrowIfNull(info, nameof(info));

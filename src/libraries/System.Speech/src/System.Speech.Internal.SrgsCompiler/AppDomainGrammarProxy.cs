@@ -4,8 +4,6 @@
 using System.Globalization;
 using System.Reflection;
 using System.Security;
-using System.Security.Permissions;
-using System.Security.Policy;
 using System.Speech.Recognition;
 using System.Speech.Recognition.SrgsGrammar;
 using System.Text;
@@ -28,8 +26,6 @@ namespace System.Speech.Internal.SrgsCompiler
         private string _rule;
 
         private Type _grammarType;
-
-        private PermissionSet _internetPermissionSet;
 
         internal SrgsRule[] OnInit(string method, object[] parameters, string onInitParameters, out Exception exceptionThrown)
         {
@@ -56,7 +52,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 SrgsRule[] result = null;
                 if (method2 != null)
                 {
-                    _internetPermissionSet.PermitOnly();
                     result = (SrgsRule[])method2.Invoke(_grammar, parameters);
                 }
                 return result;
@@ -74,7 +69,6 @@ namespace System.Speech.Internal.SrgsCompiler
             try
             {
                 MethodInfo method2 = _grammarType.GetMethod(method, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                _internetPermissionSet.PermitOnly();
                 return method2.Invoke(_grammar, parameters);
             }
             catch (Exception ex)
@@ -90,7 +84,6 @@ namespace System.Speech.Internal.SrgsCompiler
             try
             {
                 GetRuleInstance(rule, method, out MethodInfo onParse, out Grammar grammar);
-                _internetPermissionSet.PermitOnly();
                 return onParse.Invoke(grammar, parameters);
             }
             catch (Exception ex)
@@ -106,7 +99,6 @@ namespace System.Speech.Internal.SrgsCompiler
             try
             {
                 GetRuleInstance(rule, method, out MethodInfo onParse, out Grammar grammar);
-                _internetPermissionSet.PermitOnly();
                 onParse.Invoke(grammar, parameters);
             }
             catch (Exception ex)
@@ -132,8 +124,6 @@ namespace System.Speech.Internal.SrgsCompiler
             {
                 throw new ArgumentException(SR.Get(SRID.RuleScriptInvalidParameters, _grammarType.FullName, rule), nameof(rule));
             }
-            _internetPermissionSet = PolicyLevel.CreateAppDomainLevel().GetNamedPermissionSet("Internet");
-            _internetPermissionSet.AddPermission(new ReflectionPermission(PermissionState.Unrestricted));
         }
 
         private void GetRuleInstance(string rule, string method, out MethodInfo onParse, out Grammar grammar)

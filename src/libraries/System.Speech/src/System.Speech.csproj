@@ -4,7 +4,7 @@
         <TargetFrameworks>netcoreapp3.0-windows;netstandard2.1</TargetFrameworks>
       <NoWarn>$(NoWarn);CS0649</NoWarn><!-- uninitialized interop type fields -->
       <!-- tabs -->
-        <NoWarn>$(NoWarn);;;;;;;;;;;SYSLIB0006;;;CS0618;SYSLIB0003;IDE0041;;;SYSLIB0014;;</NoWarn>
+        <NoWarn>$(NoWarn);;;;;;;;;;;SYSLIB0006;;;;SYSLIB0003;IDE0041;;;SYSLIB0014;;</NoWarn>
     </PropertyGroup>
     <PropertyGroup>
         <GeneratePlatformNotSupportedAssemblyMessage Condition="'$(TargetFramework)' == 'netstandard2.1'">SR.PlatformNotSupported_SystemSpeech</GeneratePlatformNotSupportedAssemblyMessage>
@@ -400,7 +400,6 @@
     <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
         <ProjectReference Include="$(LibrariesProjectRoot)Microsoft.Win32.Registry\src\Microsoft.Win32.Registry.csproj"/>
         <ProjectReference Include="$(LibrariesProjectRoot)System.CodeDom\src\System.CodeDom.csproj"/>
-        <ProjectReference Include="$(LibrariesProjectRoot)System.Security.Permissions\src\System.Security.Permissions.csproj"/>
         <Reference Include="System.Runtime.InteropServices"/>
         <Reference Include="System.Net.WebClient"/>
         <Reference Include="System.Collections"/>

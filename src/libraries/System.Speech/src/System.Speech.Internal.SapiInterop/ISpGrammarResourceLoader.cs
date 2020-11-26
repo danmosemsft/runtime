@@ -8,7 +8,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     [ComImport]
     [Guid("B9AC5783-FCD0-4b21-B119-B4F8DA8FD2C3")]
-    [InterfaceType(ComInterfaceType.InterfaceIsDual)]
     internal interface ISpGrammarResourceLoader
     {
         [PreserveSig]
