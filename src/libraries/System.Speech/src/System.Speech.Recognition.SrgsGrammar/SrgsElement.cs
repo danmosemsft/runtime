@@ -26,7 +26,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-        internal virtual SrgsElement[] Children => new SrgsElement[0];
+        internal virtual SrgsElement[] Children => Array.Empty<SrgsElement>();
 
         /// <summary>Initializes a new instance of the <see cref="System.Speech.Recognition.SrgsGrammar.SrgsElement" /> class.</summary>
         protected SrgsElement()

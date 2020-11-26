@@ -884,7 +884,7 @@ namespace System.Speech.Recognition
         {
             if (string.IsNullOrEmpty(initParameters))
             {
-                return new NameValuePair[0];
+                return Array.Empty<NameValuePair>();
             }
             string[] array = initParameters.Split(new char[1]
             {

@@ -239,7 +239,7 @@ namespace System.Speech.Internal.ObjectTokens
         internal bool HasValue(string valueName)
         {
             uint pdwValue = 0u;
-            byte[] data = new byte[0];
+            byte[] data = Array.Empty<byte>();
             if (_sapiRegKey.GetStringValue(valueName, out string _) != 0 && _sapiRegKey.GetDWORD(valueName, ref pdwValue) != 0)
             {
                 return _sapiRegKey.GetData(valueName, ref pdwValue, data) == 0;
