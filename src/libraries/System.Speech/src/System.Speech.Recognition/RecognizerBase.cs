@@ -1977,7 +1977,7 @@ namespace System.Speech.Recognition
         private RecognitionResult CreateRecognitionResult(SpeechEvent speechEvent)
         {
             ISpRecoResult spRecoResult = (ISpRecoResult)Marshal.GetObjectForIUnknown((IntPtr)(long)speechEvent.LParam);
-            RecognitionResult recognitionResult = null;
+
             spRecoResult.Serialize(out IntPtr ppCoMemSerializedResult);
             byte[] array = null;
             try

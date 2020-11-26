@@ -70,7 +70,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         internal string CreateAssembly(int iCfg, string outputFile, CultureInfo culture)
         {
-            string text = null;
             FileHelper.DeleteTemporaryFile(outputFile);
             try
             {
