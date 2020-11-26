@@ -50,25 +50,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-        internal bool StartParallelEpsilonArc
-        {
-            get
-            {
-                return (_flag1 & 0x400000) != 0;
-            }
-            set
-            {
-                if (value)
-                {
-                    _flag1 |= 4194304u;
-                }
-                else
-                {
-                    _flag1 &= 4290772991u;
-                }
-            }
-        }
-
         internal uint EndArcIndex
         {
             get
@@ -83,25 +64,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 }
                 _flag2 &= 4290772992u;
                 _flag2 |= value;
-            }
-        }
-
-        internal bool EndParallelEpsilonArc
-        {
-            get
-            {
-                return (_flag2 & 0x400000) != 0;
-            }
-            set
-            {
-                if (value)
-                {
-                    _flag2 |= 4194304u;
-                }
-                else
-                {
-                    _flag2 &= 4290772991u;
-                }
             }
         }
 
@@ -137,19 +99,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 _flag3 &= 3221225727u;
                 _flag3 |= value << 8;
             }
-        }
-
-        internal CfgSemanticTag(CfgSemanticTag cfgTag)
-        {
-            _flag1 = cfgTag._flag1;
-            _flag2 = cfgTag._flag2;
-            _flag3 = cfgTag._flag3;
-            _propId = cfgTag._propId;
-            _nameOffset = cfgTag._nameOffset;
-            _varInt = 0;
-            _valueOffset = cfgTag._valueOffset;
-            _varDouble = cfgTag._varDouble;
-            StartArcIndex = 4194303u;
         }
 
         internal CfgSemanticTag(StringBlob symbols, CfgGrammar.CfgProperty property)

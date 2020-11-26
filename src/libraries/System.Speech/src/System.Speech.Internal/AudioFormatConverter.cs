@@ -84,16 +84,6 @@ namespace System.Speech.Internal
             NUM_FORMATS
         }
 
-        private enum WaveFormatId
-        {
-            Pcm = 1,
-            AdPcm = 2,
-            TrueSpeech = 34,
-            Alaw = 6,
-            Mulaw = 7,
-            Gsm610 = 49
-        }
-
         [StructLayout(LayoutKind.Sequential)]
         private class WaveFormatEx
         {

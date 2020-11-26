@@ -5,13 +5,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal static class AudioFormatConverter
     {
-        internal enum WaveFormatTag
-        {
-            WAVE_FORMAT_PCM = 1,
-            WAVE_FORMAT_ALAW = 6,
-            WAVE_FORMAT_MULAW = 7
-        }
-
         private delegate short[] ConvertByteShort(byte[] data, int size);
 
         private delegate byte[] ConvertShortByte(short[] data, int size);

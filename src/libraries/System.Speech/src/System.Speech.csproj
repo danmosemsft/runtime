@@ -56,7 +56,6 @@
         <Compile Include="System.Speech.Internal.ObjectTokens\ObjectTokenCategory.cs"/>
         <Compile Include="System.Speech.Internal.ObjectTokens\RegistryDataKey.cs"/>
         <Compile Include="System.Speech.Internal.ObjectTokens\SAPICategories.cs"/>
-        <Compile Include="System.Speech.Internal.ObjectTokens\VoiceCategory.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\EventNotify.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\FILETIME.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\IEnumSpObjectTokens.cs"/>
@@ -90,7 +89,6 @@
         <Compile Include="System.Speech.Internal.SapiInterop\ISpStream.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\ISpStreamFormat.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\ISpXMLRecoResult.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SapiConfidenceLevels.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SapiConstants.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SAPIErrorCodes.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SapiGrammar.cs"/>
@@ -105,17 +103,11 @@
         <Compile Include="System.Speech.Internal.SapiInterop\SPAUDIOSTATUS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpAudioStreamWrapper.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPBOOKMARKOPTIONS.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPCATEGORYSTATE.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPCATEGORYTYPE.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPCOMMITFLAGS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPCONTEXTSTATE.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpDataKey.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPDISPLAYATTRIBUTES.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPEAKFLAGS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpeechEmulationCompareFlags.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpeechEvent.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SpeechRunState.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPENDSRSTREAMFLAGS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPEVENT.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPEVENTENUM.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPEVENTEX.cs"/>
@@ -135,11 +127,9 @@
         <Compile Include="System.Speech.Internal.SapiInterop\SPPHRASEREPLACEMENT.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPPHRASERULE.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRECOCONTEXTSTATUS.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPRECOEVENTFLAGS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRECOGNIZERSTATUS.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRECORESULTTIMES.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRECOSTATE.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPRESULTALPHABET.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRESULTHEADER.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRESULTHEADER_Sapi51.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPRULESTATE.cs"/>
@@ -150,13 +140,10 @@
         <Compile Include="System.Speech.Internal.SapiInterop\SPSERIALIZEDPHRASEPROPERTY.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPSERIALIZEDPHRASERULE.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPSERIALIZEDPHRASE_Sapi51.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPSERIALIZEDRESULT.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpSharedRecognizer.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPSTREAMFORMATTYPE.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SpStreamWrapper.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPTEXTSELECTIONINFO.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPVOICESTATUS.cs"/>
-        <Compile Include="System.Speech.Internal.SapiInterop\SPVPRIORITY.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPWAVEFORMATEX.cs"/>
         <Compile Include="System.Speech.Internal.SapiInterop\SPXMLRESULTOPTIONS.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\AppDomainCompilerProxy.cs"/>
@@ -181,7 +168,6 @@
         <Compile Include="System.Speech.Internal.SrgsCompiler\PropertyTag.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\Rule.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\RuleRef.cs"/>
-        <Compile Include="System.Speech.Internal.SrgsCompiler\RuleScope.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\ScriptRef.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\SemanticTag.cs"/>
         <Compile Include="System.Speech.Internal.SrgsCompiler\SPCFGRULEATTRIBUTES.cs"/>
@@ -246,7 +232,6 @@
         <Compile Include="System.Speech.Internal.Synthesis\TtsProxySapi.cs"/>
         <Compile Include="System.Speech.Internal.Synthesis\TtsProxySsml.cs"/>
         <Compile Include="System.Speech.Internal.Synthesis\TTSVoice.cs"/>
-        <Compile Include="System.Speech.Internal.Synthesis\VOICEACTIONS.cs"/>
         <Compile Include="System.Speech.Internal.Synthesis\VoiceSynthesis.cs"/>
         <Compile Include="System.Speech.Internal.Synthesis\WAVEFORMATEX.cs"/>
         <Compile Include="System.Speech.Internal.Synthesis\WAVEHDR.cs"/>
@@ -325,7 +310,6 @@
         <Compile Include="System.Speech.Synthesis\PromptBuilder.cs"/>
         <Compile Include="System.Speech.Synthesis\PromptEmphasis.cs"/>
         <Compile Include="System.Speech.Synthesis\PromptEventArgs.cs"/>
-        <Compile Include="System.Speech.Synthesis\PromptPriority.cs"/>
         <Compile Include="System.Speech.Synthesis\PromptRate.cs"/>
         <Compile Include="System.Speech.Synthesis\PromptStyle.cs"/>
         <Compile Include="System.Speech.Synthesis\PromptVolume.cs"/>
@@ -372,11 +356,9 @@
         <Compile Include="System.Speech.Synthesis.TtsEngine\SPVCONTEXT.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\SPVESACTIONS.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\SPVPITCH.cs"/>
-        <Compile Include="System.Speech.Synthesis.TtsEngine\SPVSKIPTYPE.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\SPVSTATE.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\SPVTEXTFRAG.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\TextFragment.cs"/>
-        <Compile Include="System.Speech.Synthesis.TtsEngine\TextFragmentInterop.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\TtsEngineAction.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\TtsEngineSsml.cs"/>
         <Compile Include="System.Speech.Synthesis.TtsEngine\TtsEventId.cs"/>
