@@ -21,7 +21,7 @@ namespace System.Speech.Synthesis.TtsEngine
         /// <summary>Gets the value that represents the amount to raise or lower the pitch at a point in a <see cref="System.Speech.Synthesis.TtsEngine.TextFragment" />.</summary>
         public float Change => _change;
 
-        /// <summary>Gets a member of <see cref="System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType" /> that specifies the unit to use for the number specified in the <paramref name="change" /> parameter of a <see cref="System.Speech.Synthesis.TtsEngine.ContourPoint" /> object.</summary>
+        /// <summary>Gets a member of <see cref="System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType" /> that specifies the unit to use for the number specified in the change parameter of a <see cref="System.Speech.Synthesis.TtsEngine.ContourPoint" /> object.</summary>
         public ContourPointChangeType ChangeType => _changeType;
 
         /// <summary>Creates a new instance of the <see cref="System.Speech.Synthesis.TtsEngine.ContourPoint" /> class.</summary>

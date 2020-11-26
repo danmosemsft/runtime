@@ -303,7 +303,7 @@ namespace System.Speech.Recognition
         /// <param name="culture">The locale that the speech recognizer must support.</param>
         /// <exception cref="System.ArgumentException">None of the installed speech recognizers support the specified locale, or <paramref name="culture" /> is the invariant culture.</exception>
         /// <exception cref="System.ArgumentNullException">
-        ///   <paramref name="Culture" /> is <see langword="null" />.</exception>
+        ///   <paramref name="culture" /> is <see langword="null" />.</exception>
         public SpeechRecognitionEngine(CultureInfo culture)
         {
             Helpers.ThrowIfNull(culture, nameof(culture));
@@ -534,9 +534,9 @@ namespace System.Speech.Recognition
         /// <summary>Synchronously loads a <see cref="System.Speech.Recognition.Grammar" /> object.</summary>
         /// <param name="grammar">The grammar object to load.</param>
         /// <exception cref="System.ArgumentNullException">
-        ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
+        ///   <paramref name="grammar" /> is <see langword="null" />.</exception>
         /// <exception cref="System.InvalidOperationException">
-        ///   <paramref name="Grammar" /> is not in a valid state.</exception>
+        ///   <paramref name="grammar" /> is not in a valid state.</exception>
         public void LoadGrammar(Grammar grammar)
         {
             RecoBase.LoadGrammar(grammar);
@@ -545,9 +545,9 @@ namespace System.Speech.Recognition
         /// <summary>Asynchronously loads a speech recognition grammar.</summary>
         /// <param name="grammar">The speech recognition grammar to load.</param>
         /// <exception cref="System.ArgumentNullException">
-        ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
+        ///   <paramref name="grammar" /> is <see langword="null" />.</exception>
         /// <exception cref="System.InvalidOperationException">
-        ///   <paramref name="Grammar" /> is not in a valid state.</exception>
+        ///   <paramref name="grammar" /> is not in a valid state.</exception>
         /// <exception cref="System.OperationCanceledException">The asynchronous operation was canceled.</exception>
         public void LoadGrammarAsync(Grammar grammar)
         {
@@ -557,7 +557,7 @@ namespace System.Speech.Recognition
         /// <summary>Unloads a specified <see cref="System.Speech.Recognition.Grammar" /> object from the <see cref="System.Speech.Recognition.SpeechRecognitionEngine" /> instance.</summary>
         /// <param name="grammar">The grammar object to unload.</param>
         /// <exception cref="System.ArgumentNullException">
-        ///   <paramref name="Grammar" /> is <see langword="null" />.</exception>
+        ///   <paramref name="grammar" /> is <see langword="null" />.</exception>
         /// <exception cref="System.InvalidOperationException">The grammar is not loaded in this recognizer, or this recognizer is currently loading the grammar asynchronously.</exception>
         public void UnloadGrammar(Grammar grammar)
         {

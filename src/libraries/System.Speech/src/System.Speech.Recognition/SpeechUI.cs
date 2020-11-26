@@ -17,7 +17,7 @@ namespace System.Speech.Recognition
         /// <param name="feedback">A <see cref="string" /> containing a comment about the recognition operation that produced the <see cref="System.Speech.Recognition.RecognitionResult" /><paramref name="result" />.</param>
         /// <param name="isSuccessfulAction">A <see langword="bool" /> indicating whether the application deemed the recognition operation a success.</param>
         /// <returns>
-        ///   <see langword="true" /> if the information provided to the method (<paramref name="Feedback" />, and <paramref name="isSuccessfulAction" />) was successfully made available to the Speech platform user interface, and <see langword="false" /> if the operation failed.</returns>
+        ///   <see langword="true" /> if the information provided to the method (<paramref name="feedback" />, and <paramref name="isSuccessfulAction" />) was successfully made available to the Speech platform user interface, and <see langword="false" /> if the operation failed.</returns>
         public static bool SendTextFeedback(RecognitionResult result, string feedback, bool isSuccessfulAction)
         {
             Helpers.ThrowIfNull(result, nameof(result));

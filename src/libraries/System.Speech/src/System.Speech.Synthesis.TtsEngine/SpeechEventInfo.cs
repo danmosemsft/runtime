@@ -45,7 +45,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
         }
 
-        /// <summary>Gets and set the <see langword="integer" /> value (<paramref name="param1" /> in the constructor) to be passed to the Speech platform to generate an event the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is used to request.</summary>
+        /// <summary>Gets and set the <see langword="integer" /> value (param1 in the constructor) to be passed to the Speech platform to generate an event the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is used to request.</summary>
         /// <returns>Returns the <see langword="integer" /> to be passed to Speech platform when the event specified by the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is generated.</returns>
         public int Param1
         {
@@ -59,7 +59,7 @@ namespace System.Speech.Synthesis.TtsEngine
             }
         }
 
-        /// <summary>Gets and set the <see langword="System.IntPtr" /> instance (<paramref name="param2" /> in the constructor) referencing the object to be passed to the Speech platform to generate an event the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is used to request.</summary>
+        /// <summary>Gets and set the <see langword="System.IntPtr" /> instance (Param2 in the constructor) referencing the object to be passed to the Speech platform to generate an event the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is used to request.</summary>
         /// <returns>Returns the <see langword="System.IntPtr" /> referencing the object to be passed to Speech platform when the event specified by the current instance of <see cref="System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> is generated.</returns>
         public IntPtr Param2
         {
