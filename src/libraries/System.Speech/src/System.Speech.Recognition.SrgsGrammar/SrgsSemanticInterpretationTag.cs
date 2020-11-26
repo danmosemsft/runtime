@@ -74,7 +74,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		{
 			StringBuilder stringBuilder = new StringBuilder("SrgsSemanticInterpretationTag '");
 			stringBuilder.Append(_script);
-			stringBuilder.Append("'");
+			stringBuilder.Append('\'');
 			return stringBuilder.ToString();
 		}
 

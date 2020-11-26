@@ -204,7 +204,7 @@ namespace System.Speech.Internal.Synthesis
 			{
 				stringBuilder.AppendFormat(CultureInfo.InvariantCulture, " {0}:{1}=\"{2}\" xmlns:{3}=\"{4}\"", extraAttribute._prefix, extraAttribute._name, extraAttribute._value, extraAttribute._prefix, extraAttribute._ns);
 			}
-			stringBuilder.Append(">");
+			stringBuilder.Append('>');
 			AddParseUnknownFragment(voice, ref fragmentState, stringBuilder.ToString());
 		}
 

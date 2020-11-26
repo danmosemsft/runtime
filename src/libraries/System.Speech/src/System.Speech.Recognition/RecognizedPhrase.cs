@@ -177,7 +177,7 @@ namespace System.Speech.Recognition
 						{
 							if ((displayAttributes & DisplayAttributes.OneTrailingSpace) != 0)
 							{
-								stringBuilder.Append(" ");
+								stringBuilder.Append(' ');
 							}
 							else if ((displayAttributes & DisplayAttributes.TwoTrailingSpaces) != 0)
 							{
@@ -532,7 +532,7 @@ namespace System.Speech.Recognition
 						{
 							if (stringBuilder.Length > 0)
 							{
-								stringBuilder.Append(" ");
+								stringBuilder.Append(' ');
 							}
 							stringBuilder.Append(words[(int)ruleNode._firstElement + i].Text);
 						}

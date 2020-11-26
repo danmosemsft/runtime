@@ -254,7 +254,7 @@ namespace System.Speech.Internal.SrgsCompiler
 					stringBuilder.Append(':');
 					stringBuilder.Append(parameterInfo.ParameterType.Name);
 				}
-				stringBuilder.Append("\"");
+				stringBuilder.Append('"');
 			}
 			return stringBuilder.ToString();
 		}

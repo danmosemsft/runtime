@@ -233,13 +233,13 @@ namespace System.Speech.Recognition.SrgsGrammar
 			{
 				stringBuilder.Append(" uri='");
 				stringBuilder.Append(_uri.ToString());
-				stringBuilder.Append("'");
+				stringBuilder.Append('\'');
 			}
 			else
 			{
 				stringBuilder.Append(" special='");
 				stringBuilder.Append(_type.ToString());
-				stringBuilder.Append("'");
+				stringBuilder.Append('\'');
 			}
 			return stringBuilder.ToString();
 		}

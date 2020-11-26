@@ -367,7 +367,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 			{
 				if (_minRepeat != _maxRepeat || _maxRepeat != -1)
 				{
-					stringBuilder.Append("[");
+					stringBuilder.Append('[');
 					if (_minRepeat == _maxRepeat)
 					{
 						stringBuilder.Append(_minRepeat.ToString(CultureInfo.InvariantCulture));
@@ -395,11 +395,11 @@ namespace System.Speech.Recognition.SrgsGrammar
 				{
 					if (!flag)
 					{
-						stringBuilder.Append(" ");
+						stringBuilder.Append(' ');
 					}
-					stringBuilder.Append("{");
+					stringBuilder.Append('{');
 					stringBuilder.Append(element.DebuggerDisplayString());
-					stringBuilder.Append("}");
+					stringBuilder.Append('}');
 					flag = false;
 				}
 			}

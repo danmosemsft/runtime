@@ -147,12 +147,12 @@ namespace System.Speech.Recognition.SrgsGrammar
 		{
 			StringBuilder stringBuilder = new StringBuilder("Token '");
 			stringBuilder.Append(_text);
-			stringBuilder.Append("'");
+			stringBuilder.Append('\'');
 			if (_pronunciation != null)
 			{
 				stringBuilder.Append(" Pronunciation '");
 				stringBuilder.Append(_pronunciation);
-				stringBuilder.Append("'");
+				stringBuilder.Append('\'');
 			}
 			return stringBuilder.ToString();
 		}

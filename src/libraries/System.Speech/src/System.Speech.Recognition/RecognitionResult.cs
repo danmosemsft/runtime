@@ -397,7 +397,7 @@ namespace System.Speech.Recognition
 		{
 			StringBuilder stringBuilder = new StringBuilder("Recognized text: '");
 			stringBuilder.Append(base.Text);
-			stringBuilder.Append("'");
+			stringBuilder.Append('\'');
 			if (base.Semantics.Value != null)
 			{
 				stringBuilder.Append(" - Semantic Value  = ");

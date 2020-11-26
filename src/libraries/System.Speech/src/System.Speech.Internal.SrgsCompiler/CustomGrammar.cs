@@ -407,13 +407,13 @@ namespace System.Speech.Internal.SrgsCompiler
 				{
 					stringBuilder.Append("Imports ");
 					stringBuilder.Append(importNamespace2);
-					stringBuilder.Append("\n");
+					stringBuilder.Append('\n');
 				}
 				if (_namespace != null)
 				{
 					stringBuilder.Append("Namespace ");
 					stringBuilder.Append(_namespace);
-					stringBuilder.Append("\n");
+					stringBuilder.Append('\n');
 				}
 				stringBuilder.Append("#End ExternalSource\n");
 				stringBuilder.Append(innerCode);
@@ -452,14 +452,14 @@ namespace System.Speech.Internal.SrgsCompiler
 			{
 				if (stringBuilder.Length > 0)
 				{
-					stringBuilder.Append("\n");
+					stringBuilder.Append('\n');
 				}
 				if (error.FileName.IndexOf("<Does Not Exist>", StringComparison.Ordinal) == -1)
 				{
 					stringBuilder.Append(error.FileName);
-					stringBuilder.Append("(");
+					stringBuilder.Append('(');
 					stringBuilder.Append(error.Line);
-					stringBuilder.Append(",");
+					stringBuilder.Append(',');
 					stringBuilder.Append(error.Column);
 					stringBuilder.Append("): ");
 				}

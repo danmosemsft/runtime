@@ -17,7 +17,7 @@ namespace System.Speech.Internal.GrammarBuilding
 				{
 					if (stringBuilder.Length > 0)
 					{
-						stringBuilder.Append(",");
+						stringBuilder.Append(',');
 					}
 					stringBuilder.Append(item.DebugSummary);
 				}

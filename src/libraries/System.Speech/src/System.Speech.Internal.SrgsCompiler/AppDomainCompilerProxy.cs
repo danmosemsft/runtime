@@ -177,7 +177,7 @@ namespace System.Speech.Internal.SrgsCompiler
 						}
 					}
 					stringBuilder.Append(parameterInfo.ParameterType.FullName);
-					stringBuilder.Append(" ");
+					stringBuilder.Append(' ');
 					stringBuilder.Append(parameterInfo.Name);
 				}
 			}

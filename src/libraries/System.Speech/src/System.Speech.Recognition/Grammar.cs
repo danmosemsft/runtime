@@ -875,7 +875,7 @@ namespace System.Speech.Recognition
 					stringBuilder.Append(':');
 					stringBuilder.Append(parameterInfo.ParameterType.Name);
 				}
-				stringBuilder.Append("\"");
+				stringBuilder.Append('\\');
 			}
 			return stringBuilder.ToString();
 		}

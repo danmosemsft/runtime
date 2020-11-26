@@ -1372,7 +1372,7 @@ namespace System.Speech.Internal.Synthesis
 				if (reader.NamespaceURI.Length > 0)
 				{
 					stringBuilder.Append(reader.NamespaceURI);
-					stringBuilder.Append(":");
+					stringBuilder.Append(':');
 				}
 				ThrowFormatException(SRID.InvalidAttributeDefinedTwice, reader.Value, stringBuilder);
 			}

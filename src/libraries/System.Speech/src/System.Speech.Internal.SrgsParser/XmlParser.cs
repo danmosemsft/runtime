@@ -1518,7 +1518,7 @@ namespace System.Speech.Internal.SrgsParser
 				if (reader.NamespaceURI.Length > 0)
 				{
 					stringBuilder.Append(reader.NamespaceURI);
-					stringBuilder.Append(":");
+					stringBuilder.Append(':');
 				}
 				ThrowSrgsException(SRID.InvalidAttributeDefinedTwice, reader.Value, stringBuilder);
 			}

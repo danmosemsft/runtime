@@ -95,7 +95,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 			if (flag2)
 			{
 				stringBuilder.Append(_name);
-				stringBuilder.Append("=");
+				stringBuilder.Append('=');
 			}
 			if (flag)
 			{
@@ -164,7 +164,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 			}
 			if (_name != null)
 			{
-				stringBuilder.Append(")");
+				stringBuilder.Append(')');
 			}
 			return stringBuilder.ToString();
 		}
