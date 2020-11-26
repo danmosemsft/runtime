@@ -49,6 +49,36 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
+        public void SpeechRecognizerInvalidInput()
+        {
+            using var ms = new MemoryStream();
+            ms.WriteByte(1);
+
+            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            {
+                Assert.Throws<FormatException>(() => rec.SetInputToWaveStream(ms));
+            }
+        }
+
+        [Fact]
+        public void SpeechRecognizerProperties()
+        {
+            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            {
+                rec.SetInputToNull();
+                rec.InitialSilenceTimeout = new TimeSpan();
+                rec.BabbleTimeout = new TimeSpan();
+                rec.EndSilenceTimeout = new TimeSpan();
+                rec.EndSilenceTimeoutAmbiguous = new TimeSpan();
+                rec.MaxAlternates = 1;
+
+                Assert.Throws<KeyNotFoundException>(() => rec.QueryRecognizerSetting("foo"));
+                Assert.Throws<KeyNotFoundException>(() => rec.UpdateRecognizerSetting("foo", "bar"));
+                Assert.Throws<KeyNotFoundException>(() => rec.UpdateRecognizerSetting("foo", 1));
+            }
+        }
+
+        [Fact]
         public void SpeechSynthesizerToWavAndRepeat()
         {
             string wav = GetTestFilePath() + ".wav";
@@ -75,6 +105,26 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
+        public void SpeechSynthSsmlInvalidPhoneme()
+        {
+            using (var synth = new SpeechSynthesizer())
+            {
+                synth.SetOutputToNull();
+
+                string ssml = @"
+<speak version='1.0' xml:lang='en-US' xmlns='https://www.w3.org/2001/10/synthesis'>
+	<s>His name is Mike <phoneme alphabet='ups' ph='@#$#@$'>Zhou </phoneme></s>
+</speak>";
+                Assert.Throws<FormatException>(() => synth.SpeakSsml(ssml));
+                ssml = @"
+<speak version='1.0' xml:lang='en-US' xmlns='https://www.w3.org/2001/10/synthesis'>
+	<s>His name is Mike <phoneme alphabet='@#$@#$' ph='JH'>Zhou </phoneme></s>
+</speak>";
+                Assert.Throws<FormatException>(() => synth.SpeakSsml(ssml));
+            }
+        }
+
+                [Fact]
         public void SpeechSynthesizerEventsAndProperties()
         {
             if (Thread.CurrentThread.CurrentCulture.ToString() != "en-US")
@@ -116,6 +166,34 @@ namespace SampleSynthesisTests
                 Assert.Equal(SynthesizerState.Paused, synth.State);
                 synth.Resume();
                 Assert.Equal(SynthesizerState.Ready, synth.State);
+            }
+        }
+
+        [Fact]
+        public void AddLexicon()
+        {
+            string temp = GetTestFilePath();
+            string content = @"
+<lexicon alphabet='x-microsoft-ups' version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2005/01/pronunciation-lexicon'>
+	<lexeme>
+		<grapheme>blue </grapheme>
+		<phoneme>B L I P </phoneme>
+	</lexeme>";
+            File.WriteAllText(temp, content);
+
+            using (var synth = new SpeechSynthesizer())
+            {
+                synth.AddLexicon(new Uri(temp), "application/pls+xml");
+            }
+        }
+
+        [Fact]
+        public void LotsOfGrammars()
+        {
+            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            {
+                for (int i = 0; i < 1025; i++)
+                    rec.LoadGrammar(new DictationGrammar());
             }
         }
     }
