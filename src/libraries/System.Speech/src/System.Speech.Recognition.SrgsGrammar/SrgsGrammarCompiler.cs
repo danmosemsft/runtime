@@ -15,7 +15,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="inputPath">The path of the file to compile.</param>
 		/// <param name="outputStream">The stream that receives the results of compilation.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="inputPath" /> is <see langword="null" />.  
+		///   <paramref name="inputPath" /> is <see langword="null" />.
 		/// <paramref name="outputStream" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="inputPath" /> is an empty string.</exception>
@@ -36,7 +36,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="srgsGrammar">The grammar to compile.</param>
 		/// <param name="outputStream">The stream that receives the results of compilation.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="srgsGrammar" /> is <see langword="null" />.  
+		///   <paramref name="srgsGrammar" /> is <see langword="null" />.
 		/// <paramref name="outputStream" /> is <see langword="null" />.</exception>
 		public static void Compile(SrgsDocument srgsGrammar, Stream outputStream)
 		{
@@ -49,7 +49,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="reader">The <see cref="T:System.Xml.XmlReader" /> that reads the grammar. The grammar can reside in a physical file or in memory.</param>
 		/// <param name="outputStream">The stream that will receive the results of compilation.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="reader" /> is <see langword="null" />.  
+		///   <paramref name="reader" /> is <see langword="null" />.
 		/// <paramref name="outputStream" /> is <see langword="null" />.</exception>
 		public static void Compile(XmlReader reader, Stream outputStream)
 		{
@@ -67,10 +67,10 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="referencedAssemblies">A list of the assemblies referenced from the input grammars.</param>
 		/// <param name="keyFile">The name of the file that contains a pair of keys, thereby enabling the output DLL to be signed.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="inputPaths" /> is <see langword="null" />.  
+		///   <paramref name="inputPaths" /> is <see langword="null" />.
 		/// <paramref name="outputPath" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentException">
-		///   <paramref name="outputPath" /> is an empty string.  
+		///   <paramref name="outputPath" /> is an empty string.
 		/// Any element of the <paramref name="inputPaths" /> array is <see langword="null" />.</exception>
 		public static void CompileClassLibrary(string[] inputPaths, string outputPath, string[] referencedAssemblies, string keyFile)
 		{
@@ -98,17 +98,17 @@ namespace System.Speech.Recognition.SrgsGrammar
 			}
 		}
 
-		/// <summary>Compiles an SRGS document into a DLL.</summary>
-		/// <param name="srgsGrammar">The <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the grammar to compile.</param>
-		/// <param name="outputPath">The path of the output DLL.</param>
-		/// <param name="referencedAssemblies">A list of the assemblies referenced from the input grammars.</param>
-		/// <param name="keyFile">The name of the file that contains a pair of keys, thereby enabling the output DLL to be signed.</param>
-		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="srgsGrammar" /> is <see langword="null" />.  
-		/// <paramref name="outputPath" /> is <see langword="null" />.</exception>
-		/// <exception cref="T:System.ArgumentException">
-		///   <paramref name="outputPath" /> is an empty string.</exception>
-		public static void CompileClassLibrary(SrgsDocument srgsGrammar, string outputPath, string[] referencedAssemblies, string keyFile)
+        /// <summary>Compiles an SRGS document into a DLL.</summary>
+        /// <param name="srgsGrammar">The <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsDocument" /> that contains the grammar to compile.</param>
+        /// <param name="outputPath">The path of the output DLL.</param>
+        /// <param name="referencedAssemblies">A list of the assemblies referenced from the input grammars.</param>
+        /// <param name="keyFile">The name of the file that contains a pair of keys, thereby enabling the output DLL to be signed.</param>
+        /// <exception cref="T:System.ArgumentNullException">
+        ///   <paramref name="srgsGrammar" /> is <see langword="null" />.
+        /// <paramref name="outputPath" /> is <see langword="null" />.</exception>
+        /// <exception cref="T:System.ArgumentException">
+        ///   <paramref name="outputPath" /> is an empty string.</exception>
+        public static void CompileClassLibrary(SrgsDocument srgsGrammar, string outputPath, string[] referencedAssemblies, string keyFile)
 		{
 			Helpers.ThrowIfNull(srgsGrammar, "srgsGrammar");
 			Helpers.ThrowIfEmptyOrNull(outputPath, "outputPath");
@@ -121,7 +121,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="referencedAssemblies">A list of the assemblies referenced from the input grammars.</param>
 		/// <param name="keyFile">The name of the file that contains a pair of keys, thereby enabling the output DLL to be signed.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="reader" /> is <see langword="null" />.  
+		///   <paramref name="reader" /> is <see langword="null" />.
 		/// <paramref name="outputPath" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="outputPath" /> is an empty string.</exception>

@@ -68,7 +68,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="T:System.String" /> objects.</summary>
 		/// <param name="items">The alternative items to add.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="items" /> is <see langword="null" />.  
+		///   <paramref name="items" /> is <see langword="null" />.
 		/// Any element in the <paramref name="items" /> array is <see langword="null" />.</exception>
 		public SrgsOneOf(params string[] items)
 			: this()
@@ -95,7 +95,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <summary>Initializes a new instance of the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsOneOf" /> class from an array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsItem" /> objects.</summary>
 		/// <param name="items">The alternative items to add.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="items" /> is <see langword="null" />.  
+		///   <paramref name="items" /> is <see langword="null" />.
 		/// Any element in the <paramref name="items" /> array is <see langword="null" />.</exception>
 		public SrgsOneOf(params SrgsItem[] items)
 			: this()

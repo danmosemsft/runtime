@@ -76,9 +76,9 @@ namespace System.Speech.Synthesis.TtsEngine
 		/// <summary>Constucts an appropriate <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" />.</summary>
 		/// <param name="eventId">An instance of <see cref="T:System.Speech.Synthesis.TtsEngine.TtsEventId" /> indicating the sort of Speech platform event the <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> object is to handle.</param>
 		/// <param name="parameterType">An instance of <see cref="T:System.Speech.Synthesis.TtsEngine.EventParameterType" /> indicating how the <see langword="System.IntPtr" /> reference of <paramref name="param2" /> is to be interpreted, and, by implication, the use of <paramref name="param1" />.</param>
-		/// <param name="param1">An integer value to be passed to the Speech platform when the event requested by the instance of <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> to be constructed is generated.  
+		/// <param name="param1">An integer value to be passed to the Speech platform when the event requested by the instance of <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> to be constructed is generated.
 		///  The exact meaning of this integer is implicitly determined by the value of <paramref name="parameterType" />.</param>
-		/// <param name="param2">A <see langword="System.IntPtr" /> instance referencing an object. to be passed to the Speech platform when the event requested by the instance of <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> to be constructed is generated.  
+		/// <param name="param2">A <see langword="System.IntPtr" /> instance referencing an object. to be passed to the Speech platform when the event requested by the instance of <see cref="T:System.Speech.Synthesis.TtsEngine.SpeechEventInfo" /> to be constructed is generated.
 		///  The type which must be referenced is explicitly defined by the value <paramref name="parameterType" />. The value <see langword="System.IntPtr.Zero" />.</param>
 		public SpeechEventInfo(short eventId, short parameterType, int param1, IntPtr param2)
 		{

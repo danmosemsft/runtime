@@ -217,7 +217,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="min">The minimum number of times that the text in the item must be repeated.</param>
 		/// <param name="max">The maximum number of times that the text in the item can be repeated.</param>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
-		///   <paramref name="min" /> is negative or larger than 255.  
+		///   <paramref name="min" /> is negative or larger than 255.
 		/// <paramref name="max" /> is negative or larger than 255.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="min" /> is larger than <paramref name="max" />.</exception>
@@ -232,7 +232,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="max">The maximum number of times that the item can be repeated.</param>
 		/// <param name="text">The text associated with the item.</param>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
-		///   <paramref name="min" /> is negative or larger than 255.  
+		///   <paramref name="min" /> is negative or larger than 255.
 		/// <paramref name="max" /> is negative or larger than 255.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="min" /> is larger than <paramref name="max" />.</exception>
@@ -272,7 +272,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="minRepeat">The minimum number of times that the item must be spoken.</param>
 		/// <param name="maxRepeat">The maximum number of times that the item can be spoken.</param>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
-		///   <paramref name="minRepeat" /> is less than zero or larger than 255.  
+		///   <paramref name="minRepeat" /> is less than zero or larger than 255.
 		/// <paramref name="maxRepeat" /> is less than zero or larger than 255.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="minRepeat" /> is larger than <paramref name="maxRepeat" />.</exception>

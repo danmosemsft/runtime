@@ -23,7 +23,7 @@ namespace System.IO
 					if (!flag)
 					{
 						Directory.CreateDirectory(text2);
-					}       
+					}
 					else
 					{
 						new FileIOPermission(FileIOPermissionAccess.Read | FileIOPermissionAccess.Write, text).Assert();

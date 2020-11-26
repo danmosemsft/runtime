@@ -71,7 +71,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="uri">The location of a grammar file outside the containing grammar.</param>
 		/// <param name="rule">The identifier of the rule to reference.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="uri" /> is <see langword="null" />.  
+		///   <paramref name="uri" /> is <see langword="null" />.
 		/// <paramref name="rule" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="rule" /> is empty.</exception>
@@ -86,7 +86,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="rule">The identifier of the rule to reference.</param>
 		/// <param name="semanticKey">An alias string for the semantic dictionary.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="uri" /> is <see langword="null" />.  
+		///   <paramref name="uri" /> is <see langword="null" />.
 		/// <paramref name="semanticKey" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="semanticKey" /> is empty.</exception>

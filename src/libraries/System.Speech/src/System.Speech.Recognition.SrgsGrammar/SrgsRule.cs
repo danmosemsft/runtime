@@ -268,7 +268,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="id">The identifier of the rule.</param>
 		/// <param name="elements">An array of <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsElement" /> elements.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="id" /> is <see langword="null" />.  
+		///   <paramref name="id" /> is <see langword="null" />.
 		/// <paramref name="elements" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="id" /> is empty.</exception>

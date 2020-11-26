@@ -76,7 +76,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <param name="name">The string used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Name" /> property on the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
 		/// <param name="value">The object used to set the <see cref="P:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag.Value" /> property on the <see cref="T:System.Speech.Recognition.SrgsGrammar.SrgsNameValueTag" /> object.</param>
 		/// <exception cref="T:System.ArgumentNullException">
-		///   <paramref name="value" /> is <see langword="null" />.  
+		///   <paramref name="value" /> is <see langword="null" />.
 		/// <paramref name="name" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentException">
 		///   <paramref name="name" /> is an empty string.</exception>

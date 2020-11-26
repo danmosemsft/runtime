@@ -129,13 +129,13 @@ namespace System.Speech.Synthesis.TtsEngine
 		/// <param name="langId">The id of the language being used. Corresponds to the XML <c>xml:lang</c> attribute.</param>
 		/// <param name="emphasis">The emphasis to be applied to speech output or pauses.</param>
 		/// <param name="duration">The time allotted to speak the text of the <see langword="TextFragment" />.</param>
-		/// <param name="sayAs">A member of the <see cref="T:System.Speech.Synthesis.TtsEngine.SayAs" /> class, indicating the type of text of the <see langword="TextFragment" /> and the level of detail required for accurate rendering of the contained text.  
-		///  Corresponds to the <c>&lt;say-as&gt;</c> XML tag in the SSML specification  
+		/// <param name="sayAs">A member of the <see cref="T:System.Speech.Synthesis.TtsEngine.SayAs" /> class, indicating the type of text of the <see langword="TextFragment" /> and the level of detail required for accurate rendering of the contained text.
+		///  Corresponds to the <c>&lt;say-as&gt;</c> XML tag in the SSML specification
 		///  The argument may be <see langword="null." /></param>
-		/// <param name="prosody">A <see cref="T:System.Speech.Synthesis.TtsEngine.Prosody" /> object indicating characteristics of the speech output such as pitch, speaking rate and volume.  
+		/// <param name="prosody">A <see cref="T:System.Speech.Synthesis.TtsEngine.Prosody" /> object indicating characteristics of the speech output such as pitch, speaking rate and volume.
 		///  Corresponds to the <c>&lt;prosody&gt;</c> XML tag in the SSML specification</param>
-		/// <param name="phonemes">An array of <see langword="char" /> objects providing the phonetic pronunciation for text contained in the <see cref="T:System.Speech.Synthesis.TtsEngine.TextFragment" />, using the International Phonetic Alphabet (IPA) specification.  
-		///  Corresponds to the <c>&lt;phoneme&gt;</c> XML tag in the SSML specification.  
+		/// <param name="phonemes">An array of <see langword="char" /> objects providing the phonetic pronunciation for text contained in the <see cref="T:System.Speech.Synthesis.TtsEngine.TextFragment" />, using the International Phonetic Alphabet (IPA) specification.
+		///  Corresponds to the <c>&lt;phoneme&gt;</c> XML tag in the SSML specification.
 		///  This argument may be <see langword="null" />.</param>
 		public FragmentState(TtsEngineAction action, int langId, int emphasis, int duration, SayAs sayAs, Prosody prosody, char[] phonemes)
 		{

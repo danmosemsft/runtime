@@ -70,8 +70,8 @@ namespace System.Speech.Recognition.SrgsGrammar
 		/// <exception cref="T:System.ArgumentNullException">
 		///   <paramref name="text" /> is <see langword="null" />.</exception>
 		/// <exception cref="T:System.ArgumentException">
-		///   <paramref name="text" /> is empty.  
-		/// <paramref name="text" /> contains only white space characters (that is, ' ', '\t', '\n', '\r').  
+		///   <paramref name="text" /> is empty.
+		/// <paramref name="text" /> contains only white space characters (that is, ' ', '\t', '\n', '\r').
 		/// <paramref name="matchingMode" /> is set to a value in the <see cref="T:System.Speech.Recognition.SubsetMatchingMode" /> enumeration.</exception>
 		public SrgsSubset(string text, SubsetMatchingMode matchingMode)
 		{
