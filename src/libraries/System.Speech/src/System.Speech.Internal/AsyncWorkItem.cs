@@ -17,7 +17,7 @@ namespace System.Speech.Internal
 
         internal void Invoke()
         {
-            if ((object)_dynamicCallback != null)
+            if (_dynamicCallback is object)
             {
                 _dynamicCallback.DynamicInvoke(_postData);
             }
