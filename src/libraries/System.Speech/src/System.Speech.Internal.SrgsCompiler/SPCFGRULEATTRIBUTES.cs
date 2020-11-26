@@ -1,0 +1,19 @@
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+namespace System.Speech.Internal.SrgsCompiler
+{
+	[Flags]
+	internal enum SPCFGRULEATTRIBUTES
+	{
+		SPRAF_TopLevel = 0x1,
+		SPRAF_Active = 0x2,
+		SPRAF_Export = 0x4,
+		SPRAF_Import = 0x8,
+		SPRAF_Interpreter = 0x10,
+		SPRAF_Dynamic = 0x20,
+		SPRAF_Root = 0x40,
+		SPRAF_AutoPause = 0x10000,
+		SPRAF_UserDelimited = 0x20000
+	}
+}
