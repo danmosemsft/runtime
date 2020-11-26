@@ -1,6 +1,7 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using Microsoft.Win32.SafeHandles;
 using System.Runtime.InteropServices;
 
 namespace System.Speech.Internal.SapiInterop
@@ -47,6 +48,6 @@ namespace System.Speech.Internal.SapiInterop
         new int EnumValues(uint Index, [MarshalAs(UnmanagedType.LPWStr)] out string ppszValueName);
 
         [PreserveSig]
-        int SetKey(IntPtr hkey, bool fReadOnly);
+        int SetKey(SafeRegistryHandle hkey, bool fReadOnly);
     }
 }
