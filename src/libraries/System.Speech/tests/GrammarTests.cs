@@ -39,7 +39,26 @@ namespace SampleSynthesisTests
         }
 
         [Fact]
-        public void CompileStronglyTypedGrammarToDll()
+        public void CompileStronglyTypedGrammarFromFileToCfg()
+        {
+            SrgsDocument srgsDoc = CreateSrgsDocument();
+
+            string temp = GetTestFilePath();
+
+            using (XmlWriter writer = XmlWriter.Create(temp))
+            {
+                srgsDoc.WriteSrgs(writer);
+            }
+
+            using var ms = new MemoryStream();
+
+            SrgsGrammarCompiler.Compile(temp, ms);
+
+            Assert.True(ms.Position > 0);
+        }
+
+        [Fact]
+        public void CompileStronglyTypedGrammarToDllFromPath()
         {
             SrgsDocument srgsDoc = CreateSrgsDocument();
 
