@@ -7,7 +7,6 @@ namespace System.IO
 {
     internal static class FileHelper
     {
-        [SecurityCritical]
         internal static FileStream CreateAndOpenTemporaryFile(out string filePath, FileAccess fileAccess = FileAccess.Write, FileOptions fileOptions = FileOptions.None, string extension = null, string subFolder = "WPF")
         {
             int num = 5;
@@ -43,7 +42,6 @@ namespace System.IO
             return fileStream;
         }
 
-        [SecurityCritical]
         internal static void DeleteTemporaryFile(string filePath)
         {
             if (!string.IsNullOrEmpty(filePath))
