@@ -148,11 +148,5 @@ namespace System.Speech.Internal.SrgsCompiler
                 _flag2 |= value << 8;
             }
         }
-
-        internal CfgArc(CfgArc arc)
-        {
-            _flag1 = arc._flag1;
-            _flag2 = arc._flag2;
-        }
     }
 }
