@@ -33,8 +33,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private StringBuilder _script = new StringBuilder();
 
-        private StringBuilder _constructors = new StringBuilder();
-
         internal string Name => _id;
 
         string IRule.BaseClass
@@ -49,11 +47,7 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-        internal string BaseClass => _baseclass;
-
         internal StringBuilder Script => _script;
-
-        internal StringBuilder Constructors => _constructors;
 
         internal Rule(int iSerialize)
             : base(null, null)

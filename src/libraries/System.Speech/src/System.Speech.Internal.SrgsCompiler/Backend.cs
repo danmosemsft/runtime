@@ -128,22 +128,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-        internal byte[] IL
-        {
-            set
-            {
-                _il = value;
-            }
-        }
-
-        internal byte[] PDB
-        {
-            set
-            {
-                _pdb = value;
-            }
-        }
-
         internal Backend()
         {
             _words = new StringBlob();

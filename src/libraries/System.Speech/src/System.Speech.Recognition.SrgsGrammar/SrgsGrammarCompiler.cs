@@ -74,28 +74,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// Any element of the <paramref name="inputPaths" /> array is <see langword="null" />.</exception>
         public static void CompileClassLibrary(string[] inputPaths, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(inputPaths, nameof(inputPaths));
-            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
-            XmlTextReader[] array = new XmlTextReader[inputPaths.Length];
-            try
-            {
-                for (int i = 0; i < inputPaths.Length; i++)
-                {
-                    if (inputPaths[i] == null)
-                    {
-                        throw new ArgumentException(SR.Get(SRID.ArrayOfNullIllegal), nameof(inputPaths));
-                    }
-                    array[i] = new XmlTextReader(new Uri(inputPaths[i], UriKind.RelativeOrAbsolute).ToString());
-                }
-                SrgsCompiler.CompileStream(array, outputPath, null, fOutputCfg: false, null, referencedAssemblies, keyFile);
-            }
-            finally
-            {
-                for (int j = 0; j < array.Length; j++)
-                {
-                    ((IDisposable)array[j])?.Dispose();
-                }
-            }
+            throw new PlatformNotSupportedException();
         }
 
         /// <summary>Compiles an SRGS document into a DLL.</summary>
@@ -110,9 +89,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="outputPath" /> is an empty string.</exception>
         public static void CompileClassLibrary(SrgsDocument srgsGrammar, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(srgsGrammar, nameof(srgsGrammar));
-            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
-            SrgsCompiler.CompileStream(srgsGrammar, outputPath, null, fOutputCfg: false, referencedAssemblies, keyFile);
+            throw new PlatformNotSupportedException();
         }
 
         /// <summary>Compiles an SRGS grammar into a DLL.</summary>
@@ -127,12 +104,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         ///   <paramref name="outputPath" /> is an empty string.</exception>
         public static void CompileClassLibrary(XmlReader reader, string outputPath, string[] referencedAssemblies, string keyFile)
         {
-            Helpers.ThrowIfNull(reader, nameof(reader));
-            Helpers.ThrowIfEmptyOrNull(outputPath, nameof(outputPath));
-            SrgsCompiler.CompileStream(new XmlReader[1]
-            {
-                reader
-            }, outputPath, null, fOutputCfg: false, null, referencedAssemblies, keyFile);
+            throw new PlatformNotSupportedException();
         }
 
         private static bool CheckIfCfg(Stream stream, out int cfgLength)
