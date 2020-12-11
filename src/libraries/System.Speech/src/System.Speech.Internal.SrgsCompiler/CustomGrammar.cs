@@ -68,51 +68,6 @@ namespace System.Speech.Internal.SrgsCompiler
         {
         }
 
-        internal string CreateAssembly(int iCfg, string outputFile, CultureInfo culture)
-        {
-            FileHelper.DeleteTemporaryFile(outputFile);
-            try
-            {
-                CreateAssembly(outputFile, debug: false, null);
-                CheckValidAssembly(iCfg, ExtractCodeGenerated(outputFile));
-                return GenerateCode(classDefinitionOnly: true, culture);
-            }
-            finally
-            {
-                FileHelper.DeleteTemporaryFile(outputFile);
-            }
-        }
-
-        internal void CreateAssembly(out byte[] il, out byte[] pdb)
-        {
-            string filePath;
-            using (FileHelper.CreateAndOpenTemporaryFile(out filePath, FileAccess.Write, FileOptions.DeleteOnClose, "dll"))
-            {
-            }
-            try
-            {
-                CreateAssembly(filePath, _fDebugScript, null);
-                il = ExtractCodeGenerated(filePath);
-                pdb = null;
-                if (_fDebugScript)
-                {
-                    string text = filePath.Substring(0, filePath.LastIndexOf('.')) + ".pdb";
-                    pdb = ExtractCodeGenerated(text);
-                    FileHelper.DeleteTemporaryFile(text);
-                }
-                CheckValidAssembly(0, il);
-            }
-            finally
-            {
-                FileHelper.DeleteTemporaryFile(filePath);
-            }
-        }
-
-        internal void CreateAssembly(string path, List<CfgResource> cfgResources)
-        {
-            CreateAssembly(path, _fDebugScript, cfgResources);
-        }
-
         internal void Combine(CustomGrammar cg, string innerCode)
         {
             if (_rules.Count == 0)
@@ -163,62 +118,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 }
             }
             _script.Append(innerCode);
-        }
-
-        private void CreateAssembly(string outputFile, bool debug, List<CfgResource> cfgResources)
-        {
-            if (_language == null)
-            {
-                XmlParser.ThrowSrgsException(SRID.NoLanguageSet);
-            }
-            string text = GenerateCode(classDefinitionOnly: false, null);
-            string filePath = null;
-            string[] array = null;
-            try
-            {
-                if (_codebehind.Count > 0)
-                {
-                    int num = _codebehind.Count + ((text != null) ? 1 : 0);
-                    array = new string[num];
-                    for (int i = 0; i < _codebehind.Count; i++)
-                    {
-                        array[i] = _codebehind[i];
-                    }
-                    if (text != null)
-                    {
-                        using (FileStream stream = FileHelper.CreateAndOpenTemporaryFile(out filePath))
-                        {
-                            array[array.Length - 1] = filePath;
-                            using (StreamWriter streamWriter = new StreamWriter(stream))
-                            {
-                                streamWriter.Write(text);
-                            }
-                        }
-                    }
-                }
-                CompileScript(outputFile, debug, text, array, cfgResources);
-            }
-            finally
-            {
-                FileHelper.DeleteTemporaryFile(filePath);
-            }
-        }
-
-        private void CompileScript(string outputFile, bool debug, string code, string[] codeFiles, List<CfgResource> cfgResouces)
-        {
-            using (CodeDomProvider codeDomProvider = CodeProvider())
-            {
-                CompilerParameters compilerParameters = GetCompilerParameters(outputFile, cfgResouces, debug, _assemblyReferences, _keyFile);
-                CompilerResults compilerResults = (codeFiles == null) ? codeDomProvider.CompileAssemblyFromSource(compilerParameters, code) : codeDomProvider.CompileAssemblyFromFile(compilerParameters, codeFiles);
-                if (compilerResults.Errors.Count > 0)
-                {
-                    ThrowCompilationErrors(compilerResults);
-                }
-                if (compilerResults.NativeCompilerReturnValue != 0)
-                {
-                    XmlParser.ThrowSrgsException(SRID.UnexpectedError, compilerResults.NativeCompilerReturnValue);
-                }
-            }
         }
 
         private CodeDomProvider CodeProvider()

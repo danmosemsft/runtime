@@ -41,7 +41,7 @@ namespace System.Speech.Internal.SrgsCompiler
             }
             if (!fOutputCfg)
             {
-                customGrammar.CreateAssembly(filename, cfgResources);
+                throw new PlatformNotSupportedException();
             }
         }
 
@@ -55,9 +55,7 @@ namespace System.Speech.Internal.SrgsCompiler
             object obj = CompileStream(1, srgsParser, null, filename, stream, fOutputCfg, stringBuilder, cfgResources, out culture, referencedAssemblies, keyFile);
             if (!fOutputCfg)
             {
-                CustomGrammar customGrammar = new CustomGrammar();
-                customGrammar.Combine((CustomGrammar)obj, stringBuilder.ToString());
-                customGrammar.CreateAssembly(filename, cfgResources);
+                throw new PlatformNotSupportedException();
             }
         }
 
@@ -90,12 +88,7 @@ namespace System.Speech.Internal.SrgsCompiler
             backend.ScriptRefs = customGrammar._scriptRefs;
             if (!fOutputCfg)
             {
-                CustomGrammar.CfgResource cfgResource = new CustomGrammar.CfgResource();
-                cfgResource.data = BuildCfg(backend).ToArray();
-                cfgResource.name = iCfg.ToString(CultureInfo.InvariantCulture) + ".CFG";
-                ((List<CustomGrammar.CfgResource>)cfgResources).Add(cfgResource);
-                innerCode.Append(customGrammar.CreateAssembly(iCfg, filename, culture));
-                return customGrammar;
+                throw new PlatformNotSupportedException();
             }
             if (customGrammar._scriptRefs.Count > 0 && !customGrammar.HasScript)
             {
@@ -139,9 +132,7 @@ namespace System.Speech.Internal.SrgsCompiler
         {
             if (cg.HasScript)
             {
-                cg.CreateAssembly(out byte[] il, out byte[] pdb);
-                backend.IL = il;
-                backend.PDB = pdb;
+                throw new PlatformNotSupportedException();
             }
         }
     }
