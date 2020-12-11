@@ -100,7 +100,7 @@ namespace SampleSynthesisTests
 
         }
 
-        [Fact]
+        [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsNotWindowsNanoServer))] // No SAPI on Nano
         public void GrammarBuilder()
         {
             Choices colorChoice = new Choices(new string[] {"red", "green", "blue"});

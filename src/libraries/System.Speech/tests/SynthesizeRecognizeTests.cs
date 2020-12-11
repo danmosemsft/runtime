@@ -17,6 +17,7 @@ using Xunit;
 
 namespace SampleSynthesisTests
 {
+    [ConditionalClass(typeof(PlatformDetection), nameof(PlatformDetection.IsNotWindowsNanoServer))] // No SAPI on Nano
     public class SynthesizeRecognizeTests : FileCleanupTestBase
     {
         [Fact]
