@@ -149,7 +149,6 @@ namespace System.Speech.Internal.SapiInterop
                     });
                     ((IDisposable)_process).Dispose();
                     ((IDisposable)_done).Dispose();
-                    _mta.Abort();
                 }
                 base.Dispose();
             }
@@ -177,7 +176,14 @@ namespace System.Speech.Internal.SapiInterop
                     {
                         Exception ex = _exception = exception;
                     }
-                    _done.Set();
+                    try
+                    {
+                        _done.Set();
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        break;
+                    }
                 }
             }
         }

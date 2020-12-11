@@ -192,7 +192,9 @@ namespace System.Speech.Internal.SrgsCompiler
 
             internal uint _ulId;
 
+#pragma warning disable 0618
             internal VarEnum _comType;
+#pragma warning restore 0618
 
             internal object _comValue;
         }
@@ -369,7 +371,9 @@ namespace System.Speech.Internal.SrgsCompiler
                         int startArcIndex = (int)header.tags[i].StartArcIndex;
                         int endArcIndex = (int)header.tags[i].EndArcIndex;
                         int num = header.arcs.Length;
+#pragma warning disable 0618
                         if (startArcIndex == 0 || startArcIndex >= num || endArcIndex == 0 || endArcIndex >= num || (header.tags[i].PropVariantType != 0 && header.tags[i].PropVariantType == VarEnum.VT_BSTR && header.tags[i].PropVariantType == VarEnum.VT_BOOL && header.tags[i].PropVariantType == VarEnum.VT_R8 && header.tags[i].PropVariantType == VarEnum.VT_I4))
+#pragma warning restore 0618
                         {
                             XmlParser.ThrowSrgsException(SRID.UnsupportedFormat);
                         }

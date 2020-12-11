@@ -67,6 +67,7 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
+#pragma warning disable 0618
         internal VarEnum PropVariantType
         {
             get
@@ -83,6 +84,7 @@ namespace System.Speech.Internal.SrgsCompiler
                 _flag3 |= (uint)value;
             }
         }
+#pragma warning restore 0618
 
         internal uint ArcIndex
         {
@@ -117,6 +119,7 @@ namespace System.Speech.Internal.SrgsCompiler
             {
                 _nameOffset = 0;
             }
+#pragma warning disable 0618
             switch (property._comType)
             {
                 case VarEnum.VT_EMPTY:
@@ -140,6 +143,7 @@ namespace System.Speech.Internal.SrgsCompiler
                     _varDouble = (double)property._comValue;
                     break;
             }
+#pragma warning restore 0618
             PropVariantType = property._comType;
             ArcIndex = 0u;
         }

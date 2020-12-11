@@ -56,6 +56,7 @@ namespace System.Speech.Internal
 
         private static Stream DownloadData(Uri uri, out Uri redirectedUri)
         {
+#pragma warning disable SYSLIB0014
             WebRequest webRequest = WebRequest.Create(uri);
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             using (HttpWebResponse httpWebResponse = (HttpWebResponse)webRequest.GetResponse())
@@ -70,6 +71,7 @@ namespace System.Speech.Internal
                     }
                 }
             }
+#pragma warning restore SYSLIB0014
         }
     }
 }

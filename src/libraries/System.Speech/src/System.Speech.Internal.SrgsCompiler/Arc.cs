@@ -469,7 +469,9 @@ namespace System.Speech.Internal.SrgsCompiler
                     if (be != null)
                     {
                         tag._cfgTag._nameOffset = be.Symbols.Add(startTag._be.Symbols.FromOffset(startTag._cfgTag._nameOffset), out int idWord);
+#pragma warning disable 0618
                         if (startTag._cfgTag._valueOffset != 0 && startTag._cfgTag.PropVariantType == VarEnum.VT_EMPTY)
+#pragma warning restore 0618
                         {
                             tag._cfgTag._valueOffset = be.Symbols.Add(startTag._be.Symbols.FromOffset(startTag._cfgTag._valueOffset), out idWord);
                         }

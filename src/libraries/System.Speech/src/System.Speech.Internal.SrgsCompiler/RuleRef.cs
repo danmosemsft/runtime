@@ -71,7 +71,9 @@ namespace System.Speech.Internal.SrgsCompiler
                 {
                     _pszName = "SemanticKey",
                     _comValue = semanticKey,
+#pragma warning disable 0618
                     _comType = VarEnum.VT_EMPTY
+#pragma warning restore 0618
                 });
             }
             parent.AddArc(arc);

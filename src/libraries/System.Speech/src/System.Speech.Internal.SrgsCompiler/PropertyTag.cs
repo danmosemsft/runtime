@@ -29,6 +29,7 @@ namespace System.Speech.Internal.SrgsCompiler
                     _propInfo._pszName = "=";
                 }
                 _propInfo._comValue = value;
+#pragma warning disable 0618
                 if (value == null)
                 {
                     _propInfo._comType = VarEnum.VT_EMPTY;
@@ -49,6 +50,7 @@ namespace System.Speech.Internal.SrgsCompiler
                 {
                     _propInfo._comType = VarEnum.VT_BOOL;
                 }
+#pragma warning restore 0618
             }
         }
 
