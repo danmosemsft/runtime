@@ -27,7 +27,7 @@ namespace SampleSynthesisTests
             builder.AppendSsmlMarkup(SsmlEndOutTag);
 
             Assert.Contains("hello", builder.ToXml());
-            Assert.Equal(new CultureInfo("en-US"), builder.Culture);
+            Assert.Equal(CultureInfo.CurrentCulture, builder.Culture);
             Assert.False(builder.IsEmpty);
 
             string ssml = builder.ToXml();

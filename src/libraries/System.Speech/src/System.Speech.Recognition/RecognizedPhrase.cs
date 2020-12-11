@@ -966,7 +966,7 @@ namespace System.Speech.Recognition
             XmlNode documentElement = document.DocumentElement;
             XmlElement xmlElement = document.CreateElement("alternate");
             documentElement.AppendChild(xmlElement);
-            xmlElement.SetAttribute("Rank", i.ToString(CultureInfo.CurrentCulture));
+            xmlElement.SetAttribute("Rank", i.ToString());
             xmlElement.SetAttribute("text", Text);
             xmlElement.SetAttribute("utteranceConfidence", Confidence.ToString("f", nfo));
             xmlElement.SetAttribute("confidence", Confidence.ToString("f", nfo));

@@ -36,7 +36,7 @@ namespace SampleSynthesisTests
 
             ms.Position = 0;
 
-            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            using (var rec = new SpeechRecognitionEngine())
             {
                 rec.LoadGrammar(new DictationGrammar());
                 rec.SetInputToWaveStream(ms);
@@ -54,7 +54,7 @@ namespace SampleSynthesisTests
             using var ms = new MemoryStream();
             ms.WriteByte(1);
 
-            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            using (var rec = new SpeechRecognitionEngine())
             {
                 Assert.Throws<FormatException>(() => rec.SetInputToWaveStream(ms));
             }
@@ -63,7 +63,7 @@ namespace SampleSynthesisTests
         [Fact]
         public void SpeechRecognizerProperties()
         {
-            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            using (var rec = new SpeechRecognitionEngine())
             {
                 rec.SetInputToNull();
                 rec.InitialSilenceTimeout = new TimeSpan();
@@ -124,12 +124,9 @@ namespace SampleSynthesisTests
             }
         }
 
-                [Fact]
+        [Fact]
         public void SpeechSynthesizerEventsAndProperties()
         {
-            if (Thread.CurrentThread.CurrentCulture.ToString() != "en-US")
-                return;
-
             using (var synth = new SpeechSynthesizer())
             {
                 using var ms = new MemoryStream();
@@ -184,16 +181,6 @@ namespace SampleSynthesisTests
             using (var synth = new SpeechSynthesizer())
             {
                 synth.AddLexicon(new Uri(temp), "application/pls+xml");
-            }
-        }
-
-        [Fact]
-        public void LotsOfGrammars()
-        {
-            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
-            {
-                for (int i = 0; i < 1025; i++)
-                    rec.LoadGrammar(new DictationGrammar());
             }
         }
     }

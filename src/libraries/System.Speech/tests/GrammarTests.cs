@@ -115,7 +115,7 @@ namespace SampleSynthesisTests
             Grammar grammar = new Grammar((GrammarBuilder)bothChoices);
             grammar.Name = "backgroundColor";
 
-            using (var rec = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US")))
+            using (var rec = new SpeechRecognitionEngine())
             {
                 rec.LoadGrammar(grammar);
             }
