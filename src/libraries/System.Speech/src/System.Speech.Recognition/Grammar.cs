@@ -27,8 +27,6 @@ namespace System.Speech.Recognition
 
         internal GrammarOptions _semanticTag;
 
-        internal AppDomain _appDomain;
-
         internal AppDomainGrammarProxy _proxy;
 
         internal ScriptRef[] _scripts;
@@ -196,11 +194,6 @@ namespace System.Speech.Recognition
                     case GrammarState.Unloaded:
                         _loadException = null;
                         _recognizer = null;
-                        if (_appDomain != null)
-                        {
-                            AppDomain.Unload(_appDomain);
-                            _appDomain = null;
-                        }
                         break;
                     default:
                         _ = 3;
@@ -924,8 +917,7 @@ namespace System.Speech.Recognition
             if (CfgGrammar.LoadIL(stream, out byte[] assemblyContent, out byte[] assemblyDebugSymbols, out ScriptRef[] scripts))
             {
                 Assembly executingAssembly = Assembly.GetExecutingAssembly();
-                _appDomain = AppDomain.CreateDomain("sandbox");
-                _proxy = (AppDomainGrammarProxy)_appDomain.CreateInstanceFromAndUnwrap(executingAssembly.GetName().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainGrammarProxy");
+                _proxy = new AppDomainGrammarProxy();
                 _proxy.Init(_ruleName, assemblyContent, assemblyDebugSymbols);
                 _scripts = scripts;
             }

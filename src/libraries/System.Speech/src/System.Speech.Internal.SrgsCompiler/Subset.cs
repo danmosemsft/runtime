@@ -13,7 +13,7 @@ namespace System.Speech.Internal.SrgsCompiler
             char[] achTrimChars = Helpers._achTrimChars;
             foreach (char c in achTrimChars)
             {
-                if (c != ' ' && text.Contains(c))
+                if (c != ' ' && text.IndexOf(c) >= 0)
                 {
                     text = text.Replace(c, ' ');
                 }

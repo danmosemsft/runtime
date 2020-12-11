@@ -858,7 +858,7 @@ namespace System.Speech.Internal.SrgsParser
             {
                 ThrowSrgsException(SRID.InvalidEmptyElement, "token");
             }
-            if (text3.Contains('"'))
+            if (text3.IndexOf('"') >= 0)
             {
                 ThrowSrgsException(SRID.InvalidTokenString);
             }

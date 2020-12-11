@@ -35,7 +35,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             {
                 Helpers.ThrowIfEmptyOrNull(value, nameof(value));
                 string text = value.Trim(Helpers._achTrimChars);
-                if (string.IsNullOrEmpty(text) || text.Contains('"'))
+                if (string.IsNullOrEmpty(text) || text.IndexOf('"') >= 0)
                 {
                     throw new ArgumentException(SR.Get(SRID.InvalidTokenString), nameof(value));
                 }

@@ -514,37 +514,24 @@ namespace System.Speech.Internal.SrgsCompiler
         private void CheckValidAssembly(int iCfg, byte[] il)
         {
             Assembly executingAssembly = Assembly.GetExecutingAssembly();
-            AppDomain appDomain = null;
-            try
+            AppDomainCompilerProxy appDomainCompilerProxy = new AppDomainCompilerProxy();
+            int count = _scriptRefs.Count;
+            string[] array = new string[count];
+            string[] array2 = new string[count];
+            int[] array3 = new int[count];
+            for (int i = 0; i < count; i++)
             {
-                appDomain = AppDomain.CreateDomain("Loading Domain");
-                AppDomainCompilerProxy appDomainCompilerProxy = (AppDomainCompilerProxy)appDomain.CreateInstanceFromAndUnwrap(executingAssembly.GetName().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainCompilerProxy");
-                int count = _scriptRefs.Count;
-                string[] array = new string[count];
-                string[] array2 = new string[count];
-                int[] array3 = new int[count];
-                for (int i = 0; i < count; i++)
-                {
-                    ScriptRef scriptRef = _scriptRefs[i];
-                    array[i] = scriptRef._rule;
-                    array2[i] = scriptRef._sMethod;
-                    array3[i] = (int)scriptRef._method;
-                }
-                Exception ex = appDomainCompilerProxy.CheckAssembly(il, iCfg, _language, _namespace, array, array2, array3);
-                if (ex != null)
-                {
-                    throw ex;
-                }
-                AssociateConstructorsWithRules(appDomainCompilerProxy, array, _rules, iCfg, _language);
+                ScriptRef scriptRef = _scriptRefs[i];
+                array[i] = scriptRef._rule;
+                array2[i] = scriptRef._sMethod;
+                array3[i] = (int)scriptRef._method;
             }
-            finally
+            Exception ex = appDomainCompilerProxy.CheckAssembly(il, iCfg, _language, _namespace, array, array2, array3);
+            if (ex != null)
             {
-                if (appDomain != null)
-                {
-                    AppDomain.Unload(appDomain);
-                    appDomain = null;
-                }
+                throw ex;
             }
+            AssociateConstructorsWithRules(appDomainCompilerProxy, array, _rules, iCfg, _language);
         }
 
         private static void AssociateConstructorsWithRules(AppDomainCompilerProxy proxy, string[] names, List<Rule> rules, int iCfg, string language)
