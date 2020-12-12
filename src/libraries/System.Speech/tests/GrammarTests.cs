@@ -65,7 +65,7 @@ namespace SampleSynthesisTests
             string temp = GetTestFilePath();
 
             // Cannot compile to assemblies on .NET Core
-            Assert.Throws<PlatformNotSupportedException>(() => SrgsGrammarCompiler.CompileClassLibrary(srgsDoc, temp, new string[0], keyFile:null));
+            Assert.Throws<PlatformNotSupportedException>(() => SrgsGrammarCompiler.CompileClassLibrary(srgsDoc, temp, new string[0], keyFile: null));
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace SampleSynthesisTests
         [ConditionalFact(typeof(PlatformDetection), nameof(PlatformDetection.IsNotWindowsNanoServer))] // No SAPI on Nano
         public void GrammarBuilder()
         {
-            Choices colorChoice = new Choices(new string[] {"red", "green", "blue"});
+            Choices colorChoice = new Choices(new string[] { "red", "green", "blue" });
             GrammarBuilder colorElement = new GrammarBuilder(colorChoice);
 
             GrammarBuilder makePhrase = new GrammarBuilder("Make background");
@@ -111,7 +111,7 @@ namespace SampleSynthesisTests
             GrammarBuilder setPhrase = new GrammarBuilder("Set background to");
             setPhrase.Append(colorElement);
 
-            Choices bothChoices = new Choices(new GrammarBuilder[] {makePhrase, setPhrase});
+            Choices bothChoices = new Choices(new GrammarBuilder[] { makePhrase, setPhrase });
             Grammar grammar = new Grammar((GrammarBuilder)bothChoices);
             grammar.Name = "backgroundColor";
 
@@ -119,6 +119,44 @@ namespace SampleSynthesisTests
             {
                 rec.LoadGrammar(grammar);
             }
+        }
+
+        [Fact]
+        public void CreateMoreElaborateGrammar()
+        {
+            Choices fruit = new Choices("oranges", "apples", "bananas");
+            Choices vegetable = new Choices("cabbage", "carrots", "spinach");
+            Choices misc = new Choices("chocolate bars", "coke bottles", "cookies");
+
+            string[] quantities = new string[9];
+            for (int i = 2; i < 11; ++i)
+            {
+                quantities[i - 2] = i.ToString();
+            }
+
+            Choices quantity = new Choices(quantities);
+
+            GrammarBuilder gb = new GrammarBuilder("I would like");
+            gb.Append(new SemanticResultKey("Quantity", quantity));
+            gb.Append(new SemanticResultKey("Fruit", fruit));
+
+            GrammarBuilder gb2 = new GrammarBuilder("and");
+            gb2.Append(new SemanticResultKey("Quantity", quantity));
+            gb2.Append(new SemanticResultKey("Misc", misc));
+
+            gb.Append(new SemanticResultKey("Misc", gb2), 0, 1);
+            gb.Append("and some");
+            gb.Append(new SemanticResultKey("Vegetable", vegetable));
+
+            SrgsDocument srgsDoc = new SrgsDocument(gb);
+
+            var builder = new StringBuilder();
+            using (XmlWriter writer = XmlWriter.Create(builder))
+            {
+                srgsDoc.WriteSrgs(writer);
+            }
+
+            Assert.Contains("oranges", builder.ToString());
         }
 
         private SrgsDocument CreateSrgsDocument()
