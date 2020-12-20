@@ -1,8 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="RuleRefElement.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------
 
 using System.Collections.Generic;
 using System.Diagnostics;

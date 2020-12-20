@@ -1,8 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="GrammarBuilderDictation.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------
 
 #define CODE_ANALYSIS
 

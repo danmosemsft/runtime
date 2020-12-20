@@ -1,15 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="FileHelper.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: FileHelper class
-//                  Common operations on files
-//
-//---------------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Security;
