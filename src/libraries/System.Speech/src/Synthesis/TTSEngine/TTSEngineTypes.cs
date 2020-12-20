@@ -1086,49 +1086,6 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-    [ComImport, Guid ("2D0FA0DB-AEA2-4AE2-9F8A-7AFC7794E56B"), InterfaceType (ComInterfaceType.InterfaceIsIUnknown)]
-    internal interface ITtsEngineSsml
-    {
-        /// <summary>
-        /// Queries the engine about a specific output format. 
-        /// The engine should examine the requested output format, 
-        /// and return the closest format that it supports.
-        /// </summary>
-        /// <param name="speakOutputFormat">Wave or Text</param>
-        /// <param name="targetWaveFormat">Expected format - null if no preferences</param>
-        /// <param name="waveHeader">Closest wave format header</param>
-        void GetOutputFormat (SpeakOutputFormat speakOutputFormat, IntPtr targetWaveFormat, out IntPtr waveHeader);
-
-        /// <summary>
-        /// Add a lexicon to the engine collection of lexicons
-        /// </summary>
-        /// <param name="location">A path or a Uri</param>
-        /// <param name="mediaType">media type</param>
-        /// <param name="site">Engine site (ITtsEngineSite)</param>
-        void AddLexicon (string location, string mediaType, IntPtr site);
-
-        /// <summary>
-        /// Removes a lexicon to the engine collection of lexicons
-        /// </summary>
-        /// <param name="location">A path or a Uri</param>
-        /// <param name="site">Engine site (ITtsEngineSite)</param>
-        void RemoveLexicon (string location, IntPtr site);
-
-        /// <summary>
-        /// Renders the specified text fragments array in the 
-        /// specified output format.
-        /// </summary>
-        /// <param name="fragments">Text fragment with SSML 
-        /// attributes information</param>
-        /// <param name="count">Number of elements in fragment</param>
-        /// <param name="waveHeader">Wave format header</param>
-        /// <param name="site">Engine site (ITtsEngineSite)</param>
-        void Speak (IntPtr fragments, int count, IntPtr waveHeader, IntPtr site);
-    }
-
-    /// <summary>
-    /// TODOC
-    /// </summary>
     [StructLayout (LayoutKind.Sequential)]
     internal struct TextFragmentInterop
     {
