@@ -1,16 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="WaveHeader.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//  This class defines the header used to identify a waveform-audio 
-//  buffer.
-//
-// with the CLR 607
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Runtime.InteropServices;
 using System.Speech.Synthesis.TtsEngine;

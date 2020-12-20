@@ -1,15 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="State.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//
-// History:
-//		5/1/2004	jeanfp		
-//---------------------------------------------------------------------------
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;

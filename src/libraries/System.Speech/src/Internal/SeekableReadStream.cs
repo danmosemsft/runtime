@@ -1,9 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="SeekableReadStream.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//---------------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Collections.Generic;

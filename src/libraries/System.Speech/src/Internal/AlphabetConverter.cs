@@ -1,17 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="AlphabetConverter.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//      Convert Between phonemes string between SAPI, UPS and IPA
-//
-// History:
-//      11/15/2005  jeanfp                      Created interface code.
-//      11/17/2005  hieung                      Added conversion methods.
-//---------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Globalization;

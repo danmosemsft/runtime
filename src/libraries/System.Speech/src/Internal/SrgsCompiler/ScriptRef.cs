@@ -1,14 +1,3 @@
-// <copyright file="ScriptRef.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//
-// History:
-//		6/1/2004	jeanfp		Created
-//---------------------------------------------------------------------------using System;
-
 using System.Diagnostics;
 using System.Speech.Internal.SrgsParser;
 

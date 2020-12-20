@@ -1,14 +1,3 @@
-// <copyright file="CustomGrammar.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description:
-//
-// History:
-//      10/1/2004   jeanfp      Created
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

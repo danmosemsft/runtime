@@ -1,17 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="VoiceSynthesis.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//   Description:
-//   This module is the main implementation file for the CSpVoice class and
-//   it's associated event management logic. This is the main SAPI5 COM object
-//   for all of TTS.
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Collections;

@@ -1,16 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="SrgsElementFactory.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Kurosawa Code
-//---------------------------------------------------------------------------
-
 #region Using directives
 
 using System;

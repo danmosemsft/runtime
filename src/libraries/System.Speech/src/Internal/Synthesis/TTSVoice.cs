@@ -1,16 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="TTSVoice.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//  TTS voice entry from the object token. The same TTS engine dll
-//  can be used for multiple voice. So both an instance created and 
-//  the object token used must be preserved.
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Speech.Synthesis;
 using System.Collections.Generic;

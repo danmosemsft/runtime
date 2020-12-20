@@ -1,26 +1,3 @@
-// <copyright file="SSmlParser.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//      The SSml parser parse takes as input an xml string and produces
-//      SSML text fragments.
-//  
-//      The state information is stored in a structure that is passed by
-//      value to the parsing methods for each element. Each of them can 
-//      change the state information which will be passed again by value 
-//      to the children elements. On return to the parsing function,
-//      the original values 
-//
-//      The original ssml string is temporarily stripped out of the CR/LF to
-//      have the XML reader to return the position as an indice from the 
-//      beginning of the string. This is allowing to have the position
-//      information in the stream that is used in the progress event.
-//
-// History:
-//		2/1/2005	jeanfp		Created
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;

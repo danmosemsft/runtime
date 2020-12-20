@@ -1,12 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="PcmConverter.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// History:
-//		4/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 
 namespace System.Speech.Internal.Synthesis

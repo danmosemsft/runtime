@@ -1,12 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="AudioFormatConverter.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// History:
-//		4/7/2005	jeanfp		Imported from SES code
-//------------------------------------------------------------------
-
 #region Using directives
 
 using System;

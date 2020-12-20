@@ -1,16 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="SrgsRulesCollection.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//
-// History:
-//		5/1/2004	jeanfp		
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.ObjectModel;
 using System.Speech.Internal;

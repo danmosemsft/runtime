@@ -1,17 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="SAPICategories.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//		Object Token 
-//
-// History:
-//		7/1/2004	jeanfp		
-//---------------------------------------------------------------------------
-
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;

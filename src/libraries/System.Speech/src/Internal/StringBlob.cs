@@ -1,20 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="StringBlob.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//		Manages a list of strings stored in an array of chars. This code is
-//		ported from the SAPI source code. Starting from scratch, this code
-//		would not make a lot of sense. However, since grammar generarion must 
-//		produce bit per bit equivallent output between the SAPI COM object and
-//		the managed compiler, we must to use it.
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Sapi Managed code
-//---------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 

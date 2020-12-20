@@ -1,10 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="DictationGrammar.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//---------------------------------------------------------------------------
-
-
 using System;
 using System.Diagnostics;
 

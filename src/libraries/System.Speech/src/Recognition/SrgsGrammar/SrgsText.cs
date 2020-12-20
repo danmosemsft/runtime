@@ -1,15 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="SrgsText.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Kurosawa Code
-//---------------------------------------------------------------------------
 using System;
 using System.Diagnostics;
 using System.Speech.Internal;

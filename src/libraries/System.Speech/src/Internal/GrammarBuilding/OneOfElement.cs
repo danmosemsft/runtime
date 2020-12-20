@@ -1,4 +1,3 @@
-
 using System.Diagnostics;
 using System.Speech.Recognition;
 using System.Speech.Internal.SrgsParser;

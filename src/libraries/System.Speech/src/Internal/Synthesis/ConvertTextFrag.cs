@@ -1,14 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="ConvertTextFrag.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Converts text fragments from Sapi to SSML and from SSML to SAPI
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;

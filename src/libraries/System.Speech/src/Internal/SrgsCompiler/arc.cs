@@ -1,16 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="Arc.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//		Custom list to handle efficently the removal of elements 
-//
-// History:
-//		5/1/2004	jeanfp		
-//---------------------------------------------------------------------------
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;

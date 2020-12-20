@@ -1,5 +1,3 @@
-
-
 namespace System.Speech.Synthesis
 {
     /// <summary>

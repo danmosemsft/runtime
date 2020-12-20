@@ -1,16 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="CfgArc.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-//
-// Description: 
-//		SAPI respresentation for an Arc in a CFG file
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Sapi Managed code
-//---------------------------------------------------------------------------
 using System;
 using System.Globalization;
 using System.Speech.Internal.SrgsParser;

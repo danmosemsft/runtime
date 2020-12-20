@@ -1,13 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="EngineSiteSapi.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Runtime.InteropServices;

@@ -1,15 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="NUnit-GrammarBackEnd.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//		Debug only helper routines
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 #if VSCOMPILE
 
 using System;

@@ -1,16 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="SpAudioStreamWrapper.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//		Maps an audio stream the SAPI ISpStreamFormat 
-//
-// History:
-//		7/10/2005	jeanfp		
-//------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Runtime.InteropServices;

@@ -1,17 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="SafeNativeMethods.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-// 
-//
-// Description: Safe P/Invokes used by Speech Synthesis
-//
-// History:  
-//  02/12/2005 : jeanfp Created
-//
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections;
 using System.IO;

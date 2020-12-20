@@ -1,18 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="SapiProxy.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//  All the calls to SAPI interfaces are wraped into the class 'SapiRecognizer',
-// 'SapiContext' and 'SapiGrammar'. 
-//
-// The SAPI call are executed in the context of a proxy that is either a 
-// pass-through or forward the request to an MTA thread for SAPI 5.1
-//
-// History:
-//		4/1/2006	jeanfp		
-//------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Text;

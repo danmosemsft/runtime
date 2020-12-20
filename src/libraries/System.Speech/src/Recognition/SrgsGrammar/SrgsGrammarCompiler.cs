@@ -1,16 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="SrgsGrammarCompiler.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//
-// History:
-//		6/1/2004	jeanfp		
-//---------------------------------------------------------------------------
-
 using System;
 using System.IO;
 using System.Xml;

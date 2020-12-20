@@ -1,13 +1,3 @@
-// <copyright file="ISsmlParser.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//
-// History:
-//		3/15/2005	jeanfp		Created
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;

@@ -1,14 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="CfgScriptRef.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//		SAPI Cfg respresentation for a Script Reference
-//
-// History:
-//		10/1/2004	jeanfp		Created 
-//---------------------------------------------------------------------------
 using System;
 using System.Runtime.InteropServices;
 using System.Speech.Internal.SrgsParser;

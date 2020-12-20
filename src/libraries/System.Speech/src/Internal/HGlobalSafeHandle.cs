@@ -1,19 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="HGlobalSafeHandle.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//		Stream Helper.
-//		Allocates a global memory buffer to do marshaling between a 
-//		binary and a structured data. The global memory size increases and 
-//		never shrinks. 
-//		REVIEW: jeanfp use GCHandle rather HGlobal
-//
-// History:
-//		5/1/2004	jeanfp		
-//---------------------------------------------------------------------------
 using System;
 using System.Runtime.InteropServices;
 

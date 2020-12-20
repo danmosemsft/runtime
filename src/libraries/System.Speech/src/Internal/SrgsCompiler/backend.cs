@@ -1,15 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="BackEnd.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//		CFG Grammar backend
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Collections;
 using System.Collections.Generic;

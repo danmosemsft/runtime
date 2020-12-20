@@ -1,15 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="TTSEvent.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//  Contains either a reference to an audio audioStream or a list of 
-//  bookmark fragments.
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Speech.Internal.ObjectTokens;
 using System.Speech.Synthesis;

@@ -1,4 +1,3 @@
-
 #define CODE_ANALYSIS
 
 using System.Speech.Recognition;

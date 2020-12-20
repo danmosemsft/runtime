@@ -1,9 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="Grammar.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

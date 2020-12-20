@@ -1,15 +1,3 @@
-// <copyright file="AppDomainGrammarProxy.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//      AppDomainProxy for the SrgsCompiler
-//
-// History:
-//      10/1/2004   jeanfp      Created
-//---------------------------------------------------------------------------
-
 #region Using directives
 
 using System;

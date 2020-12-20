@@ -1,14 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="SpeakInfo.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Each Speak calls is stored in a Speak info object.
-//
-// History:
-//		2/1/2005	jeanfp		Created from the Sapi Managed code
-//------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.IO;

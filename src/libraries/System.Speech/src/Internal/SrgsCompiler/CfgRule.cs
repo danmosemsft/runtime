@@ -1,14 +1,3 @@
-//---------------------------------------------------------------------------
-// <copyright file="CfgRule.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description: 
-//		SAPI Cfg respresentation for a Rule
-//
-// History:
-//		5/1/2004	jeanfp		Created from the Sapi Managed code
-//---------------------------------------------------------------------------
 using System;
 using System.Speech.Internal.SrgsParser;
 

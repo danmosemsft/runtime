@@ -1,15 +1,3 @@
-// <copyright file="SRGSCompiler.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//
-// History:
-//		6/1/2004	jeanfp		Converted from the managed code
-//      10/1/2004   jeanfp      Added Custom grammar support
-//---------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;

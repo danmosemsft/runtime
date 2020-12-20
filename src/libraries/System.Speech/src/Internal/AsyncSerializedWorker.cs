@@ -1,17 +1,3 @@
-//------------------------------------------------------------------
-// <copyright file="VoiceSynthesis.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-// Description:
-//   Synchronization event dispatcher.
-//   This module implements a helper class to facilitate switching between synchronous and asynchronous event 
-//   handling and callback. 
-//
-// History:
-//   9/1/2005    hieung       Created.
-//------------------------------------------------------------------
-
 using System;
 using System.Collections;
 using System.Text;

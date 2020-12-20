@@ -1,17 +1,3 @@
-//---------------------------------------------------------------------------
-//
-// <copyright file="RegistryDataKey.cs" company="Microsoft">
-//    Copyright (C) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//
-//
-// Description: 
-//		Encapsulation of the Registry Key.
-//
-// History:
-//		7/1/2004	jeanfp		
-//---------------------------------------------------------------------------
-
 using Microsoft.Win32;
 using System;
 using System.Collections;
