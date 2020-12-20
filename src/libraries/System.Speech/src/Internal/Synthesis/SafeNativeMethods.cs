@@ -163,43 +163,6 @@ namespace System.Speech.Internal.Synthesis
         [DllImport ("winmm.dll")]
         internal static extern int waveOutGetNumDevs ();
 
-#if unused_yet 
-
-        /// <summary>
-        /// This function queries the current volume setting of a waveform output device.
-        /// </summary>
-        /// <param name="hwo">Handle to an open waveform-audio output device. This
-        /// parameter can also be a device identifier.</param>
-        /// <param name="pdwVolume">Pointer to a variable to be filled with the current
-        /// volume setting. The low-order word of this location contains the left-channel
-        /// volume setting, and the high-order word contains the right-channel setting.
-        /// A value of 0xFFFF represents full volume, and a value of 0x0000 is silence. 
-        /// If a device does not support both left and right volume control, the low-order
-        /// word of the specified location contains the mono volume level.
-        /// The full 16-bit setting(s) set with the waveOutSetVolume function is returned,
-        /// regardless of whether the device supports the full 16 bits of volume-level
-        /// control.</param>
-        /// <returns>MMSYSERR</returns>
-        [DllImport ("winmm.dll")]
-        internal static extern MMSYSERR waveOutGetVolume (IntPtr hwo, ref uint pdwVolume);
-
-        /// <summary>
-        /// This function sets the volume of a waveform output device.
-        /// </summary>
-        /// <param name="hwo">Handle to an open waveform-audio output device. This
-        /// parameter can also be a device identifier.</param>
-        /// <param name="dwVolume">Specifies a new volume setting. The low-order word
-        /// contains the left-channel volume setting, and the high-order word contains
-        /// the right-channel setting. A value of 0xFFFF represents full volume, and a
-        /// value of 0x0000 is silence. 
-        /// If a device does not support both left and right volume control, the low-
-        /// order word of dwVolume specifies the volume level, and the high-order word
-        /// is ignored.</param>
-        /// <returns>MMSYSERR</returns>
-        [DllImport ("winmm.dll")]
-        internal static extern MMSYSERR waveOutSetVolume (IntPtr hwo, uint dwVolume);
-
-#endif
         // Used by MMTIME.wType
         internal const uint TIME_MS = 0x0001;
         internal const uint TIME_SAMPLES = 0x0002;
@@ -211,63 +174,6 @@ namespace System.Speech.Internal.Synthesis
         internal const uint CALLBACK_NULL = 0x00000000;
         internal const uint CALLBACK_FUNCTION = 0x00030000;
 
-#if false
-        /// <summary>
-        /// This structure contains timing information for different types of
-        /// multimedia data.
-        ///		typedef struct mmtime_tag 
-        ///		{
-        ///			UINT wType; 
-        ///			union 
-        ///			{
-        ///				DWORD ms; 
-        ///				DWORD sample; 
-        ///				DWORD cb; 
-        ///				DWORD ticks; 
-        ///				struct 
-        ///				{
-        ///					BYTE hour; 
-        ///					BYTE min; 
-        ///					BYTE sec; 
-        ///					BYTE frame; 
-        ///					BYTE fps; 
-        ///					BYTE dummy; 
-        ///					BYTE pad[2]
-        ///				} smpte; 
-        ///				struct 
-        ///				{
-        ///					DWORD songptrpos;
-        ///				} midi; 
-        ///			} u; 
-        ///		} MMTIME;
-        /// </summary>
-        [StructLayout (LayoutKind.Sequential)]
-        internal class MMTIME
-        {
-            /// <summary>
-            /// Time format.
-            /// </summary>
-            internal uint wType;
-            /// <summary>
-            /// Byte count. Used when wType is TIME_BYTES.
-            /// </summary>
-            internal uint cb;
-
-            // Padding because this is actually a union
-            internal uint pad;
-        }
-
-        /// <summary>
-        /// This function retrieves the current playback position of the specified
-        /// waveform output device.
-        /// </summary>
-        /// <param name="hwo">Handle to the waveform-audio output device.</param>
-        /// <param name="pmmt">Pointer to an MMTIME structure.</param>
-        /// <param name="cbmmt">Size, in bytes, of the MMTIME structure.</param>
-        /// <returns>MMSYSERR</returns>
-        [DllImport ("winmm.dll")]
-        internal static extern MMSYSERR waveOutGetPosition (IntPtr hwo, MMTIME pmmt, uint cbmmt);
-#endif
     }
     //*******************************************************************
     //

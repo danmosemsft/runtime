@@ -13,7 +13,7 @@ using System.Text;
 
 namespace System.Speech.Internal.SrgsCompiler
 {
-#if DEBUG && !SPEECHSERVER
+#if DEBUG
     [DebuggerDisplay ("Count #{Count}")]
     [DebuggerTypeProxy (typeof (ArcListDebugDisplay))]
 #endif
@@ -74,7 +74,7 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #region Private Members
 
-#if DEBUG && !SPEECHSERVER
+#if DEBUG
         private int Count
         {
             get

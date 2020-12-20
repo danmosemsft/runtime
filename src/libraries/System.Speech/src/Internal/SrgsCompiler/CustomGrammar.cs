@@ -28,7 +28,6 @@ using Microsoft.VisualBasic;
 #pragma warning disable 1634, 1691 // Allows suppression of certain PreSharp messages.
 #pragma warning disable 56507 // check for null or empty strings
 
-#if !NO_STG
 
 namespace System.Speech.Internal.SrgsCompiler
 {
@@ -796,7 +795,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 // Get the constructors and the types
                 AssociateConstructorsWithRules (proxy, rules, _rules, iCfg, _language);
 
-#if true
             }
             finally
             {
@@ -806,7 +804,6 @@ namespace System.Speech.Internal.SrgsCompiler
                     appDomain = null;
                 }
             }
-#endif
         }
 
         static private void AssociateConstructorsWithRules (AppDomainCompilerProxy proxy, string [] names, List<Rule> rules, int iCfg, string language)
@@ -849,4 +846,3 @@ namespace System.Speech.Internal.SrgsCompiler
         private const string _preambuleMarker = "<Does Not Exist>";
     }
 }
-#endif

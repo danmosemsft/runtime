@@ -219,12 +219,6 @@ namespace System.Speech.Synthesis
         /// </summary>
         Telephone,
 
-#if SPEECHSERVER
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        Currency,
-#endif
         /// <summary>
         /// TODOC
         /// </summary>

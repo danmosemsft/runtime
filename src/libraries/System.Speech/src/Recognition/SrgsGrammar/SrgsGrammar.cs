@@ -79,10 +79,8 @@ namespace System.Speech.Recognition.SrgsGrammar
                 writer.WriteAttributeString ("root", _root.Id);
             }
 
-#if !NO_STG
             // Write the attributes for strongly typed grammars
             WriteSTGAttributes (writer);
-#endif
             if (_isModeSet)
             {
                 switch (_mode)
@@ -184,10 +182,8 @@ namespace System.Speech.Recognition.SrgsGrammar
 
             // Initial values for ContainsCOde and SapiExtensionUsed.
             _isSapiExtensionUsed |= HasPronunciation;
-#if !NO_STG
             _fContainsCode |= _language != null || _script.Length > 0 || _usings.Count > 0 || _assemblyReferences.Count > 0 || _codebehind.Count > 0 || _namespace != null || _fDebug;
             _isSapiExtensionUsed |= _fContainsCode;
-#endif
             // If the grammar contains no pronunciations, set the phonetic alphabet to SAPI. 
             // This way, the CFG data can be loaded by SAPI 5.1.
             if (!HasPronunciation)
@@ -209,7 +205,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 _tagFormat = SrgsTagFormat.W3cV1;
             }
 
-#if !NO_STG
             // Force the tag format to Sapi fprperties if .Net semantics are used.
             if (_fContainsCode)
             {
@@ -224,7 +219,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                     XmlParser.ThrowSrgsException (SRID.InvalidSemanticProcessingType);
                 }
             }
-#endif
         }
 
         IRule IGrammar.CreateRule (string id, RulePublic publicRule, RuleDynamic dynamic, bool hasScript)
@@ -260,7 +254,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
             }
 
-#if !NO_STG
             // Resolve the references to the scripts
             foreach (XmlParser.ForwardReference script in _scriptsForwardReference)
             {
@@ -274,12 +267,10 @@ namespace System.Speech.Recognition.SrgsGrammar
                     XmlParser.ThrowSrgsException (SRID.InvalidScriptDefinition);
                 }
             }
-#endif
             // Validate the whole grammar
             Validate ();
         }
 
-#if !NO_STG
 
 #pragma warning disable 56507 // check for null or empty strings
 
@@ -295,7 +286,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 _scriptsForwardReference.Add (new XmlParser.ForwardReference (rule, code));
             }
         }
-#endif
 
 #pragma warning restore 56507
 
@@ -437,7 +427,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if !NO_STG
 
         /// |summary|
         /// language
@@ -544,7 +533,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 return _assemblyReferences;
             }
         }
-#endif
         #endregion
 
         //*******************************************************************
@@ -617,7 +605,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #region Private Methods
 
-#if !NO_STG
         /// <summary>
         /// Write the attributes of the grammar element for strongly typed grammars
         /// </summary>
@@ -652,7 +639,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
 
         }
-#endif
 
         /// <summary>
         /// Write the the references to the referenced assemblies and the various scripts
@@ -660,7 +646,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// <param name="writer"></param>
         private void WriteGrammarElements (XmlWriter writer)
         {
-#if !NO_STG
             // Writeall the <assmblyReference> entries
             foreach (string sAssembly in _assemblyReferences)
             {
@@ -679,14 +664,11 @@ namespace System.Speech.Recognition.SrgsGrammar
                     writer.WriteEndElement ();
                 }
             }
-#endif
             // Then write the rules
             WriteRules (writer);
 
-#if !NO_STG
             // At the very bottom write the scripts shared by all the rules
             WriteGlobalScripts (writer);
-#endif
         }
 
         /// <summary>
@@ -702,7 +684,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if !NO_STG
         /// <summary>
         /// Write the script that are global to this grammar
         /// </summary>
@@ -716,7 +697,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 writer.WriteEndElement ();
             }
         }
-#endif
         #endregion
 
         //*******************************************************************
@@ -753,7 +733,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private string _sRoot;
 
-#if !NO_STG
         internal bool _fContainsCode;  // Set in *.Validate()
 
         // .Net Language for this grammar
@@ -779,7 +758,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         // .Net Namespaces to import
         private Collection<string> _assemblyReferences = new Collection<string> ();
-#endif
         #endregion
 
     }

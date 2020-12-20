@@ -32,11 +32,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  abstract class TtsEngineSsml
     {
         /// <summary>
@@ -86,11 +82,7 @@ namespace System.Speech.Synthesis.TtsEngine
     [StructLayout (LayoutKind.Sequential)]
     [ImmutableObject (true)]
 
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  struct SpeechEventInfo : IEquatable<SpeechEventInfo>
     {
         /// <summary>
@@ -166,11 +158,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  interface ITtsEngineSite
     {
         /// <summary>
@@ -216,11 +204,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// TODOC
     /// </summary>
 
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  class SkipInfo
     {
         internal SkipInfo (int type, int count)
@@ -287,11 +271,7 @@ namespace System.Speech.Synthesis.TtsEngine
 #if VSCOMPILE
     [DebuggerDisplay ("{State.Action} {TextToSpeak!=null?TextToSpeak:\"\"}")]
 #endif
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  class TextFragment
     {
         /// <summary>
@@ -332,11 +312,7 @@ namespace System.Speech.Synthesis.TtsEngine
 
         internal TextFragment (FragmentState fragState, string textToSpeak, string textFrag, int offset, int length)
         {
-#if SPEECHSERVER || PROMPT_ENGINE
-            if (fragState.Action == TtsEngineAction.PromptEngineSpeak || fragState.Action == TtsEngineAction.Speak || fragState.Action == TtsEngineAction.Pronounce)
-#else
             if (fragState.Action == TtsEngineAction.Speak || fragState.Action == TtsEngineAction.Pronounce)
-#endif
             {
                 textFrag = textToSpeak;
             }
@@ -361,11 +337,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// </summary>
     [ImmutableObject (true)]
 
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  struct FragmentState : IEquatable<FragmentState>
     {
         /// <summary>
@@ -465,11 +437,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// TODOC
     /// </summary>
     [StructLayout (LayoutKind.Sequential)]
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  class Prosody
     {
         /// <summary>
@@ -541,11 +509,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// </summary>
     [ImmutableObject (true)]
 
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  struct ContourPoint : IEquatable<ContourPoint>
     {
         /// <summary>
@@ -614,11 +578,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// TODOC
     /// </summary>
     [ImmutableObject (true)]
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  struct ProsodyNumber : IEquatable<ProsodyNumber>
     {
         /// <summary>
@@ -714,11 +674,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// TODOC
     /// </summary>
     [StructLayout (LayoutKind.Sequential)]
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  class SayAs
     {
         /// <summary>
@@ -757,11 +713,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum TtsEngineAction
     {
         /// <summary>
@@ -797,59 +749,13 @@ namespace System.Speech.Synthesis.TtsEngine
         /// </summary>
         ParseUnknownTag,
 
-#if SPEECHSERVER || PROMPT_ENGINE
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        BeginPromptEngineOutput,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        EndPromptEngineOutput,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        PromptEngineDatabase,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        PromptEngineSpeak,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        PromptEngineId,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        BeginPromptEngineWithTag,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        EndPromptEngineWithTag,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        BeginPromptEngineRule,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        EndPromptEngineRule,
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        PromptEngineAudio,
-#endif
 
     }
 
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum EmphasisWord : int
     {
         /// <summary>
@@ -877,11 +783,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum EmphasisBreak : int
     {
         /// <summary>
@@ -917,11 +819,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ProsodyPitch
     {
         /// <summary>
@@ -953,11 +851,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ProsodyRange
     {
         /// <summary>
@@ -989,11 +883,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ProsodyRate
     {
         /// <summary>
@@ -1025,11 +915,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ProsodyVolume : int
     {
         /// <summary>
@@ -1065,11 +951,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ProsodyUnit : int
     {
         /// <summary>
@@ -1089,11 +971,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum TtsEventId
     {
         /// <summary>
@@ -1133,22 +1011,12 @@ namespace System.Speech.Synthesis.TtsEngine
         /// </summary>
         AudioLevel = 9,   // wparam contains current output audio level
 
-#if SPEECHSERVER || PROMPT_ENGINE
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        Private = 15
-#endif
     }
 
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum EventParameterType
     {
         /// <summary>
@@ -1176,11 +1044,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum SpeakOutputFormat
     {
         /// <summary>
@@ -1196,11 +1060,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum ContourPointChangeType
     {
         /// <summary>
@@ -1227,11 +1087,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// TODOC
     /// </summary>
     [ComImport, Guid ("2D0FA0DB-AEA2-4AE2-9F8A-7AFC7794E56B"), InterfaceType (ComInterfaceType.InterfaceIsIUnknown)]
-#if PROMPT_ENGINE
-    public interface ITtsEngineSsml
-#else
     internal interface ITtsEngineSsml
-#endif
     {
         /// <summary>
         /// Queries the engine about a specific output format. 

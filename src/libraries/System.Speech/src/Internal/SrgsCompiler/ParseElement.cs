@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 //
 // <copyright file="ParseElement.cs" company="Microsoft">
 //    Copyright (C) Microsoft Corporation.  All rights reserved.

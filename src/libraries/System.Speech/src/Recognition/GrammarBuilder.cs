@@ -621,12 +621,8 @@ namespace System.Speech.Recognition
         internal void Compile (Stream stream)
         {
             Backend backend = new Backend ();
-#if !NO_STG
             CustomGrammar cg = new CustomGrammar ();
             SrgsElementCompilerFactory elementFactory = new SrgsElementCompilerFactory (backend, cg);
-#else
-            SrgsElementCompilerFactory elementFactory = new SrgsElementCompilerFactory(backend);
-#endif
             CreateGrammar (elementFactory);
 
             // Optimize in-memory graph representation of the grammar.

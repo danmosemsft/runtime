@@ -313,46 +313,6 @@ namespace System.Speech.Internal.Synthesis
 
         #region Audio device specific methods
 
-#if unused_yet
-
-        /// <summary>
-        /// Get the volume of this sound.
-        /// </summary>
-        /// <param name="volLeft">Left channel volume level</param>
-        /// <param name="volRight">Right channel volume level</param>
-        /// <returns>MMSYSERR.NOERROR if successful</returns>
-        internal MMSYSERR GetVolume (ref ushort volLeft, ref ushort volRight)
-        {
-            uint vol = 0;
-
-            MMSYSERR result = SafeNativeMethods.waveOutGetVolume (_hwo, ref vol);
-            if (result != MMSYSERR.NOERROR)
-            {
-                throw new AudioException (result);
-            }
-
-            volLeft = (ushort) (vol & 0x0000ffff);
-            volRight = (ushort) (vol >> 16);
-
-            return MMSYSERR.NOERROR;
-        }
-
-        /// <summary>
-        /// Sets the volume of this sound.
-        /// </summary>
-        /// <param name="volLeft">Left channel volume level</param>
-        /// <param name="volRight">Right channel volume level</param>
-        /// <returns>MMSYSERR.NOERROR if successful</returns>
-        internal void SetVolume (ushort volLeft, ushort volRight)
-        {
-            uint vol = ((uint) volLeft & 0x0000ffff) | ((uint) volRight << 16);
-            MMSYSERR result = SafeNativeMethods.waveOutSetVolume (_hwo, vol);
-            {
-                throw new AudioException (result);
-            }
-        }
-
-#endif
         /// <summary>
         ///  Determine the number of available playback devices.
         /// </summary>

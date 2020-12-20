@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------
+//------------------------------------------------------------------
 // <copyright file="TTSEvent.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
@@ -45,12 +45,8 @@ namespace System.Speech.Internal.Synthesis
             _bookmark = bookmark;
             _wParam = wParam;
             _lParam = lParam;
-#if SPEECHSERVER
-            _streamPosition = streamPosition;
-#endif
         }
 
-#if !SPEECHSERVER
         private TTSEvent()
         {
         }
@@ -70,7 +66,6 @@ namespace System.Speech.Internal.Synthesis
 
             return ttsEvent;
         }
-#endif
 
         #endregion
 
@@ -146,7 +141,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if !SPEECHSERVER
         internal SynthesizerEmphasis PhonemeEmphasis
         {
             get
@@ -184,15 +178,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#else
-        internal long StreamPosition
-        {
-            get
-            {
-                return _streamPosition;
-            }
-        }
-#endif
 
         #endregion
 
@@ -214,7 +199,6 @@ namespace System.Speech.Internal.Synthesis
         private Prompt _prompt;
 
 
-#if !SPEECHSERVER
         //
         // Data for phoneme event
         //
@@ -222,9 +206,6 @@ namespace System.Speech.Internal.Synthesis
         private string _nextPhoneme;
         private TimeSpan _phonemeDuration;
         private SynthesizerEmphasis _phonemeEmphasis;
-#else
-        private long _streamPosition;
-#endif
         #endregion
 
     }

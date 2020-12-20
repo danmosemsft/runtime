@@ -264,7 +264,6 @@ namespace System.Speech.Recognition
             get { return RecoBase.AudioPosition; }
         }
 
-#if !SPEECHSERVER
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.AudioFormat"]/*' />
         public SpeechAudioFormatInfo AudioFormat
@@ -272,7 +271,6 @@ namespace System.Speech.Recognition
             get { return RecoBase.AudioFormat; }
         }
 
-#endif
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.MaxAlternates"]/*' />
         public int MaxAlternates
@@ -325,7 +323,6 @@ namespace System.Speech.Recognition
             RecoBase.SetInput (audioSource, null);
         }
 
-#if !SPEECHSERVER
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.SetInput4"]/*' />
         public void SetInputToAudioStream (Stream audioSource, SpeechAudioFormatInfo audioFormat)
@@ -336,7 +333,6 @@ namespace System.Speech.Recognition
             RecoBase.SetInput (audioSource, audioFormat);
         }
 
-#endif
 
         // Detach the audio input
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.SetInputToDefaultAudioDevice"]/*' />

@@ -31,13 +31,11 @@ namespace System.Speech.Recognition
             _rawAudioData = rawAudioData;
         }
 
-#if !SPEECHSERVER
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognizedAudio.Format"]/*' />
         public SpeechAudioFormatInfo Format
         {
             get { return _audioFormat; }
         }
-#endif
 
         // Chronological "wall-clock" time the user started speaking the result at. This is useful for latency calculations etc.
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognizedAudio.StartTime"]/*' />
@@ -169,129 +167,6 @@ namespace System.Speech.Recognition
             sm.WriteStream (_rawAudioData.Length);
         }
 
-#if SPEECHSERVER
-
-#pragma warning disable 56518 // The Binary reader cannot be disposed or it would close the underlying stream
-        internal RecognizedAudio RemoveMetaData()
-        {
-            // Check format:
-            if ((int)_audioFormat.EncodingFormat == 0x8000 - (int)EncodingFormat.Pcm ||
-                (int)_audioFormat.EncodingFormat == 0x8000 - (int)EncodingFormat.ULaw ||
-                (int)_audioFormat.EncodingFormat == 0x8000 - (int)EncodingFormat.ALaw)
-            {
-                // We have metadata so remove it:
-
-                // Read metadata info from the format:
-                byte[] formatSpecificData = _audioFormat.FormatSpecificData();
-                if (formatSpecificData.Length < 4)
-                {
-                    throw new FormatException(SR.Get(SRID.ExtraDataNotPresent));
-                }
-
-                ushort metaDataSize;
-                using (MemoryStream metaDataStream = new MemoryStream(formatSpecificData))
-                {
-                    BinaryReader br = new BinaryReader(metaDataStream);
-                    br.ReadUInt16(); // Is metadata present - not used here.
-                    metaDataSize = br.ReadUInt16();
-                }
-                
-                int bytesPerSample = _audioFormat.BitsPerSample / 8;
-                if (bytesPerSample < 1 || bytesPerSample > 2)
-                {
-                    throw new FormatException(SR.Get(SRID.BitsPerSampleInvalid));
-                }
-
-                // Calculate size of data part of block. As well as the metadata there are 6 bytes of overhead {signature, number of samples and reserved}.
-                int sampleBlockSize = (int)_audioFormat.BlockAlign - metaDataSize - 6;
-                if (sampleBlockSize < 0)
-                {
-                    throw new FormatException(SR.Get(SRID.DataBlockSizeInvalid));
-                }
-
-                // Check we have a whole number of blocks:
-                if (_rawAudioData.Length % _audioFormat.BlockAlign != 0)
-                {
-                    throw new FormatException(SR.Get(SRID.NotWholeNumberBlocks));
-                }
-
-                // Actually copy the audio data to a new array:
-                byte[] newAudioData = ProcessMetaDataBlocks(metaDataSize, bytesPerSample, sampleBlockSize);
-
-                // Make new format:
-                EncodingFormat newEncodingFormat = (EncodingFormat)(-((int)_audioFormat.EncodingFormat - 0x8000));
-                int newAverageBytesPerSecond = (int)(((long)_audioFormat.AverageBytesPerSecond * sampleBlockSize) / _audioFormat.BlockAlign);
-                short newBlockAlign = (short)(bytesPerSample * _audioFormat.ChannelCount);
-                SpeechAudioFormatInfo newAudioFormat = new SpeechAudioFormatInfo(newEncodingFormat, _audioFormat.SamplesPerSecond, _audioFormat.BitsPerSample, _audioFormat.ChannelCount, newAverageBytesPerSecond, newBlockAlign, null);
-
-                // Make new RecognizedAudio {copying start, duration etc}:
-                return new RecognizedAudio(newAudioData, newAudioFormat, _startTime, _audioPosition, _audioDuration);
-            }
-            else
-            {
-                // No metadata - just return.
-                return this;
-            }
-        }
-
-        // Copy 
-        private byte[] ProcessMetaDataBlocks(ushort metaDataSize, int bytesPerSample, int sampleBlockSize)
-        {
-            // Make new array: {this may be slightly too big if there are some empty packets - we resize later}
-            int numberOfBlocks = _rawAudioData.Length / _audioFormat.BlockAlign;
-            byte[] newAudioData = new byte[numberOfBlocks * sampleBlockSize];
-
-            // Copy new bytes: {removing metadata and zero parts of data}
-            int numberAudioBytes = 0;
-            using (MemoryStream dataStream = new MemoryStream(_rawAudioData))
-            {
-                BinaryReader br = new BinaryReader(dataStream);
-                for (int i = 0; i < numberOfBlocks; i++)
-                {
-                    ushort signature = br.ReadUInt16();
-                    ushort sampleCount = br.ReadUInt16();
-                    br.ReadBytes(metaDataSize); // Meta data itself
-                    br.ReadUInt16(); // Reserved value - not used here.
-                    int bytesToCopy = sampleCount * bytesPerSample;
-
-                    if (signature != (ushort)_audioFormat.EncodingFormat)
-                    {
-                        throw new FormatException(SR.Get(SRID.BlockSignatureInvalid));
-                    }
-                    if (bytesToCopy > sampleBlockSize)
-                    {
-                        throw new FormatException(SR.Get(SRID.NumberOfSamplesInvalid));
-                    }
-
-                    // Copy the required number of samles across:
-                    int curPosition = (int)dataStream.Position;
-                    int endPosition = curPosition + bytesToCopy;
-                    for (; curPosition < endPosition; curPosition++, numberAudioBytes++)
-                    {
-                        newAudioData[numberAudioBytes] = _rawAudioData[curPosition];
-                    }
-
-                    dataStream.Position += sampleBlockSize;
-                }
-                Debug.Assert(dataStream.Position == _rawAudioData.Length);
-            }
-
-            // Resize if necessary:
-            Debug.Assert(numberAudioBytes <= newAudioData.Length);
-            if (numberAudioBytes < newAudioData.Length)
-            {
-                // Array.Resize(ref newAudioData, numberAudioBytes);
-                byte [] tempAudioData = new byte[numberAudioBytes];
-                Array.Copy(tempAudioData, newAudioData, numberAudioBytes);
-                newAudioData = tempAudioData;
-            }
-
-            return newAudioData;
-        }
-
-#pragma warning restore 56518 // The Binary reader cannot be disposed or it would close the underlying stream
-
-#endif
 
 		#endregion
 

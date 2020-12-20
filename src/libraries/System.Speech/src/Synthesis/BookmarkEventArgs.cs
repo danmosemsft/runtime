@@ -21,23 +21,6 @@ namespace System.Speech.Synthesis
 
         #region Constructors
 
-#if SPEECHSERVER
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="prompt"></param>
-        /// <param name="bookmark"></param>
-        /// <param name="audioPosition"></param>
-        /// <param name="streamPosition"></param>
-        internal BookmarkReachedEventArgs (Prompt prompt, string bookmark, TimeSpan audioPosition, long streamPosition)
-            : base (prompt)
-        {
-            _bookmark = bookmark;
-            _audioPosition = audioPosition;
-            _streamPosition = streamPosition;
-        }
-
-#else
         /// <summary>
         /// TODOC
         /// </summary>
@@ -51,7 +34,6 @@ namespace System.Speech.Synthesis
             _audioPosition = audioPosition;
         }
 
-#endif
 
         #endregion
 
@@ -87,21 +69,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if SPEECHSERVER
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <value></value>
-        internal long StreamPosition
-        {
-            get
-            {
-                return _streamPosition;
-            }
-        }
-
-#endif
 
         #endregion
 
@@ -117,9 +84,6 @@ namespace System.Speech.Synthesis
 
         // Audio and stream position
         private TimeSpan _audioPosition;
-#if SPEECHSERVER
-        private long _streamPosition;
-#endif
 
         #endregion
     }

@@ -154,7 +154,6 @@ namespace System.Speech.Recognition
             InitialGrammarLoad (ruleName, parameters, false);
         }
 
-#if !SPEECHSERVER
 
         /// <summary>
         /// 
@@ -168,7 +167,6 @@ namespace System.Speech.Recognition
             InitialGrammarLoad (null, null, false);
         }
 
-#endif
 
         private Grammar (string onInitParameters, Stream stream, string ruleName)
         {
@@ -605,14 +603,12 @@ namespace System.Speech.Recognition
         {
             bool isDictationGrammar = IsDictationGrammar (uri);
 
-#if !SPEECHSERVER
 
             // Note that must check IsAbsoluteUri before Scheme because Uri.Scheme may throw on a relative Uri
             if (!isDictationGrammar && this is DictationGrammar)
             {
                 throw new ArgumentException (SR.Get (SRID.DictationInvalidTopic), "uri");
             }
-#endif
             return isDictationGrammar;
         }
 
@@ -701,14 +697,12 @@ namespace System.Speech.Recognition
 
         internal GrammarOptions _semanticTag;
 
-#if !NO_STG
 
         internal AppDomain _appDomain;
 
         internal System.Speech.Internal.SrgsCompiler.AppDomainGrammarProxy _proxy;
 
         internal ScriptRef [] _scripts;
-#endif
 
         #endregion
 
@@ -762,7 +756,6 @@ namespace System.Speech.Recognition
             // If strongly typed grammar, load the cfg from the resources otherwise load the IL from within the CFG
             Stream stream = IsStg ? LoadCfgFromResource (stgInit) : LoadCfg (isImportedGrammar, stgInit);
 
-#if !NO_STG
             // Check if the grammar needs to be rebuilt
             SrgsRule [] extraRules = RunOnInit (IsStg); // list of extra rule to append to the current CFG
             if (extraRules != null)
@@ -773,7 +766,6 @@ namespace System.Speech.Recognition
                 stream.Close ();
                 stream = streamCombined;
             }
-#endif
             // Note LoadCfg, LoadCfgFromResource and CombineCfg all reset Stream position to zero.
 
             _cfgData = Helpers.ReadStreamToByteArray (stream, (int) stream.Length);
@@ -823,13 +815,11 @@ namespace System.Speech.Recognition
                     // 3. The path the xml was originally loaded from.
                 }
             }
-#if !SPEECHSERVER
             else if (_grammarBuilder != null)
             {
                 // If GrammarBuilder, compile to a stream
                 _grammarBuilder.Compile (stream);
             }
-#endif
             else
             {
                 // If stream, load
@@ -842,10 +832,8 @@ namespace System.Speech.Recognition
             // Udpate the rule name
             _ruleName = CheckRuleName (stream, _ruleName, isImportedGrammar, stgInit, out _sapi53Only, out _semanticTag);
 
-#if !NO_STG
             // Create an app domain for the grammar code if any
             CreateSandbox (stream);
-#endif
 
             stream.Position = 0;
             return stream;
@@ -1070,7 +1058,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#if !NO_STG
 
         private void CreateSandbox (MemoryStream stream)
         {
@@ -1096,7 +1083,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#endif
 
         // Loads a strongly typed grammar from a resource in the Assembly.
         private Stream LoadCfgFromResource (bool stgInit)
@@ -1111,7 +1097,6 @@ namespace System.Speech.Recognition
                 //TODO add a more to the point message
                 throw new FormatException (SR.Get (SRID.RecognizerInvalidBinaryGrammar));
             }
-#if !NO_STG
             try
             {
                 ScriptRef [] scripts = CfgGrammar.LoadIL (stream);
@@ -1126,7 +1111,6 @@ namespace System.Speech.Recognition
             {
                 throw new ArgumentException (SR.Get (SRID.CannotLoadDotNetSemanticCode), e);
             }
-#endif
             stream.Position = 0;
 
             // Udpate the rule name
@@ -1184,7 +1168,6 @@ namespace System.Speech.Recognition
 
 #pragma warning disable 56507 // check for null or empty strings
 
-#if !NO_STG
 
         private SrgsRule [] RunOnInit (bool stg)
         {
@@ -1238,7 +1221,6 @@ namespace System.Speech.Recognition
             }
             return extraRules;
         }
-#endif
 
         // Pulls the required data out of a stream containing a cfg.
         // Stream must point to start of cfg on entry and is reset to same point on exit.
@@ -1318,9 +1300,7 @@ namespace System.Speech.Recognition
         private bool _isSrgsDocument;
         private SrgsDocument _srgsDocument;
 
-#if !SPEECHSERVER
         private GrammarBuilder _grammarBuilder;
-#endif
 
 #pragma warning restore 56524
 

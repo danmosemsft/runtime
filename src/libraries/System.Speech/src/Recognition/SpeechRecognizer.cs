@@ -4,7 +4,6 @@
 // </copyright>
 //------------------------------------------------------------------
 
-#if !SPEECHSERVER
 
 using System;
 using System.Globalization;
@@ -640,4 +639,3 @@ namespace System.Speech.Recognition
     }
 }
 
-#endif

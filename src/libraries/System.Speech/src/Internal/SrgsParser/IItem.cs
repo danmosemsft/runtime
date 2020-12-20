@@ -1,4 +1,4 @@
-﻿// <copyright file="IItem.cs" company="Microsoft">
+// <copyright file="IItem.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

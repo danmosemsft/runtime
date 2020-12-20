@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 //
 // <copyright file="SrgsElementCompilerFactory.cs" company="Microsoft">
 //    Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -36,20 +36,12 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #region Constructors
 
-#if !NO_STG
         internal SrgsElementCompilerFactory (Backend backend, CustomGrammar cg)
         {
             _backend = backend;
             _cg = cg;
             _grammar = new GrammarElement (backend, cg);
         }
-#else
-        internal SrgsElementCompilerFactory (Backend backend)
-        {
-            _backend = backend;
-            _grammar = new GrammarElement (backend);
-        }
-#endif
         #endregion
 
         //*******************************************************************
@@ -117,7 +109,6 @@ namespace System.Speech.Internal.SrgsCompiler
         {
             return (ISubset) new Subset ((ParseElementCollection) parent, _backend, text, mode);
         }
-#if !NO_STG
 
         void IElementFactory.AddScript (IGrammar grammar, string rule, string code)
         {
@@ -177,7 +168,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#endif
 
         void IElementFactory.AddItem (IOneOf oneOf, IItem item)
         {
@@ -420,12 +410,10 @@ namespace System.Speech.Internal.SrgsCompiler
         // Grammar
         private GrammarElement _grammar;
 
-#if !NO_STG
 
         // Callers param
         private CustomGrammar _cg;
 
-#endif
 
         #endregion
     }

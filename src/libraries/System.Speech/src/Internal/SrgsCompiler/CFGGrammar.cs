@@ -73,10 +73,8 @@ namespace System.Speech.Internal.SrgsCompiler
 
             internal CfgSemanticTag [] tags;
 
-#if !NO_STG
 
             internal CfgScriptRef [] scripts;
-#endif
 
             internal uint ulRootRuleIndex;
 
@@ -329,12 +327,10 @@ namespace System.Speech.Internal.SrgsCompiler
                 header.ulRootRuleIndex = cfgSerializedHeader.ulRootRuleIndex;
                 header.GrammarOptions = cfgSerializedHeader.GrammarOptions;
                 header.GrammarMode = (GrammarType) cfgSerializedHeader.GrammarMode;
-#if !NO_STG
                 if (includeAllGrammarData)
                 {
                     header.scripts = Load<CfgScriptRef> (streamHelper, cfgSerializedHeader.pScripts, cfgSerializedHeader.cScripts);
                 }
-#endif
                 // The BasePath string is written after the rules - no offset is provided
                 // Get the chars and build the string
                 if (cfgSerializedHeader.cBasePath > 0)
@@ -351,7 +347,6 @@ namespace System.Speech.Internal.SrgsCompiler
             return header;
         }
 
-#if !NO_STG
 
         //
         //  This helper converts a serialized CFG grammar header into an in-memory header
@@ -434,7 +429,6 @@ namespace System.Speech.Internal.SrgsCompiler
             return true;
         }
 
-#endif
 
 
 #if VSCOMPILE && DEBUG
@@ -526,7 +520,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 }
             }
 
-#if !NO_STG
 
             //Check the offset for the scripts
             if (pFH.cScripts > 0)
@@ -543,7 +536,6 @@ namespace System.Speech.Internal.SrgsCompiler
             {
                 CheckSetOffsets (pFH.pPDB, pFH.cPDB * Marshal.SizeOf (typeof (byte)), ref ullStartOffset, pFH.ulTotalSerializedSize);
             }
-#endif
         }
 
         private static void CheckSetOffsets (uint offset, int size, ref int start, uint max)

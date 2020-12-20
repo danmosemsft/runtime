@@ -330,7 +330,6 @@ namespace System.Speech.Internal.Synthesis
             TTSEvent ttsEvent;
             switch ((TtsEventId)sapiEvent.EventId)
             {
-#if !SPEECHSERVER
                 case TtsEventId.Phoneme:
                     ttsEvent = TTSEvent.CreatePhonemeEvent("" + (char)((uint)sapiEvent.Param2 & 0xFFFF), // current phoneme
                                                            "" + (char)(sapiEvent.Param1 & 0xFFFF), // next phoneme
@@ -338,7 +337,6 @@ namespace System.Speech.Internal.Synthesis
                                                            (SynthesizerEmphasis) ((uint)sapiEvent.Param2 >> 16),
                                                            _prompt, _audio.Duration);
                     break;
-#endif
                 case TtsEventId.Bookmark:
                     // BookmarkDetected
                     string bookmark = Marshal.PtrToStringUni(sapiEvent.Param2);
@@ -427,7 +425,6 @@ namespace System.Speech.Internal.Synthesis
         private ITtsEventSink _sink;
     }
 
-#if !SPEECHSERVER
     internal class PhonemeEventMapper: TtsEventMapper
     {
         public enum PhonemeConversion
@@ -598,6 +595,5 @@ namespace System.Speech.Internal.Synthesis
         private AlphabetConverter _alphabetConverter;
         private int _lastComplete;
     }
-#endif
 
 }

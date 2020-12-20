@@ -1,4 +1,4 @@
-﻿// <copyright file="IPropertyTag.cs" company="Microsoft">
+// <copyright file="IPropertyTag.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

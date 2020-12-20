@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 //
 // <copyright file="SrgsElementFactory.cs" company="Microsoft">
 //    Copyright (C) Microsoft Corporation.  All rights reserved.
@@ -157,7 +157,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         {
         }
 
-#if !NO_STG
         void IElementFactory.AddScript (IGrammar grammar, string sRule, string code)
         {
             SrgsGrammar srgsGrammar = (SrgsGrammar) grammar;
@@ -182,7 +181,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             SrgsGrammar srgsGrammar = (SrgsGrammar) grammar;
             srgsGrammar.AddScript (null, script);
         }
-#endif
 
         void IElementFactory.AddItem (IOneOf oneOf, IItem value)
         {

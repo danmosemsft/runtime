@@ -31,9 +31,6 @@ using System.Speech.Synthesis.TtsEngine;
 using System.Text;
 using System.Threading;
 
-#if (SPEECHSERVER || PROMPT_ENGINE) && !SERVERTESTDLL
-using System.Security.Cryptography;
-#endif
 
 #pragma warning disable 1634, 1691 // Allows suppression of certain PreSharp messages.
 #pragma warning disable 56502       // Empty catch statements
@@ -73,11 +70,7 @@ namespace System.Speech.Internal.Synthesis
             _evtPendingSpeak.Reset ();
 
             // Create the default audio device (speaker)
-#if SPEECHSERVER && !SERVERTESTDLL
-            _waveOut = new AudioFileOut (Stream.Null, new SpeechAudioFormatInfo (EncodingFormat.ALaw, 8000, 8, 1, 8000, 1, null), false, _asyncWorker);
-#else
             _waveOut = new AudioDeviceOut (SAPICategories.DefaultDeviceOut (), _asyncWorker);
-#endif
 
             // Build the installed voice collection on first run
             if (_allVoices == null)
@@ -319,7 +312,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if !SPEECHSERVER
         internal void OnPhonemeReached (PhonemeReachedEventArgs e)
         {
             if (_phonemeReached != null)
@@ -335,17 +327,6 @@ namespace System.Speech.Internal.Synthesis
                 _asyncWorkerUI.PostOperation (_visemeReached, _speechSyntesizer.Target, e);
             }
         }
-#else
-
-        internal void OnProprietaryEngineEvent (ProprietaryEngineEventArgs e)
-        {
-            if (_proprietaryEngineEvent != null)
-            {
-                _asyncWorkerUI.PostOperation(_proprietaryEngineEvent, _speechSyntesizer.Target, e);
-            }
-        }
-
-#endif
 
         private void OnStateChanged (object o)
         {
@@ -426,11 +407,7 @@ namespace System.Speech.Internal.Synthesis
                 {
                     if (stream == null)
                     {
-#if SPEECHSERVER && !SERVERTESTDLL
-                        _waveOut = new AudioFileOut (Stream.Null, null, false, _asyncWorker);
-#else
                         _waveOut = new AudioDeviceOut (SAPICategories.DefaultDeviceOut (), _asyncWorker);
-#endif
                     }
                     else
                     {
@@ -651,38 +628,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        internal void LoadDatabase (string localName, string alias)
-        {
-            Helpers.ThrowIfEmptyOrNull (localName, "localName");
-
-            ExecuteOnBackgroundThread (Action.LoadDatabase, new ParametersDatabase (localName, alias));
-            if (_pendingException != null)
-            {
-                throw _pendingException;
-            }
-        }
-
-        internal void UnloadDatabase (string alias)
-        {
-            Helpers.ThrowIfEmptyOrNull (alias, "alias");
-
-            ExecuteOnBackgroundThread (Action.UnloadDatabase, alias);
-            if (_pendingException != null)
-            {
-                throw _pendingException;
-            }
-        }
-
-        internal void SetResourceLoader (ISpeechResourceLoader resourceLoader)
-        {
-            lock (_processingSpeakLock)
-            {
-                _resourceLoader.SetResourceLoader (resourceLoader);
-            }
-        }
-#endif
 
         #endregion
 
@@ -787,20 +732,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if (SPEECHSERVER || PROMPT_ENGINE) && !SERVERTESTDLL
-
-        /// <summary>
-        /// Equivelant to the C runtime function time_t time(time_t*);
-        /// </summary>
-        private static TimeSpan Time
-        {
-            get
-            {
-                return (DateTime.UtcNow - time_t_0);
-            }
-        }
-
-#endif
 
         #endregion
 
@@ -821,21 +752,11 @@ namespace System.Speech.Internal.Synthesis
         internal EventHandler<BookmarkReachedEventArgs> _bookmarkReached;
         internal EventHandler<VoiceChangeEventArgs> _voiceChange;
 
-#if !SPEECHSERVER
 
         internal EventHandler<PhonemeReachedEventArgs> _phonemeReached;
 
         internal EventHandler<VisemeReachedEventArgs> _visemeReached;
 
-#else
-
-        internal EventHandler<ProprietaryEngineEventArgs> _proprietaryEngineEvent;
-
-#endif
-#if SPEECHSERVER || PROMPT_ENGINE
-        // Interal Flag used by MSS to output text rather than Audio
-        internal bool _outputAsText;
-#endif
 
 
         #endregion
@@ -990,48 +911,6 @@ namespace System.Speech.Internal.Synthesis
 
 #pragma warning restore 6500
 
-#if SPEECHSERVER || PROMPT_ENGINE
-                        case Action.LoadDatabase:
-                            try
-                            {
-                                _pendingException = null;
-                                ParametersDatabase paramLoad = (ParametersDatabase) parameters._parameter;
-                                PromptEngine.LoadDatabase (paramLoad._localName, paramLoad._alias);
-                            }
-#pragma warning disable 6500
-                            catch (Exception e)
-                            {
-                                // this thread cannot be terminated.
-                                _pendingException = e;
-                            }
-#pragma warning restore 6500
-                            finally
-                            {
-                                // unlock the client
-                                _evtPendingGetProxy.Set ();
-                            }
-                            break;
-
-                        case Action.UnloadDatabase:
-                            try
-                            {
-                                _pendingException = null;
-                                PromptEngine.UnloadDatabase ((string) parameters._parameter);
-                            }
-#pragma warning disable 6500
-                            catch (Exception e)
-                            {
-                                // this thread cannot be terminated.
-                                _pendingException = e;
-                            }
-#pragma warning restore 6500
-                            finally
-                            {
-                                // unlock the client
-                                _evtPendingGetProxy.Set ();
-                            }
-                            break;
-#endif
 
                         default:
                             System.Diagnostics.Debug.Assert (false, "Unknown Action!");
@@ -1126,7 +1005,6 @@ namespace System.Speech.Internal.Synthesis
                             // Get the TTS engine or a backup voice
                             ITtsEngineProxy engineProxy = voice.TtsEngine;
 
-#if !SPEECHSERVER
                             // Set the events specific to the desktop
                             if ((_ttsInterest & (1 << (int) TtsEventId.Phoneme)) != 0 && engineProxy.EngineAlphabet != AlphabetType.Ipa)
                             {
@@ -1136,31 +1014,6 @@ namespace System.Speech.Internal.Synthesis
                             {
                                 _site.EventMapper = null;
                             }
-#else
-							if (_outputAsText)
-							{
-								engineProxy = new TextEngine (_site, 0);
-							}
-
-							if (speechSeg.ContainsPrompEngineFragment)
-							{
-								// Set the backup voice if the text to speak contains some prompt elements
-								ITtsEngineProxy voiceEngine = engineProxy;
-                      			engineProxy = PromptEngineProxy;
-								voiceEngine.BackupVoice (_promptEngine);
-
-								if (_outputAsText)
-								{
-                                    // If text is requested, set the default TTS engine as outputing raw text.
-									PromptEngineProxy.GetOutputFormat (IntPtr.Zero);
-								}
-								else
-								{
-                                    // Set the desired audio format
-                                    SetPromptEngineOutputFormat ();
-								}
-							} 
-#endif
                             // Call the TTS engine to perform the speak through the proxy layer that
                             // converts SSML fragments to whatever the TTS engine supports
                             _site.LastException = null;
@@ -1634,16 +1487,6 @@ namespace System.Speech.Internal.Synthesis
                 voice = new TTSVoice (engineProxy, voiceInfo);
                 _voiceDictionary.Add (voiceInfo, voice);
             }
-#if SPEECHSERVER && !SERVERTESTDLL
-
-            if (voiceInfo.VoiceCategory == VoiceCategory.ScanSoft)
-            {
-                if (!TryScanSoftHandshake (voice))
-                {
-                    voice = null;
-                }
-            }
-#endif
             return voice;
         }
 
@@ -1780,10 +1623,6 @@ namespace System.Speech.Internal.Synthesis
                     {
                         if (voiceToken != null && voiceToken.Attributes != null)
                         {
-#if SPEECHSERVER
-                            // always perform handshake for MSS voices
-                            voiceToken.VoiceCategory = VoiceCategory.ScanSoft;
-#endif
                             voices.Add (new InstalledVoice (voiceSynthesizer, new VoiceInfo (voiceToken)));
                         }
                     }
@@ -1792,48 +1631,6 @@ namespace System.Speech.Internal.Synthesis
             return voices;
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        private void LoadPromptEngine ()
-        {
-            ITtsEngineSsml promptEngine = null;
-            using (ObjectToken token = ObjectToken.Create (SAPICategories.PromptVoices, SAPICategories.PromptVoices + @"\Tokens\MSPromptEngine", false))
-            {
-                if (token == null)
-                {
-                    throw new InvalidOperationException (SR.Get (SRID.NoPromptEngine));
-                }
-
-                string clsid;
-                if (token.TryGetString ("CLSID", out clsid))
-                {
-#pragma warning disable 6500 // A large list of exceptions could occur
-                    try
-                    {
-                        promptEngine = token.CreateObjectFromToken<ITtsEngineSsml> ("CLSID");
-
-                    }
-                    catch (Exception e)
-                    {
-                        throw new InvalidOperationException (SR.Get (SRID.NoPromptEngine), e);
-                    }
-#pragma warning restore 6500
-                }
-            }
-
-            _promptEngineProxy = new TtsProxyCom (promptEngine, ComEngineSite, 0);
-            _promptEngine = promptEngine as IPromptEngine;
-
-            if (_promptEngine == null)
-            {
-                throw new InvalidCastException (SR.Get (SRID.NoPromptEngineInterface));
-            }
-
-            // Set the desired audio format
-            SetPromptEngineOutputFormat ();
-        }
-
-#endif
 
         #region Signal Client application
 
@@ -1892,11 +1689,7 @@ namespace System.Speech.Internal.Synthesis
 
                 case TtsEventId.Bookmark:
                     // BookmarkDetected
-#if !SPEECHSERVER
                     OnBookmarkReached (new BookmarkReachedEventArgs (prompt, ttsEvent.Bookmark, ttsEvent.AudioPosition));
-#else
-                    OnBookmarkReached (new BookmarkReachedEventArgs (prompt, ttsEvent.Bookmark, ttsEvent.AudioPosition, ttsEvent.StreamPosition));
-#endif
                     break;
 
                 case TtsEventId.VoiceChange:
@@ -1904,7 +1697,6 @@ namespace System.Speech.Internal.Synthesis
                     OnVoiceChange (new VoiceChangeEventArgs (prompt, voice));
                     break;
 
-#if !SPEECHSERVER
                 case TtsEventId.Phoneme:
                     // SynthesizePhoneme
                     OnPhonemeReached (new PhonemeReachedEventArgs (
@@ -1927,13 +1719,6 @@ namespace System.Speech.Internal.Synthesis
                         (int) (ttsEvent.WParam & 0xFFFF)));                 // nextViseme
                     break;
 
-#else
-
-                case TtsEventId.Private:
-                    OnProprietaryEngineEvent (new ProprietaryEngineEventArgs (prompt, (int) ttsEvent.WParam, ttsEvent.LParam));
-                    break;
-
-#endif
                 default:
                     throw new InvalidOperationException (SR.Get (SRID.SynthesizerUnknownEvent));
             }
@@ -2070,101 +1855,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if (SPEECHSERVER || PROMPT_ENGINE) 
-
-        private void SetPromptEngineOutputFormat ()
-        {
-
-            // Force the engine to output text if requested
-            if (_outputAsText)
-            {
-                _promptEngineProxy.GetOutputFormat (IntPtr.Zero);
-            }
-            else
-            {
-                GCHandle targetFormat = GCHandle.Alloc (_waveOut.WaveFormat, GCHandleType.Pinned);
-                try
-                {
-                    _promptEngineProxy.GetOutputFormat (targetFormat.AddrOfPinnedObject ());
-                }
-                finally
-                {
-                    targetFormat.Free ();
-                }
-            }
-        }
-
-#if  !SERVERTESTDLL
-        /// <summary>
-        /// Try handshake up to 5 times.  If failed NO exception will be thrown.
-        /// </summary>
-        private bool TryScanSoftHandshake (TTSVoice voice)
-        {
-            // Handshake with the Speechify service, and also
-            // force engine creation to detect engine creation error.
-            const string handShakeFormat = @"\!api[SWIttsResourceAllocate(""tts.license.speak"", ""{0}"")]";
-            bool success = false;
-
-            for (int retry = 0; retry < 5; retry++)
-            {
-                try
-                {
-                    TimeSpan currentTime = Time;
-                    long seconds = (int) unchecked ((long) currentTime.TotalSeconds);
-                    string handShakeString = string.Format (null, handShakeFormat, SWIttsLicenceEncrypt (BitConverter.GetBytes (seconds)));
-                    //Debug.Raise (this.Verbose, "Time: 0x{0}; Handshake string: {1}", seconds.ToString ("X", null), handShakeString);
-
-                    FragmentState fragmentState = new FragmentState ();
-                    fragmentState.Action = TtsEngineAction.Speak;
-                    fragmentState.Prosody = new Prosody ();
-                    List<TextFragment> fragments = new List<TextFragment> ();
-                    fragments.Add (new TextFragment (fragmentState, handShakeString, handShakeString, 0, handShakeString.Length));
-                    voice.TtsEngine.Speak (fragments, voice.WaveFormat (_waveOut.WaveFormat));
-                    success = true;
-                    break;
-                }
-#pragma warning disable 6500
-
-                catch (Exception ex)
-                {
-                    Trace.WriteLine ("Handshake failed :" + ex.Message);
-                }
-
-#pragma warning restore 6500
-            }
-            return success;
-        }
-
-        private static string SWIttsLicenceEncrypt (byte [] currentTime)
-        {
-            const string password = "Microsoft Kokanee";
-            const int blockSizeBytes = 8;
-
-            if (_rc2 == null)
-            {
-                RC2CryptoServiceProvider newRC2 = new RC2CryptoServiceProvider ();
-                Debug.Assert (newRC2.BlockSize == blockSizeBytes * 8);
-                newRC2.Key = new PasswordDeriveBytes (password, null)  // rgbSalt param will not be used in CryptDeriveKey
-                    .CryptDeriveKey ("RC2", "MD5", 40, new byte [blockSizeBytes]);
-                newRC2.IV = new byte [blockSizeBytes];
-                _rc2 = newRC2;
-            }
-
-            byte [] encryptedBytes = _rc2.CreateEncryptor ().TransformFinalBlock (currentTime, 0, currentTime.Length);
-
-            // Convert bytes to string
-            const string hexDigits = "0123456789ABCDEF";
-            StringBuilder sb = new StringBuilder (2 * blockSizeBytes);
-            for (int i = 0; i < encryptedBytes.Length; i++)
-            {
-                sb.Append (hexDigits [encryptedBytes [i] >> 4]);
-                sb.Append (hexDigits [encryptedBytes [i] & 0xf]);
-            }
-            return sb.ToString ();
-        }
-
-#endif
-#endif
 
         #endregion
 
@@ -2176,32 +1866,6 @@ namespace System.Speech.Internal.Synthesis
 
         #region Private Properties
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        private ITtsEngineProxy PromptEngineProxy
-        {
-            get
-            {
-                if (_promptEngine == null)
-                {
-                    LoadPromptEngine ();
-                }
-                return _promptEngineProxy;
-            }
-        }
-
-        private IPromptEngine PromptEngine
-        {
-            get
-            {
-                if (_promptEngine == null)
-                {
-                    LoadPromptEngine ();
-                }
-                return (IPromptEngine) _promptEngine;
-            }
-        }
-#endif
 
         private IntPtr ComEngineSite
         {
@@ -2233,10 +1897,6 @@ namespace System.Speech.Internal.Synthesis
         {
             GetVoice,
             SpeakText,
-#if SPEECHSERVER || PROMPT_ENGINE
-            LoadDatabase,
-            UnloadDatabase
-#endif
         }
 
         private class Parameters
@@ -2268,19 +1928,6 @@ namespace System.Speech.Internal.Synthesis
             internal Uri _audioFile;
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-        private class ParametersDatabase
-        {
-            internal ParametersDatabase (string localName, string alias)
-            {
-                _localName = localName;
-                _alias = alias;
-            }
-
-            internal string _localName;
-            internal string _alias;
-        }
-#endif
 
 #pragma warning restore 56524 // No instances of a class created in this module and should not be disposed
 
@@ -2349,22 +1996,7 @@ namespace System.Speech.Internal.Synthesis
         private AsyncSerializedWorker _asyncWorker, _asyncWorkerUI;
 
         // Prompt Engine
-#if SPEECHSERVER || PROMPT_ENGINE
-        private const bool _pexml = true;
-        private ITtsEngineProxy _promptEngineProxy;
-        private IPromptEngine _promptEngine;
-
-#if !SERVERTESTDLL
-        // Handshake for Scansoft
-        private static RC2 _rc2;
-
-        /// <value>The UTC DateTime corresponding to the time_t value 0.</value>
-        private static readonly DateTime time_t_0 = new DateTime (1970, 1, 1);
-#endif
-
-#else
         const bool _pexml = false;
-#endif
 
         /// <summary>
         /// Could be a phrase of an SSML doc or a file reference

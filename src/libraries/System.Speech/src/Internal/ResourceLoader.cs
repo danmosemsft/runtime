@@ -10,9 +10,6 @@ using System.Net;
 
 using System.Speech.Synthesis;
 
-#if SPEECHSERVER || PROMPT_ENGINE
-using System.Speech.Synthesis.TtsEngine;
-#endif
 
 namespace System.Speech.Internal
 {
@@ -44,14 +41,6 @@ namespace System.Speech.Internal
         {
             localPath = null;
 
-#if SPEECHSERVER || PROMPT_ENGINE
-            if (_resourceLoader != null)
-            {
-                localPath = _resourceLoader.GetLocalCopy (uri, out mimeType, out baseUri);
-                return new FileStream (localPath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            }
-            else
-#endif
             {
                 Stream stream = null;
 
@@ -98,12 +87,6 @@ namespace System.Speech.Internal
         /// <param name="localPath"></param>
         internal void UnloadFile (string localPath)
         {
-#if SPEECHSERVER || PROMPT_ENGINE
-            if (_resourceLoader != null)
-            {
-                _resourceLoader.ReleaseLocalCopy (localPath);
-            }
-#endif
         }
 
         internal Stream LoadFile (Uri uri, out string localPath, out Uri redirectedUri)
@@ -112,23 +95,6 @@ namespace System.Speech.Internal
             return LoadFile (uri, out mediaTypeUnused, out redirectedUri, out localPath);
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        /// <summary>
-        /// Only one instance of the resource loader 
-        /// </summary>
-        /// <param name="resourceLoader"></param>
-        internal void SetResourceLoader (ISpeechResourceLoader resourceLoader)
-        {
-            // Changing the ResourceLoader 
-            if (_resourceLoader != null && resourceLoader != _resourceLoader)
-            {
-                throw new InvalidOperationException ();
-            }
-            _resourceLoader = resourceLoader;
-        }
-
-#endif
 
         #endregion
 
@@ -183,11 +149,6 @@ namespace System.Speech.Internal
 
         #region Private Fields
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        ISpeechResourceLoader _resourceLoader;
-
-#endif
 
         #endregion
     }

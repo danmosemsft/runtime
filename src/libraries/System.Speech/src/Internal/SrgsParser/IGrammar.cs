@@ -1,4 +1,4 @@
-﻿// <copyright file="IGrammar.cs" company="Microsoft">
+// <copyright file="IGrammar.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //
@@ -37,14 +37,12 @@ namespace System.Speech.Internal.SrgsParser
         Uri XmlBase { set; }
         AlphabetType PhoneticAlphabet { set; }
 
-#if !NO_STG
         string Language { set; get; }
         string Namespace { set; get; }
         bool Debug { set; }
         Collection<string> CodeBehind { get; set; }
         Collection<string> ImportNamespaces { get; set; }
         Collection<string> AssemblyReferences { get; set; }
-#endif
     }
 
     internal enum GrammarType

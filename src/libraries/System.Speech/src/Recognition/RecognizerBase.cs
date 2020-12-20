@@ -29,9 +29,7 @@ namespace System.Speech.Recognition
 {
     /// TODOC <_include file='doc\RecognizerBase.uex' path='docs/doc[@for="RecognizerBase"]/*' />
     internal class RecognizerBase : IRecognizerInternal, IDisposable
-#if !SPEECHSERVER
 , ISpGrammarResourceLoader
-#endif
     {
         //*******************************************************************
         //
@@ -504,9 +502,7 @@ namespace System.Speech.Recognition
             _sapiRecognizer = recognizer;
             _inproc = inproc;
 
-#if !SPEECHSERVER
             _recoThunk = new RecognizerBaseThunk (this);
-#endif
 
             try
             {
@@ -764,7 +760,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#if !SPEECHSERVER
 
         // Controls whether the recognizer is paused after each recognition.
         // This is always true for the SpeechRecognitionEngine and is customizable {default false} for the SpeechRecognizer.
@@ -789,7 +784,6 @@ namespace System.Speech.Recognition
                 }
             }
         }
-#endif
 
         /// <summary>
         /// Set the current input for the recognizer to a file
@@ -1059,7 +1053,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#if !SPEECHSERVER
 
         internal RecognizerState State
         {
@@ -1113,7 +1106,6 @@ namespace System.Speech.Recognition
                 }
             }
         }
-#endif
 
         // Gives access to the collection of grammars that are currently active. Read-only.
         /// TODOC <_include file='doc\RecognizerBase.uex' path='docs/doc[@for="RecognizerBase.Grammars"]/*' />
@@ -1554,7 +1546,6 @@ namespace System.Speech.Recognition
                 }
             }
 
-#if !SPEECHSERVER
 
             // For dictation grammar, pass the Uri to SAPI.
             // For anything else, load it locally to figure out if it is a
@@ -1565,11 +1556,9 @@ namespace System.Speech.Recognition
                 LoadSapiDictationGrammar (sapiGrammar, grammar.Uri, grammar.RuleName, enabled, weight, priority);
                 return;
             }
-#endif
             LoadSapiGrammarFromCfg (sapiGrammar, grammar, baseUri, enabled, weight, priority);
         }
 
-#if !SPEECHSERVER
 
         // Actually load the uri into the sapiGrammar. This does not touch the Grammar object or InternalGrammarData.
         // This must be called on a new SapiGrammar that does not already have a grammar loaded {for SetSapiGrammarProperties}.
@@ -1613,9 +1602,7 @@ namespace System.Speech.Recognition
             SetSapiGrammarProperties (sapiGrammar, uri, ruleName, enabled, weight, priority);
         }
 
-#endif
 
-#if !SPEECHSERVER
 
         #region Resource loader implementation
 
@@ -1726,7 +1713,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-#endif
 
         // Actually load the stream into the sapiGrammar. This does not touch the Grammar object or InternalGrammarData.
         // This must be called on a new SapiGrammar that does not already have a grammar loaded {for SetSapiGrammarProperties}.
@@ -1745,7 +1731,6 @@ namespace System.Speech.Recognition
                 {
                     _loadException = null;
                     _topLevel = grammar;
-#if !SPEECHSERVER
                     // TODO jeanfp remove this limitation
                     if (_inproc)
                     {
@@ -1754,7 +1739,6 @@ namespace System.Speech.Recognition
 
                         sapiGrammar.SetGrammarLoader ((ISpGrammarResourceLoader) _recoThunk);
                     }
-#endif
                     sapiGrammar.LoadCmdFromMemory2 (dataPtr, SPLOADOPTIONS.SPLO_STATIC, null, baseUri == null ? null : baseUri.ToString ());
                 }
                 else
@@ -2356,12 +2340,8 @@ namespace System.Speech.Recognition
                 }
                 else
                 {
-#if !SPEECHSERVER
                     SapiContext.Bookmark (SPBOOKMARKOPTIONS.SPBO_PAUSE,
                         TimeSpanToStreamPosition (initialSilenceTimeout), new IntPtr ((int) _initialSilenceBookmarkId));
-#else
-                    System.Diagnostics.Debug.Assert (false, "Engine Not Supported");
-#endif
                 }
                 _detectingInitialSilenceTimeout = true;
             }
@@ -2396,12 +2376,8 @@ namespace System.Speech.Recognition
                 }
                 else
                 {
-#if !SPEECHSERVER
                     SapiContext.Bookmark (SPBOOKMARKOPTIONS.SPBO_NONE,
                         TimeSpanToStreamPosition (babbleTimeout) + speechEvent.AudioStreamOffset, new IntPtr ((int) _babbleBookmarkId));
-#else
-                    System.Diagnostics.Debug.Assert (false, "Engine Not Supported");
-#endif
                 }
                 _detectingBabbleTimeout = true;
             }
@@ -2742,11 +2718,7 @@ namespace System.Speech.Recognition
             // Now create a RecognitionResult.
             // For normal recognitions and false recognitions this will have all the information in it.
             // For a false recognition with no phrase the result should still be valid, just empty.
-#if SPEECHSERVER
-            recoResult = new RecognitionResult (this, serializedBlob);
-#else
             recoResult = new RecognitionResult (this, sapiResult, serializedBlob, MaxAlternates);
-#endif
 
             return recoResult;
         }
@@ -2813,7 +2785,6 @@ namespace System.Speech.Recognition
             return formatInfo;
         }
 
-#if !SPEECHSERVER
 
         // Convert a TimeSpan such as initialSilenceTimeout to a byte offset using the
         // curretn audio format. This should only needed if not using SAPI 5.3.
@@ -2822,7 +2793,6 @@ namespace System.Speech.Recognition
             return (ulong) (time.Ticks * AudioFormat.AverageBytesPerSecond) / TimeSpan.TicksPerSecond;
         }
 
-#endif
         // Converts COM errors returned by SPEI_END_SR_STREAM or SetRecoState to an appropriate .NET exception.
         private static void ThrowIfSapiErrorCode (SAPIErrorCodes errorCode)
         {
@@ -3280,12 +3250,9 @@ namespace System.Speech.Recognition
 
         private TimeSpan _defaultTimeout = TimeSpan.FromSeconds (30);
 
-#if !SPEECHSERVER
         private RecognizerBaseThunk _recoThunk;
-#endif
         #endregion
 
-#if !SPEECHSERVER
         private class RecognizerBaseThunk : ISpGrammarResourceLoader
         {
             internal RecognizerBaseThunk (RecognizerBase recognizer)
@@ -3341,7 +3308,6 @@ namespace System.Speech.Recognition
 
             WeakReference _recognizerRef;
         }
-#endif
     }
 
 

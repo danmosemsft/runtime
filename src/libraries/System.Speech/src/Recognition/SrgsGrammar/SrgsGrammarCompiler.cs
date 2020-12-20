@@ -76,7 +76,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             SrgsCompiler.CompileStream (new XmlReader [] { reader }, null, outputStream, true, null, null, null);
         }
 
-#if !NO_STG
 
         /// <summary>
         /// Compiles a grammar to a file
@@ -146,7 +145,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             SrgsCompiler.CompileStream (new XmlReader [] { reader }, outputPath, null, false, null, referencedAssemblies, keyFile);
         }
 
-#endif
 
         #endregion
 

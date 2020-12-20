@@ -122,7 +122,6 @@ namespace System.Speech.Internal.SrgsParser
                 IRule rule = ParseRule (grammar, srgsRule);
                 rule.PostParse (grammar);
             }
-#if !NO_STG
             grammar.AssemblyReferences = source.AssemblyReferences;
             grammar.CodeBehind = source.CodeBehind;
             grammar.Debug = source.Debug;
@@ -132,7 +131,6 @@ namespace System.Speech.Internal.SrgsParser
 
             // if add the content to the generic _scrip
             _parser.AddScript (grammar, source.Script, null, -1);
-#endif
             // Finish all initialisation - should check for the Root and the all
             // rules are defined
             grammar.PostParse (null);
@@ -147,14 +145,9 @@ namespace System.Speech.Internal.SrgsParser
         private IRule ParseRule (IGrammar grammar, SrgsRule srgsRule)
         {
             string id = srgsRule.Id;
-#if !NO_STG
             bool hasScript = srgsRule.OnInit != null || srgsRule.OnParse != null || srgsRule.OnError != null || srgsRule.OnRecognition != null;
-#else
-            bool hasScript = false;
-#endif
             IRule rule = grammar.CreateRule (id, srgsRule.Scope == SrgsRuleScope.Public ? RulePublic.True : RulePublic.False, srgsRule.Dynamic, hasScript);
 
-#if !NO_STG
             
             if (srgsRule.OnInit != null)
             {
@@ -183,7 +176,6 @@ namespace System.Speech.Internal.SrgsParser
             }
             
             rule.BaseClass = srgsRule.BaseClass;
-#endif
 
             foreach (SrgsElement srgsElement in GetSortedTagElements (srgsRule.Elements))
             {

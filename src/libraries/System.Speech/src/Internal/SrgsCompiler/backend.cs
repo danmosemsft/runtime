@@ -118,13 +118,11 @@ namespace System.Speech.Internal.SrgsCompiler
                 }
             }
 
-#if !NO_STG
             // Write the method names as symbols
             foreach (ScriptRef script in _scriptRefs)
             {
                 _symbols.Add (script._sMethod, out script._idSymbol);
             }
-#endif
             // get the header
             CfgGrammar.CfgSerializedHeader header = BuildHeader (sortedStates, cBasePath, unchecked ((UInt16) semanticInterpretationGlobals), out cArcs, out pWeights);
             streamBuffer.WriteStream (header);
@@ -209,7 +207,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 tag.Serialize (streamBuffer);
             }
 
-#if !NO_STG
             // Write the script references and the IL write after the header so getting it for the grammar
             // Does not require a seek to the end of the file
             System.Diagnostics.Debug.Assert (header.pScripts == 0 || streamBuffer.Stream.Position - startStreamPostion == header.pScripts);
@@ -230,7 +227,6 @@ namespace System.Speech.Internal.SrgsCompiler
             {
                 streamBuffer.Stream.Write (_pdb, 0, _pdb.Length);
             }
-#endif
         }
 
         /// <summary>
@@ -890,7 +886,6 @@ namespace System.Speech.Internal.SrgsCompiler
         /// </summary>
         /// <param name="streamHelper"></param>
 
-#if true
         internal void InitFromBinaryGrammar (StreamMarshaler streamHelper)
         {
             //CfgGrammar.TraceInformation ("BackEnd::InitFromBinaryGrammar");
@@ -1173,14 +1168,11 @@ namespace System.Speech.Internal.SrgsCompiler
             }
 
             header.GrammarOptions = _grammarOptions | ((_alphabet == AlphabetType.Sapi) ? 0 : GrammarOptions.IpaPhoneme);
-#if !NO_STG
             header.GrammarOptions |= _scriptRefs.Count > 0 ? GrammarOptions.STG | GrammarOptions.KeyValuePairSrgs : 0;
-#endif
             header.GrammarMode = (uint) _grammarMode;
             header.cTags = cSemanticTags;
             header.tags = ulOffset;
             ulOffset += (uint) (cSemanticTags * Marshal.SizeOf (typeof (CfgSemanticTag)));
-#if !NO_STG
             header.cScripts = _scriptRefs.Count;
             header.pScripts = header.cScripts > 0 ? ulOffset : 0;
             ulOffset += (uint) (_scriptRefs.Count * Marshal.SizeOf (typeof (CfgScriptRef)));
@@ -1190,7 +1182,6 @@ namespace System.Speech.Internal.SrgsCompiler
             header.cPDB = _pdb != null ? _pdb.Length : 0;
             header.pPDB = header.cPDB > 0 ? ulOffset : 0;
             ulOffset += (uint) (header.cPDB * Marshal.SizeOf (typeof (byte)));
-#endif
             header.ulTotalSerializedSize = ulOffset;
             return header;
         }
@@ -1249,7 +1240,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
             return header;
         }
-#endif
 
         private Rule CloneState (State srcToState, List<State> CloneStack, Dictionary<State, State> srcToDestHash)
         {
@@ -1576,7 +1566,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if !NO_STG
 
         internal Collection<ScriptRef> ScriptRefs
         {
@@ -1601,7 +1590,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 _pdb = value;
             }
         }
-#endif
 
         #endregion
 
@@ -1635,11 +1623,7 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private Rule _rootRule;
 
-#if !SPEECHSERVER
         private GrammarOptions _grammarOptions = GrammarOptions.KeyValuePairs;
-#else
-        private GrammarOptions _grammarOptions =  GrammarOptions.W3cV1;
-#endif
 
         // It is used sequentially. So there is no thread issue
         private int _ulRecursiveDepth;
@@ -1669,7 +1653,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private int _cImportedRules;
 
-#if !NO_STG
 
         // List of cd /reference Rule->rule 'on'method-> .Net method
         private Collection<ScriptRef> _scriptRefs = new Collection<ScriptRef> ();
@@ -1679,7 +1662,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         // Grammar debug symbols
         private byte [] _pdb;
-#endif
 
         private bool _fLoadedFromBinary;
 

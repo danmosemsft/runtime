@@ -1,4 +1,4 @@
-﻿// <copyright file="IOneOf.cs" company="Microsoft">
+// <copyright file="IOneOf.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

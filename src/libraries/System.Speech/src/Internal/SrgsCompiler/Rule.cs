@@ -115,16 +115,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
             else
             {
-#if false
-				//TODO
-				// NTRAID#SPEECH-7350-2000/08/24-philsch: fix and reenable it for RELEASE (RAID 3634)
-				// Detect an epsilon path through the grammar
-				// Mark the rule as fHasDynamicRef if it does
-				if (!(fImport || fDynamic))
-				{
-					return m_pFirstState->CheckEpsilonRule();
-				}
-#endif
                 _fHasDynamicRef = _cfgRule.Dynamic;
             }
         }
@@ -208,13 +198,11 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if !NO_STG
 
         void IRule.CreateScript (IGrammar grammar, string rule, string method, RuleMethodScript type)
         {
             ((GrammarElement) grammar).CustomGrammar._scriptRefs.Add (new ScriptRef (rule, method, type));
         }
-#endif
 
         #endregion
 
@@ -234,7 +222,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if !NO_STG
 
         string IRule.BaseClass
         {
@@ -272,7 +259,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#endif
 
         #endregion
 
@@ -373,14 +359,12 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private string _id;
 
-#if !NO_STG
         // STG fields
         private string _baseclass;
 
         private StringBuilder _script = new StringBuilder ();
 
         private StringBuilder _constructors = new StringBuilder ();
-#endif
 
         #endregion
     }

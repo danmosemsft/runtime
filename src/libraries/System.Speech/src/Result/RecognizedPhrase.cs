@@ -431,12 +431,6 @@ namespace System.Speech.Recognition
 
         internal string SmlContent
         {
-#if SPEECHSERVER
-            set
-            {
-                _smlContent = value;
-            }
-#endif
             get
             {
                 if (_smlContent == null)
@@ -495,10 +489,8 @@ namespace System.Speech.Recognition
 
                         // Recursively build the dictionary of properties
                         _semantics = RecursiveBuildSemanticProperties (words, propertyList, ruleTree, _grammarOptions & GrammarOptions.TagFormat, ref _dupItems);
-#if !NO_STG
                         // Delay the call to TryExecuteOnRecognition until the _semantics has been set
                         _semantics.Value = TryExecuteOnRecognition (grammar, _recoResult, ruleTree._rule);
-#endif
                     }
                 }
                 finally
@@ -590,7 +582,6 @@ namespace System.Speech.Recognition
                 }
             }
 
-#if !NO_STG
 
             Exception exceptionThrown = null;
 
@@ -610,7 +601,6 @@ namespace System.Speech.Recognition
                 semanticValue.Value = newValue;
                 semanticValue._valueFieldSet = true;
             }
-#endif
 
             return semanticValue;
         }
@@ -821,13 +811,11 @@ namespace System.Speech.Recognition
 
             // find the grammar for this rule. If the grammar does not belong to any existing ruleref then
             // it must be local.
-#if !NO_STG
             Grammar ruleRef = grammar != null ? grammar.Find (name) : null;
             if (ruleRef != null)
             {
                 grammar = ruleRef;
             }
-#endif
             RuleNode node = new RuleNode (grammar, name, rule.SREngineConfidence, rule.ulFirstElement,rule.ulCountOfElements);
 
             if (rule.NextSiblingOffset > 0)
@@ -880,7 +868,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#if !NO_STG
 
         static private bool TryExecuteOnParse (RuleNode ruleRef, SemanticValue value, IList<RecognizedWordUnit> words, out object newValue, ref Exception exceptionThrown)
         {
@@ -1064,9 +1051,7 @@ namespace System.Speech.Recognition
             return resultValue;
         }
 
-#endif
 
-#if !SPEECHSERVER
         static private void GetRuleInstance (Grammar grammar, string rule, string method, out MethodInfo onParse, out Grammar ruleInstance)
         {
             Type grammarType = grammar.GetType ();
@@ -1093,7 +1078,6 @@ namespace System.Speech.Recognition
             }
             return null;
         }
-#endif
 
         static private int NextReplacementWord (Collection<ReplacementText> replacements, out ReplacementText replacement, ref int posInCollection)
         {

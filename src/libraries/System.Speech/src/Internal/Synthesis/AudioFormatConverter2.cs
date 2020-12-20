@@ -110,28 +110,6 @@ namespace System.Speech.Internal.Synthesis
             return cnvDlgt (data, data.Length);
         }
 
-#if SPEECHSERVER
-        /// <summary>
-        /// Provides a bit rate for specified codec.
-        /// </summary>
-        /// <param name="codec">Audio format.</param>
-        /// <returns>Bit rate (bytes per ms).</returns>
-        internal static int GetRate (AudioCodec codec)
-        {
-            switch (codec)
-            {
-                case AudioCodec.G711U:
-                case AudioCodec.G711A:
-                case AudioCodec.PCM8:
-                    return 8;
-                case AudioCodec.PCM16:
-                    return 16;
-            }
-
-            throw new ArgumentException (SR.Get(SRID.AudioDeviceFormatError), "codec");
-        }
-
-#endif
         internal static AudioCodec TypeOf (WAVEFORMATEX format)
         {
             AudioCodec codec = AudioCodec.Undefined;
@@ -283,49 +261,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
 
-#if false // keep for reference
-
-        /// <summary>
-        /// This routine converts from ULaw to 16 bit linear.
-        /// 
-        /// Craig Reese: IDA/Supercomputing Research Center
-        /// 29 September 1989
-        /// 
-        /// References:
-        /// 1) CCITT Recommendation G.711  (very difficult to follow)
-        /// 2) MIL-STD-188-113,"Interoperability and Performance Standards
-        ///    for Analog-to_Digital Conversion Techniques,"
-        ///    17 February 1987
-        /// </summary>
-        /// <param name="data">Array of 8 bit ULaw samples.</param>
-        /// <param name="size">Size of the data in the array.</param>
-        /// <returns>New buffer of signed 16 bit linear samples</returns>
-        static internal short [] ConvertULaw2Linear (byte [] data, int size)
-        {
-            short [] newData = new short [size];
-            for (int i = 0; i < size; i++)
-            {
-                int sign, exponent, mantissa, sample;
-                byte ULawbyte;
-
-                unchecked
-                {
-                    ULawbyte = (byte) (~data [i]);
-                }
-
-                sign = (ULawbyte & 0x80);
-                exponent = (ULawbyte >> 4) & 0x07;
-                mantissa = ULawbyte & 0x0F;
-                sample = exp_lut_ulaw2linear [exponent] + (mantissa << (exponent + 3));
-                if (sign != 0) sample = -sample;
-
-                newData [i] = (short) (sample & 0xFFFF);
-            }
-
-            return newData;
-        }
-
-#endif
 
         #endregion
 
@@ -435,56 +370,6 @@ namespace System.Speech.Internal.Synthesis
             return table;
         }
 
-#if false // kept here for reference
-        /// <summary>
-        /// This routine converts from ALaw to linear.
-        /// 
-        /// Craig Reese: IDA/Supercomputing Research Center
-        /// Joe Campbell: Department of Defense
-        /// 29 September 1989
-        /// 
-        /// References:
-        /// 1) CCITT Recommendation G.711  (very difficult to follow)
-        /// 2) "A New Digital Technique for Implementation of Any
-        ///     Continuous PCM Companding Law," Villeret, Michel,
-        ///     et al. 1973 IEEE Int. Conf. on Communications, Vol 1,
-        ///     1973, pg. 11.12-11.17
-        /// 3) MIL-STD-188-113,"Interoperability and Performance Standards
-        ///     for Analog-to_Digital Conversion Techniques,"
-        ///     17 February 1987
-        /// </summary>
-        /// <param name="data">Array of 8 bit ALaw samples.</param>
-        /// <param name="size">Size of the data in the array.</param>
-        /// <returns>New buffer of signed 16 bit linear samples.</returns>
-        static internal short [] BuildALawTable (byte [] data, int size)
-        {
-            short [] newData = new short [size];
-            for (int i = 0; i < size; i++)
-            {
-                int sign, exponent, mantissa, sample;
-                byte ALawbyte = data [i];
-                ALawbyte ^= 0x55;
-                sign = (ALawbyte & 0x80);
-                ALawbyte &= 0x7f;     // get magnitude 
-                if (ALawbyte >= 16)
-                {
-                    exponent = (ALawbyte >> 4) & 0x07;
-                    mantissa = ALawbyte & 0x0F;
-                    sample = exp_lut_alaw2linear [exponent] + (mantissa << (exponent + 3));
-                }
-                else
-                {
-                    sample = (ALawbyte << 4) + 8;
-                }
-                if (sign == 0) sample = -sample;
-
-                newData [i] = unchecked ((short) sample);
-            }
-
-            return newData;
-        }
-
-#endif
         #endregion
 
         #region PCM to PCM
@@ -623,10 +508,6 @@ namespace System.Speech.Internal.Synthesis
             7,7,7,7,7,7,7,7 ,7 ,7 ,7 ,7 ,7 ,7,7,7
         };
 
-#if false // keep for reference
-        static private int [] exp_lut_alaw2linear = new int [8] { 0 , 264 , 528 , 1056 , 2112 , 4224 , 8448, 16896 };
-        static private int [] exp_lut_ulaw2linear = new int [8] { 0 , 132 , 396 , 924 , 1980 , 4092 , 8316, 16764 };
-#endif
 
         #endregion
 
@@ -710,59 +591,6 @@ namespace System.Speech.Internal.Synthesis
             944,   912,  1008,   976,   816,   784,   880,   848
         };
 
-#if false // keep for reference
-
-        #region Conversion tables between ALaw and ULaw
-        /// <summary>
-        /// copy from CCITT G.711 specifications:
-        /// u- to ALaw conversions 
-        /// </summary>
-        static private byte [] s_U2A = new byte [128] 
-        {
-            1,  1,  2,  2,  3,  3,  4,  4,
-            5,  5,  6,  6,  7,  7,  8,  8,
-            9,  10, 11, 12, 13, 14, 15, 16,
-            17, 18, 19, 20, 21, 22, 23, 24,
-            25, 27, 29, 31, 33, 34, 35, 36,
-            37, 38, 39, 40, 41, 42, 43, 44,
-            46, 48, 49, 50, 51, 52, 53, 54,
-            55, 56, 57, 58, 59, 60, 61, 62,
-            64, 65, 66, 67, 68, 69, 70, 71,
-            72, 73, 74, 75, 76, 77, 78, 79,
-            81, 82, 83, 84, 85, 86, 87, 88,
-            89, 90, 91, 92, 93, 94, 95, 96,
-            97, 98, 99, 100, 101, 102, 103, 104,
-            105, 106, 107, 108, 109, 110, 111, 112,
-            113, 114, 115, 116, 117, 118, 119, 120,
-            121, 122, 123, 124, 125, 126, 127, 128
-        };
-
-        /// <summary>
-        /// copy from CCITT G.711 specifications:
-        /// A- to ULaw conversions
-        /// </summary>
-        static private byte [] s_A2U = new byte [128]
-        {            
-            1,  3,  5,  7,  9,  11, 13, 15,
-            16, 17, 18, 19, 20, 21, 22, 23,
-            24, 25, 26, 27, 28, 29, 30, 31,
-            32, 32, 33, 33, 34, 34, 35, 35,
-            36, 37, 38, 39, 40, 41, 42, 43,
-            44, 45, 46, 47, 48, 48, 49, 49,
-            50, 51, 52, 53, 54, 55, 56, 57,
-            58, 59, 60, 61, 62, 63, 64, 64,
-            65, 66, 67, 68, 69, 70, 71, 72,
-            73, 74, 75, 76, 77, 78, 79, 79,
-            80, 81, 82, 83, 84, 85, 86, 87,
-            88, 89, 90, 91, 92, 93, 94, 95,
-            96, 97, 98, 99, 100, 101, 102, 103,
-            104, 105, 106, 107, 108, 109, 110, 111,
-            112, 113, 114, 115, 116, 117, 118, 119,
-            120, 121, 122, 123, 124, 125, 126, 127
-        };
-        #endregion
-        
-#endif
 
         #endregion
 

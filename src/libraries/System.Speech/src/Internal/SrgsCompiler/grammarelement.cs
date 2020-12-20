@@ -1,4 +1,4 @@
-﻿// <copyright file="GrammarElement.cs" company="Microsoft">
+// <copyright file="GrammarElement.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //
@@ -28,16 +28,10 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #region Constructors
 
-#if !NO_STG
         internal GrammarElement (Backend backend, CustomGrammar cg)
             : base (null)
         {
             _cg = cg;
-#else
-        internal GrammarElement (Backend backend)
-            : base (null)
-        {
-#endif
             _backend = backend;
         }
 
@@ -96,13 +90,11 @@ namespace System.Speech.Internal.SrgsCompiler
             // Create rule with specified attributes
             Rule rule = GetRule (id, dwRuleAttributes);
 
-#if !NO_STG
             // Add this rule to the list of rules of the STG list
             if (publicRule == RulePublic.True || id == _sRoot || hasScript)
             {
                 _cg._rules.Add (rule);
             }
-#endif
             return (IRule) rule;
         }
 
@@ -121,17 +113,14 @@ namespace System.Speech.Internal.SrgsCompiler
                 XmlParser.ThrowSrgsException (SRID.UndefRuleRef, rule.Name);
             }
 
-#if !NO_STG
             // SAPI semantics only for .Net Semantics
             bool containsCode = ((IGrammar) this).CodeBehind.Count > 0 || ((IGrammar) this).ImportNamespaces.Count > 0 || ((IGrammar) this).AssemblyReferences.Count > 0 || CustomGrammar._scriptRefs.Count > 0;
             if (containsCode && ((IGrammar) this).TagFormat != System.Speech.Recognition.SrgsGrammar.SrgsTagFormat.KeyValuePairs)
             {
                 XmlParser.ThrowSrgsException (SRID.InvalidSemanticProcessingType);
             }
-#endif
         }
 
-#if !NO_STG
 
         internal void AddScript (string name, string code)
         {
@@ -145,7 +134,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#endif
         #endregion
 
         //*******************************************************************
@@ -254,7 +242,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if !NO_STG
 
         /// |summary|
         /// language
@@ -350,7 +337,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#endif
         #endregion
 
         //*******************************************************************
@@ -423,11 +409,9 @@ namespace System.Speech.Internal.SrgsCompiler
         // Collection of defined rules
         private List<Rule> _rules = new List<Rule> ();
 
-#if !NO_STG
 
         private CustomGrammar _cg;
 
-#endif 
 
         private string _sRoot;
 

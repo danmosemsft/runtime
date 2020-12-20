@@ -41,9 +41,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         internal Arc ()
         {
-#if VIEW_STATS
-            GrammarBackEnd._cArcs++;
-#endif
         }
 
         internal Arc (Arc arc)

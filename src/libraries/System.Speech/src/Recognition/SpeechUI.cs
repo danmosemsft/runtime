@@ -4,7 +4,6 @@
 // </copyright>
 //------------------------------------------------------------------
 
-#if !SPEECHSERVER
 
 using System.Speech.Internal;
 
@@ -27,4 +26,3 @@ namespace System.Speech.Recognition
       }
     }
 }
-#endif

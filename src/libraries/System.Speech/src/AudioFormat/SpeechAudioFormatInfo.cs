@@ -14,11 +14,7 @@ namespace System.Speech.AudioFormat
     /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo"]/*' />
 
     [Serializable]
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  class SpeechAudioFormatInfo
     {
 
@@ -201,7 +197,6 @@ namespace System.Speech.AudioFormat
         //*******************************************************************
 
         #region Internal Methods
-#if !SPEECHSERVER
         internal byte [] WaveFormat
         {
             get
@@ -226,7 +221,6 @@ namespace System.Speech.AudioFormat
                 return abWfx;
             }
         }
-#endif
         #endregion
 
         //*******************************************************************
@@ -260,11 +254,7 @@ namespace System.Speech.AudioFormat
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
  enum AudioChannel
     {
         /// <summary>
@@ -280,11 +270,7 @@ namespace System.Speech.AudioFormat
     /// <summary>
     /// TODOC
     /// </summary>
-#if !SPEECHSERVER
     public
-#else
-    internal 
-#endif
  enum AudioBitsPerSample
     {
         /// <summary>

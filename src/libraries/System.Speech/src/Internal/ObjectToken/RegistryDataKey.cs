@@ -22,17 +22,9 @@ using System.Reflection;
 
 #pragma warning disable 1634, 1691 // Allows suppression of certain PreSharp messages.
 
-#if SERVERTESTDLL
-using Microsoft.Speech.Internal.SapiInterop;
-#else // SERVERTESTDLL
 using System.Speech.Internal.SapiInterop;
-#endif // SERVERTESTDLL
 
-#if SERVERTESTDLL
-namespace Microsoft.Speech.Internal.ObjectTokens
-#else
 namespace System.Speech.Internal.ObjectTokens
-#endif
 {
     /// <summary>
     /// Summary description for SpRegDataKey.
@@ -625,9 +617,7 @@ namespace System.Speech.Internal.ObjectTokens
                 Registry.ClassesRoot,
                 Registry.LocalMachine,
                 Registry.CurrentUser
-#if !_WIN32_WCE
                 , Registry.CurrentConfig
-#endif // _WIN32_WCE
             };
 
             foreach (RegistryKey key in roots)

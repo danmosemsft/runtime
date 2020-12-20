@@ -4,7 +4,6 @@
 // </copyright>
 //---------------------------------------------------------------------------
 
-#if !SPEECHSERVER
 
 using System;
 using System.Diagnostics;
@@ -99,4 +98,3 @@ namespace System.Speech.Recognition
     }
 }
 
-#endif

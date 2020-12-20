@@ -60,7 +60,6 @@ namespace System.Speech.Recognition
             }
             _attributes = new ReadOnlyDictionary<string, string>(attrs);
 
-#if !SPEECHSERVER
             string audioFormats;
             if (token.Attributes.TryGetString ("AudioFormats", out audioFormats))
             {
@@ -71,7 +70,6 @@ namespace System.Speech.Recognition
                 _supportedAudioFormats = new ReadOnlyCollection<SpeechAudioFormatInfo> (new List<SpeechAudioFormatInfo> ());
             }
 
-#endif
             _objectToken = token;
         }
 
@@ -156,14 +154,12 @@ namespace System.Speech.Recognition
             get { return _culture; }
         }
 
-#if !SPEECHSERVER
 
         /// TODOC <_include file='doc\RecognizerInfo.uex' path='docs/doc[@for="RecognizerInfo.SupportedAudioFormats"]/*' />
         public ReadOnlyCollection<SpeechAudioFormatInfo> SupportedAudioFormats
         {
             get { return _supportedAudioFormats; }
         }
-#endif
 
         /// TODOC <_include file='doc\RecognizerInfo.uex' path='docs/doc[@for="RecognizerInfo.AdditionalInfo"]/*' />
         public IDictionary<string, string> AdditionalInfo
@@ -203,9 +199,7 @@ namespace System.Speech.Recognition
         private string _sapiObjectTokenId;
         private CultureInfo _culture;
 
-#if !SPEECHSERVER
         private ReadOnlyCollection<SpeechAudioFormatInfo> _supportedAudioFormats;
-#endif
 
         private ObjectToken _objectToken;
 

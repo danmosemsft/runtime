@@ -336,10 +336,8 @@ namespace System.Speech.Internal.SrgsParser
         private void ParseGrammar (XmlReader reader, IGrammar grammar)
         {
             string sAlphabet = null;
-#if !NO_STG
             string sLanguage = null;
             string sNamespace = null;
-#endif
             string sVersion = null;
             GrammarType grammarType = GrammarType.VoiceGrammar;
 
@@ -381,12 +379,6 @@ namespace System.Speech.Internal.SrgsParser
                                         _hasTagFormat = true;
                                         break;
 
-#if SPEECHSERVER
-                                    case "semantics/1.0-literals":
-                                        grammar.TagFormat = SrgsTagFormat.W3cV1;
-                                        _w3c_literal = _hasTagFormat = true;
-                                        break;
-#endif
                                     case "semantics-ms/1.0":
                                         grammar.TagFormat = SrgsTagFormat.MssV1;
                                         _hasTagFormat = true;
@@ -488,7 +480,6 @@ namespace System.Speech.Internal.SrgsParser
                                 }
                                 break;
 
-#if !NO_STG
                             case "language":
                                 CheckForDuplicates (ref sLanguage, reader);
                                 if (sLanguage == "C#" || sLanguage == "VB.Net")
@@ -525,7 +516,6 @@ namespace System.Speech.Internal.SrgsParser
                                     grammar.Debug = f;
                                 }
                                 break;
-#endif
                             default:
                                 isInvalidAttribute = true;
                                 break;
@@ -563,13 +553,11 @@ namespace System.Speech.Internal.SrgsParser
             // Validate all the scripts elements
             ValidateScripts ();
 
-#if !NO_STG
             // Add all the scripts to the rules
             foreach (ForwardReference script in _scripts)
             {
                 _parser.AddScript (grammar, script._name, script._value);
             }
-#endif
             // Finish all initialisation - should check for the Root and the all
             // rules are defined
             grammar.PostParse (null);
@@ -585,13 +573,11 @@ namespace System.Speech.Internal.SrgsParser
             RulePublic publicRule = RulePublic.NotSet;
             RuleDynamic ruleDynamic = RuleDynamic.NotSet;
 
-#if !NO_STG
             string sBaseClass = null;
             string sInit = null;
             string sParse = null;
             string sError = null;
             string sRecognition = null;
-#endif
 
             while (reader.MoveToNextAttribute ())
             {
@@ -651,7 +637,6 @@ namespace System.Speech.Internal.SrgsParser
                                 }
                                 break;
 
-#if !NO_STG
                             case "baseclass":
                                 CheckForDuplicates (ref sBaseClass, reader);
                                 if (string.IsNullOrEmpty (sBaseClass))
@@ -678,7 +663,6 @@ namespace System.Speech.Internal.SrgsParser
                             case "onRecognition":
                                 CheckForDuplicates (ref sRecognition, reader);
                                 break;
-#endif
                             default:
                                 isInvalidAttribute = true;
                                 break;
@@ -696,7 +680,6 @@ namespace System.Speech.Internal.SrgsParser
                 ThrowSrgsException (SRID.NoRuleId);
             }
 
-#if !NO_STG
             if (sInit != null && publicRule != RulePublic.True)
             {
                 XmlParser.ThrowSrgsException (SRID.OnInitOnPublicRule, "OnInit", id);
@@ -733,11 +716,6 @@ namespace System.Speech.Internal.SrgsParser
             }
 
             rule.BaseClass = sBaseClass;
-#else
-            ValidateRuleId (id);
-
-            IRule rule = grammar.CreateRule (id, publicRule, ruleDynamic, false);
-#endif
             _rules.Add (id);
 
             if (!ProcessChildNodes (reader, rule, rule, "rule"))
@@ -810,7 +788,6 @@ namespace System.Speech.Internal.SrgsParser
                         }
                         break;
 
-#if !NO_STG
                     case sapiNamespace:
                         switch (reader.LocalName)
                         {
@@ -827,7 +804,6 @@ namespace System.Speech.Internal.SrgsParser
                                 break;
                         }
                         break;
-#endif
 
                     default:
                         isInvalidAttribute = true;
@@ -1154,13 +1130,6 @@ namespace System.Speech.Internal.SrgsParser
             {
                 ISemanticTag semanticTag = _parser.CreateSemanticTag (parent);
 
-#if SPEECHSERVER
-                // For semantic interpretation literal, surround the content of the tag bu "out="
-                if (_w3c_literal)
-                {
-                    content = string.Format (CultureInfo.InvariantCulture, "out=\"{0}\";", content);
-                }
-#endif
                 semanticTag.Content (parent, content, 0);
                 return semanticTag;
             }
@@ -1299,7 +1268,6 @@ namespace System.Speech.Internal.SrgsParser
             }
         }
 
-#if !NO_STG
 
         private void ParseScript (XmlReader reader, IGrammar grammar)
         {
@@ -1399,7 +1367,6 @@ namespace System.Speech.Internal.SrgsParser
                 }
             }
         }
-#endif
 
         private bool ProcessChildNodes (XmlReader reader, IElement parent, IRule rule, string parentName)
         {
@@ -1699,7 +1666,6 @@ namespace System.Speech.Internal.SrgsParser
                             case sapiNamespace:
                                 switch (reader.LocalName)
                                 {
-#if !NO_STG
                                     case "script":
                                         ParseScript (reader, grammar);
                                         fProcessedRules = true;
@@ -1714,7 +1680,6 @@ namespace System.Speech.Internal.SrgsParser
                                         ParseImportNamespace (reader, grammar);
                                         fProcessedRules = true;
                                         break;
-#endif
                                     default:
                                         isInvalidNode = true;
                                         break;
@@ -1983,7 +1948,6 @@ namespace System.Speech.Internal.SrgsParser
 
         private void ValidateScripts ()
         {
-#if !NO_STG
             // Check that the rule and methods are defined for a script
             foreach (ForwardReference script in _scripts)
             {
@@ -1992,7 +1956,6 @@ namespace System.Speech.Internal.SrgsParser
                     ThrowSrgsException (SRID.InvalidScriptDefinition, script._name);
                 }
             }
-#endif
             // Validate for unique rule names
             List<string> ruleNames = new List<string> ();
 
@@ -2037,16 +2000,10 @@ namespace System.Speech.Internal.SrgsParser
         // Has the Grammar element a FormatTag
         private bool _hasTagFormat;
 
-#if SPEECHSERVER
-        // Has the Grammar element a FormatTag
-        private bool _w3c_literal;
-#endif
         // All defined rules
         List<string> _rules = new List<string> ();
 
-#if !NO_STG
         List<ForwardReference> _scripts = new List<ForwardReference> ();
-#endif
 
         static private readonly char [] _invalidRuleIdChars = new char [] { '.', ':', '-', '#' };
 

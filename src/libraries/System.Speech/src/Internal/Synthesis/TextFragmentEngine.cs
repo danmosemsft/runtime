@@ -35,9 +35,6 @@ namespace System.Speech.Internal.Synthesis
             _ssmlText = ssmlText;
             _speakInfo = speakInfo;
             _resourceLoader = resourceLoader;
-#if SPEECHSERVER || PROMPT_ENGINE
-            _pexml = pexml;
-#endif
         }
 
         #endregion
@@ -109,16 +106,6 @@ namespace System.Speech.Internal.Synthesis
                 }
 
                 // This checks if we can read the file
-#if SPEECHSERVER || PROMPT_ENGINE
-                if (_cPromptOutput > 0)
-                {
-                    using (AudioData audioData = new AudioData (uri, _resourceLoader))
-                    {
-                        ProcessPromptEngineAudio (voice, uri);
-                    }
-                }
-                else
-#endif
                 {
                     _speakInfo.AddAudio (new AudioData (uri, _resourceLoader));
                 }
@@ -249,77 +236,6 @@ namespace System.Speech.Internal.Synthesis
         {
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        public bool BeginPromptEngineOutput (object voice)
-        {
-            _cPromptOutput++;
-            return AddPromptEngineState (voice, TtsEngineAction.BeginPromptEngineOutput, string.Empty);
-        }
-
-        public void EndPromptEngineOutput (object voice)
-        {
-            _cPromptOutput--;
-            AddPromptEngineState (voice, TtsEngineAction.EndPromptEngineOutput, string.Empty);
-        }
-
-        public bool ProcessPromptEngineDatabase (object voice, string fname, string delta, string idset)
-        {
-            string name = string.Format (CultureInfo.InvariantCulture, "fname= \"{0}\"", !string.IsNullOrEmpty (fname) ? fname : string.Empty);
-            string param1 = !string.IsNullOrEmpty (delta) ? string.Format (CultureInfo.InvariantCulture, "{0} delta= \"{1}\"", name, delta) : name;
-            string param2 = !string.IsNullOrEmpty (idset) ? string.Format (CultureInfo.InvariantCulture, "{0} idset= \"{1}\"", param1, idset) : param1;
-            AddPromptEngineState (voice, TtsEngineAction.PromptEngineDatabase, param2);
-            return true;
-        }
-
-        public bool ProcessPromptEngineAudio (object voice, Uri uri)
-        {
-            AddPromptEngineState (voice, TtsEngineAction.PromptEngineAudio, uri.ToString ());
-            return true;
-        }
-
-        public bool ProcessPromptEngineDiv (object voice)
-        {
-            return true;
-        }
-
-        public bool ProcessPromptEngineId (object voice, string id)
-        {
-            return AddPromptEngineState (voice, TtsEngineAction.PromptEngineId, id);
-        }
-
-        public bool BeginPromptEngineTts (object voice)
-        {
-            _cTts++;
-            return true;
-        }
-
-        public void EndPromptEngineTts (object voice)
-        {
-            _cTts--;
-        }
-
-        public bool BeginPromptEngineWithTag (object voice, string tag)
-        {
-            return AddPromptEngineState (voice, TtsEngineAction.BeginPromptEngineWithTag, tag);
-        }
-
-        public void EndPromptEngineWithTag (object voice, string tag)
-        {
-            AddPromptEngineState (voice, TtsEngineAction.EndPromptEngineWithTag, tag);
-        }
-
-        public bool BeginPromptEngineRule (object voice, string name)
-        {
-            return AddPromptEngineState (voice, TtsEngineAction.BeginPromptEngineRule, name);
-        }
-
-        public void EndPromptEngineRule (object voice, string name)
-        {
-            AddPromptEngineState (voice, TtsEngineAction.EndPromptEngineRule, name);
-        }
-
-#else
 
         public bool BeginPromptEngineOutput (object voice)
         {
@@ -371,7 +287,6 @@ namespace System.Speech.Internal.Synthesis
         public void EndPromptEngineRule (object voice, string name)
         {
         }
-#endif
         #endregion
 
         public void EndElement ()
@@ -410,17 +325,9 @@ namespace System.Speech.Internal.Synthesis
 
         #region Private Methods
 
-#if !(SPEECHSERVER || PROMPT_ENGINE)
         static
-#endif
         private TtsEngineAction ActionTextFragment (TtsEngineAction action)
         {
-#if SPEECHSERVER || PROMPT_ENGINE
-            if (_cTts == 0 && _cPromptOutput > 0 && action == TtsEngineAction.Speak)
-            {
-                action = TtsEngineAction.PromptEngineSpeak;
-            }
-#endif
             return action;
         }
 
@@ -432,19 +339,6 @@ namespace System.Speech.Internal.Synthesis
             fragmentState.Action = action;
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        bool AddPromptEngineState (object voice, TtsEngineAction action, string s)
-        {
-            FragmentState state = new FragmentState ();
-            state.Action = action;
-            state.Prosody = new Prosody ();
-            int textLen = string.IsNullOrEmpty (s) ? 0 : s.Length;
-            _speakInfo.AddPexml ((TTSVoice) voice, new TextFragment (state, s));
-            return _pexml;
-        }
-
-#endif
 
         #endregion
 
@@ -463,13 +357,6 @@ namespace System.Speech.Internal.Synthesis
         bool _sentenceStarted = true;
         ResourceLoader _resourceLoader;
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        bool _pexml;
-        int _cTts;
-        int _cPromptOutput;
-
-#endif
 
         #endregion
 

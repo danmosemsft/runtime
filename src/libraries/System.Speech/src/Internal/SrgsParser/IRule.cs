@@ -1,4 +1,4 @@
-﻿// <copyright file="IRule.cs" company="Microsoft">
+// <copyright file="IRule.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //
@@ -19,11 +19,9 @@ namespace System.Speech.Internal.SrgsParser
 {
     internal interface IRule : IElement
     {
-#if !NO_STG
         string BaseClass { set; get; }
 
         void CreateScript (IGrammar grammar, string rule, string method, RuleMethodScript type);
-#endif
     }
 
     //*******************************************************************

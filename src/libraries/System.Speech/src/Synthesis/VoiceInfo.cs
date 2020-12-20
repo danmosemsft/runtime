@@ -109,7 +109,6 @@ namespace System.Speech.Synthesis
                 _attributes = new ReadOnlyDictionary<string, string>(attrs);
             }
 
-#if !SPEECHSERVER
             string audioFormats;
             if (token.Attributes != null && token.Attributes.TryGetString ("AudioFormats", out audioFormats))
             {
@@ -120,9 +119,6 @@ namespace System.Speech.Synthesis
                 _audioFormats = new ReadOnlyCollection<SpeechAudioFormatInfo> (new List<SpeechAudioFormatInfo> ());
             }
 
-#else
-            _category = token.VoiceCategory;
-#endif
         }
 
 
@@ -164,23 +160,6 @@ namespace System.Speech.Synthesis
             _variant = voiceAlternate + 1;
         }
 
-#if SPEECHSERVER 
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="culture"></param>
-        /// <param name="gender"></param>
-        /// <param name="name"></param>
-        /// <param name="age"></param>
-        internal VoiceInfo (CultureInfo culture, VoiceGender gender, string name, VoiceAge age) : this (culture)
-        {
-            _name = name;
-            _gender = gender;
-            _age = age;
-        }
-
-#endif
 
         #endregion
 
@@ -301,7 +280,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if !SPEECHSERVER
 
         /// <summary>
         /// TODOC
@@ -316,7 +294,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#endif
 
         /// <summary>
         /// TODOC
@@ -411,17 +388,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if SPEECHSERVER
-
-        internal VoiceCategory VoiceCategory
-        {
-            get
-            {
-                return _category;
-            }
-        }
-
-#endif
         #endregion
 
         //*******************************************************************
@@ -460,14 +426,10 @@ namespace System.Speech.Synthesis
         [NonSerialized]
         private ReadOnlyDictionary<string, string> _attributes;
 
-#if !SPEECHSERVER
 
         [NonSerialized]
         private ReadOnlyCollection<SpeechAudioFormatInfo> _audioFormats;
 
-#else
-        VoiceCategory _category;
-#endif
 
         #endregion
     }

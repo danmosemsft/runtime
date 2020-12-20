@@ -655,11 +655,6 @@ namespace System.Speech.Synthesis
                     case SayAs.Telephone:
                         sInterpretAs = "telephone";
                         break;
-#if SPEECHSERVER
-                    case SayAs.Currency:
-                        sInterpretAs = "currency";
-                        break;
-#endif
                 }
 
                 sayAsElement._attributes.Add (new AttributeItem ("interpret-as", sInterpretAs));
@@ -932,11 +927,7 @@ namespace System.Speech.Synthesis
         /// TODOC - Embed SSML into this document. 
         /// </summary>
         /// <param name="ssmlFile"></param>
-#if !SPEECHSERVER
         public
-#else
-        internal
-#endif
  void AppendSsml (Uri ssmlFile)
         {
             Helpers.ThrowIfNull (ssmlFile, "ssmlFile");
@@ -1033,45 +1024,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if SPEECHSERVER
-
-        /// <summary>
-        /// Add a primary prompt database
-        /// </summary>
-        /// <param name="promptDatabase">Uri of the PromptDB</param>
-        public void AddPromptDatabase (Uri promptDatabase)
-        {
-            Helpers.ThrowIfNull (promptDatabase, "promptDatabase");
-
-            _promptDatabaseEntries.Add (new PromptDatabaseEntry (promptDatabase, null));
-        }
-
-        /// <summary>
-        /// Add a primary and delta prompt database
-        /// </summary>
-        /// <param name="primaryDatabase">Uri of the primary DB</param>
-        /// <param name="deltaDatabase">Uri of delta DB</param>
-        public void AddPromptDatabase (Uri primaryDatabase, Uri deltaDatabase)
-        {
-            Helpers.ThrowIfNull (primaryDatabase, "primaryDatabase");
-
-            _promptDatabaseEntries.Add (new PromptDatabaseEntry (primaryDatabase, deltaDatabase));
-        }
-
-        /// <summary>
-        /// Remove a primary and delta prompt database
-        /// </summary>
-        /// <param name="primaryDatabase">Uri of the primary DB</param>
-        /// <param name="deltaDatabase">Uri of delta DB. Pass null if no delta database was specified.</param>
-        /// <remarks>Removes only the first matching instance of the specified primary database or 
-        /// primary/delta pair.</remarks>
-        public void RemovePromptDatabase (Uri primaryDatabase, Uri deltaDatabase)
-        {
-            Helpers.ThrowIfNull (primaryDatabase, "primaryDatabase");
-
-            _promptDatabaseEntries.Remove (new PromptDatabaseEntry (primaryDatabase, deltaDatabase));
-        }
-#endif
 
         #endregion
 
@@ -1102,9 +1054,6 @@ namespace System.Speech.Synthesis
         public 
             CultureInfo Culture
         {
-#if SPEECHSERVER
-            internal
-#endif
             set
             {
                 if (value == null)
@@ -1174,23 +1123,6 @@ namespace System.Speech.Synthesis
             writer.WriteAttributeString ("xmlns", _xmlnsDefault);
             writer.WriteAttributeString ("xml", "lang", null, _culture.Name);
 
-#if SPEECHSERVER
-            if (_promptDatabaseEntries.Count > 0)
-            {
-                writer.WriteAttributeString ("xmlns", "peml", null, _pemlNsDefault);
-                writer.WriteStartElement ("peml", "prompt_output", _pemlNsDefault);
-                foreach (PromptDatabaseEntry promptDatabaseEntry in _promptDatabaseEntries)
-                {
-                    writer.WriteStartElement ("peml", "database", _pemlNsDefault);
-                    writer.WriteAttributeString ("fname", promptDatabaseEntry.PrimaryDatabase.ToString ());
-                    if (null != promptDatabaseEntry.DeltaDatabase)
-                    {
-                        writer.WriteAttributeString ("delta", promptDatabaseEntry.DeltaDatabase.ToString ());
-                    }
-                    writer.WriteEndElement ();
-                }
-            }
-#endif
 
             bool noEndElement = false;
 
@@ -1268,12 +1200,6 @@ namespace System.Speech.Synthesis
             }
 
             writer.WriteEndElement ();
-#if SPEECHSERVER
-            if (_promptDatabaseEntries.Count > 0)
-            {
-                writer.WriteEndElement ();
-            }
-#endif
         }
 
         /// <summary>
@@ -1334,10 +1260,6 @@ namespace System.Speech.Synthesis
 
         private const string _xmlnsDefault = @"http://www.w3.org/2001/10/synthesis";
 
-#if SPEECHSERVER
-        private const string _pemlNsDefault = @"http://schemas.microsoft.com/Speech/2003/03/PromptEngine";
-        private List<PromptDatabaseEntry> _promptDatabaseEntries = new List<PromptDatabaseEntry> ();
-#endif
 
         #endregion
 
@@ -1441,38 +1363,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if SPEECHSERVER
-
-        // Mockup PromptDatabase
-        [Serializable]
-        private struct PromptDatabaseEntry
-        {
-            internal PromptDatabaseEntry (Uri primaryDatabase, Uri deltaDatabase)
-            {
-                _primaryDatabase = primaryDatabase;
-                _deltaDatabase = deltaDatabase;
-            }
-
-            internal Uri PrimaryDatabase
-            {
-                get
-                {
-                    return _primaryDatabase;
-                }
-            }
-
-            internal Uri DeltaDatabase
-            {
-                get
-                {
-                    return _deltaDatabase;
-                }
-            }
-
-            private Uri _primaryDatabase;
-            private Uri _deltaDatabase;
-        }
-#endif
 
         #endregion
     }

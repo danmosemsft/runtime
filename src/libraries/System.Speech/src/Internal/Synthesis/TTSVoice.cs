@@ -101,7 +101,6 @@ namespace System.Speech.Internal.Synthesis
 
         internal byte [] WaveFormat (byte [] targetWaveFormat)
         {
-#if !SPEECHSERVER
             // Get the Wave header if it has not been set by the user
             if (targetWaveFormat == null && _waveFormat == null)
             {
@@ -112,7 +111,6 @@ namespace System.Speech.Internal.Synthesis
                     targetWaveFormat = VoiceInfo.SupportedAudioFormats [0].WaveFormat;
                 }
             }
-#endif
 
             // No input specified and we already got the default
             if (targetWaveFormat == null && _waveFormat != null)

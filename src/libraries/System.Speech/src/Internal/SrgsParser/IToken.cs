@@ -1,4 +1,4 @@
-﻿// <copyright file="IToken.cs" company="Microsoft">
+// <copyright file="IToken.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

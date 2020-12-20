@@ -221,7 +221,7 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if	(CFGDUMP || VSCOMPILE) 
+#if	VSCOMPILE 
 		internal string DumpFlags
 		{
 			get

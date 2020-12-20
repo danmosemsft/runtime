@@ -58,7 +58,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             UriInit (uri, rule, semanticKey, null);
         }
 
-#if !NO_STG
 
         /// TODOC <_include file='doc\RuleRef.uex' path='docs/doc[@for="RuleRef.RuleRef3"]/*' />
         public SrgsRuleRef (Uri uri, string rule, string semanticKey, string parameters)
@@ -68,7 +67,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             UriInit (uri, rule, semanticKey, parameters);
         }
 
-#endif
 
         /// TODOC <_include file='doc\RuleRef.uex' path='docs/doc[@for="RuleRef.RuleRef3"]/*' />
         public SrgsRuleRef (SrgsRule rule)
@@ -78,7 +76,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             _uri = new Uri ("#" + rule.Id, UriKind.Relative);
         }
 
-#if !NO_STG
 
         /// TODOC <_include file='doc\RuleRef.uex' path='docs/doc[@for="RuleRef.RuleRef3"]/*' />
         public SrgsRuleRef (SrgsRule rule, string semanticKey)
@@ -102,7 +99,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             _params = parameters;
         }
 
-#endif
 
         /// <summary>
         /// Special private constructor for Special Rulerefs
@@ -250,9 +246,7 @@ namespace System.Speech.Recognition.SrgsGrammar
         internal override void Validate (SrgsGrammar grammar)
         {
             bool fScript = _params != null || _semanticKey != null;
-#if !NO_STG
             grammar._fContainsCode |= fScript;
-#endif
             grammar.HasSapiExtension |= fScript;
 
             // Validate _uri

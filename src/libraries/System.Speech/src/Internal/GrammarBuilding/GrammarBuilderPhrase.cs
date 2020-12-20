@@ -159,7 +159,7 @@ namespace System.Speech.Internal.GrammarBuilding
         {
             get
             {
-                return "‘" + _phrase + "’";
+                return "ï¿½" + _phrase + "ï¿½";
             }
         }
 

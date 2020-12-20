@@ -4,7 +4,6 @@
 // </copyright>
 //------------------------------------------------------------------
 
-#if !SPEECHSERVER
 
 using System;
 
@@ -126,4 +125,3 @@ namespace System.Speech.Synthesis
     }
 }
 
-#endif

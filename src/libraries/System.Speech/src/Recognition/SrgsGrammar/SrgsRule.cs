@@ -139,7 +139,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if !NO_STG
 
         /// |summary|
         /// classname
@@ -239,7 +238,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#endif
 
         #endregion
 
@@ -275,20 +273,17 @@ namespace System.Speech.Recognition.SrgsGrammar
                         break;
                 }
             }
-#if !NO_STG
             // Write the 'baseclass' attribute
             if (_baseclass != null)
             {
                 writer.WriteAttributeString ("sapi", "baseclass", XmlParser.sapiNamespace, _baseclass);
             }
-#endif
             // Write <rule id="MyRule" sapi:dynamic="true">
             if (_dynamic != RuleDynamic.NotSet)
             {
                 writer.WriteAttributeString ("sapi", "dynamic", XmlParser.sapiNamespace, _dynamic == RuleDynamic.True ? "true" : "false");
             }
 
-#if !NO_STG
             // Write the 'onInit' code snippet
             if (OnInit != null)
             {
@@ -312,7 +307,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             {
                 writer.WriteAttributeString ("sapi", "onRecognition", XmlParser.sapiNamespace, OnRecognition);
             }
-#endif
             // Write <rule> body and footer.
             Type previousElementType = null;
 
@@ -332,14 +326,12 @@ namespace System.Speech.Recognition.SrgsGrammar
 
             writer.WriteEndElement ();
 
-#if !NO_STG
             // Write the <script> elements for the OnParse, OnError and OnRecognition code.
             // At the bottom of the code
             if (HasCode)
             {
                 WriteScriptElement (writer, _script);
             }
-#endif
         }
 
         // Validate the SRGS element.
@@ -349,7 +341,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         /// </summary>
         internal void Validate (SrgsGrammar grammar)
         {
-#if !NO_STG
             bool fScript = HasCode || _onInit != null || _onParse != null || _onError != null || _onRecognition != null || _baseclass != null;
             grammar._fContainsCode |= fScript;
             grammar.HasSapiExtension |= fScript;
@@ -368,7 +359,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             {
                 XmlParser.ThrowSrgsException (SRID.OnInitOnPublicRule, "OnRecognition", Id);
             }
-#endif
             // Validate all the children
             foreach (SrgsElement element in _elements)
             {
@@ -381,7 +371,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             ((SrgsGrammar) grammar).Rules.Add (this);
         }
 
-#if !NO_STG
 
         void IRule.CreateScript (IGrammar grammar, string rule, string method, RuleMethodScript type)
         {
@@ -410,7 +399,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#endif
 
         #endregion
 
@@ -435,7 +423,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if !NO_STG
 
         internal bool HasCode
         {
@@ -445,7 +432,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#endif
 
         #endregion
 
@@ -456,7 +442,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         //*******************************************************************
 
         #region Private Methods
-#if !SPEECHSERVER
 
         private void WriteScriptElement(XmlWriter writer, string sCode)
         {
@@ -483,7 +468,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
 #pragma warning restore 56507
 
-#endif
 
         #endregion
 
@@ -505,7 +489,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         private bool _isScopeSet;
 
-#if !NO_STG
 
         // class name for the code behind
         private string _baseclass;
@@ -520,7 +503,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         private string _onError;
 
         private string _onRecognition;
-#endif
         static readonly char [] invalidChars = new char [] { '?', '*', '+', '|', '(', ')', '^', '$', '/', ';', '.', '=', '<', '>', '[', ']', '{', '}', '\\', ' ', '\t', '\r', '\n' };
 
         #endregion
@@ -557,7 +539,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
             }
 
-#if !NO_STG
 
             public object BaseClass
             {
@@ -607,7 +588,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
             }
 
-#endif
 
             public object Count
             {

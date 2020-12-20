@@ -9,18 +9,10 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using STATSTG = System.Runtime.InteropServices.ComTypes.STATSTG;
 
-#if SERVERTESTDLL
-using Microsoft.Speech.AudioFormat;
-#else // SERVERTESTDLL
 using System.Speech.AudioFormat;
-#endif // SERVERTESTDLL
 
 
-#if SERVERTESTDLL
-namespace Microsoft.Speech.Internal.SapiInterop
-#else
 namespace System.Speech.Internal.SapiInterop
-#endif
 {
     #region Enum
 
@@ -70,17 +62,6 @@ namespace System.Speech.Internal.SapiInterop
         SPERR_CFG_INVALID_DATA = -2147200890         // 0x80045086
     }
 
-#if (SPEECHSERVER || PROMPT_ENGINE)
-
-    internal enum PEErrorCodes
-    {
-        SPERR_FIRST = unchecked ((int) 0x80045101),
-        SPERR_LAST = unchecked ((int) 0x80045111),
-        PEERR_NO_TTS_VOICE = unchecked ((int) 0x80045120),
-        PEERR_SCRIPT_LANGUAGE = unchecked ((int) 0x80045125)
-    }
-
-#endif
 
     #endregion Enum
 
@@ -140,29 +121,6 @@ namespace System.Speech.Internal.SapiInterop
             }
         }
 
-#if (SPEECHSERVER || PROMPT_ENGINE)
-
-        static internal SRID PEErrorCode2SRID(PEErrorCodes code)
-        {
-            if (code >= PEErrorCodes.SPERR_FIRST && code <= PEErrorCodes.SPERR_LAST)
-            {
-                return (SRID)((int)SRID.DBBadFormat + (code - PEErrorCodes.SPERR_FIRST));
-            }
-            else
-            {
-                switch (code)
-                {
-                    case PEErrorCodes.PEERR_NO_TTS_VOICE:
-                        return SRID.PENoTtsVoice;
-
-                    case PEErrorCodes.PEERR_SCRIPT_LANGUAGE:
-                        return SRID.PEScriptLanguage;
-                }
-                return (SRID)unchecked(-1);
-            }
-        }
-
-#endif
 
     }
 
@@ -319,11 +277,7 @@ namespace System.Speech.Internal.SapiInterop
         // ISpObjectTokenCategory Methods
         void SetId([MarshalAs(UnmanagedType.LPWStr)] string pszCategoryId, [MarshalAs(UnmanagedType.Bool)] bool fCreateIfNotExist);
         void GetId([MarshalAs(UnmanagedType.LPWStr)] out string ppszCoMemCategoryId);
-#if SERVERTESTDLL
         void Slot14(); // void GetDataKey(System.Speech.Internal.SPDATAKEYLOCATION spdkl, out ISpDataKey ppDataKey);
-#else
-        void Slot14(); // void GetDataKey(System.Speech.Internal.SPDATAKEYLOCATION spdkl, out ISpDataKey ppDataKey);
-#endif
         void EnumTokens([MarshalAs(UnmanagedType.LPWStr)] string pzsReqAttribs, [MarshalAs(UnmanagedType.LPWStr)] string pszOptAttribs, out IEnumSpObjectTokens ppEnum);
         void Slot16(); // void SetDefaultTokenId([MarshalAs(UnmanagedType.LPWStr)] string pszTokenId);
         void GetDefaultTokenId([MarshalAs(UnmanagedType.LPWStr)] out string ppszCoMemTokenId);
@@ -349,25 +303,13 @@ namespace System.Speech.Internal.SapiInterop
     }
 
 
-#if SPEECHSERVER
-    [ComImport, Guid("4424cb70-2a7c-43e2-833d-cbfd82da104f")]
-#else
     [ComImport, Guid("EF411752-3736-4CB4-9C8C-8EF4CCB58EFE")]
-#endif
     internal class SpObjectToken { }
 
-#if SPEECHSERVER
-    [ComImport, Guid("bf86f6c4-f9ce-441a-821a-415a76b86d79")]
-#else
     [ComImport, Guid("A910187F-0C7A-45AC-92CC-59EDAFB77B53")]
-#endif
     internal class SpObjectTokenCategory { }
 
-#if SPEECHSERVER
-    [ComImport, Guid("49428a60-c997-4d0e-9808-9e326c178d58")]
-#else
     [ComImport, Guid("D9F6EE60-58C9-458B-88E1-2F908FD7F87C")]
-#endif
     internal class SpDataKey { }
 
     #endregion

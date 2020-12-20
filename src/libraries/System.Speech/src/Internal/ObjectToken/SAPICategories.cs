@@ -38,10 +38,8 @@ namespace System.Speech.Internal.ObjectTokens
             Helpers.ThrowIfEmptyOrNull (category, "category");
 
             ObjectToken token = null;
-#if !SPEECHSERVER
             // Try first to get the prefered token for the current user
             token = DefaultToken (@"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech\" + category, _defaultTokenIdValueName);
-#endif
 
             // IF failed try to get it for the local machine
             if (token == null)
@@ -118,18 +116,9 @@ namespace System.Speech.Internal.ObjectTokens
         //
         //*******************************************************************
 
-#if SERVERTESTDLL || !SPEECHSERVER
         private const string SpeechRegistryKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\";
-#else
-        private const string SpeechRegistryKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Speech Server\2.0\Components\";
-#endif
 
-#if SPEECHSERVER || PROMPT_ENGINE
-        internal const string PromptVoices = SpeechRegistryKey + "PromptVoices";
-        internal const string CurrentUserVoices = SpeechRegistryKey + "Voices";
-#else
         internal const string CurrentUserVoices = @"HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech\Voices";
-#endif
 
         #region internal Fields
 

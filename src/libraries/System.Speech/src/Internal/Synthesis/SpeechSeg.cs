@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------
+//------------------------------------------------------------------
 // <copyright file="SpeechSeg.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
@@ -79,21 +79,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        internal bool ContainsPrompEngineFragment
-        {
-            set
-            {
-                _hasPromptEngineFragment = value;
-            }
-            get
-            {
-                return _hasPromptEngineFragment;
-            }
-        }
-
-#endif
 
         #endregion
 
@@ -131,12 +116,6 @@ namespace System.Speech.Internal.Synthesis
         private AudioData _audio;
 #pragma warning enable 56524
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        // Reference to the VoiceSynthesizer that created it
-        private bool _hasPromptEngineFragment;
-
-#endif
 
         #endregion
 

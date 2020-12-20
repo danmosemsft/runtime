@@ -166,7 +166,7 @@ namespace System.Speech.Internal.SrgsCompiler
                 _flag1 &= ~(0x38000000U);
                 _flag1 |= value << 27;
             }
-#if CFGDUMP || VSCOMPILE
+#if VSCOMPILE
             get
             {
                 return (_flag1 >> 27) & 0x7;
@@ -210,15 +210,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if	false
-        internal string DumpFlags
-        {
-            get
-            {
-                return string.Format (CultureInfo.InvariantCulture, "flag1: {0:x} flag2: {1:x}", _flag1, _flag2);
-            }
-        }
-#endif
 
         #endregion
 

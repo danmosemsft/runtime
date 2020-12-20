@@ -1,4 +1,4 @@
-﻿// <copyright file="ISemanticTag.cs" company="Microsoft">
+// <copyright file="ISemanticTag.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

@@ -50,13 +50,9 @@ namespace System.Speech.Internal.SrgsCompiler
             System.Diagnostics.Debug.Assert (!fOutputCfg || xmlReaders.Length == 1);
 
             int cReaders = xmlReaders.Length;
-#if !NO_STG
             List<CustomGrammar.CfgResource> cfgResources = new List<CustomGrammar.CfgResource> ();
 
             CustomGrammar cgCombined = new CustomGrammar ();
-#else
-            object cfgResources = null;
-#endif
             for (int iReader = 0; iReader < cReaders; iReader++)
             {
                 // Set the current directory to the location where is the grammar
@@ -78,21 +74,17 @@ namespace System.Speech.Internal.SrgsCompiler
                 StringBuilder innerCode = new StringBuilder ();
                 ISrgsParser srgsParser = (ISrgsParser) new XmlParser (xmlReaders [iReader], uri);
                 object cg = CompileStream (iReader + 1, srgsParser, srgsPath, filename, stream, fOutputCfg, innerCode, cfgResources, out culture, referencedAssemblies, keyFile);
-#if !NO_STG
                 if (!fOutputCfg)
                 {
                     cgCombined.Combine ((CustomGrammar) cg, innerCode.ToString ());
                 }
-#endif
             }
 
-#if !NO_STG
             // Create the DLL if this needs to be done
             if (!fOutputCfg)
             {
                 cgCombined.CreateAssembly (filename, cfgResources);
             }
-#endif
         }
 
         /// <summary>
@@ -108,11 +100,7 @@ namespace System.Speech.Internal.SrgsCompiler
         {
             ISrgsParser srgsParser = (ISrgsParser) new SrgsDocumentParser (srgsGrammar.Grammar);
 
-#if !NO_STG
             List<CustomGrammar.CfgResource> cfgResources = new List<CustomGrammar.CfgResource> ();
-#else
-            object cfgResources = null;
-#endif
 
             StringBuilder innerCode = new StringBuilder ();
             CultureInfo culture;
@@ -122,7 +110,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
             object cg = CompileStream (1, srgsParser, null, filename, stream, fOutputCfg, innerCode, cfgResources, out culture, referencedAssemblies, keyFile);
 
-#if !NO_STG
             // Create the DLL if this needs to be done
             if (!fOutputCfg)
             {
@@ -130,7 +117,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 cgCombined.Combine ((CustomGrammar) cg, innerCode.ToString ());
                 cgCombined.CreateAssembly (filename, cfgResources);
             }
-#endif
         }
 
         #endregion
@@ -138,12 +124,8 @@ namespace System.Speech.Internal.SrgsCompiler
         static private object CompileStream (int iCfg, ISrgsParser srgsParser, string srgsPath, string filename, Stream stream, bool fOutputCfg, StringBuilder innerCode, object cfgResources, out CultureInfo culture, string [] referencedAssemblies, string keyFile)
         {
             Backend backend = new Backend ();
-#if !NO_STG
             CustomGrammar cg = new CustomGrammar ();
             SrgsElementCompilerFactory elementFactory = new SrgsElementCompilerFactory (backend, cg);
-#else
-            SrgsElementCompilerFactory elementFactory = new SrgsElementCompilerFactory (backend);
-#endif
             srgsParser.ElementFactory = elementFactory;
             srgsParser.Parse ();
 
@@ -153,7 +135,6 @@ namespace System.Speech.Internal.SrgsCompiler
             // TODO, does not work for all custom culture info
             culture = backend.LangId == 0x540A ? new CultureInfo ("es-us") : new CultureInfo (backend.LangId);
 
-#if !NO_STG
             // A grammar may contains references to other files in codebehind.
             // Set the current directory to the location where is the grammar
             if (cg._codebehind.Count > 0 && !string.IsNullOrEmpty (srgsPath))
@@ -213,7 +194,6 @@ namespace System.Speech.Internal.SrgsCompiler
                     // Create a stream if a filename was given
                     stream = new FileStream (filename, FileMode.Create, FileAccess.Write);
                 }
-#endif
             try
                 {
                     using (StreamMarshaler streamHelper = new StreamMarshaler (stream))
@@ -228,16 +208,11 @@ namespace System.Speech.Internal.SrgsCompiler
                         stream.Close ();
                     }
                 }
-#if !NO_STG
             }
             return cg;
-#else
-            return null;
-#endif
         }
 
 
-#if !SPEECHSERVER
         /// <summary>
         /// Build the state machine for a grammar and returns it in a Memory Stream.
         /// </summary>
@@ -251,19 +226,15 @@ namespace System.Speech.Internal.SrgsCompiler
             // Save binary grammar to dest
             using (StreamMarshaler streamHelper = new StreamMarshaler (cfgStream))
             {
-#if !NO_STG
                 // no IL
                 backend.IL = null;
                 backend.PDB = null;
-#endif
                 // Generate the binary blob
                 backend.Commit (streamHelper);
             }
             return cfgStream;
         }
-#endif
 
-#if !NO_STG
 
         /// <summary>
         /// Generate the assembly code for a back. The scripts are defined in custom
@@ -284,7 +255,6 @@ namespace System.Speech.Internal.SrgsCompiler
                 backend.PDB = symbols;
             }
         }
-#endif
     }
 
     internal enum RuleScope

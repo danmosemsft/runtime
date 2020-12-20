@@ -77,7 +77,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             Load (srgsGrammar);
         }
 
-#if !SPEECHSERVER && !NO_GRAMMAR_BUILDER
 
         /// <summary>
         /// TODOC
@@ -99,7 +98,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             // Do it
             builder.CreateGrammar(elementFactory);
         }
-#endif
 
         /// <summary>
         /// 
@@ -247,7 +245,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if !NO_STG
 
         /// <summary>
         /// Programming Language used for the inline code; C#, VB or JScript
@@ -327,19 +324,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-#if SPEECHSERVER
-        /// <summary>
-        /// TODOC
-        /// </summary>summary>
-        public
-            Collection<string> SemanticInterpretationTags
-        {
-            get
-            {
-                return _grammar.GlobalTags;
-            }
-        }
-#endif
 
         /// |summary|
         /// ImportNameSpaces
@@ -362,7 +346,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 return _grammar.AssemblyReferences;
             }
         }
-#endif
 
         #endregion
 

@@ -771,22 +771,6 @@ namespace System.Speech.Internal.SapiInterop
         internal UInt32 dwReserved1;
         internal UInt32 dwReserved2;
 
-#if unused
-        internal void Reset ()
-        {
-            ulCurrentStream = 0;
-            ulLastStreamQueued = 0;
-            hrLastResult = 0;
-            dwRunningState = SpeechRunState.SPRS_DONE;
-            ulInputWordPos = 0;
-            ulInputWordLen = 0;
-            ulInputSentPos = 0;
-            ulInputSentLen = 0;
-            lBookmarkId = 0;
-            PhonemeId = 0;
-            VisemeId = 0;
-        }
-#endif
     }
 
     [StructLayout (LayoutKind.Sequential)]
@@ -1176,12 +1160,10 @@ namespace System.Speech.Internal.SapiInterop
 
     #region Class
 
-#if !SPEECHSERVER
 
     [ComImport, Guid ("3BEE4890-4FE9-4A37-8C1E-5E7E12791C1F")]
     internal class SpSharedRecognizer { }
 
-#endif
     [ComImport, Guid ("41B89B6B-9399-11D2-9623-00C04F8EE628")]
     internal class SpInprocRecognizer { }
 

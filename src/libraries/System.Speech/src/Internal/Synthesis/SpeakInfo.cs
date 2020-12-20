@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------
+//------------------------------------------------------------------
 // <copyright file="SpeakInfo.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
@@ -95,15 +95,6 @@ namespace System.Speech.Internal.Synthesis
             _lastSeg.AddFrag (textFragment);
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        internal void AddPexml (TTSVoice ttsVoice, TextFragment textFragment)
-        {
-            AddText (ttsVoice, textFragment);
-            _lastSeg.ContainsPrompEngineFragment = true;
-        }
-
-#endif
 
         internal SpeechSeg RemoveFirst ()
         {

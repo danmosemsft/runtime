@@ -10,7 +10,7 @@
 //		5/1/2004	jeanfp		Created from the Sapi Managed code
 //------------------------------------------------------------------
 
-#if (VSCOMPILE || CFGDUMP)
+#if VSCOMPILE
 
 using System;
 using System.Collections.Generic;
@@ -126,7 +126,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
                 tw.WriteLine ("");
             }
-#if !NO_STG
             //
             // Print the scriptRefs 
             //
@@ -141,7 +140,6 @@ namespace System.Speech.Internal.SrgsCompiler
                     tw.WriteLine (string.Format (CultureInfo.InvariantCulture, "  {0,-20}{1,-20}{2}", symbols [script._idRule], symbols [script._idMethod], script._method.ToString ()));
                 }
             }
-#endif
             //
             //  Initialize the arcs
             //

@@ -27,9 +27,6 @@ namespace System.Speech.Synthesis
     /// TODOC
     /// </summary>
     public sealed class SpeechSynthesizer : IDisposable
-#if SPEECHSERVER || PROMPT_ENGINE
-, ISesSynthesizer
-#endif
     {
         //*******************************************************************
         //
@@ -46,17 +43,6 @@ namespace System.Speech.Synthesis
         {
         }
 
-#if SPEECHSERVER
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        internal SpeechSynthesizer (bool outputAsText) : this ()
-        {
-            VoiceSynthesizer._outputAsText = outputAsText;
-        }
-
-#endif
         /// <summary>
         /// 
         /// </summary>
@@ -328,7 +314,6 @@ namespace System.Speech.Synthesis
             SetOutputStream (new FileStream (path, FileMode.Create, FileAccess.Write), null, true, true);
         }
 
-#if !SPEECHSERVER
         /// <summary>
         /// TODOC
         /// </summary>
@@ -343,7 +328,6 @@ namespace System.Speech.Synthesis
             SetOutputToNull ();
             SetOutputStream (new FileStream (path, FileMode.Create, FileAccess.Write), formatInfo, true, true);
         }
-#endif
 
         /// <summary>
         /// TODOC
@@ -361,11 +345,7 @@ namespace System.Speech.Synthesis
         /// </summary>
         /// <param name="audioDestination"></param>
         /// <param name="formatInfo"></param>
-#if !SPEECHSERVER
         public void SetOutputToAudioStream (Stream audioDestination, SpeechAudioFormatInfo formatInfo)
-#else
-        internal void SetOutputToAudioStream (Stream audioDestination, SpeechAudioFormatInfo formatInfo)
-#endif
         {
             Helpers.ThrowIfNull (audioDestination, "audioDestination");
             Helpers.ThrowIfNull (formatInfo, "formatInfo");
@@ -462,37 +442,6 @@ namespace System.Speech.Synthesis
             VoiceSynthesizer.RemoveLexicon (uri);
         }
 
-#if SPEECHSERVER || PROMPT_ENGINE
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="localName"></param>
-        /// <param name="alias"></param>
-        void ISesSynthesizer.LoadDatabase (string localName, string alias)
-        {
-            VoiceSynthesizer.LoadDatabase (localName, alias);
-        }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="alias"></param>
-        void ISesSynthesizer.UnloadDatabase (string alias)
-        {
-            VoiceSynthesizer.UnloadDatabase (alias);
-        }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="resourceLoader"></param>
-        void ISesSynthesizer.SetResourceLoader (ISpeechResourceLoader resourceLoader)
-        {
-            VoiceSynthesizer.SetResourceLoader (resourceLoader);
-        }
-
-#endif
         //*******************************************************************
         //
         // Public Events
@@ -596,7 +545,6 @@ namespace System.Speech.Synthesis
             }
         }
 
-#if !SPEECHSERVER
 
         #region WinFx
 
@@ -640,28 +588,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-#else
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        public event EventHandler<ProprietaryEngineEventArgs> ProprietaryEngineEvent
-        {
-            [MethodImplAttribute(MethodImplOptions.Synchronized)]
-            add
-            {
-                Helpers.ThrowIfNull (value, "value");
-                VoiceSynthesizer.AddEvent<ProprietaryEngineEventArgs> (TtsEventId.Private, ref VoiceSynthesizer._proprietaryEngineEvent, value);
-            }
-            [MethodImplAttribute(MethodImplOptions.Synchronized)]
-            remove
-            {
-                Helpers.ThrowIfNull (value, "value");
-                VoiceSynthesizer.RemoveEvent<ProprietaryEngineEventArgs> (TtsEventId.Private, ref VoiceSynthesizer._proprietaryEngineEvent, value);
-            }
-        }
-
-#endif
 
         /// <summary>
         /// TODOC
@@ -766,20 +692,6 @@ namespace System.Speech.Synthesis
 
         #region Internal Properties
 
-#if SPEECHSERVER || PROMPT_ENGINE 
-
-        static internal string PromptVoices
-        {
-            set
-            {
-                _promptVoices = value;
-            }
-            get
-            {
-                return _promptVoices;
-            }
-        }
-#endif
 
         #endregion
 
@@ -899,11 +811,6 @@ namespace System.Speech.Synthesis
         // If stream were created in SpeechFx then close it, otherwise it should remain open.
         private bool _closeStreamOnExit;
 
-#if SPEECHSERVER || PROMPT_ENGINE 
-
-        private static string _promptVoices = SAPICategories.PromptVoices;
-
-#endif
         #endregion Fields
     }
 
@@ -934,7 +841,6 @@ namespace System.Speech.Synthesis
         Paused
     }
 
-#if !SPEECHSERVER
 
     /// <summary>
     /// TODOC
@@ -952,7 +858,6 @@ namespace System.Speech.Synthesis
         Emphasized = 2
     }
 
-#endif
 
     #endregion
 }

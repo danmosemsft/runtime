@@ -43,11 +43,7 @@ namespace System.Speech.Internal.SapiInterop
                 }
                 else
                 {
-#if !SPEECHSERVER
                     recognizer = (ISpRecognizer) new SpSharedRecognizer ();
-#else
-                throw new NotImplementedException ();
-#endif
                 }
                 _isSap53 = recognizer is ISpRecognizer2;
             }
@@ -56,7 +52,6 @@ namespace System.Speech.Internal.SapiInterop
                 throw RecognizerBase.ExceptionFromSapiCreateRecognizerError (e);
             }
 
-#if !SPEECHSERVER
 
             // Back out if the recognizer we have SAPI 5.1
             if (!IsSapi53 && System.Threading.Thread.CurrentThread.GetApartmentState () == System.Threading.ApartmentState.STA)
@@ -66,7 +61,6 @@ namespace System.Speech.Internal.SapiInterop
                 _proxy = new SapiProxy.MTAThread (type);
             }
             else
-#endif
             {
                 _proxy = new SapiProxy.PassThrough (recognizer);
             }

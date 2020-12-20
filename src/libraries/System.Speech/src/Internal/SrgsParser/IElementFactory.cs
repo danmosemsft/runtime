@@ -1,4 +1,4 @@
-﻿// <copyright file="IElementFactory.cs" company="Microsoft">
+// <copyright file="IElementFactory.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //
@@ -44,11 +44,9 @@ namespace System.Speech.Internal.SrgsParser
         IRuleRef Void { get; }
         IRuleRef Garbage { get; }
 
-#if !NO_STG
         string AddScript (IGrammar grammar, string rule, string code, string filename, int line);
         void AddScript (IGrammar grammar, string script, string filename, int line);
         void AddScript (IGrammar grammar, string rule, string code);
-#endif
 
         void AddItem (IOneOf oneOf, IItem value);
         void AddElement (IRule rule, IElement value);

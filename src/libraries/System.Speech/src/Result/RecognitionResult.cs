@@ -43,17 +43,10 @@ namespace System.Speech.Recognition
         //*******************************************************************
 
         #region Constructors
-#if SPEECHSERVER
-        internal RecognitionResult (IRecognizerInternal recognizer, byte [] sapiResultBlob)
-        {
-            Initialize (recognizer, null, sapiResultBlob, 0);
-        }
-#else
         internal RecognitionResult (IRecognizerInternal recognizer, ISpRecoResult recoResult, byte [] sapiResultBlob, int maxAlternates)
         {
             Initialize (recognizer, recoResult, sapiResultBlob, maxAlternates);
         }
-#endif
 
         // empty constructor needed for some MSS unit tests
         internal RecognitionResult ()
@@ -99,7 +92,6 @@ namespace System.Speech.Recognition
 
         #region Public Methods
 
-#if !SPEECHSERVER
 
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.GetAudioForWordRange"]/*' />
         public RecognizedAudio GetAudioForWordRange (RecognizedWordUnit firstWord, RecognizedWordUnit lastWord)
@@ -109,7 +101,6 @@ namespace System.Speech.Recognition
 
             return Audio.GetRange (firstWord._audioPosition, lastWord._audioPosition + lastWord._audioDuration - firstWord._audioPosition);
         }
-#endif
 
         [SecurityPermissionAttribute (SecurityAction.Demand, SerializationFormatter = true)]
         void ISerializable.GetObjectData (SerializationInfo info, StreamingContext context)
@@ -127,11 +118,7 @@ namespace System.Speech.Recognition
                     {
                         // Get the sml Content and toy with this variable to fool the compiler in not doing the calucation at all
                         String sml = phrase.SmlContent;
-#if !SPEECHSERVER
                         RecognizedAudio audio = Audio;
-#else
-                        object audio = null;
-#endif
                         if (phrase.Text == null || phrase.Homophones == null || phrase.Semantics == null || (sml == null && sml != null) || (audio == null && audio != null))
                         {
                             throw new SerializationException ();
@@ -158,7 +145,6 @@ namespace System.Speech.Recognition
                 }
             }
         }
-#if !SPEECHSERVER
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.SetTextFeedback"]/*' />
         internal bool SetTextFeedback (string text, bool isSuccessfulAction)
         {
@@ -186,7 +172,6 @@ namespace System.Speech.Recognition
 
             return true;
         }
-#endif
         #endregion
 
         //*******************************************************************
@@ -197,7 +182,6 @@ namespace System.Speech.Recognition
 
         #region Public Properties
 
-#if !SPEECHSERVER
 
         // Recognized Audio:
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.Audio"]/*' />
@@ -252,7 +236,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#endif
 
 
         // Alternates. This returns a list of Alternate recognitions.
@@ -369,7 +352,6 @@ namespace System.Speech.Recognition
             _recognizer = recognizer;
             _maxAlternates = maxAlternates;
 
-#if !SPEECHSERVER
             try
             {
                 _sapiRecoResult = recoResult as ISpRecoResult2;
@@ -378,7 +360,6 @@ namespace System.Speech.Recognition
             {
                 _sapiRecoResult = null;
             }
-#endif
             GCHandle gc = GCHandle.Alloc (sapiResultBlob, GCHandleType.Pinned);
             try
             {
@@ -414,14 +395,12 @@ namespace System.Speech.Recognition
 
                 InitializeFromSerializedBuffer (this, serializedPhrase, phraseBuffer, (int) _header.ulPhraseDataSize, _isSapi53Header, hasIPAPronunciation);
 
-#if !SPEECHSERVER
                 if (recoResult != null)
                 {
                     ExtractDictationAlternates (recoResult, maxAlternates);
                     // Since we took ownership of this unmanaged object we can discard information that dont need.
                     recoResult.Discard (SapiConstants.SPDF_ALL);
                 }
-#endif
             }
             finally
             {
@@ -501,7 +480,6 @@ namespace System.Speech.Recognition
             return alternates;
         }
 
-#if !SPEECHSERVER
 
         private void ExtractDictationAlternates (ISpRecoResult recoResult, int maxAlternates)
         {
@@ -565,7 +543,6 @@ namespace System.Speech.Recognition
             }
         }
 
-#endif
 
         private Collection<RecognizedPhrase> GetAlternates ()
         {
@@ -646,13 +623,11 @@ namespace System.Speech.Recognition
 
         private SPRESULTHEADER _header;
 
-#if !SPEECHSERVER
         private RecognizedAudio _audio;
         private DateTime _startTime = DateTime.Now;
 
         [field: NonSerialized]
         private ISpRecoResult2 _sapiRecoResult;
-#endif
         // Keep as members because MSS uses these fields:
         private TimeSpan? _audioPosition;
         private TimeSpan? _audioDuration;

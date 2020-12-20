@@ -9,9 +9,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Speech.Internal.SapiInterop;
 
-#if !SPEECHSERVER
 using System.Speech.AudioFormat;
-#endif
 
 namespace System.Speech.Internal
 {
@@ -46,7 +44,6 @@ namespace System.Speech.Internal
             return null;
         }
 
-#if !SPEECHSERVER
 
         static internal List<SpeechAudioFormatInfo> GetAudioFormatsFromString(string valueString)
         {
@@ -68,7 +65,6 @@ namespace System.Speech.Internal
             return formatList;
         }
 
-#endif
 
         #endregion
     }

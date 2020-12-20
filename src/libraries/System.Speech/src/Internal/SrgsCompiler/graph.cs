@@ -93,9 +93,6 @@ namespace System.Speech.Internal.SrgsCompiler
             //CfgGrammar.TraceInformation ("BackEnd::CreateNewState");
             uint hNewState = CfgGrammar.NextHandle;
 
-#if VIEW_STATS
-            _cStates++;
-#endif
             State newState = new State (rule, hNewState);
             Add (newState);
 #if DEBUG
@@ -111,9 +108,6 @@ namespace System.Speech.Internal.SrgsCompiler
         /// <returns></returns>
         internal void DeleteState (State state)
         {
-#if VIEW_STATS
-            _cStates--;
-#endif
 #if DEBUG
             state.Rule._cStates--;
 #endif
@@ -1073,10 +1067,6 @@ namespace System.Speech.Internal.SrgsCompiler
         private State _startState;
         private State _curState;
 
-#if     VIEW_STATS
-        static internal int _cStates = 0;
-        static internal int _cArcs = 0;
-#endif
 
         #endregion
 

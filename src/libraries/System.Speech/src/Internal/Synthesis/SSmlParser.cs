@@ -447,28 +447,6 @@ namespace System.Speech.Internal.Synthesis
                             }
                             break;
 
-#if SPEECHSERVER
-                        case "size":
-                            CheckForDuplicates (ref sStrength, reader);
-                            if (sTime == null)
-                            {
-                                ssmlAttributes._fragmentState.Duration = 0;
-                                int posSize = Array.BinarySearch<string> (_breakSize, sStrength);
-                                if (posSize < 0)
-                                {
-                                    isInvalidAttribute = true;
-                                }
-                                else
-                                {
-                                    // SSML Spec if both strength and time are supplied, ignore strength
-                                    if (ssmlAttributes._fragmentState.Emphasis != (int) EmphasisBreak.None)
-                                    {
-                                        ssmlAttributes._fragmentState.Emphasis = (int) _breakSizeWord [posSize];
-                                    }
-                                }
-                            }
-                            break;
-#endif
 
                         default:
                             isInvalidAttribute = true;
@@ -2043,22 +2021,6 @@ namespace System.Speech.Internal.Synthesis
             EmphasisBreak.Medium, EmphasisBreak.None, EmphasisBreak.Strong, EmphasisBreak.Weak, EmphasisBreak.ExtraStrong, EmphasisBreak.ExtraWeak
         };
 
-#if SPEECHSERVER
-
-        private static readonly string [] _breakSize = new string [] 
-        {
-            "large", "medium", "none", "small"
-        };
-
-        /// <summary>
-        /// Must be in the same order as the _breakSize enumeration
-        /// </summary>
-        private static readonly EmphasisBreak [] _breakSizeWord = new EmphasisBreak [] 
-        {
-            EmphasisBreak.Strong, EmphasisBreak.Medium, EmphasisBreak.None, EmphasisBreak.Weak
-        };
-
-#endif
 
         private static readonly string [] _emphasisNames = new string [] 
         {

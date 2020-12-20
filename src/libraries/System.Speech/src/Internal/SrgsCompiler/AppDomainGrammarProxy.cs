@@ -1,4 +1,4 @@
-﻿// <copyright file="AppDomainGrammarProxy.cs" company="Microsoft">
+// <copyright file="AppDomainGrammarProxy.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 //

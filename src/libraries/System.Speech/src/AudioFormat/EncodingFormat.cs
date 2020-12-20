@@ -11,11 +11,7 @@ namespace System.Speech.AudioFormat
 
     /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="AudioFormatTag"]/*' />
     // These enumeration values are the same values used in the WAVEFORMATEX structure used in wave files.
-#if !SPEECHSERVER
     public
-#else
-    internal
-#endif
         enum EncodingFormat
     {
         /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="EncodingFormatTag.PCM"]/*' />

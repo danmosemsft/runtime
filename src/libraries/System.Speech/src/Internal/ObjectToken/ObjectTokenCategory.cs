@@ -19,11 +19,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-#if SERVERTESTDLL
-using Microsoft.Speech.Internal.SapiInterop;
-#else // SERVERTESTDLL
 using System.Speech.Internal.SapiInterop;
-#endif // SERVERTESTDLL
 
 
 namespace System.Speech.Internal.ObjectTokens
@@ -74,17 +70,6 @@ namespace System.Speech.Internal.ObjectTokens
             return ObjectToken.Open(null, tokenName, false);
         }
 
-#if false
-        internal ObjectToken CreateToken (string keyName)
-        {
-            return new ObjectToken (Id, @"Token\" + keyName, true);
-        }
-
-        internal void DeleteToken (string keyName)
-        {
-            DeleteKey (@"Token\" + keyName);
-        }
-#endif
         internal IList<ObjectToken> FindMatchingTokens(string requiredAttributes, string optionalAttributes)
         {
             IList<ObjectToken> objectTokenList = new List<ObjectToken>();
