@@ -55,7 +55,6 @@
     <Compile Include="Internal\ObjectToken\ObjectTokenCategory.cs"/>
     <Compile Include="Internal\ObjectToken\RegistryDataKey.cs"/>
     <Compile Include="Internal\ObjectToken\SAPICategories.cs"/>
-    <Compile Include="Internal\ObjectToken\VoiceObjectToken.cs"/>
     <Compile Include="Internal\SapiInterop\EventNotify.cs"/>
     <Compile Include="Internal\SapiInterop\SapiEventInterop.cs"/>
     <Compile Include="Internal\SapiInterop\SapiGrammar.cs"/>
@@ -159,7 +158,6 @@
     <Compile Include="Recognition\SpeechUI.cs"/>
     <Compile Include="Recognition\SubsetMatchingMode.cs"/>
     <Compile Include="Recognition\UpdateEventArgs.cs"/>
-    <Compile Include="Recognition\SrgsGrammar\MSSGrammarCompiler.cs"/>
     <Compile Include="Recognition\SrgsGrammar\SrgsDocument.cs"/>
     <Compile Include="Recognition\SrgsGrammar\SrgsElement.cs"/>
     <Compile Include="Recognition\SrgsGrammar\SrgsElementFactory.cs"/>
@@ -188,14 +186,11 @@
     <Compile Include="Synthesis\BookmarkEventArgs.cs"/>
     <Compile Include="Synthesis\FilePrompt.cs"/>
     <Compile Include="Synthesis\InstalledVoice.cs"/>
-    <Compile Include="Synthesis\ISesSynthesizer.cs"/>
-    <Compile Include="Synthesis\ISpeechResourceLoader.cs"/>
     <Compile Include="Synthesis\PhonemeEventArgs.cs"/>
     <Compile Include="Synthesis\prompt.cs"/>
     <Compile Include="Synthesis\PromptBuilder.cs"/>
     <Compile Include="Synthesis\PromptEventArgs.cs"/>
     <Compile Include="Synthesis\PromptStyle.cs"/>
-    <Compile Include="Synthesis\ProprietaryEngineEventArgs.cs"/>
     <Compile Include="Synthesis\SpeakCompletedEventArgs.cs"/>
     <Compile Include="Synthesis\SpeakProgressEventArgs.cs"/>
     <Compile Include="Synthesis\SpeechSynthesizer.cs"/>
@@ -203,7 +198,6 @@
     <Compile Include="Synthesis\VisemeEventArgs.cs"/>
     <Compile Include="Synthesis\VoiceChangeEventArgs.cs"/>
     <Compile Include="Synthesis\VoiceInfo.cs"/>
-    <Compile Include="Synthesis\TTSEngine\IPromptEngine.cs"/>
     <Compile Include="Synthesis\TTSEngine\SAPIEngineTypes.cs"/>
     <Compile Include="Synthesis\TTSEngine\TTSEngineTypes.cs"/>
   </ItemGroup>
