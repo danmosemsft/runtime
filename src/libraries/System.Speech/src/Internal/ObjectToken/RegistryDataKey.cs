@@ -571,7 +571,6 @@ namespace System.Speech.Internal.ObjectTokens
         /// </summary>
         /// <param name="regKey">The RegistryKey to retrieve the HKEY from</param>
         /// <returns>An IntPtr to the HKEY of a the RegistryKey</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2001:AvoidCallingProblematicMethods")]
         private static IntPtr HKEYfromRegKey(RegistryKey regKey)
         {
             Type regKeyType = typeof(RegistryKey);

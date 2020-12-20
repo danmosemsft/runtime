@@ -760,17 +760,14 @@ namespace System.Speech.Internal.SrgsCompiler
 
         private void CheckValidAssembly (int iCfg, byte [] il)
         {
-#if true
             // Check all methods referenced in the rule; availability, public and arguments
             Assembly executingAssembly = Assembly.GetExecutingAssembly ();
             AppDomain appDomain = null;
             try
             {
                 appDomain = AppDomain.CreateDomain ("Loading Domain");
-                AppDomainCompilerProxy proxy = (AppDomainCompilerProxy) appDomain.CreateInstanceFromAndUnwrap (executingAssembly.GetName ().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainCompilerProxy");
-#else
+               // AppDomainCompilerProxy proxy = (AppDomainCompilerProxy) appDomain.CreateInstanceFromAndUnwrap (executingAssembly.GetName ().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainCompilerProxy");
                 AppDomainCompilerProxy proxy = new AppDomainCompilerProxy ();
-#endif
 
                 // Marshalling between App domains prevents to use complex types as they cannot
                 // be marhalled accross app domain boundaries. Use 3 arrays instead

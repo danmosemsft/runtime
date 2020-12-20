@@ -1699,19 +1699,10 @@ namespace System.Speech.Internal.Synthesis
 
                     if (engine != null)
                     {
-                        // Try to get an unmanaged SSML engine
-                        ITtsEngineSsml iTtsEngineSsml = engine as ITtsEngineSsml;
-                        if (iTtsEngineSsml != null)
+                        ITtsEngine iTtsEngine = engine as ITtsEngine;
+                        if (iTtsEngine != null)
                         {
-                            engineProxy = new TtsProxyCom (iTtsEngineSsml, ComEngineSite, voiceInfo.Culture.LCID);
-                        }
-                        else
-                        {
-                            ITtsEngine iTtsEngine = engine as ITtsEngine;
-                            if (iTtsEngine != null)
-                            {
-                                engineProxy = new TtsProxySapi (iTtsEngine, ComEngineSite, voiceInfo.Culture.LCID);
-                            }
+                            engineProxy = new TtsProxySapi (iTtsEngine, ComEngineSite, voiceInfo.Culture.LCID);
                         }
                     }
                 }

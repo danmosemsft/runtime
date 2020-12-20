@@ -421,14 +421,7 @@ namespace System.Speech.Recognition
                     // Remove references to these objects so they can be garbage collected.
                     _loadException = null;
                     _recognizer = null;
-#if !NO_STG
-                    // unload the app domain
-                    if (_appDomain != null)
-                    {
-                        AppDomain.Unload (_appDomain);
-                        _appDomain = null;
-                    }
-#endif
+
                     // Don't reset _uri and _ruleName - allows re-use.
                     // Don't reset _internalData - leave this to the recognizer.
 
@@ -1097,7 +1090,7 @@ namespace System.Speech.Recognition
                 _appDomain = AppDomain.CreateDomain ("sandbox");
 
                 // Create the app domain
-                _proxy = (AppDomainGrammarProxy) _appDomain.CreateInstanceFromAndUnwrap (executingAssembly.GetName ().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainGrammarProxy");
+                _proxy = new AppDomainGrammarProxy();//(AppDomainGrammarProxy) _appDomain.CreateInstanceFromAndUnwrap (executingAssembly.GetName ().CodeBase, "System.Speech.Internal.SrgsCompiler.AppDomainGrammarProxy");
                 _proxy.Init (_ruleName, assemblyContent, assemblyDebugSymbols);
                 _scripts = scripts;
             }

@@ -172,7 +172,6 @@ namespace System.Speech.Recognition
 #if SPEECHSERVER
 
 #pragma warning disable 56518 // The Binary reader cannot be disposed or it would close the underlying stream
-        [SuppressMessage("Microsoft.Reliability", "CA2000:DisposeObjectsBeforeLosingScope")]
         internal RecognizedAudio RemoveMetaData()
         {
             // Check format:
