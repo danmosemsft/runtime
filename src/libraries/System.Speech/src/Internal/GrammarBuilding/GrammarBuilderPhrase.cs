@@ -9,9 +9,7 @@ using System.Speech.Recognition;
 namespace System.Speech.Internal.GrammarBuilding
 {
 
-#if VSCOMPILE
     [DebuggerDisplay ("{DebugSummary}")]
-#endif
     internal sealed class GrammarBuilderPhrase : GrammarBuilderBase
     {
 

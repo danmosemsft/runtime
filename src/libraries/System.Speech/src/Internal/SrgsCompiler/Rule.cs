@@ -13,9 +13,7 @@ namespace System.Speech.Internal.SrgsCompiler
     /// <summary>
     /// Summary description for Rule.
     /// </summary>
-#if VSCOMPILE
     [DebuggerDisplay ("{Name}")]
-#endif
     internal sealed class Rule : ParseElementCollection, IRule, IComparable<Rule>
     {
         //*******************************************************************

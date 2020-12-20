@@ -12,9 +12,7 @@ namespace System.Speech.Internal.GrammarBuilding
     /// <summary>
     /// 
     /// </summary>
-#if VSCOMPILE
     [DebuggerDisplay ("{DebugSummary}")]
-#endif
     internal sealed class TagElement : BuilderElements
     {
 

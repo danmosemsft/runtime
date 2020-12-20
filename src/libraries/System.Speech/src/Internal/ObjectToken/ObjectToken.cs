@@ -22,9 +22,7 @@ namespace System.Speech.Internal.ObjectTokens
     /// <summary>
     /// Summary description for ObjectToken.
     /// </summary>
-#if VSCOMPILE
     [DebuggerDisplay("{Name}")]
-#endif
     internal class ObjectToken : RegistryDataKey, ISpObjectToken
     {
         //*******************************************************************

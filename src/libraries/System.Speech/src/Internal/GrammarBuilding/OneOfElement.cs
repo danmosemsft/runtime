@@ -9,9 +9,7 @@ using System.Text;
 namespace System.Speech.Internal.GrammarBuilding
 {
 
-#if VSCOMPILE
     [DebuggerDisplay ("{DebugSummary}")]
-#endif
     internal sealed class OneOfElement : BuilderElements
     {
 

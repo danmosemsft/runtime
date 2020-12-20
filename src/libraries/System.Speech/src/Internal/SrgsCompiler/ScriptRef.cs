@@ -10,9 +10,7 @@ namespace System.Speech.Internal.SrgsCompiler
     /// Summary description for ScriptRef.
     /// </summary>
     // list of rules with scripts
-#if VSCOMPILE
     [DebuggerDisplay ("rule=\"{_rule}\" method=\"{_sMethod}\" operation=\"{_method.ToString ()}\"")]
-#endif
     internal class ScriptRef
     {
         //*******************************************************************

@@ -9,9 +9,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Speech.Internal;
 
-#if VSCOMPILE
 using System.Diagnostics;
-#endif
 
 #pragma warning disable 1634, 1691 // Allows suppression of certain PreSharp messages.
 #pragma warning disable 56504 // The public API is not that public so remove all the parameter validation.
@@ -265,9 +263,7 @@ namespace System.Speech.Synthesis.TtsEngine
     /// </summary>
     [StructLayout (LayoutKind.Sequential)]
 
-#if VSCOMPILE
     [DebuggerDisplay ("{State.Action} {TextToSpeak!=null?TextToSpeak:\"\"}")]
-#endif
     public
  class TextFragment
     {

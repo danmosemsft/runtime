@@ -1185,9 +1185,7 @@ namespace System.Speech.Recognition
 
         #region Private Types
 
-#if VSCOMPILE
         [DebuggerDisplay ("{DisplayDebugInfo ()}")]
-#endif
         private class RuleNode
         {
             internal RuleNode (Grammar grammar, string rule, float confidence, uint first, uint count)
@@ -1241,12 +1239,10 @@ namespace System.Speech.Recognition
                 return this;
             }
 
-#if VSCOMPILE
             private string DisplayDebugInfo ()
             {
                 return string.Format ("'rule={0}", _rule);
             }
-#endif
             internal Grammar _grammar;
             internal string _rule;
             internal string _name;
@@ -1261,9 +1257,7 @@ namespace System.Speech.Recognition
         }
 
 
-#if VSCOMPILE
         [DebuggerDisplay ("Name={_name} node={_ruleNode._rule} value={_value != null && _value.Value != null ? _value.Value.ToString() : \"\"}")]
-#endif
         private struct ResultPropertiesRef
         {
             internal string _name;

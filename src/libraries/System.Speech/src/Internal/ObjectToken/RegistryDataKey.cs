@@ -18,9 +18,7 @@ namespace System.Speech.Internal.ObjectTokens
     /// <summary>
     /// Summary description for SpRegDataKey.
     /// </summary>
-#if VSCOMPILE
     [DebuggerDisplay ("{Name}")]
-#endif
     internal class RegistryDataKey : ISpDataKey, IEnumerable<RegistryDataKey>, IDisposable
     {
         //*******************************************************************
