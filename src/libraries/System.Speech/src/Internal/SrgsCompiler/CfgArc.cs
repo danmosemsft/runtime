@@ -156,32 +156,12 @@ namespace System.Speech.Internal.SrgsCompiler
                 _flag1 &= ~(0x38000000U);
                 _flag1 |= value << 27;
             }
-#if VSCOMPILE
             get
             {
                 return (_flag1 >> 27) & 0x7;
             }
-#endif
         }
 
-        //		internal uint Weight
-//		{
-//			get
-//			{
-//				return _flag2 & 0xFF;
-//			}
-//			set
-//			{
-//				if (value > 0xFF)
-//				{
-//					throw new OverflowException (SR.Get (SRID.TooManyArcs));
-//				}
-//
-//				_flag2 &= ~(uint) 0xFF;
-//				_flag2 |= value;
-//			}
-//		}
-//
         internal uint NextStartArcIndex
         {
             get

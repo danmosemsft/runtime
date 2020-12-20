@@ -81,7 +81,6 @@
     <Compile Include="Internal\SrgsCompiler\GrammarElement.cs" />
     <Compile Include="Internal\SrgsCompiler\Graph.cs" />
     <Compile Include="Internal\SrgsCompiler\Item.cs" />
-    <Compile Include="Internal\SrgsCompiler\NUnit-GrammarBackEnd.cs" />
     <Compile Include="Internal\SrgsCompiler\OneOf.cs" />
     <Compile Include="Internal\SrgsCompiler\ParseElement.cs" />
     <Compile Include="Internal\SrgsCompiler\ParseElementCollection.cs" />

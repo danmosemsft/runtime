@@ -213,16 +213,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-#if	VSCOMPILE 
-		internal string DumpFlags
-		{
-			get
-			{
-                return string.Format (CultureInfo.InvariantCulture, "flag1: {0:x} flag2: {1:x} flag3: {2:x}", _flag1, _flag2, _flag3);
-            }
-		}
-#endif
-
         #endregion
 
         //*******************************************************************

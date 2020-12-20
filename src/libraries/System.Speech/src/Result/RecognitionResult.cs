@@ -362,11 +362,8 @@ namespace System.Speech.Recognition
                 IntPtr buffer = gc.AddrOfPinnedObject ();
 
                 int headerSize = Marshal.ReadInt32 (buffer, 4); // Read header size directly from buffer - 4 is the offset of cbHeaderSize.
-#if VSCOMPILE //
-                if (headerSize == 0) // Force to SAPI 5.3
-#else
+
                 if (headerSize == Marshal.SizeOf (typeof (SPRESULTHEADER_Sapi51))) // SAPI 5.1 size
-#endif
                 {
                     SPRESULTHEADER_Sapi51 legacyHeader = (SPRESULTHEADER_Sapi51) Marshal.PtrToStructure (buffer, typeof (SPRESULTHEADER_Sapi51));
                     _header = new SPRESULTHEADER (legacyHeader);

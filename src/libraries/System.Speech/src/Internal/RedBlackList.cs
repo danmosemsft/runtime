@@ -596,7 +596,7 @@ namespace System.Speech.Internal
             }
         }
 
-#if VSCOMPILE && DEBUG
+#if DEBUG
 
         private void ValidateBinaryTree (TreeNode node, out object minValue, out object maxValue)
         {

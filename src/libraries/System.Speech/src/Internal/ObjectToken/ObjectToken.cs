@@ -410,22 +410,6 @@ namespace System.Speech.Internal.ObjectTokens
 
         private RegistryDataKey _attributes;
 
-#if VSCOMPILE
-
-        // Prefix used for storage files if not otherwise set
-        private const string sDefaultFilePrefix = "SP_";
-
-        // Extension used for storage files if not otherwise set
-        private const string sDefaultFileSuffix = ".dat";
-
-        private const string SPTOKENKEY_FILES = "Files";
-
-        private const string SPTOKENKEY_UI = "UI";
-
-        // Relative path below special folders where storage files are stored
-        private const string sFileStoragePath = "\\Microsoft\\Speech\\Files\\";
-
-#endif
         #endregion
     }
 

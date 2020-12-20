@@ -175,12 +175,6 @@ namespace System.Speech.Internal
             {
                 return _stream;
             }
-#if VSCOMPILE
-            set
-            {
-                _stream = value;
-            }
-#endif
         }
 
         internal uint Position

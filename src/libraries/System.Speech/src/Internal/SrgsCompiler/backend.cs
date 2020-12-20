@@ -54,9 +54,7 @@ namespace System.Speech.Internal.SrgsCompiler
         /// </summary>
         internal void Optimize ()
         {
-            //DumpGrammarStatistics ("GrammarOptimization: Pre optimize");
             _states.Optimize ();
-            //DumpGrammarStatistics ("GrammarOptimization: Post optimize");
 
             // Most likely, there will be an arc with a weight != 1.  So we need a weight table.
             _fNeedWeightTable = true;
@@ -1049,9 +1047,6 @@ namespace System.Speech.Internal.SrgsCompiler
             _fLoadedFromBinary = true;
             // Save Last ArcIndex
 
-#if VSCOMPILE && DEBUG
-            DumpGrammarStatistics ("InitFromBinaryGrammar");
-#endif
         }
 
         private Arc CreateTransition (string sWord, float flWeight, int requiredConfidence)
@@ -1372,124 +1367,6 @@ namespace System.Speech.Internal.SrgsCompiler
         {
             _states.Add (state);
         }
-
-#if VSCOMPILE && DEBUG
-
-        ///
-        internal void DumpStateTable (string sTitle)
-        {
-            List<State> states = new List<State> (_states);
-
-            DumpStateTable (sTitle, states.ToArray ());
-        }
-
-        internal void DumpStateTable (string sTitle, State [] states)
-        {
-            CfgGrammar.TraceInformation2 (sTitle);
-
-            int iHandle2 = 0;
-
-            for (int iState = 0; iState < states.Length; iState++)
-            {
-                State state = states [iState];
-                if (state == null)
-                {
-                    continue;
-                }
-
-                //string s = state.OutArcs.Count > 0 ? state.OutArcs.First.WordId > 0 ? _words [state.OutArcs.First.WordId] : string.Empty : string.Empty;
-                string s = _symbols.FromOffset (state.Rule._cfgRule._nameOffset);
-
-                CfgGrammar.TraceInformation3 (string.Format (CultureInfo.InvariantCulture, "{0}: {1} {2} {3} '", iHandle2, state.Id, state.SerializeId, s));
-
-                foreach (Arc arc2 in state.OutArcs)
-                {
-                    int iWord = arc2.WordId;
-                    string sWord = arc2.RuleRef != null ? _symbols.FromOffset (arc2.RuleRef._cfgRule._nameOffset) : iWord > 0 ? _words [iWord] : string.Empty;
-
-                    //CfgGrammar.TraceInformation3 (string.Format (CultureInfo.InvariantCulture, "{0}{1} [{2}]", (fFirst ? string.Empty : ", "), sWord, arc2.Id));
-                    //if (arc2._tag != null)
-                    //{
-                    //    CfgGrammar.TraceInformation3 (string.Format (CultureInfo.InvariantCulture, "({0}, {1}, {2})", _symbols.FromOffset (arc2._tag._cfgTag._valueOffset), arc2._tag._startArc.Id, arc2._tag._endArc.Id));
-                    //}
-                }
-
-                CfgGrammar.TraceInformation2 ("'");
-            }
-        }
-
-        internal void DumpStateMachine (TextWriter tw)
-        {
-            tw.WriteLine ("Word Blobs");
-            for (int i = 1; i < _words.Count; i++)
-            {
-                tw.WriteLine ("  \"" + _words [i] + "\"");
-            }
-
-            tw.WriteLine ("\nSymbols Blobs");
-            for (int i = 1; i < _symbols.Count; i++)
-            {
-                tw.WriteLine ("  \"" + _symbols [i] + "\"");
-            }
-
-            tw.WriteLine ("\nRules");
-            foreach (Rule rule in _rules)
-            {
-                tw.WriteLine (string.Format (CultureInfo.InvariantCulture, "  \"{0}\" id: {1} flags: {2}", rule.Name, rule._cfgRule._id, rule._cfgRule._flag.ToString ("x", CultureInfo.InvariantCulture)));
-                tw.WriteLine (string.Format (CultureInfo.InvariantCulture, "     States: {0}", rule._cStates));
-            }
-
-            tw.WriteLine (string.Format (CultureInfo.InvariantCulture, "\nStates:\n  Count: {0}", _states.Count));
-            foreach (State state in _states)
-            {
-                tw.WriteLine (string.Format (CultureInfo.InvariantCulture, "  \"{0}\"", state.Rule.Name));
-            }
-        }
-
-        //GrammarOptimization
-        /// <summary>
-        /// Dump grammar statistics to debug window.  (Debug only)
-        /// </summary>
-        /// <param name="title"></param>
-        void DumpGrammarStatistics (string title)
-        {
-            int iNumStates = 0;
-            int iNumArcs = 0;
-            int iNumEpsilonArcs = 0;
-            int iMaxBranch = 0;
-            int iNumProperties = 0;
-
-            foreach (State state in _states)
-            {
-                iNumStates++;
-
-                int cArcs = 0;
-
-                foreach (Arc arc in state.OutArcs)
-                {
-                    cArcs++;
-                    if (arc.IsEpsilonTransition)
-                    {
-                        iNumEpsilonArcs++;
-                    }
-
-                    //if (arc._tag != null) 
-                    //{
-                    //    iNumProperties++;
-                    //}
-                }
-
-                if (iMaxBranch < cArcs)
-                    iMaxBranch = cArcs;
-
-                iNumArcs += cArcs;
-            }
-            Console.WriteLine (title);
-            Console.WriteLine (string.Format (CultureInfo.InvariantCulture, "{0}\n  NumStates      = {0}\n  NumArcs        = {1}\n  NumEpsilons    = {2}\n", iNumStates, iNumArcs, iNumEpsilonArcs));
-            Console.WriteLine (string.Format (CultureInfo.InvariantCulture, "  MaxBranch      = {0}\n" + "  NumProperties  = {1}\n", iMaxBranch, iNumProperties));
-        }
-
-#endif
 
         #endregion
 

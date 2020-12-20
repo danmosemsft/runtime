@@ -132,7 +132,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
 #if DEBUG
             // Remove redundant epsilon transitions again now that identical epsilon transitions have been removed.
-            //DumpGrammarStatistics("GrammarOptimization: DuplicateRemoval");
             cStates = Count;
             RemoveEpsilonStates ();
             //System.Diagnostics.Debug.Assert (_states.Count == cStates);
@@ -142,7 +141,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
 
             // Verify the transition weights are normalized.
-            //DumpGrammarStatistics ("GrammarOptimization: Final");
             foreach (State state in this)
             {
                 double flSumWeights = 0.0f;                        // Compute the sum of the weights.

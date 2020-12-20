@@ -422,7 +422,7 @@ namespace System.Speech.Internal.SrgsCompiler
 
 
 
-#if VSCOMPILE && DEBUG
+#if DEBUG
 
         internal static void TraceInformation (string s)
         {
