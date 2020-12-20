@@ -1,0 +1,31 @@
+//------------------------------------------------------------------
+// <copyright file="EncodingFormat.cs" company="Microsoft">
+//     Copyright (c) Microsoft Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------
+
+using System;
+
+namespace System.Speech.AudioFormat
+{
+
+    /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="AudioFormatTag"]/*' />
+    // These enumeration values are the same values used in the WAVEFORMATEX structure used in wave files.
+#if !SPEECHSERVER
+    public
+#else
+    internal
+#endif
+        enum EncodingFormat
+    {
+        /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="EncodingFormatTag.PCM"]/*' />
+        Pcm = 0x0001,
+
+        /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="EncodingFormatTag.ALaw"]/*' />
+        ALaw = 0x0006,
+
+        /// TODOC <_include file='doc\EncodingFormat.uex' path='docs/doc[@for="EncodingFormatTag.ULaw"]/*' />
+        ULaw = 0x0007
+    }
+
+}

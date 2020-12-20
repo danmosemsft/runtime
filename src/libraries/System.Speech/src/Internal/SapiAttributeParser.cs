@@ -1,0 +1,75 @@
+//------------------------------------------------------------------
+// <copyright file="SapiAttributeParser.cs" company="Microsoft">
+//     Copyright (c) Microsoft Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Speech.Internal.SapiInterop;
+
+#if !SPEECHSERVER
+using System.Speech.AudioFormat;
+#endif
+
+namespace System.Speech.Internal
+{
+    internal static class SapiAttributeParser
+    {
+        //*******************************************************************
+        //
+        // Internal Methods
+        //
+        //*******************************************************************
+
+        #region Internal Methods
+
+        static internal CultureInfo GetCultureInfoFromLanguageString (string valueString)
+        {
+            string [] strings = valueString.Split (';');
+
+            string langStringTrim = strings [0].Trim ();
+
+            if (!string.IsNullOrEmpty (langStringTrim))
+            {
+                try
+                {
+                    return new CultureInfo (Int32.Parse (langStringTrim, NumberStyles.HexNumber, CultureInfo.InvariantCulture), false);
+                }
+                catch (ArgumentException)
+                {
+                    return null; // If we have an invalid language id ignore it. Otherwise enumerating recognizers or voices would fail.
+                }
+            }
+
+            return null;
+        }
+
+#if !SPEECHSERVER
+
+        static internal List<SpeechAudioFormatInfo> GetAudioFormatsFromString(string valueString)
+        {
+            List<SpeechAudioFormatInfo> formatList = new List<SpeechAudioFormatInfo>();
+            string [] strings = valueString.Split (';');
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                string formatString = strings [i].Trim ();
+                if (!string.IsNullOrEmpty (formatString))
+                {
+                    SpeechAudioFormatInfo formatInfo = AudioFormatConverter.ToSpeechAudioFormatInfo (formatString);
+                    if (formatInfo != null) // Skip cases where a Guid is used.
+                    {
+                        formatList.Add (formatInfo);
+                    }
+                }
+            }
+            return formatList;
+        }
+
+#endif
+
+        #endregion
+    }
+}
