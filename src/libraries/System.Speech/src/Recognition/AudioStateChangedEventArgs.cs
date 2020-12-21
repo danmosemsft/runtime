@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class AudioStateChangedEventArgs : EventArgs
     {
-
         #region Constructors
 
         internal AudioStateChangedEventArgs(AudioState audioState)

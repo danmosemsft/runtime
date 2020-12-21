@@ -16,7 +16,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal sealed class CfgGrammar
     {
-
         #region Constructors
 
         internal CfgGrammar()

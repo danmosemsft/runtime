@@ -11,7 +11,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     internal abstract class SapiProxy : IDisposable
     {
-
         #region Constructors
 
         public virtual void Dispose()
@@ -79,8 +78,6 @@ namespace System.Speech.Internal.SapiInterop
 
         internal class PassThrough : SapiProxy, IDisposable
         {
-
-
             #region Constructors
 
             internal PassThrough(ISpRecognizer recognizer)
@@ -140,8 +137,6 @@ namespace System.Speech.Internal.SapiInterop
 
         internal class MTAThread : SapiProxy, IDisposable
         {
-
-
             #region Constructors
 
             internal MTAThread(SapiRecognizer.RecognizerType type)

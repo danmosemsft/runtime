@@ -20,7 +20,6 @@ namespace System.Speech.Internal.SrgsParser
 {
     internal class XmlParser : ISrgsParser
     {
-
         #region Constructors
 
         internal XmlParser(XmlReader reader, Uri uri)

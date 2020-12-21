@@ -11,7 +11,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal class GrammarElement : ParseElement, IGrammar
     {
-
         #region Constructors
 
         internal GrammarElement(Backend backend, CustomGrammar cg)

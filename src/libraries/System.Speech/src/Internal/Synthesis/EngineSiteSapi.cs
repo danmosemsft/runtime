@@ -15,7 +15,6 @@ namespace System.Speech.Internal.Synthesis
     [ComVisible(true)]
     internal class EngineSiteSapi : ISpEngineSite
     {
-
         #region Constructors
 
         internal EngineSiteSapi(EngineSite site, ResourceLoader resourceLoader)

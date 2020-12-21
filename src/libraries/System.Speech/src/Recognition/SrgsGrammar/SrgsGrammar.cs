@@ -21,7 +21,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [Serializable]
     internal sealed class SrgsGrammar : IGrammar
     {
-
         #region Constructors
 
         /// <summary>

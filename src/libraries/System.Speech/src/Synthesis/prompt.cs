@@ -15,7 +15,6 @@ namespace System.Speech.Synthesis
     [DebuggerDisplay("{_text}")]
     public class Prompt
     {
-
         #region Constructors
 
         /// <summary>

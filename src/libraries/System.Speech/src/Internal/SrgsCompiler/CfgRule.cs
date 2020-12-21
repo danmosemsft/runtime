@@ -11,7 +11,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal struct CfgRule
     {
-
         #region Constructors
 
         internal CfgRule(int id, int nameOffset, uint flag)

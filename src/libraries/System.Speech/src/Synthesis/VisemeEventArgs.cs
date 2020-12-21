@@ -8,7 +8,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public class VisemeReachedEventArgs : PromptEventArgs
     {
-
         #region Constructors
 
         /// <summary>

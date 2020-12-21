@@ -14,7 +14,6 @@ namespace System.Speech.Internal
     // Helper class which wraps AudioFormat and handles WaveFormatEx variable sized structure
     internal static class AudioFormatConverter
     {
-
         #region Internal Methods
 
         internal static SpeechAudioFormatInfo ToSpeechAudioFormatInfo(IntPtr waveFormatPtr)

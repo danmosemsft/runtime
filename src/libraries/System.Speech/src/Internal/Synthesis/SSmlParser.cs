@@ -15,7 +15,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal static class SsmlParser
     {
-
         #region Internal Methods
 
         /// <summary>

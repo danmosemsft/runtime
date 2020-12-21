@@ -26,7 +26,6 @@ namespace System.Speech.Recognition
     internal class RecognizerBase : IRecognizerInternal, IDisposable,
 ISpGrammarResourceLoader
     {
-
         #region Constructors
 
         /// <summary>
@@ -3261,7 +3260,6 @@ ISpGrammarResourceLoader
     // This is stored in the Grammar.InternalData property.
     internal class InternalGrammarData
     {
-
         #region Constructors
 
         // Keep a copy of enabled, weight and priority because there's a race condition between reading the values from the Grammar

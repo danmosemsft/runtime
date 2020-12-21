@@ -35,7 +35,6 @@ namespace System.Speech.Internal.Synthesis
 
     internal class TtsProxySsml : ITtsEngineProxy
     {
-
         #region Constructors
 
         internal TtsProxySsml(TtsEngineSsml ssmlEngine, ITtsEngineSite site, int lcid)
@@ -123,7 +122,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal class TtsProxySapi : ITtsEngineProxy
     {
-
         #region Constructors
 
         internal TtsProxySapi(ITtsEngine sapiEngine, IntPtr iSite, int lcid)

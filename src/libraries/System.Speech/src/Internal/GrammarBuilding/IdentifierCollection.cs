@@ -10,7 +10,6 @@ namespace System.Speech.Internal.GrammarBuilding
     /// </summary>
     internal class IdentifierCollection
     {
-
         #region Constructors
 
         /// <summary>

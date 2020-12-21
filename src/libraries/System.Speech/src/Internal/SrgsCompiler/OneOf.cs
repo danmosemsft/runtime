@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal class OneOf : ParseElementCollection, IOneOf
     {
-
         #region Constructors
 
         /// <summary>

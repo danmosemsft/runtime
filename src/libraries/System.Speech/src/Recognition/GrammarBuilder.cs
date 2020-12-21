@@ -20,7 +20,6 @@ namespace System.Speech.Recognition
     [DebuggerDisplay("{DebugSummary}")]
     public class GrammarBuilder
     {
-
         #region Constructors
 
         /// <summary>
@@ -679,8 +678,6 @@ namespace System.Speech.Recognition
         /// </summary>
         private class InternalGrammarBuilder : BuilderElements
         {
-
-
             #region Internal Methods
 
             /// <summary>

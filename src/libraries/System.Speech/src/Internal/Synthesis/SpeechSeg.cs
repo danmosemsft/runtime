@@ -13,7 +13,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal class SpeechSeg
     {
-
         #region Constructors
 
         internal SpeechSeg(TTSVoice voice, AudioData audio)

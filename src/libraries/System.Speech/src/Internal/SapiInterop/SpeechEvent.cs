@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SapiInterop
     // Disposing this class will dispose all unmanmanaged memory.
     internal class SpeechEvent : IDisposable
     {
-
         #region Constructors
 
         private SpeechEvent(SPEVENTENUM eEventId, SPEVENTLPARAMTYPE elParamType,

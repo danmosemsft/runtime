@@ -14,7 +14,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal abstract class RedBackList : IEnumerable
     {
-
         #region Constructors
 
         internal RedBackList()

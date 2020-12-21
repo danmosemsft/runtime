@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal sealed class SemanticTag : ParseElement, ISemanticTag
     {
-
         #region Constructors
 
         internal SemanticTag(ParseElement parent, Backend backend)

@@ -19,7 +19,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal sealed partial class Backend
     {
-
         #region Constructors
 
         internal Backend()
@@ -1263,7 +1262,7 @@ namespace System.Speech.Internal.SrgsCompiler
 #else
         private static
 #endif
- void AddArc(Arc arc)
+        void AddArc(Arc arc)
         {
 #if DEBUG
             arc.Backend = this;

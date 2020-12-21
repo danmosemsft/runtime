@@ -18,7 +18,6 @@ namespace System.Speech.Internal.ObjectTokens
     /// </summary>
     internal class ObjectTokenCategory : RegistryDataKey, IEnumerable<ObjectToken>
     {
-
         #region Constructors
 
         protected ObjectTokenCategory(string keyId, RegistryDataKey key)

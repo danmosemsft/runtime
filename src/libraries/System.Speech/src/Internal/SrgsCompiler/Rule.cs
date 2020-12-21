@@ -16,7 +16,6 @@ namespace System.Speech.Internal.SrgsCompiler
     [DebuggerDisplay("{Name}")]
     internal sealed class Rule : ParseElementCollection, IRule, IComparable<Rule>
     {
-
         #region Constructors
 
         // Only used for the special transition

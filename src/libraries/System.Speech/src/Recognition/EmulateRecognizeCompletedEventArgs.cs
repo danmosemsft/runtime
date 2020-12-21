@@ -9,7 +9,6 @@ namespace System.Speech.Recognition
     /// TODOC <_include file='doc\EmulateRecognizeCompletedEventArgs.uex' path='docs/doc[@for="EmulateRecognizeCompletedEventArgs"]/*' />
     public class EmulateRecognizeCompletedEventArgs : AsyncCompletedEventArgs
     {
-
         #region Constructors
 
         internal EmulateRecognizeCompletedEventArgs(RecognitionResult result, Exception error, bool cancelled, object userState)

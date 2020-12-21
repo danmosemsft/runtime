@@ -17,7 +17,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public class SrgsSubset : SrgsElement, ISubset
     {
-
         #region Constructors
 
         /// TODOC

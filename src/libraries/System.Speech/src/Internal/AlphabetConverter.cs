@@ -22,7 +22,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal class AlphabetConverter
     {
-
         #region Constructors
 
         internal AlphabetConverter(int langId)

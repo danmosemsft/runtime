@@ -22,7 +22,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
     internal sealed class State : IComparable<State>
     {
-
         #region Constructors
 
         internal State(Rule rule, uint hState, int iSerialize)

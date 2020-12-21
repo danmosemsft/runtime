@@ -14,7 +14,6 @@ namespace System.Speech.Internal.ObjectTokens
     /// </summary>
     internal static class SAPICategories
     {
-
         #region internal Methods
 
         internal static ObjectToken DefaultToken(string category)

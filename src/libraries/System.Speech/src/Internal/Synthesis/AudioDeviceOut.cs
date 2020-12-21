@@ -15,7 +15,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal class AudioDeviceOut : AudioBase, IDisposable
     {
-
         #region Constructors
 
         /// <summary>

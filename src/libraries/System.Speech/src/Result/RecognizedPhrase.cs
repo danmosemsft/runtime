@@ -25,7 +25,6 @@ namespace System.Speech.Recognition
     [DebuggerDisplay("{Text}")]
     public class RecognizedPhrase
     {
-
         #region Constructors
 
         internal RecognizedPhrase()

@@ -16,7 +16,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
     internal sealed class Tag : IComparable<Tag>
     {
-
         #region Constructors
 
         internal Tag(Tag tag)

@@ -14,7 +14,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal class TextFragmentEngine : ISsmlParser
     {
-
         #region Constructors
 
         internal TextFragmentEngine(SpeakInfo speakInfo, string ssmlText, bool pexml, ResourceLoader resourceLoader, List<LexiconEntry> lexicons)

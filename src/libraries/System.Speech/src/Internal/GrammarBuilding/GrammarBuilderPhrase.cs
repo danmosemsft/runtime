@@ -11,7 +11,6 @@ namespace System.Speech.Internal.GrammarBuilding
     [DebuggerDisplay("{DebugSummary}")]
     internal sealed class GrammarBuilderPhrase : GrammarBuilderBase
     {
-
         #region Constructors
 
         /// <summary>

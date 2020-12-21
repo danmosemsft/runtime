@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class RecognizeCompletedEventArgs : AsyncCompletedEventArgs
     {
-
         #region Constructors
 
         internal RecognizeCompletedEventArgs(RecognitionResult result, bool initialSilenceTimeout, bool babbleTimeout,

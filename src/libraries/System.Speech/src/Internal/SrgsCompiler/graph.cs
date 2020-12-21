@@ -23,7 +23,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
     internal class Graph : IEnumerable<State>
     {
-
         #region Internal Methods
 
         internal void Add(State state)

@@ -15,8 +15,6 @@ using System.Diagnostics;
 
 namespace System.Speech.Synthesis.TtsEngine
 {
-
-
     #region Public Interface
 
     /// <summary>

@@ -11,7 +11,6 @@ namespace System.Speech.Synthesis
     [Serializable]
     public class PromptStyle
     {
-
         #region Constructors
 
         /// <summary>

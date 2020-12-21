@@ -17,7 +17,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public class SrgsNameValueTag : SrgsElement, IPropertyTag
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\PropertyTag.uex' path='docs/doc[@for="PropertyTag.PropertyTag2"]/*' />

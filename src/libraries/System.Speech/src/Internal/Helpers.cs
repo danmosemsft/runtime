@@ -9,7 +9,6 @@ namespace System.Speech.Internal
 {
     internal static class Helpers
     {
-
         #region Internal Methods
 
         // Disable parameter validation check

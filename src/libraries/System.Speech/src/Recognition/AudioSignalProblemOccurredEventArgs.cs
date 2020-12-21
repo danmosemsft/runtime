@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class AudioSignalProblemOccurredEventArgs : EventArgs
     {
-
         #region Constructors
 
         internal AudioSignalProblemOccurredEventArgs(AudioSignalProblem audioSignalProblem, int audioLevel, TimeSpan audioPosition, TimeSpan recognizerPosition)

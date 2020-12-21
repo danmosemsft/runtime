@@ -18,7 +18,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString()}")]
     public class SrgsRuleRef : SrgsElement, IRuleRef
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\RuleRef.uex' path='docs/doc[@for="RuleRef.RuleRef2"]/*' />

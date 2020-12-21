@@ -10,7 +10,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public class StateChangedEventArgs : EventArgs
     {
-
         #region Constructors
 
         /// <summary>

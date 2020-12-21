@@ -26,7 +26,6 @@ namespace System.Speech.Recognition
     [DebuggerDisplay("Grammar: {(_uri != null ? \"uri=\" + _uri.ToString () + \" \" : \"\") + \"rule=\" + _ruleName }")]
     public class Grammar
     {
-
         #region Constructors
 
 #pragma warning disable 6504

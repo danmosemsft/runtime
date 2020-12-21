@@ -7,7 +7,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal class PcmConverter
     {
-
         #region Internal Methods
 
         /// <summary>

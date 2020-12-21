@@ -13,7 +13,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal sealed class PropertyTag : ParseElement, IPropertyTag
     {
-
         #region Constructors
 
         internal PropertyTag(ParseElement parent, Backend backend)

@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     internal class SapiRecognizer : IDisposable
     {
-
         #region Constructors
 
         internal SapiRecognizer(RecognizerType type)

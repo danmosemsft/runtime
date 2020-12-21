@@ -293,8 +293,6 @@ namespace System.Speech.Internal.SrgsCompiler
         // list of rules with scripts
         private class ScriptRefStruct
         {
-
-
             #region Constructors
 
             internal ScriptRefStruct(string rule, RuleMethodScript method)

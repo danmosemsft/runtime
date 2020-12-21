@@ -12,7 +12,6 @@ namespace System.Speech.Recognition
 
     public class LoadGrammarCompletedEventArgs : AsyncCompletedEventArgs
     {
-
         #region Constructors
 
         internal LoadGrammarCompletedEventArgs(Grammar grammar, Exception error, bool cancelled, object userState)

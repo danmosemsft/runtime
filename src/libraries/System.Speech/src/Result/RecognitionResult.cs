@@ -30,7 +30,6 @@ namespace System.Speech.Recognition
     [Serializable]
     public sealed class RecognitionResult : RecognizedPhrase, ISerializable
     {
-
         #region Constructors
         internal RecognitionResult(IRecognizerInternal recognizer, ISpRecoResult recoResult, byte[] sapiResultBlob, int maxAlternates)
         {

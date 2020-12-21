@@ -17,7 +17,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal static class SrgsCompiler
     {
-
         #region Internal Methods
 
         /// <summary>

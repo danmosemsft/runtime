@@ -19,7 +19,6 @@ namespace System.Speech.Internal.ObjectTokens
     [DebuggerDisplay("{Name}")]
     internal class RegistryDataKey : ISpDataKey, IEnumerable<RegistryDataKey>, IDisposable
     {
-
         #region Constructors
 
         protected RegistryDataKey(string fullPath, SafeRegistryHandle regHandle)

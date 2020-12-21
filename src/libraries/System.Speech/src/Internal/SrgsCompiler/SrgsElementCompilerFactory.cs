@@ -15,7 +15,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal class SrgsElementCompilerFactory : IElementFactory
     {
-
         #region Constructors
 
         internal SrgsElementCompilerFactory(Backend backend, CustomGrammar cg)

@@ -25,7 +25,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [Serializable]
     public class SrgsDocument
     {
-
         #region Constructors / Destructors
 
         /// <summary>
@@ -334,7 +333,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             // New grammar
             _grammar = new SrgsGrammar
             {
-
                 // For SrgsGrammar, the default is IPA, for xml grammars, it is sapi.
                 PhoneticAlphabet = AlphabetType.Sapi
             };

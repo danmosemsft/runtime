@@ -21,7 +21,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
     internal class Arc : IComparer<Arc>, IComparable<Arc>
     {
-
         #region Constructors
 
         internal Arc()

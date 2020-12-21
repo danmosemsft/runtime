@@ -10,7 +10,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal static class ConvertTextFrag
     {
-
         #region internal Methods
 
         internal static bool ToSapi(List<TextFragment> ssmlFrags, ref GCHandle sapiFragLast)

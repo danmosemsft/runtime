@@ -23,7 +23,6 @@ namespace System.Speech.Synthesis
     [Serializable]
     public class VoiceInfo
     {
-
         #region Constructors
 
         /// <summary>

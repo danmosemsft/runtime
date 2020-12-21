@@ -15,7 +15,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
     public static class SrgsGrammarCompiler
     {
-
         #region Public Methods
 
         /// <summary>

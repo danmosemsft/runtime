@@ -18,7 +18,6 @@ namespace System.Speech.Internal.SrgsParser
 {
     internal class SrgsDocumentParser : ISrgsParser
     {
-
         #region Constructors
 
         internal SrgsDocumentParser(SrgsGrammar grammar)

@@ -26,7 +26,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal class CustomGrammar
     {
-
         #region Constructors
 
         internal CustomGrammar()

@@ -15,7 +15,6 @@ namespace System.Speech.Recognition
     [DebuggerDisplay("{_oneOf.DebugSummary}")]
     public class Choices
     {
-
         #region Constructors
 
         /// <summary>

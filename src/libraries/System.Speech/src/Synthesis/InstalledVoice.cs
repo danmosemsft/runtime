@@ -27,7 +27,6 @@ namespace System.Speech.Synthesis
     [DebuggerDisplay("{VoiceInfo.Name} [{Enabled ? \"Enabled\" : \"Disabled\"}]")]
     public class InstalledVoice
     {
-
         #region Constructors
 
         internal InstalledVoice(VoiceSynthesis voiceSynthesizer, VoiceInfo voice)

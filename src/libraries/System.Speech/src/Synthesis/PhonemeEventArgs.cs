@@ -10,7 +10,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public class PhonemeReachedEventArgs : PromptEventArgs
     {
-
         #region Constructors
 
         /// <summary>

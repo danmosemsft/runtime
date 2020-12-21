@@ -21,7 +21,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal class EngineSite : ITtsEngineSite, ITtsEventSink
     {
-
         #region Constructors
 
         internal EngineSite(ResourceLoader resourceLoader)

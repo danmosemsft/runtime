@@ -13,7 +13,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal abstract class AudioBase
     {
-
         #region Constructors
 
         /// <summary>

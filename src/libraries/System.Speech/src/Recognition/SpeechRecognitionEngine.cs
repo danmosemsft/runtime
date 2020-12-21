@@ -22,7 +22,6 @@ namespace System.Speech.Recognition
 
     public class SpeechRecognitionEngine : IDisposable
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.SpeechRecognitionEngine1"]/*' />

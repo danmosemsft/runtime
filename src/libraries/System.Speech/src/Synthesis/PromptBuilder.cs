@@ -20,7 +20,6 @@ namespace System.Speech.Synthesis
     [Serializable]
     public class PromptBuilder
     {
-
         #region Constructors
 
         /// <summary>

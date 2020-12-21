@@ -11,7 +11,6 @@ namespace System.Speech.Internal.GrammarBuilding
     /// </summary>
     internal abstract class GrammarBuilderBase
     {
-
         #region Internal Methods
 
         /// <summary>

@@ -13,7 +13,6 @@ namespace System.Speech.Internal.GrammarBuilding
     /// </summary>
     internal sealed class SemanticKeyElement : BuilderElements
     {
-
         #region Constructors
 
         /// <summary>

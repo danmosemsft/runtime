@@ -20,7 +20,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerTypeProxy(typeof(SrgsItemDebugDisplay))]
     public class SrgsItem : SrgsElement, IItem
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\Item.uex' path='docs/doc[@for="Item.Item1"]/*' />

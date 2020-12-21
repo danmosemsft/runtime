@@ -19,7 +19,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerTypeProxy(typeof(SrgsRuleDebugDisplay))]
     public class SrgsRule : IRule
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\Rule.uex' path='docs/doc[@for="Rule.Rule1"]/*' />

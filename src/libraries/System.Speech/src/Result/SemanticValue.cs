@@ -17,7 +17,6 @@ namespace System.Speech.Recognition
     [DebuggerTypeProxy(typeof(SemanticValueDebugDisplay))]
     public sealed class SemanticValue : IDictionary<string, SemanticValue>
     {
-
         #region Constructors
 
 #pragma warning disable 6504, 56507

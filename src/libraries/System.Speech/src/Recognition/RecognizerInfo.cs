@@ -19,7 +19,6 @@ namespace System.Speech.Recognition
 
     public class RecognizerInfo : IDisposable
     {
-
         #region Constructors
 
         private RecognizerInfo(ObjectToken token, CultureInfo culture)

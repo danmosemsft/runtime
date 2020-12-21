@@ -15,7 +15,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal class TextWriterEngine : ISsmlParser
     {
-
         #region Constructors
 
         internal TextWriterEngine(XmlTextWriter writer, CultureInfo culture)

@@ -15,7 +15,6 @@ namespace System.Speech.Internal.GrammarBuilding
     [DebuggerDisplay("{DebugSummary}")]
     internal sealed class ItemElement : BuilderElements
     {
-
         #region Constructors
 
         /// <summary>

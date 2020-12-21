@@ -11,7 +11,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal class StringBlob
     {
-
         #region Constructors
 
         internal StringBlob()

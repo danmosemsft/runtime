@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal class Subset : ParseElement, ISubset
     {
-
         #region Constructors
 
         /// <summary>

@@ -27,7 +27,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal sealed class VoiceSynthesis : IDisposable
     {
-
         #region Constructors
 
         internal VoiceSynthesis(WeakReference speechSynthesizer)

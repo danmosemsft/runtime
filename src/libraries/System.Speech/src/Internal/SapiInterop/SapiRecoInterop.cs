@@ -543,7 +543,6 @@ namespace System.Speech.Internal.SapiInterop
                     RecognizedWordUnit word = words[i];
                     elements[i] = new SPPHRASEELEMENT
                     {
-
                         // diplay + confidence
                         bDisplayAttributes = RecognizedWordUnit.DisplayAttributesToSapiAttributes(word.DisplayAttributes == DisplayAttributes.None ? DisplayAttributes.OneTrailingSpace : word.DisplayAttributes),
                         SREngineConfidence = word.Confidence,

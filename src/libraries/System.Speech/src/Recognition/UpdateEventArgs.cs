@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class RecognizerUpdateReachedEventArgs : EventArgs
     {
-
         #region Constructors
 
         internal RecognizerUpdateReachedEventArgs(object userToken, TimeSpan audioPosition)

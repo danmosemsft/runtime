@@ -10,11 +10,8 @@ using System.Speech.Synthesis;
 
 namespace System.Speech.Internal
 {
-
-
     internal class ResourceLoader
     {
-
         #region Internal Methods
 
         /// <summary>

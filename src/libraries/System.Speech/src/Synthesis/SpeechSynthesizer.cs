@@ -25,7 +25,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public sealed class SpeechSynthesizer : IDisposable
     {
-
         #region Constructors
 
         /// <summary>

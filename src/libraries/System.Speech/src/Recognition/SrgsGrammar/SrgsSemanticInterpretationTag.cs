@@ -16,7 +16,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public class SrgsSemanticInterpretationTag : SrgsElement, ISemanticTag
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\Tag.uex' path='docs/doc[@for="Tag.Tag1"]/*' />

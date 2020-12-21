@@ -15,7 +15,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal sealed class PhonemeConverter
     {
-
         #region Constructors
 
         private PhonemeConverter(PhoneMap phoneMap)

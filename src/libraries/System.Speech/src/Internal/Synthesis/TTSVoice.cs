@@ -12,7 +12,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal class TTSVoice
     {
-
         #region Constructors
 
         internal TTSVoice(ITtsEngineProxy engine, VoiceInfo voiceId)

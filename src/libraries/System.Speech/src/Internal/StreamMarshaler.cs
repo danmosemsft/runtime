@@ -14,7 +14,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal sealed class StreamMarshaler : IDisposable
     {
-
         #region Constructors
 
         internal StreamMarshaler()

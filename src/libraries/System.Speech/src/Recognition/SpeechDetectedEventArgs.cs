@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class SpeechDetectedEventArgs : EventArgs
     {
-
         #region Constructors
 
         internal SpeechDetectedEventArgs(TimeSpan audioPosition)

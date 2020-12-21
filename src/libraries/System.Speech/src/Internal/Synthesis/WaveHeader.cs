@@ -12,7 +12,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal sealed class WaveHeader : IDisposable
     {
-
         #region Constructors
 
         /// <summary>

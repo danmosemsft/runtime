@@ -15,7 +15,6 @@ namespace System.Speech.Internal.SrgsCompiler
 {
     internal class RuleRef : ParseElement, IRuleRef
     {
-
         #region Constructors
 
         /// <summary>

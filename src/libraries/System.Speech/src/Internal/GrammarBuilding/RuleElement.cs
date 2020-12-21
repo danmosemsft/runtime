@@ -13,7 +13,6 @@ namespace System.Speech.Internal.GrammarBuilding
     /// </summary>
     internal sealed class RuleElement : BuilderElements
     {
-
         #region Constructors
 
         /// <summary>

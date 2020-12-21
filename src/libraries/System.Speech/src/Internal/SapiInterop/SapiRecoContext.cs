@@ -12,7 +12,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     internal class SapiRecoContext : IDisposable
     {
-
         #region Constructors
 
         // This constuctor must be called in the context of the backgroung proxy if any

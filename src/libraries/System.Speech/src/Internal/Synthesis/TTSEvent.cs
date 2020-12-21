@@ -13,7 +13,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal class TTSEvent
     {
-
         #region Constructors
 
         internal TTSEvent(TtsEventId id, Prompt prompt, Exception exception, VoiceInfo voice)

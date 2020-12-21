@@ -13,7 +13,6 @@ namespace System.Speech.Internal.SrgsCompiler
     [DebuggerDisplay("rule=\"{_rule}\" method=\"{_sMethod}\" operation=\"{_method.ToString ()}\"")]
     internal class ScriptRef
     {
-
         #region Constructors
 
         internal ScriptRef(string rule, string sMethod, RuleMethodScript method)

@@ -16,7 +16,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     internal class SpStreamWrapper : IStream, IDisposable
     {
-
         #region Constructors
 
         internal SpStreamWrapper(Stream stream)

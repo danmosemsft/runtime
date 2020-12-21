@@ -15,7 +15,6 @@ namespace System.Speech.Internal.Synthesis
     /// </summary>
     internal static class AudioFormatConverter
     {
-
         #region Internal Methods
 
         /// <summary>

@@ -25,7 +25,6 @@ namespace System.Speech.Internal.ObjectTokens
     [DebuggerDisplay("{Name}")]
     internal class ObjectToken : RegistryDataKey, ISpObjectToken
     {
-
         #region Constructors
 
         protected ObjectToken(ISpObjectToken sapiObjectToken, bool disposeSapiToken)

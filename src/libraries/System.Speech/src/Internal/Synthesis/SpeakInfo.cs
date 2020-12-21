@@ -14,7 +14,6 @@ namespace System.Speech.Internal.Synthesis
 {
     internal sealed class SpeakInfo
     {
-
         #region Constructors
 
         /// <summary>

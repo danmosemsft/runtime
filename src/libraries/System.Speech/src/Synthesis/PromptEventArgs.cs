@@ -11,7 +11,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public abstract class PromptEventArgs : AsyncCompletedEventArgs
     {
-
         #region Constructors
 
         /// <summary>
@@ -56,7 +55,6 @@ namespace System.Speech.Synthesis
     /// </summary>
     public class SpeakStartedEventArgs : PromptEventArgs
     {
-
         #region Constructors
 
         /// <summary>

@@ -13,7 +13,6 @@ namespace System.Speech.AudioFormat
     public
  class SpeechAudioFormatInfo
     {
-
         #region Constructors
 
         private SpeechAudioFormatInfo(EncodingFormat encodingFormat, int samplesPerSecond, short bitsPerSample, short channelCount, byte[] formatSpecificData)

@@ -11,7 +11,6 @@ namespace System.Speech.Internal.SrgsCompiler
     /// </summary>
     internal sealed class Item : ParseElementCollection, IItem
     {
-
         #region Constructors
 
         internal Item(Backend backend, Rule rule, int minRepeat, int maxRepeat, float repeatProbability, float weigth)

@@ -18,7 +18,6 @@ namespace System.Speech.Recognition
 
     public class SpeechRecognizer : IDisposable
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.SpeechRecognizer"]/*' />

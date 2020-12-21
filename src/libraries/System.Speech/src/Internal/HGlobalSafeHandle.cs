@@ -11,7 +11,6 @@ namespace System.Speech.Internal
     /// </summary>
     internal sealed class HGlobalSafeHandle : SafeHandle
     {
-
         #region Constructors
 
         internal HGlobalSafeHandle() : base(IntPtr.Zero, true)

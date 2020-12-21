@@ -15,7 +15,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public class SrgsText : SrgsElement, IElementText
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\SrgsText.uex' path='docs/doc[@for="SrgsText.SrgsText1"]/*' />

@@ -17,7 +17,6 @@ namespace System.Speech.Recognition.SrgsGrammar
     [DebuggerDisplay("{DebuggerDisplayString ()}")]
     public class SrgsToken : SrgsElement, IToken
     {
-
         #region Constructors
 
         /// TODOC <_include file='doc\Token.uex' path='docs/doc[@for="Token.Token2"]/*' />

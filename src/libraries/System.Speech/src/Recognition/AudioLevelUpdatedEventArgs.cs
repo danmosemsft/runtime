@@ -10,7 +10,6 @@ namespace System.Speech.Recognition
 
     public class AudioLevelUpdatedEventArgs : EventArgs
     {
-
         #region Constructors
 
         internal AudioLevelUpdatedEventArgs(int audioLevel)

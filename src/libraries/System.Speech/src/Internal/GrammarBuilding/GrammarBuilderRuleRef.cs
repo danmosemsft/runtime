@@ -14,7 +14,6 @@ namespace System.Speech.Internal.GrammarBuilding
     /// </summary>
     internal sealed class GrammarBuilderRuleRef : GrammarBuilderBase
     {
-
         #region Constructors
 
         /// <summary>
