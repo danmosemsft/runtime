@@ -34,7 +34,6 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion
 
-
         #region Internal Methods
 
         internal void SetInterest(ulong eventInterest, ulong queuedInterest)
@@ -89,7 +88,6 @@ namespace System.Speech.Internal.SapiInterop
         }
 
         #endregion
-
 
         #region Private Fields
 

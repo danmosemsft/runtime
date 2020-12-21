@@ -25,7 +25,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region public Properties
 
         // Use Add* naming convention.
@@ -53,7 +52,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion
-
 
         #region Private Fields
 

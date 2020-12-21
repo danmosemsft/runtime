@@ -23,7 +23,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
         #region Public Methods
 
         /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.Equals"]/*' />
@@ -40,7 +39,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
 
         #region Internal Methods
 

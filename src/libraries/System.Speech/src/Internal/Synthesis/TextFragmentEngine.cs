@@ -26,7 +26,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         public object ProcessSpeak(string sVersion, string sBaseUri, CultureInfo culture, List<SsmlXmlAttribute> extraNamespace)
@@ -218,7 +217,6 @@ namespace System.Speech.Internal.Synthesis
         {
         }
 
-
         public bool BeginPromptEngineOutput(object voice)
         {
             return false;
@@ -293,7 +291,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Methods
 
         private
@@ -310,9 +307,7 @@ namespace System.Speech.Internal.Synthesis
             fragmentState.Action = action;
         }
 
-
         #endregion
-
 
         #region Private Fields
 

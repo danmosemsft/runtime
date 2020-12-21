@@ -49,7 +49,6 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion Constructors
 
-
         #region Internal Methods
 
         // Finalizer is not required since ISpEventSource and AsyncOperation both implement appropriate finalizers.
@@ -109,11 +108,9 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion Methods
 
-
         #region Private Methods
 
         #endregion
-
 
         #region Private Fields
 

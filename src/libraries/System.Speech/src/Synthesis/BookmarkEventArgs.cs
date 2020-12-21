@@ -25,9 +25,7 @@ namespace System.Speech.Synthesis
             _audioPosition = audioPosition;
         }
 
-
         #endregion
-
 
         #region public Properties
 
@@ -55,9 +53,7 @@ namespace System.Speech.Synthesis
             }
         }
 
-
         #endregion
-
 
         #region Private Fields
 

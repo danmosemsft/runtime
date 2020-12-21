@@ -28,7 +28,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Properties
 
         /// TODOC <_include file='doc\Token.uex' path='docs/doc[@for="Token.Text"]/*' />
@@ -81,7 +80,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Internal methods
 
@@ -167,7 +165,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Private Fields
 

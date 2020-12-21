@@ -148,7 +148,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Methods
 
         private static int SapiVolume(ProsodyNumber volume)
@@ -375,9 +374,7 @@ namespace System.Speech.Internal.Synthesis
             return rate;
         }
 
-
         #endregion
-
 
         #region Private Methods
 

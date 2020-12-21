@@ -23,8 +23,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
-
         #region Internal Methods
 
         /// <summary>
@@ -54,8 +52,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
-
 
         #region Protected Fields
 

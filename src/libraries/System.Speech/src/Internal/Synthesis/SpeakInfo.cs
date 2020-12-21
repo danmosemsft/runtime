@@ -40,7 +40,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         internal void SetVoice(string name, CultureInfo culture, VoiceGender gender, VoiceAge age, int variant)
@@ -69,7 +68,6 @@ namespace System.Speech.Internal.Synthesis
             _lastSeg.AddFrag(textFragment);
         }
 
-
         internal SpeechSeg RemoveFirst()
         {
             SpeechSeg speechSeg = null;
@@ -83,7 +81,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Method
 
         private void AddNewSeg(TTSVoice pCurrVoice, AudioData audio)
@@ -95,7 +92,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region private Fields
 
@@ -116,8 +112,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
     }
-
-
 
     #region Private Types
 

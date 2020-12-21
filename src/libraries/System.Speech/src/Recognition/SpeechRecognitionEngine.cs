@@ -116,7 +116,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Static Methods
 
         // Get attributes of all the recognizers that are installed
@@ -150,9 +149,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
-
 
         #region public Properties
 
@@ -245,13 +241,11 @@ namespace System.Speech.Recognition
             get { return RecoBase.AudioPosition; }
         }
 
-
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.AudioFormat"]/*' />
         public SpeechAudioFormatInfo AudioFormat
         {
             get { return RecoBase.AudioFormat; }
         }
-
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.MaxAlternates"]/*' />
         public int MaxAlternates
@@ -261,9 +255,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
-
 
         #region public Methods
 
@@ -281,7 +272,6 @@ namespace System.Speech.Recognition
             RecoBase.SetInput(audioSource, null);
         }
 
-
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.SetInput4"]/*' />
         public void SetInputToAudioStream(Stream audioSource, SpeechAudioFormatInfo audioFormat)
         {
@@ -290,7 +280,6 @@ namespace System.Speech.Recognition
 
             RecoBase.SetInput(audioSource, audioFormat);
         }
-
 
         // Detach the audio input
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.SetInputToDefaultAudioDevice"]/*' />
@@ -378,7 +367,6 @@ namespace System.Speech.Recognition
         {
             RecoBase.UpdateRecognizerSetting(settingName, updatedValue);
         }
-
 
         /// TODOC <_include file='doc\SpeechRecognitionEngine.uex' path='docs/doc[@for="SpeechRecognitionEngine.LoadGrammar"]/*' />
         public void LoadGrammar(Grammar grammar)
@@ -479,11 +467,7 @@ namespace System.Speech.Recognition
             RecoBase.RequestRecognizerUpdate(userToken, audioPositionAheadToRaiseUpdate);
         }
 
-
         #endregion
-
-
-
 
         #region public Events
 
@@ -619,7 +603,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Private Methods
 
@@ -758,7 +741,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Properties
         private RecognizerBase RecoBase
         {
@@ -786,7 +768,6 @@ namespace System.Speech.Recognition
             }
         }
         #endregion
-
 
         #region Private Fields
 

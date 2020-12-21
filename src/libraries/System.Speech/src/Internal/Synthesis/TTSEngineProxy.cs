@@ -29,7 +29,6 @@ namespace System.Speech.Internal.Synthesis
         internal abstract AlphabetType EngineAlphabet { get; }
         internal AlphabetConverter AlphabetConverter { get { return _alphabetConverter; } }
 
-
         protected AlphabetConverter _alphabetConverter;
     }
 
@@ -45,7 +44,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -105,9 +103,7 @@ namespace System.Speech.Internal.Synthesis
         {
         }
 
-
         #endregion
-
 
         #region private Fields
 
@@ -132,7 +128,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -212,9 +207,7 @@ namespace System.Speech.Internal.Synthesis
             Marshal.ReleaseComObject(_sapiEngine);
         }
 
-
         #endregion
-
 
         #region private Fields
 

@@ -20,7 +20,6 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion
 
-
         #region Internal Methods
 
         internal abstract object Invoke(ObjectDelegate pfn);
@@ -64,7 +63,6 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion
 
-
         #region Protected Fields
 
         protected ISpeechRecognizer _speechRecognizer;
@@ -72,7 +70,6 @@ namespace System.Speech.Internal.SapiInterop
         protected ISpRecognizer _recognizer;
 
         #endregion
-
 
         #region Protected Fields
 
@@ -103,8 +100,6 @@ namespace System.Speech.Internal.SapiInterop
 
             #endregion
 
-
-
             #region Internal Methods
 
             internal override object Invoke(ObjectDelegate pfn)
@@ -118,8 +113,6 @@ namespace System.Speech.Internal.SapiInterop
             }
 
             #endregion
-
-
 
             #region Private Methods
 
@@ -178,8 +171,6 @@ namespace System.Speech.Internal.SapiInterop
 
             #endregion
 
-
-
             #region Internal Methods
 
             internal override object Invoke(ObjectDelegate pfn)
@@ -215,8 +206,6 @@ namespace System.Speech.Internal.SapiInterop
             }
 
             #endregion
-
-
 
             #region Private Methods
 
@@ -261,8 +250,6 @@ namespace System.Speech.Internal.SapiInterop
             }
 
             #endregion
-
-
 
             #region Private Fields
 

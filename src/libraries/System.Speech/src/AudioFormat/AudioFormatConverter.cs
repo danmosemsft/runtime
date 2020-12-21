@@ -44,7 +44,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Private Methods
 
         /// <summary>
@@ -277,7 +276,6 @@ namespace System.Speech.Internal
         }
 
         #endregion
-
 
         #region Private Type
 

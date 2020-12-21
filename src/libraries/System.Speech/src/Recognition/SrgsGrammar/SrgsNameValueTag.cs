@@ -9,7 +9,6 @@ using System.Speech.Internal.SrgsParser;
 using System.Text;
 using System.Xml;
 
-
 namespace System.Speech.Recognition.SrgsGrammar
 {
     /// TODOC <_include file='doc\PropertyTag.uex' path='docs/doc[@for="PropertyTag"]/*' />
@@ -40,7 +39,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region public Properties
 
@@ -87,7 +85,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 #pragma warning restore 56526
 
         #endregion
-
 
         #region Internal methods
 
@@ -180,7 +177,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Private Methods
 
         /// <summary>
@@ -204,7 +200,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Private Fields
 

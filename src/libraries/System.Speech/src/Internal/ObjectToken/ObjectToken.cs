@@ -16,7 +16,6 @@ using RegistryEntry = System.Collections.Generic.KeyValuePair<string, object>;
 
 using System.Speech.Internal.SapiInterop;
 
-
 namespace System.Speech.Internal.ObjectTokens
 {
     /// <summary>
@@ -102,7 +101,6 @@ namespace System.Speech.Internal.ObjectTokens
 
         #endregion
 
-
         #region public Methods
 
         /// <summary>
@@ -159,7 +157,6 @@ namespace System.Speech.Internal.ObjectTokens
             }
         }
 
-
         /// <summary>
         /// Returns the gender
         /// </summary>
@@ -196,7 +193,6 @@ namespace System.Speech.Internal.ObjectTokens
             }
             return name;
         }
-
 
         /// <summary>
         /// Returns the Culture defined in the Language field for a token
@@ -235,7 +231,6 @@ namespace System.Speech.Internal.ObjectTokens
         }
 
         #endregion
-
 
         #region internal Methods
 
@@ -284,7 +279,6 @@ namespace System.Speech.Internal.ObjectTokens
             }
             return fMatch;
         }
-
 
         internal T CreateObjectFromToken<T>(string name)
         {
@@ -335,13 +329,9 @@ namespace System.Speech.Internal.ObjectTokens
 
         #endregion
 
-
         #region private Methods
 
-
-
         #endregion
-
 
         #region Private Types
 

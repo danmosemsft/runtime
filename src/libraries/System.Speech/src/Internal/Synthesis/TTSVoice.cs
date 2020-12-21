@@ -22,7 +22,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region public Methods
 
         /// <summary>
@@ -43,7 +42,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -150,7 +148,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region private Fields
 

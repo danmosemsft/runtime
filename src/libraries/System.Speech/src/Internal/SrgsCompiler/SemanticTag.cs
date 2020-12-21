@@ -21,7 +21,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Methods
 
         /// TODOC <_include file='doc\Tag.uex' path='docs/doc[@for="Tag.RepeatProbability"]/*' />
@@ -48,7 +47,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Private Fields
 

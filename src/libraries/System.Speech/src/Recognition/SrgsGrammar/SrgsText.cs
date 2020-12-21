@@ -7,7 +7,6 @@ using System.Speech.Internal;
 using System.Speech.Internal.SrgsParser;
 using System.Xml;
 
-
 namespace System.Speech.Recognition.SrgsGrammar
 {
     /// TODOC <_include file='doc\SrgsText.uex' path='docs/doc[@for="SrgsText"]/*' />
@@ -34,7 +33,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Properties
 
         /// TODOC <_include file='doc\SrgsText.uex' path='docs/doc[@for="SrgsText.Text"]/*' />
@@ -58,7 +56,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Internal Methods
 
         internal override void WriteSrgs(XmlWriter writer)
@@ -76,7 +73,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Private Fields
 

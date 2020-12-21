@@ -98,7 +98,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Method
 
         /// <summary>
@@ -147,7 +146,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Private Methods
 
         /// <summary>
@@ -177,7 +175,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region internal Properties
 
         internal static IRuleRef Null
@@ -205,9 +202,7 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Private Fields
-
 
         #region Private Enums
 

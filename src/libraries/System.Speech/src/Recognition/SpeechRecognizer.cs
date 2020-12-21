@@ -52,10 +52,7 @@ namespace System.Speech.Recognition
             }
         }
 
-
         #endregion
-
-
 
         #region public Properties
 
@@ -72,7 +69,6 @@ namespace System.Speech.Recognition
             get { return RecoBase.State; }
         }
 
-
         // Are the grammars attached to this SpeechRecognizer active?  Default = true
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.Enabled"]/*' />
         public bool Enabled
@@ -81,14 +77,12 @@ namespace System.Speech.Recognition
             set { RecoBase.Enabled = value; }
         }
 
-
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.PauseRecognizerOnRecognition"]/*' />
         public bool PauseRecognizerOnRecognition
         {
             get { return RecoBase.PauseRecognizerOnRecognition; }
             set { RecoBase.PauseRecognizerOnRecognition = value; }
         }
-
 
         // Gives access to the collection of grammars that are currently active. Read-only.
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.Grammars"]/*' />
@@ -147,9 +141,7 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region public Methods
-
 
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.LoadGrammar"]/*' />
         public void LoadGrammar(Grammar grammar)
@@ -187,7 +179,6 @@ namespace System.Speech.Recognition
                 throw new InvalidOperationException(SR.Get(SRID.RecognizerNotEnabled));
             }
         }
-
 
         /// TODOC <_include file='doc\SpeechRecognizer.uex' path='docs/doc[@for="SpeechRecognizer.EmulateRecognize2"]/*' />
         public RecognitionResult EmulateRecognize(string inputText, CompareOptions compareOptions)
@@ -274,7 +265,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region public Events
 
@@ -410,7 +400,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Methods
 
         // Proxy event handlers used to translate the sender from the RecognizerBase to this class:
@@ -516,7 +505,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Properties
         private RecognizerBase RecoBase
         {
@@ -570,7 +558,6 @@ namespace System.Speech.Recognition
             }
         }
         #endregion
-
 
         #region Private Fields
 

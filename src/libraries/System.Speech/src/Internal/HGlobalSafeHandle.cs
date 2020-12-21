@@ -32,7 +32,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region internal Methods
 
         /// <summary>
@@ -74,7 +73,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Protected Methods
 
         /// <summary>
@@ -100,9 +98,7 @@ namespace System.Speech.Internal
             return false;
         }
 
-
         #endregion
-
 
         #region Private Fields
 

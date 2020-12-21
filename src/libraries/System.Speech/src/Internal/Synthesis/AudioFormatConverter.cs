@@ -130,7 +130,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Methods
 
         #region Convertors between Linear and ULaw
@@ -242,8 +241,6 @@ namespace System.Speech.Internal.Synthesis
 
             return table;
         }
-
-
 
         #endregion
 
@@ -432,7 +429,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Members
 
         #region Converion tables for direct conversions
@@ -484,7 +480,6 @@ namespace System.Speech.Internal.Synthesis
             7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
             7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
         };
-
 
         #endregion
 
@@ -568,7 +563,6 @@ namespace System.Speech.Internal.Synthesis
             944,   912,  1008,   976,   816,   784,   880,   848
         };
 
-
         #endregion
 
         internal enum WaveFormatTag
@@ -583,8 +577,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
     }
-
-
 
     #region Internal Types
 

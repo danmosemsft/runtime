@@ -24,7 +24,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         /// <summary>
@@ -163,7 +162,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region private Fields
 
         private EngineSite _site;
@@ -177,8 +175,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
     }
-
-
 
     #region Internal Interfaces
 

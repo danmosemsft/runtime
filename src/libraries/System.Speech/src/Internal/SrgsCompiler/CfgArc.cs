@@ -168,9 +168,7 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-
         #endregion
-
 
         #region private Fields
 

@@ -144,7 +144,6 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, false);
         }
 
-
         /// <summary>
         ///
         /// </summary>
@@ -156,7 +155,6 @@ namespace System.Speech.Recognition
             _grammarBuilder = builder;
             InitialGrammarLoad(null, null, false);
         }
-
 
         private Grammar(string onInitParameters, Stream stream, string ruleName)
         {
@@ -181,7 +179,6 @@ namespace System.Speech.Recognition
 #pragma warning restore 6507
 
         #endregion
-
 
         #region Public Methods
 
@@ -234,7 +231,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region public Properties
 
@@ -338,7 +334,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region public Events
 
@@ -450,7 +445,6 @@ namespace System.Speech.Recognition
             get { return _isSrgsDocument; }
         }
 
-
         // Arbitrary data that is attached and removed by the RecognizerBase.
         // This allow RecognizerBase.Grammars to be a simple list without the extra data being stored separately.
         internal InternalGrammarData InternalData
@@ -460,7 +454,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -567,7 +560,6 @@ namespace System.Speech.Recognition
         {
             bool isDictationGrammar = IsDictationGrammar(uri);
 
-
             // Note that must check IsAbsoluteUri before Scheme because Uri.Scheme may throw on a relative Uri
             if (!isDictationGrammar && this is DictationGrammar)
             {
@@ -648,14 +640,11 @@ namespace System.Speech.Recognition
             return GetType().GetMethod(method, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         }
 
-
         #endregion
-
 
         #region Internal Fields
 
         internal GrammarOptions _semanticTag;
-
 
         internal AppDomain _appDomain;
 
@@ -664,7 +653,6 @@ namespace System.Speech.Recognition
         internal ScriptRef[] _scripts;
 
         #endregion
-
 
         #region Protected Methods
 
@@ -685,7 +673,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Private Methods
 
@@ -723,7 +710,6 @@ namespace System.Speech.Recognition
             _srgsDocument = null;
             _appStream = null;
         }
-
 
         /// <summary>
         /// Returns a stream object for a grammar.
@@ -773,7 +759,6 @@ namespace System.Speech.Recognition
                 // If stream, load
                 SrgsGrammarCompiler.CompileXmlOrCopyCfg(_appStream, stream, null);
             }
-
 
             stream.Position = 0;
 
@@ -856,7 +841,6 @@ namespace System.Speech.Recognition
             }
             return null;
         }
-
 
         /// <summary>
         /// Construct a list of parameters from a sapi:params string.
@@ -1006,7 +990,6 @@ namespace System.Speech.Recognition
             }
         }
 
-
         private void CreateSandbox(MemoryStream stream)
         {
             // Checks if it contains .Net Semantic code
@@ -1030,7 +1013,6 @@ namespace System.Speech.Recognition
                 _scripts = scripts;
             }
         }
-
 
         // Loads a strongly typed grammar from a resource in the Assembly.
         private Stream LoadCfgFromResource(bool stgInit)
@@ -1113,7 +1095,6 @@ namespace System.Speech.Recognition
         }
 
 #pragma warning disable 56507 // check for null or empty strings
-
 
         private SrgsRule[] RunOnInit(bool stg)
         {
@@ -1230,7 +1211,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Fields
 
 #pragma warning disable 56524 // You cannot dispose an object we don't create
@@ -1270,7 +1250,6 @@ namespace System.Speech.Recognition
 #endif
 
         #endregion
-
 
         #region Private Types
 

@@ -26,8 +26,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
         #region Public Properties
 
         /// TODOC <_include file='doc\RecognizeCompletedEventArgs.uex' path='docs/doc[@for="RecognizeCompletedEventArgs.Result"]/*' />
@@ -61,8 +59,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
 
         #region Private Fields
 

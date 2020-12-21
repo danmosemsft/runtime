@@ -24,7 +24,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         #region abstract Members
@@ -294,7 +293,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Property
 
         internal abstract TimeSpan Duration { get; }
@@ -317,13 +315,11 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Protected Property
 
         protected bool _aborted;
 
         #endregion
-
 
         #region Private Types
 
@@ -375,8 +371,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
     }
-
-
 
     #region Internal Methods
 

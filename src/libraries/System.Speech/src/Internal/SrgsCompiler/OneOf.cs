@@ -37,7 +37,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Method
 
         /// <summary>
@@ -63,7 +62,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Protected Method
 
@@ -106,7 +104,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Protected Method
 

@@ -10,7 +10,6 @@ using System.Speech.Internal.SrgsParser;
 using System.Diagnostics;
 using System.Text;
 
-
 namespace System.Speech.Internal.SrgsCompiler
 {
     /// <summary>
@@ -37,7 +36,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region internal Methods
 
@@ -386,7 +384,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region private Methods
 
         // Sort based on rule first, so all states, and arcs for a rule end up together.
@@ -473,7 +470,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
 
         #endregion
-
 
         #region internal Fields
 

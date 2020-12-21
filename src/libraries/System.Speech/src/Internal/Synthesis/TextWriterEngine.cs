@@ -25,7 +25,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         public object ProcessSpeak(string sVersion, string baseUri, CultureInfo culture, List<SsmlXmlAttribute> extraNamespace)
@@ -294,7 +293,6 @@ namespace System.Speech.Internal.Synthesis
         //this is not a public API!!!
 #pragma warning disable 56507
 
-
         private bool ProcessPromptEngine(string element, params KeyValuePair<string, string>[] attributes)
         {
             _writer.WriteStartElement(_pexmlPrefix, element, xmlNamespacePrompt);
@@ -380,7 +378,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region Private Fields
 

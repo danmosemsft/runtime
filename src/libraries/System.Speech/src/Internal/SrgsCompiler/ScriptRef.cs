@@ -24,7 +24,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region internal Methods
 
         internal void Serialize(StringBlob symbols, StreamMarshaler streamBuffer)
@@ -59,7 +58,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Internal Fields
 

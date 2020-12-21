@@ -32,7 +32,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region internal Methods
         internal void ReadArray<T>(T[] ao, int c)
         {
@@ -148,7 +147,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region internal Fields
 
         internal Stream Stream
@@ -168,7 +166,6 @@ namespace System.Speech.Internal
         }
 
         #endregion
-
 
         #region Private Fields
 

@@ -43,7 +43,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Properties
 
         /// TODOC <_include file='doc\Subset.uex' path='docs/doc[@for="Subset.Text"]/*' />
@@ -82,7 +81,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Internal methods
         internal override void WriteSrgs(XmlWriter writer)
@@ -137,7 +135,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Private Fields
 

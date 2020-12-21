@@ -24,7 +24,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Intenal Method
 
         /// <summary>
@@ -141,7 +140,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Private Methods
 
         private void AddEpsilonTransition(State start, State end, float weigth)
@@ -152,7 +150,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Private Fields
 

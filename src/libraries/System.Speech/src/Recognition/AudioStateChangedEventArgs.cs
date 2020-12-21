@@ -19,9 +19,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
-
         #region public Properties
 
         /// TODOC <_include file='doc\AudioStatusChangedEventArgs.uex' path='docs/doc[@for="AudioStatusChangedEventArgs.AudioStatus"]/*' />
@@ -31,9 +28,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
-
 
         #region Private Fields
 

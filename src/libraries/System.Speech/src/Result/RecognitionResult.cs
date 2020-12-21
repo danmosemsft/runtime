@@ -72,9 +72,7 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Public Methods
-
 
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.GetAudioForWordRange"]/*' />
         public RecognizedAudio GetAudioForWordRange(RecognizedWordUnit firstWord, RecognizedWordUnit lastWord)
@@ -155,9 +153,7 @@ namespace System.Speech.Recognition
         }
         #endregion
 
-
         #region Public Properties
-
 
         // Recognized Audio:
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.Audio"]/*' />
@@ -212,8 +208,6 @@ namespace System.Speech.Recognition
             }
         }
 
-
-
         // Alternates. This returns a list of Alternate recognitions.
         // We use the same class here for alternates as the main RecognitionResult class. This simplifies the API surface. Calling Alternates on a Result that's already an Alternate will throw a NotSupportedException.
         /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="RecognitionResult.Alternates"]/*' />
@@ -226,7 +220,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -302,7 +295,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Private Methods
 
@@ -437,7 +429,6 @@ namespace System.Speech.Recognition
             return alternates;
         }
 
-
         private void ExtractDictationAlternates(ISpRecoResult recoResult, int maxAlternates)
         {
             // Get the alternates for dication
@@ -500,7 +491,6 @@ namespace System.Speech.Recognition
             }
         }
 
-
         private Collection<RecognizedPhrase> GetAlternates()
         {
             if (_alternates == null)
@@ -554,7 +544,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Private Fields
 

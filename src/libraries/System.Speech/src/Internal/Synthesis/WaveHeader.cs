@@ -59,7 +59,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Methods
 
         internal void ReleaseData()
@@ -102,7 +101,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Internal Fields
 
         /// <summary>
@@ -141,7 +139,6 @@ namespace System.Speech.Internal.Synthesis
         internal const int WAVE_FORMAT_PCM = 1;
 
         #endregion
-
 
         #region private Fields
 

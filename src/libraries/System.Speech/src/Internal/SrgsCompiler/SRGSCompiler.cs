@@ -197,7 +197,6 @@ namespace System.Speech.Internal.SrgsCompiler
             return cg;
         }
 
-
         /// <summary>
         /// Build the state machine for a grammar and returns it in a Memory Stream.
         /// </summary>
@@ -219,7 +218,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
             return cfgStream;
         }
-
 
         /// <summary>
         /// Generate the assembly code for a back. The scripts are defined in custom

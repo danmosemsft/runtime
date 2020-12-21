@@ -206,7 +206,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Fields
 
         // Should be in the private section but the order for parameters is key

@@ -92,8 +92,6 @@ namespace System.Speech.AudioFormat
 
         #endregion
 
-
-
         #region Public Properties
 
         /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.AverageBytesPerSecond"]/*' />
@@ -118,9 +116,6 @@ namespace System.Speech.AudioFormat
         public int SamplesPerSecond { get { return _samplesPerSecond; } }
 
         #endregion
-
-
-
 
         #region Public Methods
 
@@ -167,7 +162,6 @@ namespace System.Speech.AudioFormat
 
         #endregion
 
-
         #region Internal Methods
         internal byte[] WaveFormat
         {
@@ -195,7 +189,6 @@ namespace System.Speech.AudioFormat
         }
         #endregion
 
-
         #region Private Fields
 
         private int _averageBytesPerSecond;
@@ -208,8 +201,6 @@ namespace System.Speech.AudioFormat
 
         #endregion
     }
-
-
 
     #region Public Properties
 

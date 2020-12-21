@@ -43,7 +43,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Intenal Method
 
         /// <summary>

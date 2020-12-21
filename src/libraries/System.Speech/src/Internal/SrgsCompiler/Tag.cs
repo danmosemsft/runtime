@@ -38,7 +38,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Methods
 
         #region IComparable<SemanticTag> Interface implementation
@@ -56,7 +55,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 
         #endregion
-
 
         #region Internal Fields
 

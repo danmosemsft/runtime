@@ -59,7 +59,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             SrgsCompiler.CompileStream(new XmlReader[] { reader }, null, outputStream, true, null, null, null);
         }
 
-
         /// <summary>
         /// Compiles a grammar to a file
         /// </summary>
@@ -128,9 +127,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             SrgsCompiler.CompileStream(new XmlReader[] { reader }, outputPath, null, false, null, referencedAssemblies, keyFile);
         }
 
-
         #endregion
-
 
         #region Internal Methods
 

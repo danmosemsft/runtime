@@ -18,7 +18,6 @@ using System.Threading;
 using RegistryDataKey = System.Speech.Internal.ObjectTokens.RegistryDataKey;
 using RegistryEntry = System.Collections.Generic.KeyValuePair<string, object>;
 
-
 namespace System.Speech.Synthesis
 {
     /// <summary>
@@ -37,7 +36,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion
-
 
         #region public Properties
 
@@ -69,7 +67,6 @@ namespace System.Speech.Synthesis
 
         #endregion Events
 
-
         #region public Methods
 
         /// TODOC
@@ -81,7 +78,6 @@ namespace System.Speech.Synthesis
                 return false;
             }
 
-
             return VoiceInfo.Name == ti2.VoiceInfo.Name && VoiceInfo.Age == ti2.VoiceInfo.Age && VoiceInfo.Gender == ti2.VoiceInfo.Gender && VoiceInfo.Culture.Equals(ti2.VoiceInfo.Culture);
         }
 
@@ -92,7 +88,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion Events
-
 
         #region Internal Methods
 
@@ -159,7 +154,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion
-
 
         #region Private Fields
 

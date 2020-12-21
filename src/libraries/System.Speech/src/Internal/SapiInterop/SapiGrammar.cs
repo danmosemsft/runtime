@@ -32,7 +32,6 @@ namespace System.Speech.Internal.SapiInterop
 
         #endregion
 
-
         #region Internal Methods
 
         internal void SetGrammarState(SPGRAMMARSTATE state)
@@ -111,7 +110,6 @@ namespace System.Speech.Internal.SapiInterop
         }
 
         #endregion
-
 
         #region Private Methods
 

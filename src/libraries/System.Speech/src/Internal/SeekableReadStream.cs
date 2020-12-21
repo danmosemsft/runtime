@@ -6,7 +6,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-
 namespace System.Speech.Internal
 {
 #pragma warning disable 56528 // Override of Dispose(bool) not needed as base stream should not be closed.
@@ -133,8 +132,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
-
         #region Internal Methods
 
         public override int Read(byte[] buffer, int offset, int count)
@@ -233,8 +230,6 @@ namespace System.Speech.Internal
         }
 
         #endregion
-
-
 
         #region Private Fields
 

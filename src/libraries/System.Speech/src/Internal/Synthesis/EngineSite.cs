@@ -16,7 +16,6 @@ using System.Diagnostics;
 // The engine site saves the last exception before sending it back to the client.
 #pragma warning disable 6500
 
-
 namespace System.Speech.Internal.Synthesis
 {
     internal class EngineSite : ITtsEngineSite, ITtsEventSink
@@ -29,7 +28,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region Internal Methods
         internal TtsEventMapper EventMapper
@@ -289,7 +287,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region Private Members
 
         private TTSEvent CreateTtsEvent(SpeechEventInfo sapiEvent)
@@ -317,7 +314,6 @@ namespace System.Speech.Internal.Synthesis
         }
 
         #endregion
-
 
         #region private Fields
 

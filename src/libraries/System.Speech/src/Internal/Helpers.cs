@@ -105,9 +105,7 @@ namespace System.Speech.Internal
             }
         }
 
-
         #endregion
-
 
         #region Internal fields
 

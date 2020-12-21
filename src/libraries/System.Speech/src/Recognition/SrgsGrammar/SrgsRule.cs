@@ -10,7 +10,6 @@ using System.Diagnostics;
 using System.Speech.Internal;
 using System.Speech.Internal.SrgsParser;
 
-
 namespace System.Speech.Recognition.SrgsGrammar
 {
     /// TODOC <_include file='doc\Rule.uex' path='docs/doc[@for="Rule"]/*' />
@@ -56,7 +55,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Method
 
         /// <summary>
@@ -71,7 +69,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region public Properties
 
@@ -111,7 +108,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 _isScopeSet = true;
             }
         }
-
 
         /// |summary|
         /// classname
@@ -211,9 +207,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         #endregion
-
 
         #region Internal Methods
 
@@ -339,7 +333,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             ((SrgsGrammar)grammar).Rules.Add(this);
         }
 
-
         void IRule.CreateScript(IGrammar grammar, string rule, string method, RuleMethodScript type)
         {
             switch (type)
@@ -367,7 +360,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         #endregion
 
         #region Internal Properties
@@ -385,7 +377,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         internal bool HasCode
         {
             get
@@ -394,9 +385,7 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         #endregion
-
 
         #region Private Methods
 
@@ -425,9 +414,7 @@ namespace System.Speech.Recognition.SrgsGrammar
 
 #pragma warning restore 56507
 
-
         #endregion
-
 
         #region Private Fields
 
@@ -440,7 +427,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         private RuleDynamic _dynamic = RuleDynamic.NotSet;
 
         private bool _isScopeSet;
-
 
         // class name for the code behind
         private string _baseclass;
@@ -458,7 +444,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         private static readonly char[] s_invalidChars = new char[] { '?', '*', '+', '|', '(', ')', '^', '$', '/', ';', '.', '=', '<', '>', '[', ']', '{', '}', '\\', ' ', '\t', '\r', '\n' };
 
         #endregion
-
 
         #region Private Types
 
@@ -485,7 +470,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                     return _rule.Scope;
                 }
             }
-
 
             public object BaseClass
             {
@@ -535,7 +519,6 @@ namespace System.Speech.Recognition.SrgsGrammar
                 }
             }
 
-
             public object Count
             {
                 get
@@ -563,8 +546,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
     }
-
-
 
     #region Public Enums
 

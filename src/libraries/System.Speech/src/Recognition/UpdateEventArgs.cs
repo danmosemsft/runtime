@@ -20,7 +20,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Public Properties
 
         // Application supplied object reference.
@@ -37,7 +36,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Private Fields
 

@@ -64,7 +64,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Method
 
         /// <summary>
@@ -80,7 +79,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public Properties
 
         // ISSUE: Do we need more construcors? Take a look at RuleElementCollection.AddOneOf methods. [Bug# 37115]
@@ -94,7 +92,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region internal Methods
 
@@ -119,7 +116,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Protected Properties
 
         /// <summary>
@@ -143,13 +139,11 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Private Fields
 
         private SrgsItemList _items = new();
 
         #endregion
-
 
         #region Private Types
 

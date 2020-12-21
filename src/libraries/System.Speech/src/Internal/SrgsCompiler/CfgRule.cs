@@ -205,7 +205,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Internal Fields
 
         // should be private but the order is absolutly key for marshalling
@@ -217,8 +216,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
     }
-
-
 
     #region Internal Enumeration
 

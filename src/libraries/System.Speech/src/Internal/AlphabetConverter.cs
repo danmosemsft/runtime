@@ -32,7 +32,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region internal Methods
 
         /// <summary>
@@ -117,7 +116,6 @@ namespace System.Speech.Internal
             return oldLangId;
         }
         #endregion
-
 
         #region Private Methods
 
@@ -212,7 +210,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Private Fields
 
         private int _currentLangId;
@@ -227,7 +224,6 @@ namespace System.Speech.Internal
         private static object s_staticLock = new();
 
         #endregion
-
 
         #region Private Type
 

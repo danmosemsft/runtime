@@ -56,8 +56,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
         #region Public Methods
 
         /// <summary>
@@ -85,8 +83,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
 
         #region Private Fields
 

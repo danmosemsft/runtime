@@ -24,7 +24,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region public Properties
 
         /// <summary>
@@ -40,7 +39,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion
-
 
         #region Private Fields
 

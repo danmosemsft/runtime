@@ -30,7 +30,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region Public Properties
 
         /// <summary>
@@ -79,7 +78,6 @@ namespace System.Speech.Synthesis
         }
 
         #endregion
-
 
         #region Private Fields
 

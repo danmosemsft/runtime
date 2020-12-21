@@ -19,9 +19,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
-
         #region public Properties
 
         /// TODOC <_include file='doc\RecognizerStateChangedEventArgs.uex' path='docs/doc[@for="RecognizerStateChangedEventArgs.RecognizerState"]/*' />
@@ -31,9 +28,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
-
 
         #region Private Fields
 

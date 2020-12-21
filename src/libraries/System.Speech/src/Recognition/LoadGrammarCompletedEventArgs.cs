@@ -4,7 +4,6 @@
 using System;
 using System.ComponentModel;
 
-
 namespace System.Speech.Recognition
 {
     /// TODOC <_include file='doc\RecognizerBase.uex' path='docs/doc[@for="LoadGrammarCompletedEventArgs"]/*' />
@@ -22,8 +21,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
         #region Public Properties
 
         /// TODOC <_include file='doc\RecognizerBase.uex' path='docs/doc[@for="LoadGrammarCompletedEventArgs.Grammar"]/*' />
@@ -33,8 +30,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
 
         #region Private Fields
 

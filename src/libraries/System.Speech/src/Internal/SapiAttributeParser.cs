@@ -35,7 +35,6 @@ namespace System.Speech.Internal
             return null;
         }
 
-
         internal static List<SpeechAudioFormatInfo> GetAudioFormatsFromString(string valueString)
         {
             List<SpeechAudioFormatInfo> formatList = new();

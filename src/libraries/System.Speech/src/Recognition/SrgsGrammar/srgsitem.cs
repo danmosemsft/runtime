@@ -102,7 +102,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Public Method
 
         /// <summary>
@@ -157,7 +156,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Public Properties
 
@@ -228,7 +226,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -340,7 +337,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Protected Properties
 
         /// <summary>
@@ -364,11 +360,9 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region Private Methods
 
         #endregion
-
 
         #region Private Fields
 
@@ -385,7 +379,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         private const int NotSet = -1;
 
         #endregion
-
 
         #region Private Types
 

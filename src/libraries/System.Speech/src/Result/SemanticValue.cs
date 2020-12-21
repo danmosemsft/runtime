@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Speech.Internal;
 
-
 namespace System.Speech.Recognition
 {
     /// TODOC <_include file='doc\RecognitionResult.uex' path='docs/doc[@for="SemanticValue"]/*' />
@@ -49,7 +48,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Public Methods
 
         /// <summary>
@@ -86,7 +84,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Public Properties
 
         // The value returned from the script / tags etc.
@@ -116,7 +113,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region IDictionary implementation
         // Expose the common query methods directly.
 
@@ -144,7 +140,6 @@ namespace System.Speech.Recognition
         {
             get { return _dictionary.Count; }
         }
-
 
         // Other less common methods on IDictionary are also hidden from intellisense.
 
@@ -226,14 +221,12 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Internal Fields
 
         internal Dictionary<string, SemanticValue> _dictionary;
         internal bool _valueFieldSet;
 
         #endregion
-
 
         #region Private Fields
 
@@ -243,7 +236,6 @@ namespace System.Speech.Recognition
         private object _value;
 
         #endregion
-
 
         #region Private Types
 

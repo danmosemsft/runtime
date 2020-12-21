@@ -19,8 +19,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
-
         #region Internal Methods
 
         /// <summary>

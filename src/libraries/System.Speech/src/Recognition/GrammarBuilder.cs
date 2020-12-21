@@ -106,8 +106,6 @@ namespace System.Speech.Recognition
 
         #endregion Constructors
 
-
-
         #region Public Methods
 
         // Append connecting words
@@ -338,7 +336,6 @@ namespace System.Speech.Recognition
 
         #endregion Constructors
 
-
         #region Public Properties
 
         /// <summary>
@@ -362,7 +359,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
 
         #region Operator Overloads
 
@@ -529,8 +525,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
         #region Internal Methods
 
         /// <summary>
@@ -617,7 +611,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Internal Properties
 
         internal virtual string DebugSummary
@@ -648,7 +641,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Methods
 
         /// <summary>
@@ -661,7 +653,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
         #region Private Fields
 
         private InternalGrammarBuilder _grammarBuilder;
@@ -669,7 +660,6 @@ namespace System.Speech.Recognition
         private CultureInfo _culture = CultureInfo.CurrentUICulture;
 
         #endregion
-
 
         #region Private Type
 

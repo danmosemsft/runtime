@@ -49,7 +49,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region public Properties
 
         // <prosody pitch, contour, range, rate, duration, volume>
@@ -104,7 +103,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region Private Fields
 
         private PromptRate _rate = PromptRate.NotSet;
@@ -113,8 +111,6 @@ namespace System.Speech.Synthesis
 
         #endregion
     }
-
-
 
     #region Public Enums
 

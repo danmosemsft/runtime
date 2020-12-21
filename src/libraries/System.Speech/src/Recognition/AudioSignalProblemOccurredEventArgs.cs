@@ -22,9 +22,6 @@ namespace System.Speech.Recognition
 
         #endregion
 
-
-
-
         #region public Properties
 
         /// TODOC
@@ -52,9 +49,6 @@ namespace System.Speech.Recognition
         }
 
         #endregion
-
-
-
 
         #region Private Fields
 

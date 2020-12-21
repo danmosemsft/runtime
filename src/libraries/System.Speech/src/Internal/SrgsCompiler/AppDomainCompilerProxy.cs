@@ -284,7 +284,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         internal string[] _constructors;
 
-
         #region Private Types
 
         /// <summary>
@@ -302,8 +301,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
 
             #endregion
-
-
 
             #region Internal Fields
 

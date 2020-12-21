@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Speech.Synthesis.TtsEngine;
 
-
 namespace System.Speech.Internal.Synthesis
 {
     /// <summary>
@@ -57,9 +56,7 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-
         #endregion
-
 
         #region Internal Methods
 
@@ -75,7 +72,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-
         #region private Fields
 
         private TTSVoice _voice;
@@ -83,7 +79,6 @@ namespace System.Speech.Internal.Synthesis
 #pragma warning disable 56524 // The _audio are not created in this module and should not be disposed
         private AudioData _audio;
 #pragma warning restore 56524
-
 
         #endregion
 

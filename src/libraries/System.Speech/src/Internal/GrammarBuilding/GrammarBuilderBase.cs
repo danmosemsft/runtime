@@ -100,7 +100,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
         #region Private Fields
 
         private int _count = 1;

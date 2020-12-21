@@ -22,7 +22,6 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Internal Methods
 
         internal void Add(object key)
@@ -128,13 +127,11 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Protected Methods
 
         protected abstract int CompareTo(object object1, object object2);
 
         #endregion
-
 
         #region Private Methods
 
@@ -168,7 +165,6 @@ namespace System.Speech.Internal
         {
             return node == null ? NodeColor.BLACK : (node.IsRed ? NodeColor.RED : NodeColor.BLACK);
         }
-
 
         private static void SetColor(TreeNode node, NodeColor color)
         {
@@ -224,7 +220,6 @@ namespace System.Speech.Internal
             return newNode;
         }
 
-
         private static TreeNode FindMinSubTree(TreeNode node)
         {
             while (node.Left != null)
@@ -250,7 +245,6 @@ namespace System.Speech.Internal
                 return FindMinSubTree(node.Right);
             }
         }
-
 
         // Return the actual node that is deleted
         private static TreeNode DeleteNode(TreeNode node)
@@ -694,13 +688,11 @@ namespace System.Speech.Internal
 
         #endregion
 
-
         #region Private Fields
 
         private TreeNode _root;
 
         #endregion
-
 
         #region Private Types
 

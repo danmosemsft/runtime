@@ -27,8 +27,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
-
         #region Public Methods
 
         /// TODOC
@@ -64,7 +62,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -135,7 +132,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
 
         #region Internal Methods
 
@@ -239,7 +235,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #endregion
 
-
         #region Internal Properties
 
         internal List<GrammarBuilderBase> Items
@@ -269,7 +264,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
 
         #region Private Method
 
@@ -313,7 +307,6 @@ namespace System.Speech.Internal.GrammarBuilding
         }
 
         #endregion
-
 
         #region Private Fields
 

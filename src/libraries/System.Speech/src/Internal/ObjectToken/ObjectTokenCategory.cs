@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 
 using System.Speech.Internal.SapiInterop;
 
-
 namespace System.Speech.Internal.ObjectTokens
 {
     /// <summary>
@@ -32,7 +31,6 @@ namespace System.Speech.Internal.ObjectTokens
         }
 
         #endregion
-
 
         #region internal Methods
 
@@ -107,7 +105,6 @@ namespace System.Speech.Internal.ObjectTokens
         #endregion
 
         #endregion
-
 
         #region Protected Methods
 

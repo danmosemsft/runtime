@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Speech.Internal;
 
-
 namespace System.Speech.Synthesis
 {
     /// <summary>
@@ -110,7 +109,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region public Properties
 
         /// <summary>
@@ -144,7 +142,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region Internal Fields
 
         /// <summary>
@@ -174,7 +171,6 @@ namespace System.Speech.Synthesis
 
         #endregion
 
-
         #region Private Fields
 
         /// <summary>
@@ -191,8 +187,6 @@ namespace System.Speech.Synthesis
 
         #endregion
     }
-
-
 
     #region Public Enums
 
@@ -231,8 +225,6 @@ namespace System.Speech.Synthesis
     }
 
     #endregion
-
-
 
     #region Internal Types
 

@@ -51,7 +51,6 @@ namespace System.Speech.Internal.SrgsCompiler
 
         #endregion
 
-
         #region Private Members
 
 #if DEBUG

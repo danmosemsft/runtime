@@ -14,7 +14,6 @@ using System.Speech.Internal;
 using System.Speech.Internal.SrgsCompiler;
 using System.Speech.Internal.SrgsParser;
 
-
 namespace System.Speech.Recognition.SrgsGrammar
 {
     /// <summary>
@@ -60,7 +59,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             Load(srgsGrammar);
         }
 
-
         /// <summary>
         /// TODOC
         /// </summary>
@@ -98,7 +96,6 @@ namespace System.Speech.Recognition.SrgsGrammar
 
         #endregion
 
-
         #region public methods
 
         /// <summary>
@@ -117,7 +114,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Public Properties
 
@@ -220,7 +216,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         /// <summary>
         /// Programming Language used for the inline code; C#, VB or JScript
         /// </summary>
@@ -299,7 +294,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             }
         }
 
-
         /// |summary|
         /// ImportNameSpaces
         /// |/summary|
@@ -323,7 +317,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
 
         #region Internal methods
 
@@ -430,8 +423,6 @@ namespace System.Speech.Recognition.SrgsGrammar
         }
 
         #endregion
-
-
 
         #region Private Fields
 
