@@ -996,9 +996,6 @@ namespace System.Speech.Internal.SrgsCompiler
             return AddSingleWordTransition(!string.IsNullOrEmpty(sWord) ? sWord : null, flWeight, requiredConfidence);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private CfgGrammar.CfgSerializedHeader BuildHeader(List<State> sortedStates, int cBasePath, ushort iSemanticGlobals, out int cArcs, out float[] pWeights)
         {
             cArcs = 1; // Start with offset one! (0 indicates dead state).
@@ -1226,9 +1223,6 @@ namespace System.Speech.Internal.SrgsCompiler
 #endif
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private void ValidateAndTagRules()
         {
             //CfgGrammar.TraceInformation ("BackEnd::ValidateAndTagRules");
@@ -1281,9 +1275,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private Arc AddSingleWordTransition(string s, float flWeight, int requiredConfidence)
         {
             //CfgGrammar.TraceInformation ("BackEnd::CGramComp::AddSingleWordTransition");

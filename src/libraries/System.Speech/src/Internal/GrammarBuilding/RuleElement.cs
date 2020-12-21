@@ -8,24 +8,16 @@ using System.Text;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal sealed class RuleElement : BuilderElements
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal RuleElement(string name)
         {
             _name = name;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal RuleElement(GrammarBuilderBase builder, string name)
             : this(name)
         {
@@ -57,9 +49,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             RuleElement rule = new(_name);
@@ -67,9 +56,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return rule;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             if (_rule == null)
@@ -89,9 +75,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return _rule;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override int CalcCount(BuilderElements parent)
         {
             // clear any existing value
@@ -131,9 +114,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Fields
 
-        /// <summary>
-        ///
-        /// </summary>
         private readonly string _name;
         private string _ruleName;
         private IRule _rule;

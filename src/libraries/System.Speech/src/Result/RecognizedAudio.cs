@@ -10,7 +10,6 @@ using System.Speech.Internal;
 
 namespace System.Speech.Recognition
 {
-
     [Serializable]
     public class RecognizedAudio
     {

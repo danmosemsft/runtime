@@ -9,24 +9,16 @@ using System.Diagnostics;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal sealed class GrammarBuilderDictation : GrammarBuilderBase
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderDictation()
             : this(null)
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderDictation(string category)
         {
             _category = category;
@@ -53,17 +45,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderDictation(_category);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Return the IRuleRef to the dictation grammar
@@ -87,9 +73,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         private IRuleRef CreateRuleRefToDictation(IElementFactory elementFactory, IElement parent)
         {
             Uri ruleUri;
@@ -109,9 +92,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Fields
 
-        /// <summary>
-        ///
-        /// </summary>
         private readonly string _category;
 
         #endregion

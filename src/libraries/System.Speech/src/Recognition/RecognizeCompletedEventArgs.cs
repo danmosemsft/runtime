@@ -6,7 +6,6 @@ using System.ComponentModel;
 
 namespace System.Speech.Recognition
 {
-
     public class RecognizeCompletedEventArgs : AsyncCompletedEventArgs
     {
         #region Constructors

@@ -9,24 +9,16 @@ using System.Diagnostics;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal sealed class GrammarBuilderRuleRef : GrammarBuilderBase
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderRuleRef(Uri uri, string rule)
         {
             _uri = uri.OriginalString + ((rule != null) ? "#" + rule : "");
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private GrammarBuilderRuleRef(string sgrsUri)
         {
             _uri = sgrsUri;
@@ -53,17 +45,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderRuleRef(_uri);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             Uri ruleUri = new(_uri, UriKind.RelativeOrAbsolute);
@@ -86,9 +72,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Fields
 
-        /// <summary>
-        ///
-        /// </summary>
         private readonly string _uri;
 
         #endregion

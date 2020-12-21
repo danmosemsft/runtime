@@ -7,16 +7,11 @@ using System.Diagnostics;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal sealed class GrammarBuilderWildcard : GrammarBuilderBase
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderWildcard()
         {
         }
@@ -38,17 +33,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderWildcard();
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Return a ruleref to Garbage

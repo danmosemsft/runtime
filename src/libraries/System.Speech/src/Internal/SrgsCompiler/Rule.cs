@@ -66,9 +66,7 @@ namespace System.Speech.Internal.SrgsCompiler
         #endregion
 
 #if DEBUG
-        /// <summary>
-        ///
-        /// </summary>
+
         internal void CheckForExitPath(ref int iRecursiveDepth)
         {
             //CfgGrammar.TraceInformation ("Rule::CheckForExitPath");
@@ -83,9 +81,6 @@ namespace System.Speech.Internal.SrgsCompiler
         }
 #endif
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void Validate()
         {
             //CfgGrammar.TraceInformation ("Rule::Validate");
@@ -99,9 +94,6 @@ namespace System.Speech.Internal.SrgsCompiler
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void PopulateDynamicRef(ref int iRecursiveDepth)
         {
             if (iRecursiveDepth > CfgGrammar.MAX_TRANSITIONS_COUNT)

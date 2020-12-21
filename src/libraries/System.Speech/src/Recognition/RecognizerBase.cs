@@ -27,9 +27,6 @@ ISpGrammarResourceLoader
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         public void Dispose()
         {
             Dispose(true);

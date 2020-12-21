@@ -7,7 +7,6 @@ using System.Speech.Internal.Synthesis;
 
 namespace System.Speech.AudioFormat
 {
-
     [Serializable]
     public
  class SpeechAudioFormatInfo

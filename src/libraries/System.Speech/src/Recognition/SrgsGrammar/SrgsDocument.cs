@@ -34,9 +34,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             _grammar = new SrgsGrammar();
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public SrgsDocument(string path)
         {
             Helpers.ThrowIfEmptyOrNull(path, nameof(path));
@@ -71,9 +68,6 @@ namespace System.Speech.Recognition.SrgsGrammar
             builder.CreateGrammar(elementFactory);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public SrgsDocument(SrgsRule grammarRootRule) : this()
         {
             Helpers.ThrowIfNull(grammarRootRule, nameof(grammarRootRule));

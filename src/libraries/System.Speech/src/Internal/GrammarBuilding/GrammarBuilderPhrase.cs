@@ -13,25 +13,16 @@ namespace System.Speech.Internal.GrammarBuilding
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderPhrase(string phrase)
             : this(phrase, false, SubsetMatchingMode.OrderedSubset)
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal GrammarBuilderPhrase(string phrase, SubsetMatchingMode subsetMatchingCriteria)
             : this(phrase, true, subsetMatchingCriteria)
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private GrammarBuilderPhrase(string phrase, bool subsetMatching, SubsetMatchingMode subsetMatchingCriteria)
         {
             _phrase = phrase;
@@ -53,9 +44,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private GrammarBuilderPhrase(string phrase, bool subsetMatching, MatchMode matchMode)
         {
             _phrase = phrase;
@@ -84,17 +72,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderPhrase(_phrase, _subsetMatching, _matchMode);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             return CreatePhraseElement(elementFactory, parent);
@@ -116,9 +98,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         private IElement CreatePhraseElement(IElementFactory elementFactory, IElement parent)
         {
             if (_subsetMatching)

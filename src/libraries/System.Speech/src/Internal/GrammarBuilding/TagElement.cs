@@ -9,34 +9,23 @@ using System.Text;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     [DebuggerDisplay("{DebugSummary}")]
     internal sealed class TagElement : BuilderElements
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal TagElement(object value)
         {
             _value = value;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal TagElement(GrammarBuilderBase builder, object value)
             : this(value)
         {
             Add(builder);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal TagElement(GrammarBuilder builder, object value)
             : this(value)
         {
@@ -68,9 +57,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             TagElement tag = new(_value);
@@ -78,9 +64,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return tag;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Create the children elements

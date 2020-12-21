@@ -91,9 +91,6 @@ namespace System.Speech.Internal.Synthesis
             Dispose(false);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public void Dispose()
         {
             Dispose(true);
@@ -1616,9 +1613,6 @@ namespace System.Speech.Internal.Synthesis
 
         #endregion
 
-        /// <summary>
-        ///
-        /// </summary>
         private void Dispose(bool disposing)
         {
             if (!_isDisposed)
@@ -1711,9 +1705,6 @@ namespace System.Speech.Internal.Synthesis
 
 #pragma warning restore 56507
 
-        /// <summary>
-        ///
-        /// </summary>
         private void SpeakStream(Uri audio, Prompt prompt)
         {
             //--- Add the Speak info to the pending TTS rendering list

@@ -115,9 +115,6 @@ namespace System.Speech.Recognition
             InitialGrammarLoad(ruleName, parameters, false);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public Grammar(GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -971,9 +968,6 @@ namespace System.Speech.Recognition
             return stream;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private static MemoryStream CombineCfg(string rule, Stream stream, SrgsRule[] extraRules)
         {
             using (MemoryStream streamExtra = new())

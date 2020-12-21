@@ -27,9 +27,6 @@ namespace System.Speech.Synthesis
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         ~SpeechSynthesizer()
         {
             Dispose(false);

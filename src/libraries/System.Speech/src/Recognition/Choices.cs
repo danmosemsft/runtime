@@ -8,25 +8,17 @@ using System.Speech.Internal;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>
-    ///
-    /// </summary>
+
 
     [DebuggerDisplay("{_oneOf.DebugSummary}")]
     public class Choices
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         public Choices()
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public Choices(params string[] phrases)
         {
             Helpers.ThrowIfNull(phrases, nameof(phrases));
@@ -34,9 +26,6 @@ namespace System.Speech.Recognition
             Add(phrases);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public Choices(params GrammarBuilder[] alternateChoices)
         {
             Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
@@ -48,9 +37,6 @@ namespace System.Speech.Recognition
 
         #region Public Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         public void Add(params string[] phrases)
         {
             Helpers.ThrowIfNull(phrases, nameof(phrases));
@@ -63,9 +49,6 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public void Add(params GrammarBuilder[] alternateChoices)
         {
             Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));

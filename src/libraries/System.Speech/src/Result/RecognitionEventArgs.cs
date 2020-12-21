@@ -5,7 +5,6 @@ using System;
 
 namespace System.Speech.Recognition
 {
-
     [Serializable]
     public abstract class RecognitionEventArgs : EventArgs
     {

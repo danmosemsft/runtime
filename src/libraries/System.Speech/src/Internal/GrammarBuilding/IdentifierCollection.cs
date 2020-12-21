@@ -5,16 +5,11 @@ using System.Collections.Generic;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal class IdentifierCollection
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal IdentifierCollection()
         {
             _identifiers = new List<string>();
@@ -25,9 +20,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal string CreateNewIdentifier(string id)
         {
             if (!_identifiers.Contains(id))
@@ -53,9 +45,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Protected Fields
 
-        /// <summary>
-        ///
-        /// </summary>
         protected List<string> _identifiers;
 
         #endregion

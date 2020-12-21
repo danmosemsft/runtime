@@ -21,9 +21,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             OneOfElement oneOf = new();
@@ -31,9 +28,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return oneOf;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Create and return the IOneOf representing the current object

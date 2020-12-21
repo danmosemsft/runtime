@@ -8,18 +8,13 @@ using System.Speech.Internal;
 
 namespace System.Speech.Recognition
 {
-    /// <summary>
-    ///
-    /// </summary>
+
 
     [DebuggerDisplay("{_semanticKey.DebugSummary}")]
     public class SemanticResultKey
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         private SemanticResultKey(string semanticResultKey)
             : base()
         {
@@ -28,9 +23,6 @@ namespace System.Speech.Recognition
             _semanticKey = new SemanticKeyElement(semanticResultKey);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public SemanticResultKey(string semanticResultKey, params string[] phrases)
             : this(semanticResultKey)
         {
@@ -44,9 +36,6 @@ namespace System.Speech.Recognition
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public SemanticResultKey(string semanticResultKey, params GrammarBuilder[] builders)
             : this(semanticResultKey)
         {

@@ -247,9 +247,6 @@ namespace System.Speech.Internal.Synthesis
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private void CreateResamplingFilter(int inHz, int outHz)
         {
             int iLimitFactor;
@@ -310,9 +307,6 @@ namespace System.Speech.Internal.Synthesis
             return pdCoeffs;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         private void FindResampleFactors(int inHz, int outHz)
         {
             int iDiv = 1;

@@ -14,7 +14,6 @@ using System.Speech.AudioFormat;
 
 namespace System.Speech.Recognition
 {
-
     public class SpeechRecognizer : IDisposable
     {
         #region Constructors

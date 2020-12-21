@@ -6,26 +6,15 @@ using System.Speech.Internal.SrgsParser;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal abstract class GrammarBuilderBase
     {
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal abstract GrammarBuilderBase Clone();
 
-        /// <summary>
-        ///
-        /// </summary>
         internal abstract IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds);
 
-        /// <summary>
-        ///
-        /// </summary>
         internal virtual int CalcCount(BuilderElements parent)
         {
             Marked = false;
@@ -86,9 +75,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal abstract string DebugSummary { get; }
 
         #endregion

@@ -8,16 +8,11 @@ using System.Text;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     internal sealed class SemanticKeyElement : BuilderElements
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal SemanticKeyElement(string semanticKey)
         {
             _semanticKey = semanticKey;
@@ -53,17 +48,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal new void Add(string phrase)
         {
             _ruleRef.Add(new GrammarBuilderPhrase(phrase));
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal new void Add(GrammarBuilder builder)
         {
             foreach (GrammarBuilderBase item in builder.InternalBuilder.Items)
@@ -72,9 +61,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             SemanticKeyElement semanticKeyElement = new(_semanticKey);
@@ -82,9 +68,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return semanticKeyElement;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Create the rule associated with this key
@@ -112,9 +95,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Private Fields
 
-        /// <summary>
-        ///
-        /// </summary>
         private readonly string _semanticKey;
         private readonly RuleRefElement _ruleRef;
 

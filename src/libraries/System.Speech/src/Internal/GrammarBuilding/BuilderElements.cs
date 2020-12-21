@@ -10,17 +10,12 @@ using System.Text;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     [DebuggerDisplay("{DebugSummary}")]
     internal abstract class BuilderElements : GrammarBuilderBase
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal BuilderElements()
         {
         }
@@ -130,17 +125,11 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void Add(string phrase)
         {
             _items.Add(new GrammarBuilderPhrase(phrase));
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void Add(GrammarBuilder builder)
         {
             foreach (GrammarBuilderBase item in builder.InternalBuilder.Items)
@@ -149,17 +138,11 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void Add(GrammarBuilderBase item)
         {
             _items.Add(item);
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void CloneItems(BuilderElements builders)
         {
             foreach (GrammarBuilderBase item in builders.Items)
@@ -168,9 +151,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void CreateChildrenElements(IElementFactory elementFactory, IRule parent, IdentifierCollection ruleIds)
         {
             foreach (GrammarBuilderBase buider in Items)
@@ -184,9 +164,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal void CreateChildrenElements(IElementFactory elementFactory, IItem parent, IRule rule, IdentifierCollection ruleIds)
         {
             foreach (GrammarBuilderBase buider in Items)
@@ -200,9 +177,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override int CalcCount(BuilderElements parent)
         {
             base.CalcCount(parent);

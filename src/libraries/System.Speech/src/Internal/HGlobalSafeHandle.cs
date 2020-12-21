@@ -34,9 +34,6 @@ namespace System.Speech.Internal
 
         #region internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal IntPtr Buffer(int size)
         {
             if (size > _bufferSize)

@@ -229,9 +229,6 @@ namespace System.Speech.Internal.Synthesis
             return wfx;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal static void WriteWaveHeader(Stream stream, WAVEFORMATEX waveEx, long position, int cData)
         {
             RIFFHDR riff = new(0);

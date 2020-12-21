@@ -9,33 +9,22 @@ using System.Text;
 
 namespace System.Speech.Internal.GrammarBuilding
 {
-    /// <summary>
-    ///
-    /// </summary>
+
     [DebuggerDisplay("{DebugSummary}")]
     internal sealed class ItemElement : BuilderElements
     {
         #region Constructors
 
-        /// <summary>
-        ///
-        /// </summary>
         internal ItemElement(GrammarBuilderBase builder)
             : this(builder, 1, 1)
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal ItemElement(int minRepeat, int maxRepeat)
             : this((GrammarBuilderBase)null, minRepeat, maxRepeat)
         {
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal ItemElement(GrammarBuilderBase builder, int minRepeat, int maxRepeat)
         {
             if (builder != null)
@@ -46,9 +35,6 @@ namespace System.Speech.Internal.GrammarBuilding
             _maxRepeat = maxRepeat;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal ItemElement(List<GrammarBuilderBase> builders, int minRepeat, int maxRepeat)
         {
             foreach (GrammarBuilderBase builder in builders)
@@ -59,9 +45,6 @@ namespace System.Speech.Internal.GrammarBuilding
             _maxRepeat = maxRepeat;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal ItemElement(GrammarBuilder builders)
         {
             foreach (GrammarBuilderBase builder in builders.InternalBuilder.Items)
@@ -95,9 +78,6 @@ namespace System.Speech.Internal.GrammarBuilding
 
         #region Internal Methods
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override GrammarBuilderBase Clone()
         {
             ItemElement item = new(_minRepeat, _maxRepeat);
@@ -105,9 +85,6 @@ namespace System.Speech.Internal.GrammarBuilding
             return item;
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             // Create and return the real item (the item including the grammar)

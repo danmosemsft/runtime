@@ -18,7 +18,6 @@ using System.Speech.Recognition.SrgsGrammar;
 
 namespace System.Speech.Recognition
 {
-
     public class SpeechRecognitionEngine : IDisposable
     {
         #region Constructors
