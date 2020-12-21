@@ -37,8 +37,6 @@ namespace System.Speech.Internal
         /// <summary>
         ///
         /// </summary>
-        /// <param name="size"></param>
-        /// <returns></returns>
         internal IntPtr Buffer(int size)
         {
             if (size > _bufferSize)
@@ -62,7 +60,6 @@ namespace System.Speech.Internal
         /// <summary>
         /// True if the no memory is allocated
         /// </summary>
-        /// <value></value>
         public override bool IsInvalid
         {
             get
@@ -78,7 +75,6 @@ namespace System.Speech.Internal
         /// <summary>
         /// Releases the Win32 Memory handle
         /// </summary>
-        /// <returns></returns>
         protected override bool ReleaseHandle()
         {
             if (handle != IntPtr.Zero)

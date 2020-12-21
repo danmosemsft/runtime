@@ -69,7 +69,6 @@ namespace System.Speech.Internal.SrgsCompiler
         /// <summary>
         ///
         /// </summary>
-        /// <param name="iRecursiveDepth"></param>
         internal void CheckForExitPath(ref int iRecursiveDepth)
         {
             //CfgGrammar.TraceInformation ("Rule::CheckForExitPath");
@@ -103,7 +102,6 @@ namespace System.Speech.Internal.SrgsCompiler
         /// <summary>
         ///
         /// </summary>
-        /// <param name="iRecursiveDepth"></param>
         internal void PopulateDynamicRef(ref int iRecursiveDepth)
         {
             if (iRecursiveDepth > CfgGrammar.MAX_TRANSITIONS_COUNT)
@@ -297,8 +295,6 @@ namespace System.Speech.Internal.SrgsCompiler
         internal bool _fIsEpsilonRule;
 
         internal int _iSerialize;
-
-        //TODO remove once the code to reset _iSerialize in CombineCFG has been fixed
         internal int _iSerialize2;
 
 #if DEBUG

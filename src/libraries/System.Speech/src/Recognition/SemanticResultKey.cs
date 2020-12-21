@@ -20,7 +20,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="semanticResultKey"></param>
         private SemanticResultKey(string semanticResultKey)
             : base()
         {
@@ -32,8 +31,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="semanticResultKey"></param>
-        /// <param name="phrases"></param>
         public SemanticResultKey(string semanticResultKey, params string[] phrases)
             : this(semanticResultKey)
         {
@@ -50,8 +47,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="semanticResultKey"></param>
-        /// <param name="builders"></param>
         public SemanticResultKey(string semanticResultKey, params GrammarBuilder[] builders)
             : this(semanticResultKey)
         {
@@ -68,11 +63,6 @@ namespace System.Speech.Recognition
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <returns></returns>
         public GrammarBuilder ToGrammarBuilder()
         {
             return new GrammarBuilder(this);

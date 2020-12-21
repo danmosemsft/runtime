@@ -16,23 +16,16 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <returns></returns>
         internal abstract GrammarBuilderBase Clone();
 
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="rule"></param>
-        /// <param name="parent"></param>
-        /// <param name="ruleIds"></param>
-        /// <returns></returns>
         internal abstract IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds);
 
         /// <summary>
         ///
         /// </summary>
-        /// <returns></returns>
         internal virtual int CalcCount(BuilderElements parent)
         {
             Marked = false;

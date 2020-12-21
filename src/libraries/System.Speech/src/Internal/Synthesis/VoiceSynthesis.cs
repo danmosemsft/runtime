@@ -105,11 +105,6 @@ namespace System.Speech.Internal.Synthesis
         #region Internal Methods
 
         #region SpeechSynthesis 'public' API implementation
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="prompt"></param>
         internal void Speak(Prompt prompt)
         {
             bool done = false;
@@ -150,11 +145,6 @@ namespace System.Speech.Internal.Synthesis
                 _stateChanged -= eventHandler;
             }
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="prompt"></param>
         internal void SpeakAsync(Prompt prompt)
         {
             QueuePrompt(prompt);
@@ -354,13 +344,6 @@ namespace System.Speech.Internal.Synthesis
         #endregion
 
         #endregion
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="stream"></param>
-        /// <param name="formatInfo"></param>
-        /// <param name="headerInfo"></param>
         internal void SetOutput(Stream stream, SpeechAudioFormatInfo formatInfo, bool headerInfo)
         {
             lock (_pendingSpeakQueue)
@@ -558,13 +541,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// This method is used to create the Engine voice and initialize the culture
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="culture"></param>
-        /// <param name="gender"></param>
-        /// <param name="age"></param>
-        /// <param name="variant"></param>
-        /// <param name="switchContext"></param>
-        /// <returns></returns>
         internal TTSVoice GetEngine(string name, CultureInfo culture, VoiceGender gender, VoiceAge age, int variant, bool switchContext)
         {
             TTSVoice defaultVoice = _currentVoice != null ? _currentVoice : GetVoice(switchContext);
@@ -576,7 +552,6 @@ namespace System.Speech.Internal.Synthesis
         /// Returns the voices for a given (or all cultures)
         /// </summary>
         /// <param name="culture">Culture or null for all culture</param>
-        /// <returns></returns>
         internal ReadOnlyCollection<InstalledVoice> GetInstalledVoices(CultureInfo culture)
         {
             if (culture == null || culture == CultureInfo.InvariantCulture)
@@ -604,11 +579,6 @@ namespace System.Speech.Internal.Synthesis
         #endregion
 
         #region Internal Propperties
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <value></value>
         internal Prompt Prompt
         {
             get
@@ -619,11 +589,6 @@ namespace System.Speech.Internal.Synthesis
                 }
             }
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <value></value>
         internal SynthesizerState State
         {
             get
@@ -631,11 +596,6 @@ namespace System.Speech.Internal.Synthesis
                 return _synthesizerState;
             }
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <value></value>
         internal int Rate
         {
             get
@@ -647,11 +607,6 @@ namespace System.Speech.Internal.Synthesis
                 _site.VoiceRate = _defaultRate = value;
             }
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <value></value>
         internal int Volume
         {
             get
@@ -1005,7 +960,7 @@ namespace System.Speech.Internal.Synthesis
                     }
                 }
             }
-        } /* SpeakText */
+        }
 
         /// <summary>
         /// Get the user's default rate from the registry
@@ -1024,7 +979,6 @@ namespace System.Speech.Internal.Synthesis
             return lCurrRateAd;
         }
 
-        // REVIEW: jeanfp use a new class for events
         private void InjectEvent(TtsEventId evtId, Prompt prompt, Exception exception, VoiceInfo voiceInfo)
         {
             // If the prompt is terminated, release it ASAP
@@ -1048,7 +1002,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// Calls the client notification delegate.
         /// </summary>
-        /// <param name="state"></param>
         private void OnStateChanged(SynthesizerState state)
         {
             if (_synthesizerState != state)
@@ -1113,7 +1066,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// This method is used to create the Engine voice and initialize
         /// </summary>
-        /// <returns></returns>
         private TTSVoice GetVoice(VoiceInfo voiceInfo, bool switchContext)
         {
             TTSVoice voice = null;
@@ -1229,10 +1181,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// Try to find a voice for a given name
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="variant"></param>
-        /// <param name="switchContext"></param>
-        /// <returns></returns>
         private TTSVoice MatchVoice(string name, int variant, bool switchContext)
         {
             TTSVoice voice = null;
@@ -1446,7 +1394,6 @@ namespace System.Speech.Internal.Synthesis
                 Assembly assembly;
                 if (!string.IsNullOrEmpty(voiceInfo.AssemblyName) && (assembly = Assembly.Load(voiceInfo.AssemblyName)) != null)
                 {
-                    // REVIEW jeanfp needs to enumearte
                     Type[] types = assembly.GetTypes();
                     TtsEngineSsml ssmlEngine = null;
                     foreach (Type type in types)
@@ -1518,8 +1465,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// Returns the default voice for the systn
         /// </summary>
-        /// <param name="switchContext"></param>
-        /// <returns></returns>
         private TTSVoice GetVoice(bool switchContext)
         {
             lock (_defaultVoiceLock)
@@ -1721,10 +1666,6 @@ namespace System.Speech.Internal.Synthesis
                 }
             }
         }
-
-        /// <summary>
-        /// TODOC.
-        /// </summary>
         private void QueuePrompt(Prompt prompt)
         {
             // Call Sapi Spesk with the appropriate flags based on mediaType
@@ -1755,9 +1696,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// This method is used to speak a text buffer.
         /// </summary>
-        /// <param name="textToSpeak"></param>
-        /// <param name="prompt"></param>
-        /// <param name="fIsXml"></param>
         private void Speak(string textToSpeak, Prompt prompt, bool fIsXml)
         {
             Helpers.ThrowIfNull(textToSpeak, nameof(textToSpeak));
@@ -1776,18 +1714,11 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         ///
         /// </summary>
-        /// <param name="audio"></param>
-        /// <param name="prompt"></param>
         private void SpeakStream(Uri audio, Prompt prompt)
         {
             //--- Add the Speak info to the pending TTS rendering list
             AddSpeakParameters(new Parameters(Action.SpeakText, new ParametersSpeak(null, prompt, false, audio)));
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="ttsInterest"></param>
         private void SetInterest(int ttsInterest)
         {
             _ttsInterest = ttsInterest;

@@ -28,8 +28,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         internal string CreateNewIdentifier(string id)
         {
             if (!_identifiers.Contains(id))

@@ -16,7 +16,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
         internal GrammarBuilderPhrase(string phrase)
             : this(phrase, false, SubsetMatchingMode.OrderedSubset)
         {
@@ -25,8 +24,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="subsetMatchingCriteria"></param>
         internal GrammarBuilderPhrase(string phrase, SubsetMatchingMode subsetMatchingCriteria)
             : this(phrase, true, subsetMatchingCriteria)
         {
@@ -35,9 +32,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="subsetMatching"></param>
-        /// <param name="subsetMatchingCriteria"></param>
         private GrammarBuilderPhrase(string phrase, bool subsetMatching, SubsetMatchingMode subsetMatchingCriteria)
         {
             _phrase = phrase;
@@ -62,9 +56,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="subsetMatching"></param>
-        /// <param name="matchMode"></param>
         private GrammarBuilderPhrase(string phrase, bool subsetMatching, MatchMode matchMode)
         {
             _phrase = phrase;
@@ -75,8 +66,6 @@ namespace System.Speech.Internal.GrammarBuilding
         #endregion
 
         #region Public Methods
-
-        /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.Equals"]/*' />
         public override bool Equals(object obj)
         {
             GrammarBuilderPhrase refObj = obj as GrammarBuilderPhrase;
@@ -86,8 +75,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
             return _phrase == refObj._phrase && _matchMode == refObj._matchMode && _subsetMatching == refObj._subsetMatching;
         }
-
-        /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.GetHashCode"]/*' />
         public override int GetHashCode()
         {
             return _phrase.GetHashCode();
@@ -100,7 +87,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <returns></returns>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderPhrase(_phrase, _subsetMatching, _matchMode);
@@ -109,11 +95,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="parent"></param>
-        /// <param name="rule"></param>
-        /// <param name="ruleIds"></param>
-        /// <returns></returns>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             return CreatePhraseElement(elementFactory, parent);
@@ -138,9 +119,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="parent"></param>
-        /// <returns></returns>
         private IElement CreatePhraseElement(IElementFactory elementFactory, IElement parent)
         {
             if (_subsetMatching)

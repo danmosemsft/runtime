@@ -17,7 +17,6 @@ namespace System.Speech.Internal.Synthesis
         /// <summary>
         /// Initialize an instance of a byte array.
         /// </summary>
-        /// <param name="buffer"></param>
         /// <returns>MMSYSERR.NOERROR if successful</returns>
         internal WaveHeader(byte[] buffer)
         {
@@ -32,10 +31,6 @@ namespace System.Speech.Internal.Synthesis
         {
             Dispose(false);
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
         public void Dispose()
         {
             Dispose(true);

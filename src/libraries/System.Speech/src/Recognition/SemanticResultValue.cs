@@ -16,23 +16,12 @@ namespace System.Speech.Recognition
     public class SemanticResultValue
     {
         #region Constructors
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="value"></param>
         public SemanticResultValue(object value)
         {
             Helpers.ThrowIfNull(value, nameof(value));
 
             _tag = new TagElement(value);
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="value"></param>
         public SemanticResultValue(string phrase, object value)
         {
             Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
@@ -40,12 +29,6 @@ namespace System.Speech.Recognition
 
             _tag = new TagElement(new GrammarBuilderPhrase((string)phrase.Clone()), value);
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="value"></param>
         public SemanticResultValue(GrammarBuilder builder, object value)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -57,11 +40,6 @@ namespace System.Speech.Recognition
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <returns></returns>
         public GrammarBuilder ToGrammarBuilder()
         {
             return new GrammarBuilder(this);

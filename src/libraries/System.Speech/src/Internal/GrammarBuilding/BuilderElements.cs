@@ -28,8 +28,6 @@ namespace System.Speech.Internal.GrammarBuilding
         #endregion
 
         #region Public Methods
-
-        /// TODOC
         public override bool Equals(object obj)
         {
             BuilderElements refObj = obj as BuilderElements;
@@ -54,8 +52,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
             return true;
         }
-
-        /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.GetHashCode"]/*' />
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -68,7 +64,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         /// Optimization for a element tree
         /// </summary>
-        /// <param name="newRules"></param>
         protected void Optimize(Collection<RuleElement> newRules)
         {
             // Create an dictionary of [Count of elements, list of elements]
@@ -138,7 +133,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
         internal void Add(string phrase)
         {
             _items.Add(new GrammarBuilderPhrase(phrase));
@@ -147,7 +141,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
         internal void Add(GrammarBuilder builder)
         {
             foreach (GrammarBuilderBase item in builder.InternalBuilder.Items)
@@ -159,7 +152,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="item"></param>
         internal void Add(GrammarBuilderBase item)
         {
             _items.Add(item);
@@ -168,7 +160,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builders"></param>
         internal void CloneItems(BuilderElements builders)
         {
             foreach (GrammarBuilderBase item in builders.Items)
@@ -180,9 +171,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="parent"></param>
-        /// <param name="ruleIds"></param>
         internal void CreateChildrenElements(IElementFactory elementFactory, IRule parent, IdentifierCollection ruleIds)
         {
             foreach (GrammarBuilderBase buider in Items)
@@ -199,10 +187,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="parent"></param>
-        /// <param name="rule"></param>
-        /// <param name="ruleIds"></param>
         internal void CreateChildrenElements(IElementFactory elementFactory, IItem parent, IRule rule, IdentifierCollection ruleIds)
         {
             foreach (GrammarBuilderBase buider in Items)
@@ -219,7 +203,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <returns></returns>
         internal override int CalcCount(BuilderElements parent)
         {
             base.CalcCount(parent);

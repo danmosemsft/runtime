@@ -33,7 +33,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
         public GrammarBuilder(string phrase)
             : this()
         {
@@ -43,8 +42,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="subsetMatchingCriteria"></param>
         public GrammarBuilder(string phrase, SubsetMatchingMode subsetMatchingCriteria)
             : this()
         {
@@ -53,9 +50,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="minRepeat"></param>
-        /// <param name="maxRepeat"></param>
         public GrammarBuilder(string phrase, int minRepeat, int maxRepeat)
             : this()
         {
@@ -65,9 +59,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="minRepeat"></param>
-        /// <param name="maxRepeat"></param>
         public GrammarBuilder(GrammarBuilder builder, int minRepeat, int maxRepeat)
             : this()
         {
@@ -77,7 +68,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="alternateChoices"></param>
         public GrammarBuilder(Choices alternateChoices)
             : this()
         {
@@ -87,7 +77,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="key"></param>
         public GrammarBuilder(SemanticResultKey key)
             : this()
         {
@@ -97,7 +86,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="value"></param>
         public GrammarBuilder(SemanticResultValue value)
             : this()
         {
@@ -112,7 +100,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
         public void Append(string phrase)
         {
             Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
@@ -123,8 +110,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="subsetMatchingCriteria"></param>
         public void Append(string phrase, SubsetMatchingMode subsetMatchingCriteria)
         {
             Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
@@ -136,9 +121,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="minRepeat"></param>
-        /// <param name="maxRepeat"></param>
         public void Append(string phrase, int minRepeat, int maxRepeat)
         {
             Helpers.ThrowIfEmptyOrNull(phrase, nameof(phrase));
@@ -160,7 +142,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
         public void Append(GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -192,7 +173,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="alternateChoices"></param>
         public void Append(Choices alternateChoices)
         {
             Helpers.ThrowIfNull(alternateChoices, nameof(alternateChoices));
@@ -203,7 +183,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="key"></param>
         public void Append(SemanticResultKey key)
         {
             Helpers.ThrowIfNull(key, "builder");
@@ -214,7 +193,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="value"></param>
         public void Append(SemanticResultValue value)
         {
             Helpers.ThrowIfNull(value, "builder");
@@ -225,9 +203,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="minRepeat"></param>
-        /// <param name="maxRepeat"></param>
         public void Append(GrammarBuilder builder, int minRepeat, int maxRepeat)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -259,7 +234,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="category"></param>
         public void AppendDictation(string category)
         {
             Helpers.ThrowIfEmptyOrNull(category, nameof(category));
@@ -277,10 +251,8 @@ namespace System.Speech.Recognition
         }
 
         /// <summary>
-        /// TODOC
         /// Append external rule ref
         /// </summary>
-        /// <param name="path"></param>
         public void AppendRuleReference(string path)
         {
             Helpers.ThrowIfEmptyOrNull(path, nameof(path));
@@ -299,11 +271,8 @@ namespace System.Speech.Recognition
         }
 
         /// <summary>
-        /// TODOC
         /// Append external rule ref
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="rule"></param>
         public void AppendRuleReference(string path, string rule)
         {
             Helpers.ThrowIfEmptyOrNull(path, nameof(path));
@@ -321,11 +290,6 @@ namespace System.Speech.Recognition
 
             AddItem(new GrammarBuilderRuleRef(uri, rule));
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <returns></returns>
         public string DebugShowPhrases
         {
             get
@@ -337,10 +301,6 @@ namespace System.Speech.Recognition
         #endregion Constructors
 
         #region Public Properties
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
         public CultureInfo Culture
         {
             get
@@ -365,9 +325,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="builder"></param>
-        /// <returns></returns>
         public static GrammarBuilder operator +(string phrase, GrammarBuilder builder)
         {
             return Add(phrase, builder);
@@ -376,9 +333,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="phrase"></param>
-        /// <param name="builder"></param>
-        /// <returns></returns>
         public static GrammarBuilder Add(string phrase, GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -391,9 +345,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="phrase"></param>
-        /// <returns></returns>
         public static GrammarBuilder operator +(GrammarBuilder builder, string phrase)
         {
             return Add(builder, phrase);
@@ -402,9 +353,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="phrase"></param>
-        /// <returns></returns>
         public static GrammarBuilder Add(GrammarBuilder builder, string phrase)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -417,9 +365,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="choices"></param>
-        /// <param name="builder"></param>
-        /// <returns></returns>
         public static GrammarBuilder operator +(Choices choices, GrammarBuilder builder)
         {
             return Add(choices, builder);
@@ -428,9 +373,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="choices"></param>
-        /// <param name="builder"></param>
-        /// <returns></returns>
         public static GrammarBuilder Add(Choices choices, GrammarBuilder builder)
         {
             Helpers.ThrowIfNull(choices, nameof(choices));
@@ -444,9 +386,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="choices"></param>
-        /// <returns></returns>
         public static GrammarBuilder operator +(GrammarBuilder builder, Choices choices)
         {
             return Add(builder, choices);
@@ -455,9 +394,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder"></param>
-        /// <param name="choices"></param>
-        /// <returns></returns>
         public static GrammarBuilder Add(GrammarBuilder builder, Choices choices)
         {
             Helpers.ThrowIfNull(builder, nameof(builder));
@@ -471,9 +407,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder1"></param>
-        /// <param name="builder2"></param>
-        /// <returns></returns>
         public static GrammarBuilder operator +(GrammarBuilder builder1, GrammarBuilder builder2)
         {
             return Add(builder1, builder2);
@@ -482,9 +415,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="builder1"></param>
-        /// <param name="builder2"></param>
-        /// <returns></returns>
         public static GrammarBuilder Add(GrammarBuilder builder1, GrammarBuilder builder2)
         {
             Helpers.ThrowIfNull(builder1, nameof(builder1));
@@ -494,33 +424,9 @@ namespace System.Speech.Recognition
             grammar.Append(builder2);
             return grammar;
         }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="phrase"></param>
-        /// <returns></returns>
         public static implicit operator GrammarBuilder(string phrase) { return new GrammarBuilder(phrase); }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="choices"></param>
-        /// <returns></returns>
         public static implicit operator GrammarBuilder(Choices choices) { return new GrammarBuilder(choices); }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="semanticKey"></param>
-        /// <returns></returns>
         public static implicit operator GrammarBuilder(SemanticResultKey semanticKey) { return new GrammarBuilder(semanticKey); }
-
-        /// <summary>
-        /// TODOC
-        /// </summary>
-        /// <param name="semanticValue"></param>
-        /// <returns></returns>
         public static implicit operator GrammarBuilder(SemanticResultValue semanticValue) { return new GrammarBuilder(semanticValue); }
 
         #endregion
@@ -530,10 +436,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="minRepeat"></param>
-        /// <param name="maxRepeat"></param>
-        /// <param name="minParamName"></param>
-        /// <param name="maxParamName"></param>
         internal static void ValidateRepeatArguments(int minRepeat, int maxRepeat, string minParamName, string maxParamName)
         {
             if (minRepeat < 0)
@@ -549,8 +451,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="subsetMatchingCriteria"></param>
-        /// <param name="paramName"></param>
         internal static void ValidateSubsetMatchingCriteriaArgument(SubsetMatchingMode subsetMatchingCriteria, string paramName)
         {
             switch (subsetMatchingCriteria)
@@ -568,7 +468,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
         internal void CreateGrammar(IElementFactory elementFactory)
         {
             // Create a new Identifier Collection which will provide unique ids
@@ -582,7 +481,6 @@ namespace System.Speech.Recognition
         /// <summary>
         ///
         /// </summary>
-        /// <param name="stream"></param>
         internal void Compile(Stream stream)
         {
             Backend backend = new();
@@ -673,7 +571,6 @@ namespace System.Speech.Recognition
             /// <summary>
             ///
             /// </summary>
-            /// <returns></returns>
             internal override GrammarBuilderBase Clone()
             {
                 InternalGrammarBuilder newGrammarbuilder = new();
@@ -687,11 +584,6 @@ namespace System.Speech.Recognition
             /// <summary>
             ///
             /// </summary>
-            /// <param name="elementFactory"></param>
-            /// <param name="parent"></param>
-            /// <param name="rule"></param>
-            /// <param name="ruleIds"></param>
-            /// <returns></returns>
             internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
             {
                 Collection<RuleElement> newRules = new();

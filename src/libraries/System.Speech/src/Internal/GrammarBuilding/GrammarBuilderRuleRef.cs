@@ -19,8 +19,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="uri"></param>
-        /// <param name="rule"></param>
         internal GrammarBuilderRuleRef(Uri uri, string rule)
         {
             _uri = uri.OriginalString + ((rule != null) ? "#" + rule : "");
@@ -29,7 +27,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="sgrsUri"></param>
         private GrammarBuilderRuleRef(string sgrsUri)
         {
             _uri = sgrsUri;
@@ -38,8 +35,6 @@ namespace System.Speech.Internal.GrammarBuilding
         #endregion
 
         #region Public Methods
-
-        /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.Equals"]/*' />
         public override bool Equals(object obj)
         {
             GrammarBuilderRuleRef refObj = obj as GrammarBuilderRuleRef;
@@ -49,8 +44,6 @@ namespace System.Speech.Internal.GrammarBuilding
             }
             return _uri == refObj._uri;
         }
-
-        /// TODOC <_include file='doc\SpeechAudioFormatInfo.uex' path='docs/doc[@for="SpeechAudioFormatInfo.GetHashCode"]/*' />
         public override int GetHashCode()
         {
             return _uri.GetHashCode();
@@ -63,7 +56,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <returns></returns>
         internal override GrammarBuilderBase Clone()
         {
             return new GrammarBuilderRuleRef(_uri);
@@ -72,11 +64,6 @@ namespace System.Speech.Internal.GrammarBuilding
         /// <summary>
         ///
         /// </summary>
-        /// <param name="elementFactory"></param>
-        /// <param name="parent"></param>
-        /// <param name="rule"></param>
-        /// <param name="ruleIds"></param>
-        /// <returns></returns>
         internal override IElement CreateElement(IElementFactory elementFactory, IElement parent, IRule rule, IdentifierCollection ruleIds)
         {
             Uri ruleUri = new(_uri, UriKind.RelativeOrAbsolute);
