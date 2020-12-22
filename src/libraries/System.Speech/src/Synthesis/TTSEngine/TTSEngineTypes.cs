@@ -540,25 +540,8 @@ namespace System.Speech.Synthesis.TtsEngine
         internal string _textToSpeak;
         internal int _textOffset;
         internal int _textLength;
-        internal static IntPtr FragmentToPtr(List<TextFragment> textFragments, Collection<IntPtr> memoryBlocks)
-        {
-            TextFragmentInterop fragInterop = new();
-            int len = textFragments.Count;
-            int sizeOfFrag = Marshal.SizeOf(fragInterop);
-            IntPtr ret = Marshal.AllocCoTaskMem(sizeOfFrag * len);
-            memoryBlocks.Add(ret);
-            for (int i = 0; i < len; i++)
-            {
-                fragInterop._state.FragmentStateToPtr(textFragments[i].State, memoryBlocks);
-                fragInterop._textToSpeak = textFragments[i].TextToSpeak;
-                fragInterop._textOffset = textFragments[i].TextOffset;
-                fragInterop._textLength = textFragments[i].TextLength;
-                Marshal.StructureToPtr(fragInterop, (IntPtr)((ulong)ret + (ulong)(i * sizeOfFrag)), false);
-            }
-
-            return ret;
-        }
     }
+
     internal struct FragmentStateInterop
     {
         internal TtsEngineAction _action;
