@@ -11,12 +11,6 @@ namespace System.Speech.Internal.SapiInterop
 {
     #region Enum
 
-    internal enum SpeechRunState
-    {
-        SPRS_DONE,
-        SPRS_IS_SPEAKING
-    }
-
     internal enum SPRECOSTATE
     {
         SPRST_INACTIVE = 0x00000000,
