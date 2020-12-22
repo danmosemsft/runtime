@@ -50,6 +50,14 @@ To quickly run or debug a single test from the command line, set the XunitMethod
 dotnet build /t:Test /p:XunitMethodName={FullyQualifiedNamespace}.{ClassName}.{MethodName}
 ```
 
+#### Running tests without building
+
+To run tests again without rebuilding, 
+```cmd
+dotnet build /t:Test /p:TestNoBuild=true
+```
+This is useful when you are re-running a test to debug it, for example.
+
 #### Running outer loop tests
 
 To run all tests, including "outer loop" tests (which are typically slower and in some test suites less reliable, but which are more comprehensive):
